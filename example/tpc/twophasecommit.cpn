@@ -197,64 +197,15 @@ end</layout>
       </block>
       <block id="ID1530021386">
         <id>MBT</id>
-        <ml id="ID1530021696">val mbtcpnlibpath =  &quot;c:/work/git/mbtcpnlib/&quot;;
-          <layout>val mbtcpnlibpath =  &quot;c:/work/git/mbtcpnlib/&quot;;</layout>
+        <ml id="ID1530021696">val cpnmcdclibpath =  &quot;c:/work/cpnmcdctesting/&quot;;
+          <layout>val cpnmcdclibpath =  &quot;c:/work/cpnmcdctesting/&quot;;</layout>
         </ml>
-        <ml id="ID1591774504">val modelpath = mbtcpnlibpath^&quot;/examples/tpc/&quot;;
-          <layout>val modelpath = mbtcpnlibpath^&quot;/examples/tpc/&quot;;</layout>
+        <ml id="ID1591774504">val modelpath = cpnmcdclibpath^&quot;/examples/tpc/&quot;;
+          <layout>val modelpath = cpnmcdclibpath^&quot;/examples/tpc/&quot;;</layout>
         </ml>
-        <color id="ID1589361264">
-          <id>TCInEvent</id>
-          <alias>
-            <id>WorkerxVote</id>
-          </alias>
-          <layout>colset TCInEvent = WorkerxVote;</layout>
-        </color>
-        <color id="ID1530022575">
-          <id>TCOutEvent</id>
-          <union>
-            <unionfield>
-              <id>WDecision</id>
-              <type>
-                <id>WorkerxDecision</id>
-              </type>
-            </unionfield>
-            <unionfield>
-              <id>SDecision</id>
-              <type>
-                <id>Decision</id>
-              </type>
-            </unionfield>
-          </union>
-          <layout>colset TCOutEvent = union WDecision : WorkerxDecision + SDecision : Decision;</layout>
-        </color>
-        <color id="ID1530022012">
-          <id>TCEvent</id>
-          <union>
-            <unionfield>
-              <id>InEvent</id>
-              <type>
-                <id>TCInEvent</id>
-              </type>
-            </unionfield>
-            <unionfield>
-              <id>OutEvent</id>
-              <type>
-                <id>TCOutEvent</id>
-              </type>
-            </unionfield>
-            <unionfield>
-              <id>InOutEvent</id>
-              <type>
-                <id>UNIT</id>
-              </type>
-            </unionfield>
-          </union>
-          <layout>colset TCEvent = union InEvent : TCInEvent + OutEvent : TCOutEvent + InOutEvent : UNIT;</layout>
-        </color>
         <use id="ID1530021848">
-          <ml>(mbtcpnlibpath^&quot;config/simconfig.sml&quot;)</ml>
-          <layout>use (mbtcpnlibpath^&quot;config/simconfig.sml&quot;);</layout>
+          <ml>(cpnmcdclibpath^&quot;config/instrumentation.sml&quot;)</ml>
+          <layout>use (cpnmcdclibpath^&quot;config/instrumentation.sml&quot;);</layout>
         </use>
       </block>
     </globbox>
@@ -1774,7 +1725,7 @@ Acknowledgements</text>
                    currentcyckle="2"/>
         <transend idref="ID1429909289"/>
         <placeend idref="ID1429909286"/>
-        <annot id="ID1591783464">
+        <annot id="ID1591783559">
           <posattr x="-158.000000"
                    y="133.000000"/>
           <fillattr colour="White"
@@ -1806,7 +1757,7 @@ Acknowledgements</text>
                    currentcyckle="2"/>
         <transend idref="ID1429909289"/>
         <placeend idref="ID1429909280"/>
-        <annot id="ID1591783465">
+        <annot id="ID1591783560">
           <posattr x="-158.000000"
                    y="51.000000"/>
           <fillattr colour="White"
@@ -1998,7 +1949,7 @@ Acknowledgements</text>
                    currentcyckle="2"/>
         <transend idref="ID1429918629"/>
         <placeend idref="ID1429909280"/>
-        <annot id="ID1591783466">
+        <annot id="ID1591783561">
           <posattr x="-158.000000"
                    y="-38.000000"/>
           <fillattr colour="White"
@@ -2673,7 +2624,7 @@ OneVote</text>
                    currentcyckle="2"/>
         <transend idref="ID1429918645"/>
         <placeend idref="ID1429918662"/>
-        <annot id="ID1591783467">
+        <annot id="ID1591783562">
           <posattr x="-158.000000"
                    y="21.000000"/>
           <fillattr colour="White"
@@ -2769,7 +2720,7 @@ OneVote</text>
                    currentcyckle="2"/>
         <transend idref="ID1429940726"/>
         <placeend idref="ID1429918662"/>
-        <annot id="ID1591783468">
+        <annot id="ID1591783563">
           <posattr x="-51.000000"
                    y="120.000000"/>
           <fillattr colour="White"
@@ -3956,6 +3907,20 @@ else empty</text>
              h="58.000000"
              curvature="0"/>
       </Aux>
+      <Aux id="ID1591784796">
+        <posattr x="-686.000000"
+                 y="168.000000"/>
+        <fillattr colour="Black"
+                  pattern=""
+                  filled="true"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="White"
+                  bold="false"/>
+        <label/>
+        <text>use (cpnmcdclibpath^&quot;config/instrumentation.sml&quot;);</text>
+      </Aux>
     </page>
     <instances>
       <instance id="ID2149"
@@ -3994,12 +3959,17 @@ else empty</text>
           <text>&lt;same as model&gt;</text>
         </value>
       </option>
-      <option name="extensions.10002.enable">
+      <option name="extensions.10006.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10006.enable">
+      <option name="extensions.10001.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10002.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -4010,11 +3980,6 @@ else empty</text>
         </value>
       </option>
       <option name="extensions.10003.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10001.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -4265,8 +4230,8 @@ else empty</text>
                  height="685">
         <sheets>
           <cpnsheet id="ID1590605424"
-                    panx="84.000000"
-                    pany="68.000000"
+                    panx="78.000000"
+                    pany="133.000000"
                     zoom="1.000000"
                     instance="ID1590605336">
             <zorder>
@@ -4279,141 +4244,7 @@ else empty</text>
         </zorder>
       </cpnbinder>
     </binders>
-    <monitorblock name="Monitors">
-      <monitor id="ID1530024431"
-               name="WorkerTC"
-               type="3"
-               typedescription="Data collection"
-               disabled="false">
-        <node idref="ID1429913990"
-              pageinstanceidref="ID1429914065"/>
-        <node idref="ID1429913996"
-              pageinstanceidref="ID1429914065"/>
-        <declaration name="Predicate">
-          <ml id="ID1530024709">fun pred (bindelem) = 
-let
-  fun predBindElem (Workers&apos;Receive_CanCommit (1, 
-                               {vote,w})) = true
-      | predBindElem (Workers&apos;Receive_Decision (1, 
-                               {decision,w})) = true
-      | predBindElem _ = false
-in
-  predBindElem bindelem  
-end
-            <layout>fun pred (bindelem) = 
-let
-  fun predBindElem (Workers&apos;Receive_CanCommit (1, 
-                               {vote,w})) = true
-      | predBindElem (Workers&apos;Receive_Decision (1, 
-                               {decision,w})) = true
-      | predBindElem _ = false
-in
-  predBindElem bindelem  
-end</layout>
-          </ml>
-        </declaration>
-        <declaration name="Observer">
-          <ml id="ID1530024713">fun obs (bindelem) = 
-let
-  fun obsBindElem (Workers&apos;Receive_CanCommit (1, {vote,w})) = [InEvent (w,vote)]
-      | obsBindElem (Workers&apos;Receive_Decision (1, 
-                               {decision,w})) = [OutEvent (WDecision (w,decision))]
-      | obsBindElem _ = []
-in
-  SimConfig.observe(obsBindElem bindelem)  
-end
-            <layout>fun obs (bindelem) = 
-let
-  fun obsBindElem (Workers&apos;Receive_CanCommit (1, {vote,w})) = [InEvent (w,vote)]
-      | obsBindElem (Workers&apos;Receive_Decision (1, 
-                               {decision,w})) = [OutEvent (WDecision (w,decision))]
-      | obsBindElem _ = []
-in
-  SimConfig.observe(obsBindElem bindelem)  
-end</layout>
-          </ml>
-        </declaration>
-        <declaration name="Init function">
-          <ml id="ID1530024717">fun init () = 
-  NONE
-            <layout>fun init () = 
-  NONE</layout>
-          </ml>
-        </declaration>
-        <declaration name="Stop">
-          <ml id="ID1530024721">fun stop () = 
-  NONE
-            <layout>fun stop () = 
-  NONE</layout>
-          </ml>
-        </declaration>
-        <option name="Timed"
-                value="false"/>
-        <option name="Logging"
-                value="true"/>
-      </monitor>
-      <monitor id="ID1530025330"
-               name="CoordinatorTC"
-               type="2"
-               typedescription="User defined"
-               disabled="false">
-        <node idref="ID1429909301"
-              pageinstanceidref="ID1429909380"/>
-        <declaration name="Init">
-          <ml id="ID1530025591">fun init () = ()
-            <layout>fun init () = ()</layout>
-          </ml>
-        </declaration>
-        <declaration name="Predicate">
-          <ml id="ID1530025595">fun pred (bindelem) = 
-let
-  fun predBindElem (Coordinator&apos;Receive_Acknowledgements (1, 
-                               {decision,workers})) = true
-      | predBindElem _ = false
-in
-  predBindElem bindelem  
-end
-            <layout>fun pred (bindelem) = 
-let
-  fun predBindElem (Coordinator&apos;Receive_Acknowledgements (1, 
-                               {decision,workers})) = true
-      | predBindElem _ = false
-in
-  predBindElem bindelem  
-end</layout>
-          </ml>
-        </declaration>
-        <declaration name="Observer">
-          <ml id="ID1530025599">fun obs (bindelem) = 
-let
-  fun obsBindElem (Coordinator&apos;Receive_Acknowledgements (1, 
-                               {decision,workers})) = [OutEvent (SDecision decision)]
-      | obsBindElem _ = []
-in
-  SimConfig.observe(obsBindElem bindelem)  
-end
-            <layout>fun obs (bindelem) = 
-let
-  fun obsBindElem (Coordinator&apos;Receive_Acknowledgements (1, 
-                               {decision,workers})) = [OutEvent (SDecision decision)]
-      | obsBindElem _ = []
-in
-  SimConfig.observe(obsBindElem bindelem)  
-end</layout>
-          </ml>
-        </declaration>
-        <declaration name="Action">
-          <ml id="ID1530025603">fun action (observedval) = ()
-            <layout>fun action (observedval) = ()</layout>
-          </ml>
-        </declaration>
-        <declaration name="Stop">
-          <ml id="ID1530025607">fun stop () = (SimConfig.stop())
-            <layout>fun stop () = (SimConfig.stop())</layout>
-          </ml>
-        </declaration>
-      </monitor>
-    </monitorblock>
+    <monitorblock name="Monitors"/>
     <IndexNode expanded="true">
       <IndexNode expanded="false"/>
       <IndexNode expanded="false"/>
@@ -4479,7 +4310,9 @@ end</layout>
           <IndexNode expanded="false"/>
         </IndexNode>
       </IndexNode>
-      <IndexNode expanded="false"/>
+      <IndexNode expanded="false">
+        <IndexNode expanded="false"/>
+      </IndexNode>
       <IndexNode expanded="true">
         <IndexNode expanded="false">
           <IndexNode expanded="true"/>
@@ -4522,60 +4355,9 @@ end</layout>
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>
-          <IndexNode expanded="true"/>
-          <IndexNode expanded="true"/>
-          <IndexNode expanded="true"/>
         </IndexNode>
       </IndexNode>
-      <IndexNode expanded="true">
-        <IndexNode expanded="true">
-          <IndexNode expanded="false">
-            <IndexNode expanded="false"/>
-            <IndexNode expanded="false"/>
-          </IndexNode>
-          <IndexNode expanded="false">
-            <IndexNode expanded="false">
-              <IndexNode expanded="false"/>
-              <IndexNode expanded="false"/>
-            </IndexNode>
-          </IndexNode>
-          <IndexNode expanded="true">
-            <IndexNode expanded="true"/>
-          </IndexNode>
-          <IndexNode expanded="true">
-            <IndexNode expanded="true"/>
-          </IndexNode>
-          <IndexNode expanded="false">
-            <IndexNode expanded="true"/>
-          </IndexNode>
-          <IndexNode expanded="false">
-            <IndexNode expanded="true"/>
-          </IndexNode>
-        </IndexNode>
-        <IndexNode expanded="true">
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false">
-            <IndexNode expanded="true">
-              <IndexNode expanded="false"/>
-            </IndexNode>
-          </IndexNode>
-          <IndexNode expanded="true">
-            <IndexNode expanded="true"/>
-          </IndexNode>
-          <IndexNode expanded="false">
-            <IndexNode expanded="true"/>
-          </IndexNode>
-          <IndexNode expanded="true">
-            <IndexNode expanded="true"/>
-          </IndexNode>
-          <IndexNode expanded="true">
-            <IndexNode expanded="true"/>
-          </IndexNode>
-          <IndexNode expanded="true">
-            <IndexNode expanded="true"/>
-          </IndexNode>
-        </IndexNode>
-      </IndexNode>
+      <IndexNode expanded="true"/>
       <IndexNode expanded="true">
         <IndexNode expanded="true">
           <IndexNode expanded="true"/>

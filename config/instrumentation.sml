@@ -33,11 +33,17 @@ fun eval (AP (cond,v)) = ([(cond,v)],v)
 	(ares,not a')
     end;
 
-fun EXPR expr =
+fun resToString res =
+  String.concat (
+  List.map
+      (fn (cond,v) => cond^(Bool.toString v)^" ")
+      res);
+      
+fun EXPR (name,expr) =
   let
       val (res,expr') = eval expr;
-      (* TODO *)
-      (* log res as side effect *)
+
+      val _ = Logging.log (name^":"^resToString res^"->"^(Bool.toString expr'));
   in
       expr'
   end

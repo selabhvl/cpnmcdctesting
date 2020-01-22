@@ -1,7 +1,8 @@
 structure Logging =
 struct
 
-val logfilename = "mbtcpn.log";
+val logfilename = "cpnmcdc.log";
+val logfilepath = cpnmcdclibpath;
 
 val file = ref (NONE :(TextIO.outstream option));
 
@@ -18,7 +19,7 @@ fun log msg =
 
 fun start () =
   let
-      val filename = Config.getOutputDir()^logfilename
+      val filename = cpnmcdclibpath^logfilename
   in
       (case (!file) of
 	   NONE => (file := SOME (TextIO.openAppend(filename));

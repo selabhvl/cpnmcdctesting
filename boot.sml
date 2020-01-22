@@ -1,2 +1,2 @@
-
-use (mbtcpnlibpath^"config/simconfig.sml");
+use (cpnmcdclibpath^"config/logging.sml");
+use (cpnmcdclibpath^"config/instrumentation.sml");

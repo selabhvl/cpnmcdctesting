@@ -9,30 +9,18 @@
     <globbox>
       <block id="ID1593188421">
         <id>MBT</id>
-        <ml id="ID1593188768">val cpnmcdclibpath =  &quot;C:/Users/faustin/Desktop/cpnmcdctesting/&quot;;
-          <layout>val cpnmcdclibpath =  &quot;C:/Users/faustin/Desktop/cpnmcdctesting/&quot;;</layout>
+        <ml id="ID1593188768">val cpnmcdclibpath =  &quot;../../&quot;;
+          <layout>val cpnmcdclibpath =  &quot;../../&quot;;</layout>
         </ml>
-        <ml id="ID1593189018">val fmodelpath = cpnmcdclibpath^&quot;/examples/tpc/&quot;;
-          <layout>val fmodelpath = cpnmcdclibpath^&quot;/examples/tpc/&quot;;</layout>
-        </ml>
-        <errordecl id="ID1593189683">use (cpnmcdclibpath^&quot;config/logging.sml&quot;);</errordecl>
+        <use id="ID1593229470">
+          <ml>(cpnmcdclibpath^&quot;config/logging.sml&quot;)</ml>
+          <layout>use (cpnmcdclibpath^&quot;config/logging.sml&quot;);</layout>
+        </use>
         <use id="ID1593189978">
           <ml>(cpnmcdclibpath^&quot;config/instrumentation.sml&quot;)</ml>
           <layout>use (cpnmcdclibpath^&quot;config/instrumentation.sml&quot;);</layout>
         </use>
       </block>
-      <ml id="ID1549245649">val larsmodelpath =  &quot;C:/work/git/mqtt/pcs954_version/&quot;;
-        <layout>val larsmodelpath =  &quot;C:/work/git/mqtt/pcs954_version/&quot;;</layout>
-      </ml>
-      <ml id="ID1590674196">val alexmodelpath =  &quot;C:/Users/Alex/myrepository/mqtt/pcs954_version/&quot;;
-        <layout>val alexmodelpath =  &quot;C:/Users/Alex/myrepository/mqtt/pcs954_version/&quot;;</layout>
-      </ml>
-      <ml id="ID1593171976">val faustinmodelpath =  &quot;C:/Users/faustin/Desktop/MCDC-Faustin/IFM2019/CPNModels/MCDCinstrumented/&quot;;
-        <layout>val faustinmodelpath =  &quot;C:/Users/faustin/Desktop/MCDC-Faustin/IFM2019/CPNModels/MCDCinstrumented/&quot;;</layout>
-      </ml>
-      <ml id="ID1591303515">val modelpath = faustinmodelpath;
-        <layout>val modelpath = faustinmodelpath;</layout>
-      </ml>
       <block id="ID1412310166">
         <id>Standard priorities</id>
         <ml id="ID1412310255">val P_HIGH = 100;
@@ -849,8 +837,8 @@ setTimeOutAllowed false
       <block id="ID1549245812">
         <id>External functions</id>
         <use id="ID1591135253">
-          <ml>(modelpath ^&quot;mqtt.sml&quot;)</ml>
-          <layout>use (modelpath ^&quot;mqtt.sml&quot;);</layout>
+          <ml>(&quot;OriginalModel/mqtt.sml&quot;)</ml>
+          <layout>use (&quot;OriginalModel/mqtt.sml&quot;);</layout>
         </use>
         <ml id="ID1592570807">fun initClients () = 
 
@@ -10752,7 +10740,7 @@ AP(&quot;2&quot;, cLR boutmsgs)))]</text>
                    currentcyckle="2"/>
         <transend idref="ID1592510022"/>
         <placeend idref="ID1592509158"/>
-        <annot id="ID1593217451">
+        <annot id="ID1593234132">
           <posattr x="-66.000000"
                    y="1086.000000"/>
           <fillattr colour="White"
@@ -19698,7 +19686,7 @@ SUBACK</text>
                    currentcyckle="2"/>
         <transend idref="ID1592492078"/>
         <placeend idref="ID1592491972"/>
-        <annot id="ID1593217452">
+        <annot id="ID1593234133">
           <posattr x="-24.000000"
                    y="1078.000000"/>
           <fillattr colour="White"
@@ -26314,11 +26302,11 @@ end;</text>
         <textattr colour="Black"
                   bold="false"/>
         <label/>
-        <text>mcdcgen ();</text>
+        <text>mcdcgen (&quot;CPNmodels/MQTT/mqtt.log&quot;);</text>
       </Aux>
       <Aux id="ID1593197650">
-        <posattr x="-378.000000"
-                 y="0.000000"/>
+        <posattr x="-69.000000"
+                 y="-108.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -26329,6 +26317,20 @@ end;</text>
                   bold="false"/>
         <label/>
         <text>use (cpnmcdclibpath^&quot;boot.sml&quot;);</text>
+      </Aux>
+      <Aux id="ID1593232168">
+        <posattr x="-69.000000"
+                 y="-84.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <label/>
+        <text>use (cpnmcdclibpath^&quot;config/instrumentation.sml&quot;);</text>
       </Aux>
     </page>
     <instances>
@@ -26424,32 +26426,7 @@ end;</text>
           <text>&lt;same as model&gt;</text>
         </value>
       </option>
-      <option name="extensions.10001.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10008.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10003.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10011.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10005.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10007.enable">
+      <option name="extensions.10002.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -26459,24 +26436,19 @@ end;</text>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10002.enable">
+      <option name="extensions.10001.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10004.enable">
+      <option name="extensions.10003.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10011.options.disable">
+      <option name="extensions.10005.enable">
         <value>
-          <boolean>false</boolean>
-        </value>
-      </option>
-      <option name="extensions.10007.options.discover">
-        <value>
-          <boolean>false</boolean>
+          <boolean>true</boolean>
         </value>
       </option>
       <option name="repavg">
@@ -26699,8 +26671,8 @@ end;</text>
             <zorder/>
           </textsheet>
           <cpnsheet id="ID1593197074"
-                    panx="30.000000"
-                    pany="-13.000000"
+                    panx="-111.000000"
+                    pany="19.000000"
                     zoom="1.000000"
                     instance="ID1593192871">
             <zorder>
@@ -26730,15 +26702,6 @@ end;</text>
                     pany="805.000000"
                     zoom="1.000000"
                     instance="ID1534056958">
-            <zorder>
-              <position value="0"/>
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593216470"
-                    panx="266.000000"
-                    pany="188.000000"
-                    zoom="1.000000"
-                    instance="ID1535955336">
             <zorder>
               <position value="0"/>
             </zorder>
@@ -26788,29 +26751,20 @@ end;</text>
               <position value="0"/>
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1593223190"
-                    panx="-139.000000"
-                    pany="241.000000"
+          <cpnsheet id="ID1593233708"
+                    panx="363.000000"
+                    pany="838.000000"
                     zoom="1.000000"
-                    instance="ID1438546002">
+                    instance="ID1534060299">
             <zorder>
               <position value="0"/>
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1593223329"
-                    panx="-601.000000"
-                    pany="413.000000"
+          <cpnsheet id="ID1593233829"
+                    panx="362.000000"
+                    pany="865.000000"
                     zoom="1.000000"
-                    instance="ID1534095647">
-            <zorder>
-              <position value="0"/>
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593229447"
-                    panx="92.000000"
-                    pany="104.000000"
-                    zoom="1.000000"
-                    instance="ID1549532293">
+                    instance="ID1549268571">
             <zorder>
               <position value="0"/>
             </zorder>
@@ -26820,16 +26774,14 @@ end;</text>
           <position value="1"/>
           <position value="3"/>
           <position value="5"/>
-          <position value="4"/>
+          <position value="9"/>
           <position value="10"/>
+          <position value="7"/>
+          <position value="8"/>
+          <position value="6"/>
+          <position value="4"/>
           <position value="11"/>
           <position value="12"/>
-          <position value="13"/>
-          <position value="8"/>
-          <position value="9"/>
-          <position value="6"/>
-          <position value="7"/>
-          <position value="14"/>
           <position value="0"/>
           <position value="2"/>
         </zorder>
@@ -26899,32 +26851,15 @@ end;</text>
           <IndexNode expanded="false"/>
           <IndexNode expanded="false"/>
           <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-        </IndexNode>
-        <IndexNode expanded="false">
-          <IndexNode expanded="false"/>
-        </IndexNode>
-        <IndexNode expanded="false">
-          <IndexNode expanded="false"/>
         </IndexNode>
       </IndexNode>
-      <IndexNode expanded="false">
-        <IndexNode expanded="false"/>
-      </IndexNode>
+      <IndexNode expanded="false"/>
       <IndexNode expanded="true">
         <IndexNode expanded="true">
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>
-          <IndexNode expanded="true"/>
         </IndexNode>
-        <IndexNode expanded="true"/>
-        <IndexNode expanded="true"/>
-        <IndexNode expanded="false"/>
-        <IndexNode expanded="true"/>
         <IndexNode expanded="false">
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>
@@ -27053,7 +26988,7 @@ end;</text>
             </IndexNode>
           </IndexNode>
         </IndexNode>
-        <IndexNode expanded="false">
+        <IndexNode expanded="true">
           <IndexNode expanded="true"/>
           <IndexNode expanded="false"/>
         </IndexNode>

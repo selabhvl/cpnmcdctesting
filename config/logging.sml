@@ -1,7 +1,6 @@
 structure Logging =
 struct
 
-val logfilename = "cpnmcdc.log";
 val logfilepath = cpnmcdclibpath;
 
 val file = ref (NONE :(TextIO.outstream option));
@@ -11,21 +10,21 @@ fun log msg =
       NONE => ()
    |  SOME (stream) =>
       let
-	  val time = Date.toString(Date.fromTimeLocal(Time.now()));
-	  val _ = TextIO.output(stream,time^" "^msg^"\n")
+	  (* val time = Date.toString(Date.fromTimeLocal(Time.now())); *)
+	  val _ = TextIO.output(stream,msg^"\n")
       in
 	  TextIO.flushOut(stream)
       end;
 
-fun start () =
+fun start (logfilename) =
   let
       val filename = cpnmcdclibpath^logfilename
   in
       (case (!file) of
 	   NONE => (file := SOME (TextIO.openAppend(filename));
 		    log "Logging started")
-	| SOME _ => ()) 
-  end; 
+	| SOME _ => ())
+  end;
 
 fun stop() =
   case (!file) of
@@ -35,5 +34,5 @@ fun stop() =
 		       file := NONE);
 
 fun sep() = log ("===========================================");
-  
+
 end;

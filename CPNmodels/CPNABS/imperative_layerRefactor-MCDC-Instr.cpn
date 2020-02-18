@@ -7759,7 +7759,8 @@ objects
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-        <text>(p25)</text>
+        <text>P25
+(p25)</text>
         <ellipse w="60.000000"
                  h="61.845335"/>
         <token x="-10.000000"
@@ -8032,8 +8033,8 @@ is Idle
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1421718565">
-          <posattr x="2533.000000"
-                   y="204.000000"/>
+          <posattr x="2697.500000"
+                   y="197.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -8043,9 +8044,8 @@ is Idle
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">if b2=true then 
-ob14 =ob25 
-else ob14&lt;&gt;ob25</text>
+                version="4.0.1">EXPR(&quot;Cidle&quot;, AP(&quot;?&quot;, if EXPR(&quot;?&quot;,AP(&quot;1&quot;, b2=true)) then 
+EXPR(&quot;?&quot;,AP(&quot;2&quot;, ob14 =ob25)) else EXPR(&quot;?&quot;,AP(&quot;3&quot;, ob14&lt;&gt;ob25))))</text>
         </cond>
         <time id="ID1421718566">
           <posattr x="1503.380486"
@@ -8110,8 +8110,8 @@ is Busy
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1421718571">
-          <posattr x="2502.000000"
-                   y="580.000000"/>
+          <posattr x="2640.000000"
+                   y="587.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -8121,7 +8121,8 @@ is Busy
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">if b2=true then ob14 =ob25 else ob14&lt;&gt;ob25</text>
+                version="4.0.1">EXPR(&quot;CBua22&quot;, AP(&quot;?&quot;, if EXPR(&quot;?&quot;,AP(&quot;1&quot;, b2=true)) then EXPR(&quot;?&quot;,AP(&quot;2&quot;, ob14 =ob25))
+ else EXPR(&quot;?&quot;,AP(&quot;3&quot;, ob14&lt;&gt;ob25))))</text>
         </cond>
         <time id="ID1421718572">
           <posattr x="1831.232851"
@@ -8616,7 +8617,7 @@ else fopl1</text>
                     bold="false"/>
         </bendpoint>
         <annot id="ID1421718618">
-          <posattr x="2726.000000"
+          <posattr x="2729.000000"
                    y="111.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -10991,17 +10992,18 @@ else fopl1</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-        <text>(p20)</text>
+        <text>P20
+(p20)</text>
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-78.000000"
                y="0.000000"/>
-        <marking x="7.929698"
-                 y="12.971879"
+        <marking x="63.929698"
+                 y="3.971879"
                  hidden="false">
           <snap snap_id="0"
                 anchor.horizontal="1"
-                anchor.vertical="2"/>
+                anchor.vertical="3"/>
         </marking>
         <type id="ID1421737609">
           <posattr x="1259.500000"
@@ -11583,8 +11585,8 @@ Objects
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1421737612">
-          <posattr x="1296.500000"
-                   y="-296.000000"/>
+          <posattr x="1318.000000"
+                   y="-298.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -11594,7 +11596,7 @@ Objects
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">ob4=ob7</text>
+                version="4.0.1">EXPR(&quot;Callera20&quot;, AP(&quot;1&quot;,ob4=ob7))</text>
         </cond>
         <time id="ID1421737613">
           <posattr x="1450.500000"
@@ -11651,7 +11653,7 @@ Objects
                   type="solid"/>
         <textattr colour="Black"
                   bold="false"/>
-        <text>.get
+        <text>get
 (a24)</text>
         <box w="60.000000"
              h="40.000000"/>
@@ -11976,8 +11978,8 @@ Objects
         <transend idref="ID1421737611"/>
         <placeend idref="ID1421737644"/>
         <annot id="ID1421737648">
-          <posattr x="1462.500000"
-                   y="-315.000000"/>
+          <posattr x="1557.500000"
+                   y="-343.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -12143,8 +12145,8 @@ Objects
                     bold="false"/>
         </bendpoint>
         <annot id="ID1421737665">
-          <posattr x="1096.000000"
-                   y="-299.000000"/>
+          <posattr x="1081.000000"
+                   y="-298.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -12717,7 +12719,7 @@ objects
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1421701173">
-          <posattr x="2133.500000"
+          <posattr x="2211.000000"
                    y="-52.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -12728,10 +12730,10 @@ objects
           <textattr colour="Fucia"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">p7=hd pl7
-andalso (if (mem pl26 p7) 
-then (ob27=ob19 andalso p23=p7) 
-else (ob27=0 andalso p23=0))</text>
+                version="4.0.1">EXPR(&quot;Suspa17&quot;, AND(AP(&quot;1&quot;, p7=hd pl7),
+ AP(&quot;?&quot;, (if EXPR(&quot;?&quot;,AP(&quot;2&quot;, (mem pl26 p7)))  
+then EXPR(&quot;?&quot;,AND(AP(&quot;3&quot;, (ob27=ob19)), AP(&quot;4&quot;,p23=p7))) 
+else EXPR(&quot;?&quot;,AND(AP(&quot;5&quot;, (ob27=0)), AP(&quot;6&quot;, p23=0))) )) ) )</text>
         </cond>
         <time id="ID1421701174">
           <posattr x="2013.535151"
@@ -12795,8 +12797,8 @@ else (ob27=0 andalso p23=0))</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1421701179">
-          <posattr x="1448.000000"
-                   y="-88.000000"/>
+          <posattr x="1380.000000"
+                   y="-67.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -12806,8 +12808,7 @@ else (ob27=0 andalso p23=0))</text>
           <textattr colour="Fucia"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">pl8&lt;&gt;[0] andalso 
-p8=hd pl8</text>
+                version="4.0.1">EXPR(&quot;Acta18&quot;, AND(AP(&quot;1&quot;, pl8&lt;&gt;[0]), AP(&quot;2&quot;, p8=hd pl8)))</text>
         </cond>
         <time id="ID1421701180">
           <posattr x="1526.500000"
@@ -13928,8 +13929,8 @@ objects
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1421807357">
-          <posattr x="1118.500000"
-                   y="-112.000000"/>
+          <posattr x="1467.000000"
+                   y="-115.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -13939,11 +13940,7 @@ objects
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">p9=hd pl9
-andalso 
-(if (mem pl27 p9) 
-then p24=p9 
-else not (p24=p9))</text>
+                version="4.0.1">EXPR(&quot;Returna19&quot;, AND(AP(&quot;1&quot;, p9=hd pl9), AP(&quot;?&quot;, (if EXPR(&quot;?&quot;,AP(&quot;2&quot;, (mem pl27 p9))) then EXPR(&quot;?&quot;,AP(&quot;3&quot;, p24=p9)) else EXPR(&quot;?&quot;,AP(&quot;4&quot;, not (p24=p9)))))))</text>
         </cond>
         <time id="ID1421807358">
           <posattr x="1347.387516"
@@ -14784,8 +14781,8 @@ objects
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1421808609">
-          <posattr x="1848.293939"
-                   y="-368.070303"/>
+          <posattr x="1710.293939"
+                   y="-375.070303"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -14795,8 +14792,7 @@ objects
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">ob15=ob24 andalso
-p15=p19</text>
+                version="4.0.1">EXPR(&quot;ReadFa25&quot;, AND(AP(&quot;1&quot;, ob15=ob24), AP(&quot;2&quot;,p15=p19)))</text>
         </cond>
         <time id="ID1421808610">
           <posattr x="2002.706061"
@@ -15518,8 +15514,8 @@ self-call
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1421781649">
-          <posattr x="1002.500000"
-                   y="-336.000000"/>
+          <posattr x="965.500000"
+                   y="-329.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -15530,7 +15526,8 @@ self-call
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">EXPR(&quot;Ssca16&quot;, AND(AP(&quot;1&quot;, ob20=ob3),
-(if AP(&quot;2&quot;, mem pl25 (hd pl19))then AND(AP(&quot;3&quot;, ob28=ob3), AP(&quot;4&quot;, p22=hd pl19)) else AND(AP(&quot;5&quot;, ob28=0), AP(&quot;6&quot;,p22=0)))))</text>
+AP(&quot;?&quot;, (if EXPR(&quot;?&quot;,AP(&quot;2&quot;, mem pl25 (hd pl19))) then 
+EXPR(&quot;?&quot;,AND(AP(&quot;3&quot;, ob28=ob3), AP(&quot;4&quot;, p22=hd pl19))) else EXPR(&quot;?&quot;,AND(AP(&quot;5&quot;, ob28=0), AP(&quot;6&quot;,p22=0)) ) ) ) ))</text>
         </cond>
         <time id="ID1421781650">
           <posattr x="570.093291"
@@ -24611,8 +24608,8 @@ by decr
             </zorder>
           </cpnsheet>
           <cpnsheet id="ID1519750495"
-                    panx="-425.000000"
-                    pany="-6.000000"
+                    panx="-511.000000"
+                    pany="-371.000000"
                     zoom="1.000000"
                     instance="ID1422554187">
             <zorder>
@@ -24620,8 +24617,8 @@ by decr
             </zorder>
           </cpnsheet>
           <cpnsheet id="ID1519751648"
-                    panx="-2476.000000"
-                    pany="133.000000"
+                    panx="-2004.000000"
+                    pany="415.000000"
                     zoom="1.000000"
                     instance="ID1421718827">
             <zorder>
@@ -24638,15 +24635,69 @@ by decr
             </zorder>
           </cpnsheet>
           <cpnsheet id="ID1519774729"
-                    panx="-1801.000000"
-                    pany="-77.000000"
+                    panx="-1810.000000"
+                    pany="-78.000000"
                     zoom="1.000000"
                     instance="ID1421701251">
             <zorder>
               <position value="0"/>
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1519780690"
+          <cpnsheet id="ID1519807626"
+                    panx="-1456.000000"
+                    pany="-273.000000"
+                    zoom="1.000000"
+                    instance="ID1421737712">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1519811229"
+                    panx="-1456.000000"
+                    pany="-73.000000"
+                    zoom="1.000000"
+                    instance="ID1421807450">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1519815552"
+                    panx="-2110.000000"
+                    pany="-339.000000"
+                    zoom="1.000000"
+                    instance="ID1421808661">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1519825277"
+                    panx="-210.000000"
+                    pany="-19.000000"
+                    zoom="1.000000"
+                    instance="ID1422646502">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1519825959"
+                    panx="-194.000000"
+                    pany="-107.000000"
+                    zoom="1.000000"
+                    instance="ID1421619546">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1519827320"
+                    panx="-461.000000"
+                    pany="22.000000"
+                    zoom="1.000000"
+                    instance="ID1421668076">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1519830066"
                     panx="194.000000"
                     pany="-252.000000"
                     zoom="1.000000"
@@ -24655,7 +24706,16 @@ by decr
               <position value="0"/>
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1519781144"
+          <cpnsheet id="ID1519830769"
+                    panx="-576.000000"
+                    pany="345.000000"
+                    zoom="1.000000"
+                    instance="ID1421645871">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1519832172"
                     panx="380.000000"
                     pany="11.000000"
                     zoom="1.000000"
@@ -24664,11 +24724,20 @@ by decr
               <position value="0"/>
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1519782049"
-                    panx="-120.000000"
-                    pany="-61.000000"
+          <cpnsheet id="ID1519833587"
+                    panx="0.000000"
+                    pany="-63.000000"
                     zoom="1.000000"
                     instance="ID1421855368">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1519834305"
+                    panx="-90.000000"
+                    pany="404.000000"
+                    zoom="1.000000"
+                    instance="ID1421578018">
             <zorder>
               <position value="0"/>
             </zorder>
@@ -24677,13 +24746,21 @@ by decr
         <zorder>
           <position value="1"/>
           <position value="4"/>
-          <position value="2"/>
           <position value="5"/>
-          <position value="3"/>
-          <position value="0"/>
-          <position value="7"/>
-          <position value="6"/>
           <position value="8"/>
+          <position value="10"/>
+          <position value="11"/>
+          <position value="9"/>
+          <position value="13"/>
+          <position value="14"/>
+          <position value="12"/>
+          <position value="15"/>
+          <position value="16"/>
+          <position value="3"/>
+          <position value="7"/>
+          <position value="2"/>
+          <position value="6"/>
+          <position value="0"/>
         </zorder>
       </cpnbinder>
     </binders>

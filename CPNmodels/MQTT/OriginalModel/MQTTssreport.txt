@@ -1,0 +1,195 @@
+CPN Tools state space report for:
+/cygdrive/C/Users/faustin/Desktop/cpnmcdctesting/CPNmodels/MQTT/OriginalModel/MQTT.cpn
+Report generated: Tue Feb 18 17:43:34 2020
+
+
+ Statistics
+------------------------------------------------------------------------
+
+  State Space
+     Nodes:  35
+     Arcs:   48
+     Secs:   0
+     Status: Full
+
+  Scc Graph
+     Nodes:  35
+     Arcs:   48
+     Secs:   0
+
+
+ Boundedness Properties
+------------------------------------------------------------------------
+
+  Best Integer Bounds
+                             Upper      Lower
+     Broker'ClientsConnected 1
+                             1          1
+     BrokerProcessing'BPID 1 1          1
+     Client'Clients 1        2          0
+     Client'Init 1           1          0
+     MQTT'BtoC 1             1          1
+     MQTT'CtoB 1             1          1
+     PUBLISH_QoS_1'Publishing 1
+                             2          2
+     PUBLISH_QoS_2'Publishing_Phase_1 1
+                             2          2
+     PUBLISH_QoS_2'Publishing_Phase_2 1
+                             2          2
+     ProcessPUBLISH'Publishing 1
+                             1          1
+     Process_QoS_2'Publishing_P2 1
+                             1          1
+     Process_QoS_2'Receiving 1
+                             2          2
+     Receive_QoS_2'WaitingPUBREL 1
+                             2          2
+     SUBSCRIBE'Init 1        1          0
+     SUBSCRIBE'PendingAcks 1 2          2
+     SUBSCRIBE'can_Subscribe 1
+                             0          0
+     UNSUBSCRIBE'PIDsToAcknowledge 1
+                             2          2
+
+  Best Upper Multi-set Bounds
+     Broker'ClientsConnected 1
+                         1`[]++
+1`[(client(1),{topics=[],state=CON,pid=0,roles=[publisher]})]++
+1`[(client(1),{topics=[],state=CON,pid=0,roles=[publisher]}),(client(2),{topics=[],state=CON,pid=0,roles=[subscriber]})]++
+1`[(client(2),{topics=[],state=CON,pid=0,roles=[subscriber]})]
+     BrokerProcessing'BPID 1
+                         1`[(client(1),0),(client(2),0)]
+     Client'Clients 1    1`(client(1),{topics=[],state=READY,pid=0,roles=[publisher]})++
+1`(client(1),{topics=[],state=DISC,pid=0,roles=[publisher]})++
+1`(client(1),{topics=[],state=CON,pid=0,roles=[publisher]})++
+1`(client(1),{topics=[],state=WAIT,pid=0,roles=[publisher]})++
+1`(client(2),{topics=[],state=READY,pid=0,roles=[subscriber]})++
+1`(client(2),{topics=[],state=DISC,pid=0,roles=[subscriber]})++
+1`(client(2),{topics=[],state=CON,pid=0,roles=[subscriber]})++
+1`(client(2),{topics=[],state=WAIT,pid=0,roles=[subscriber]})
+     Client'Init 1       1`()
+     MQTT'BtoC 1         1`[(client(1),[]),(client(2),[])]++
+1`[(client(1),[]),(client(2),[CONNACK])]++
+1`[(client(1),[CONNACK]),(client(2),[])]++
+1`[(client(1),[CONNACK]),(client(2),[CONNACK])]
+     MQTT'CtoB 1         1`[]++
+1`[(client(1),CONNECT)]++
+1`[(client(1),DISCONNECT)]++
+1`[(client(2),CONNECT)]++
+1`[(client(2),DISCONNECT)]
+     PUBLISH_QoS_1'Publishing 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     PUBLISH_QoS_2'Publishing_Phase_1 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     PUBLISH_QoS_2'Publishing_Phase_2 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     ProcessPUBLISH'Publishing 1
+                         1`[(client(1),[]),(client(2),[])]
+     Process_QoS_2'Publishing_P2 1
+                         1`[(client(1),[]),(client(2),[])]
+     Process_QoS_2'Receiving 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     Receive_QoS_2'WaitingPUBREL 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     SUBSCRIBE'Init 1    1`()
+     SUBSCRIBE'PendingAcks 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     SUBSCRIBE'can_Subscribe 1
+                         empty
+     UNSUBSCRIBE'PIDsToAcknowledge 1
+                         1`(client(1),[])++
+1`(client(2),[])
+
+  Best Lower Multi-set Bounds
+     Broker'ClientsConnected 1
+                         empty
+     BrokerProcessing'BPID 1
+                         1`[(client(1),0),(client(2),0)]
+     Client'Clients 1    empty
+     Client'Init 1       empty
+     MQTT'BtoC 1         empty
+     MQTT'CtoB 1         empty
+     PUBLISH_QoS_1'Publishing 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     PUBLISH_QoS_2'Publishing_Phase_1 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     PUBLISH_QoS_2'Publishing_Phase_2 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     ProcessPUBLISH'Publishing 1
+                         1`[(client(1),[]),(client(2),[])]
+     Process_QoS_2'Publishing_P2 1
+                         1`[(client(1),[]),(client(2),[])]
+     Process_QoS_2'Receiving 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     Receive_QoS_2'WaitingPUBREL 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     SUBSCRIBE'Init 1    empty
+     SUBSCRIBE'PendingAcks 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     SUBSCRIBE'can_Subscribe 1
+                         empty
+     UNSUBSCRIBE'PIDsToAcknowledge 1
+                         1`(client(1),[])++
+1`(client(2),[])
+
+
+ Home Properties
+------------------------------------------------------------------------
+
+  Home Markings
+     [35]
+
+
+ Liveness Properties
+------------------------------------------------------------------------
+
+  Dead Markings
+     [35]
+
+  Dead Transition Instances
+     PUBLISH_QoS_0'PUBLISH_QoS_0 1
+     PUBLISH_QoS_1'PUBLISH_QoS_1 1
+     PUBLISH_QoS_1'TimeOut 1
+     PUBLISH_QoS_1'receive_PUBACK 1
+     PUBLISH_QoS_2'PUBLISH_QoS_2 1
+     PUBLISH_QoS_2'ReceivePUBCOMP 1
+     PUBLISH_QoS_2'ReceivePUBREC 1
+     PUBLISH_QoS_2'TimeOut 1
+     ProcessSUBSCRIBE'process_SUBSCRIBE 1
+     ProcessUNSUBSCRIBE'processUnsubscribe 1
+     Process_QoS_0'process_QoS_0 1
+     Process_QoS_1'Process_QoS_1 1
+     Process_QoS_1'ReceivePUBACK 1
+     Process_QoS_1'TimeOut 1
+     Process_QoS_2'process_QoS_2 1
+     Process_QoS_2'receivePUBCOMP 1
+     Process_QoS_2'receivePUBREC_sendPUBREL 1
+     Process_QoS_2'receivePUBREL_sendPUBCOMP 1
+     Receive_QoS_0'Receive_QoS_0 1
+     Receive_QoS_1'Receive_QoS_1 1
+     Receive_QoS_2'Receive_QoS_2_Step1 1
+     Receive_QoS_2'Receive_QoS_2_Step2 1
+     SUBSCRIBE'Receive_SUBACK 1
+     SUBSCRIBE'Send_SUBSCRIBE 1
+     UNSUBSCRIBE'Receive_UNSUBACK 1
+     UNSUBSCRIBE'Send_UNSUBSCRIBE 1
+
+  Live Transition Instances
+     None
+
+
+ Fairness Properties
+------------------------------------------------------------------------
+     No infinite occurrence sequences.

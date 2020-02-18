@@ -1,7 +1,7 @@
 (* boolean conditions *)
 
-datatype condition = AND of condition * condition
-		   | OR of condition * condition
+datatype condition = AND of condition * condition 
+		   | OR of condition * condition 
 		   | NOT of condition
 		   | AP of string * bool;
 

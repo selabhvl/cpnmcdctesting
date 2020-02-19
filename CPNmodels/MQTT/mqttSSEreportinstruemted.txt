@@ -1,0 +1,155 @@
+CPN Tools state space report for:
+/cygdrive/C/Users/faustin/Desktop/cpnmcdctesting/CPNmodels/MQTT/MQTT-MCDC-Instr.cpn
+Report generated: Wed Feb 19 13:58:19 2020
+
+
+ Statistics
+------------------------------------------------------------------------
+
+  State Space
+     Nodes:  1
+     Arcs:   0
+     Secs:   0
+     Status: Full
+
+  Scc Graph
+     Nodes:  1
+     Arcs:   0
+     Secs:   0
+
+
+ Boundedness Properties
+------------------------------------------------------------------------
+
+  Best Integer Bounds
+                             Upper      Lower
+     Broker'ClientsConnected 1
+                             1          1
+     BrokerProcessing'BPID 1 1          1
+     Client'Clients 1        2          2
+     Client'Init 1           0          0
+     MQTT'BtoC 1             1          1
+     MQTT'CtoB 1             1          1
+     PUBLISH_QoS_1'Publishing 1
+                             2          2
+     PUBLISH_QoS_2'Publishing_Phase_1 1
+                             2          2
+     PUBLISH_QoS_2'Publishing_Phase_2 1
+                             2          2
+     ProcessPUBLISH'Publishing 1
+                             1          1
+     Process_QoS_2'Publishing_P2 1
+                             1          1
+     Process_QoS_2'Receiving 1
+                             2          2
+     Receive_QoS_2'WaitingPUBREL 1
+                             2          2
+     SUBSCRIBE'Init 1        0          0
+     SUBSCRIBE'PendingAcks 1 2          2
+     SUBSCRIBE'can_Subscribe 1
+                             0          0
+     UNSUBSCRIBE'PIDsToAcknowledge 1
+                             2          2
+
+  Best Upper Multi-set Bounds
+     Broker'ClientsConnected 1
+                         1`[]
+     BrokerProcessing'BPID 1
+                         1`[(client(1),0),(client(2),0)]
+     Client'Clients 1    1`(client(1),{topics=[],state=DISC,pid=0,roles=[publisher]})++
+1`(client(2),{topics=[],state=DISC,pid=0,roles=[subscriber]})
+     Client'Init 1       empty
+     MQTT'BtoC 1         1`[(client(1),[]),(client(2),[])]
+     MQTT'CtoB 1         1`[]
+     PUBLISH_QoS_1'Publishing 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     PUBLISH_QoS_2'Publishing_Phase_1 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     PUBLISH_QoS_2'Publishing_Phase_2 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     ProcessPUBLISH'Publishing 1
+                         1`[(client(1),[]),(client(2),[])]
+     Process_QoS_2'Publishing_P2 1
+                         1`[(client(1),[]),(client(2),[])]
+     Process_QoS_2'Receiving 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     Receive_QoS_2'WaitingPUBREL 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     SUBSCRIBE'Init 1    empty
+     SUBSCRIBE'PendingAcks 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     SUBSCRIBE'can_Subscribe 1
+                         empty
+     UNSUBSCRIBE'PIDsToAcknowledge 1
+                         1`(client(1),[])++
+1`(client(2),[])
+
+  Best Lower Multi-set Bounds
+     Broker'ClientsConnected 1
+                         1`[]
+     BrokerProcessing'BPID 1
+                         1`[(client(1),0),(client(2),0)]
+     Client'Clients 1    1`(client(1),{topics=[],state=DISC,pid=0,roles=[publisher]})++
+1`(client(2),{topics=[],state=DISC,pid=0,roles=[subscriber]})
+     Client'Init 1       empty
+     MQTT'BtoC 1         1`[(client(1),[]),(client(2),[])]
+     MQTT'CtoB 1         1`[]
+     PUBLISH_QoS_1'Publishing 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     PUBLISH_QoS_2'Publishing_Phase_1 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     PUBLISH_QoS_2'Publishing_Phase_2 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     ProcessPUBLISH'Publishing 1
+                         1`[(client(1),[]),(client(2),[])]
+     Process_QoS_2'Publishing_P2 1
+                         1`[(client(1),[]),(client(2),[])]
+     Process_QoS_2'Receiving 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     Receive_QoS_2'WaitingPUBREL 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     SUBSCRIBE'Init 1    empty
+     SUBSCRIBE'PendingAcks 1
+                         1`(client(1),[])++
+1`(client(2),[])
+     SUBSCRIBE'can_Subscribe 1
+                         empty
+     UNSUBSCRIBE'PIDsToAcknowledge 1
+                         1`(client(1),[])++
+1`(client(2),[])
+
+
+ Home Properties
+------------------------------------------------------------------------
+
+  Home Markings
+     All
+
+
+ Liveness Properties
+------------------------------------------------------------------------
+
+  Dead Markings
+     All
+
+  Dead Transition Instances
+     All
+
+  Live Transition Instances
+     None
+
+
+ Fairness Properties
+------------------------------------------------------------------------
+     No infinite occurrence sequences.

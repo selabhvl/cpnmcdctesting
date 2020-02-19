@@ -5,6 +5,8 @@ datatype condition = AND of condition * condition
 			 | ANDlr of condition * condition
 			 | ORlr of condition * condition
 		   | NOT of condition
+			 | ITE of condition * condition * condition
+			 | ITElr of condition * condition * condition
 		   | AP of string * bool;
 
 (* TODO: can be implementented more efficient
@@ -19,6 +21,8 @@ fun countQs (AP(_,_)) = [("?",NONE)]
 	| countQs (OR(l,r)) = countQs l^^countQs r
 	| countQs (ORlr(l,r)) = countQs l^^countQs r
 	| countQs (NOT(x)) = countQs x
+	| countQs (ITE(c,l,r)) = countQs c ^^ countQs l ^^ countQs r
+  | countQs (ITElr(c,l,r)) = countQs c ^^ countQs l ^^ countQs r
 	;
 
 fun eval (AP (cond,v)) = ([(cond, SOME v)],v)
@@ -56,6 +60,23 @@ fun eval (AP (cond,v)) = ([(cond, SOME v)],v)
 	val (ares,a') = eval a;
     in
 	(ares,not a')
+	  end
+ | eval (ITE (c,l,r)) =
+ 	 let
+			val (cres,c') = eval c;
+			val (lres,l') = eval l;
+			val (rres,r') = eval r;
+	 in (cres^^lres^^rres, (c' andalso l') orelse r')
+	 end
+	| eval (ITElr (c,l,r)) =
+  	let
+	 		val (cres,c') = eval c;
+		in if c' then let
+	 		    val (lres,l') = eval l;
+			    in (cres^^lres^^countQs r, l') end
+			 else let
+	 		    val (rres,r') = eval r;
+	 	      in (cres^^countQs l^^rres, r') end
     end;
 
 

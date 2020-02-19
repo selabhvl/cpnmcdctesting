@@ -1676,7 +1676,7 @@
                   bold="false"/>
         <text>DC
  selector
-p7</text>
+(p7)</text>
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-32.592724"
@@ -1728,9 +1728,9 @@ p7</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-        <text>Busy
+        <text>Busy 
 objects
-p15</text>
+(p15)</text>
         <ellipse w="63.971879"
                  h="101.873456"/>
         <token x="-45.985940"
@@ -1786,7 +1786,7 @@ p15</text>
 of the
 occupied
 DC
-p6</text>
+(p6)</text>
         <ellipse w="60.000000"
                  h="86.000000"/>
         <token x="-41.269333"
@@ -1839,7 +1839,7 @@ p6</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>COST
-p3</text>
+(p3)</text>
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="57.000000"
@@ -1893,7 +1893,7 @@ p3</text>
                   bold="false"/>
         <text>Selected
 Process
-p11</text>
+(p11)</text>
         <ellipse w="114.000000"
                  h="40.000000"/>
         <token x="-84.915637"
@@ -1947,7 +1947,7 @@ p11</text>
                   bold="false"/>
         <text>Process
 Counter
-p4</text>
+(p4)</text>
         <ellipse w="112.000000"
                  h="57.873456"/>
         <token x="-38.000000"
@@ -2001,7 +2001,7 @@ p4</text>
                   bold="false"/>
         <text>Idle
 Objects
-p16</text>
+(p16)</text>
         <ellipse w="60.000000"
                  h="69.845335"/>
         <token x="-69.000000"
@@ -2053,12 +2053,7 @@ p16</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P12
-(p12)</text>
-=======
-        <text>Pp12</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
+        <text>p12</text>
         <ellipse w="60.000000"
                  h="54.894546"/>
         <token x="-109.296978"
@@ -2112,7 +2107,7 @@ p16</text>
                   bold="false"/>
         <text>Blocked
 Objects
-p17</text>
+(p17)</text>
         <ellipse w="101.704731"
                  h="83.690670"/>
         <token x="30.711761"
@@ -2164,12 +2159,7 @@ p17</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P13
-(p13)</text>
-=======
-        <text>P13p13</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
+        <text>p13</text>
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-88.444612"
@@ -2221,12 +2211,7 @@ p17</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P14
-(p14)</text>
-=======
-        <text>P14p14</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
+        <text>p14</text>
         <ellipse w="60.000000"
                  h="89.648489"/>
         <token x="-128.163403"
@@ -3330,8 +3315,8 @@ p17</text>
                   bold="false"/>
         <text>Blocked
 Objects
-List
-p26</text>
+List 
+(p26)</text>
         <ellipse w="173.339159"
                  h="104.500000"/>
         <token x="24.753942"
@@ -3384,7 +3369,7 @@ p26</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>future
-p23</text>
+(p23)</text>
         <ellipse w="60.000000"
                  h="50.000000"/>
         <token x="-10.000000"
@@ -3438,7 +3423,7 @@ p23</text>
                   bold="false"/>
         <text>List of
 callees
-p21</text>
+(p21)</text>
         <ellipse w="60.000000"
                  h="77.732852"/>
         <token x="-186.748620"
@@ -3490,12 +3475,7 @@ p21</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P22
-(p22)</text>
-=======
         <text>p22</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-10.000000"
@@ -3547,12 +3527,7 @@ p21</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P18
-(p18)</text>
-=======
         <text>p18</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="104.683640"
                  h="40.000000"/>
         <token x="-10.000000"
@@ -3606,7 +3581,7 @@ p21</text>
                   bold="false"/>
         <text>Communication
 Pairs
-p24</text>
+(p24)</text>
         <ellipse w="119.578186"
                  h="53.901577"/>
         <token x="-247.558803"
@@ -3658,12 +3633,7 @@ p24</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P25
-(p25)</text>
-=======
         <text>p25</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="61.845335"/>
         <token x="-10.000000"
@@ -3715,12 +3685,7 @@ p24</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P19
-(p19)</text>
-=======
         <text>p19</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-49.000000"
@@ -3772,12 +3737,7 @@ p24</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P27
-(p27)</text>
-=======
         <text>p27</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-10.000000"
@@ -3830,7 +3790,7 @@ p24</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>caller
-p28</text>
+(p28)</text>
         <ellipse w="90.000000"
                  h="40.000000"/>
         <token x="-187.741589"
@@ -3883,7 +3843,7 @@ p28</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>COST
-p3</text>
+(p3)</text>
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="57.000000"
@@ -3948,12 +3908,7 @@ p3</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P14
-(p14)</text>
-=======
         <text>p14</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="89.648489"/>
         <token x="-128.163403"
@@ -4020,7 +3975,7 @@ p3</text>
                   bold="false"/>
         <text>Process
 Counter
-p4</text>
+(p4)</text>
         <ellipse w="112.000000"
                  h="57.873456"/>
         <token x="2.000000"
@@ -4085,9 +4040,9 @@ p4</text>
                   type="Solid"/>
         <textattr colour="Fucia"
                   bold="false"/>
-        <text>Busy
+        <text>Busy 
 objects
-p15</text>
+(p15)</text>
         <ellipse w="98.971879"
                  h="101.873456"/>
         <token x="-45.985940"
@@ -4154,7 +4109,7 @@ p15</text>
                   bold="false"/>
         <text>Idle
 Objects
-p16</text>
+(p16)</text>
         <ellipse w="100.000000"
                  h="97.345335"/>
         <token x="-69.000000"
@@ -4219,12 +4174,7 @@ p16</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P12
-(p12)</text>
-=======
         <text>p12</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="104.683640"
                  h="77.500000"/>
         <token x="-109.296978"
@@ -4291,7 +4241,7 @@ p16</text>
                   bold="false"/>
         <text>Blocked
 Objects
-p17</text>
+(p17)</text>
         <ellipse w="96.704731"
                  h="96.190670"/>
         <token x="30.711761"
@@ -4356,12 +4306,7 @@ p17</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P13
-(p13)</text>
-=======
         <text>p13</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-88.444612"
@@ -4428,7 +4373,7 @@ p17</text>
                   bold="false"/>
         <text>Selected
 Process
-p11</text>
+(p11)</text>
         <ellipse w="114.000000"
                  h="40.000000"/>
         <token x="-84.915637"
@@ -4765,7 +4710,7 @@ p11</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>Return
-a19</text>
+(a19)</text>
         <box w="91.775033"
              h="81.704731"/>
         <subst subpage="ID1421807354"
@@ -4799,9 +4744,9 @@ a19</text>
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">p9=hd pl9
-andalso
-(if (mem pl27 p9)
-then p24=p9
+andalso 
+(if (mem pl27 p9) 
+then p24=p9 
 else not (p24=p9))</text>
         </cond>
         <time id="ID1422553739">
@@ -4860,7 +4805,7 @@ else not (p24=p9))</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>Read-Fut
-a25</text>
+(a25)</text>
         <box w="72.412122"
              h="67.859395"/>
         <subst subpage="ID1421808606"
@@ -4953,7 +4898,7 @@ p15=p19</text>
                   bold="false"/>
         <text>Synch
 self-call
-a16</text>
+(a16)</text>
         <box w="60.000000"
              h="109.437576"/>
         <subst subpage="ID1421781646"
@@ -7108,12 +7053,7 @@ andalso
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P27
-(p27)</text>
-=======
         <text>p27</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="80.000000"/>
         <token x="-10.000000"
@@ -7178,12 +7118,7 @@ andalso
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P22
-(p22)</text>
-=======
         <text>p22</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-10.000000"
@@ -7250,8 +7185,8 @@ andalso
                   bold="false"/>
         <text>Blocked
 Objects
-List
-p26</text>
+List 
+(p26)</text>
         <ellipse w="109.339159"
                  h="74.000000"/>
         <token x="24.753942"
@@ -7318,7 +7253,7 @@ p26</text>
                   bold="false"/>
         <text>Communication
 Pairs
-p24</text>
+(p24)</text>
         <ellipse w="119.578186"
                  h="53.901577"/>
         <token x="-247.558803"
@@ -7384,7 +7319,7 @@ p24</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>COST
-p3</text>
+(p3)</text>
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="57.000000"
@@ -7451,7 +7386,7 @@ p3</text>
                   bold="false"/>
         <text>Blocked
 Objects
-p17</text>
+(p17)</text>
         <ellipse w="101.704731"
                  h="71.690670"/>
         <token x="30.711761"
@@ -7518,7 +7453,7 @@ p17</text>
                   bold="false"/>
         <text>Idle
 Objects
-p16</text>
+(p16)</text>
         <ellipse w="90.000000"
                  h="69.845335"/>
         <token x="-69.000000"
@@ -7585,7 +7520,7 @@ p16</text>
                   bold="false"/>
         <text>Process
 Counter
-p4</text>
+(p4)</text>
         <ellipse w="112.000000"
                  h="63.873456"/>
         <token x="77.000000"
@@ -7651,7 +7586,7 @@ p4</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>caller
-p28</text>
+(p28)</text>
         <ellipse w="94.000000"
                  h="74.000000"/>
         <token x="-187.741589"
@@ -7716,9 +7651,9 @@ p28</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-        <text>Busy
+        <text>Busy 
 objects
-p15</text>
+(p15)</text>
         <ellipse w="89.971879"
                  h="71.873456"/>
         <token x="-45.985940"
@@ -7783,12 +7718,7 @@ p15</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P25
-(p25)</text>
-=======
         <text>p25</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="61.845335"/>
         <token x="-10.000000"
@@ -7855,7 +7785,7 @@ p15</text>
                   bold="false"/>
         <text>List of
 callees
-p21</text>
+(p21)</text>
         <ellipse w="60.000000"
                  h="107.521945"/>
         <token x="-186.748620"
@@ -7920,12 +7850,7 @@ p21</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P12
-(p12)</text>
-=======
         <text>p12</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="99.578186"/>
         <token x="-109.296978"
@@ -7990,12 +7915,7 @@ p21</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P19
-(p19)</text>
-=======
         <text>p19</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-49.000000"
@@ -8063,7 +7983,7 @@ p21</text>
                   bold="false"/>
         <text>The Callee
 is Idle
-a21</text>
+(a21)</text>
         <box w="205.760972"
              h="45.943758"/>
         <binding x="7.200000"
@@ -8080,8 +8000,8 @@ a21</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">if b2=true then
-ob14 =ob25
+                version="4.0.1">if b2=true then 
+ob14 =ob25 
 else ob14&lt;&gt;ob25</text>
         </cond>
         <time id="ID1421718566">
@@ -8141,7 +8061,7 @@ else ob14&lt;&gt;ob25</text>
                   bold="false"/>
         <text>The Callee
 is Busy
-a22</text>
+(a22)</text>
         <box w="223.465703"
              h="127.381340"/>
         <binding x="7.200000"
@@ -8217,7 +8137,7 @@ a22</text>
                   bold="false"/>
         <text>The Callee
 is Blocked
-a23</text>
+(a23)</text>
         <box w="315.114191"
              h="85.676610"/>
         <binding x="7.200000"
@@ -8234,7 +8154,7 @@ a23</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">ob10=ob25 andalso
+                version="4.0.1">ob10=ob25 andalso 
 ob14&lt;&gt;ob10 andalso
 (if b2=true then ob26=ob14 else ob26&lt;&gt;ob14)</text>
         </cond>
@@ -11029,12 +10949,7 @@ else fopl1</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P20
-(p20)</text>
-=======
-        <text>p20</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
+        <text>(p20)</text>
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-78.000000"
@@ -11086,9 +11001,9 @@ else fopl1</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-        <text>Busy
+        <text>Busy 
 objects
-p15</text>
+(p15)</text>
         <ellipse w="63.971879"
                  h="101.873456"/>
         <token x="-45.985940"
@@ -11155,8 +11070,8 @@ p15</text>
                   bold="false"/>
         <text>Blocked
 Objects
-List
-p26</text>
+List 
+(p26)</text>
         <ellipse w="85.339159"
                  h="78.000000"/>
         <token x="24.753942"
@@ -11221,12 +11136,7 @@ p26</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P25
-(p25)</text>
-=======
         <text>p25</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="54.000000"
                  h="37.845335"/>
         <token x="-10.000000"
@@ -11292,7 +11202,7 @@ p26</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>caller
-p28</text>
+(p28)</text>
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-187.741589"
@@ -11359,7 +11269,7 @@ p28</text>
                   bold="false"/>
         <text>Blocked
 Objects
-p17</text>
+(p17)</text>
         <ellipse w="101.704731"
                  h="83.690670"/>
         <token x="7.711761"
@@ -11424,12 +11334,7 @@ p17</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P19
-(p19)</text>
-=======
         <text>p19</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-49.000000"
@@ -11494,12 +11399,7 @@ p17</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P12
-(p12)</text>
-=======
         <text>p12</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="50.000000"
                  h="37.578186"/>
         <token x="16.703022"
@@ -11564,12 +11464,7 @@ p17</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P22
-(p22)</text>
-=======
         <text>p22</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="58.000000"
                  h="40.000000"/>
         <token x="-32.000000"
@@ -11636,7 +11531,7 @@ p17</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>Caller
-a20</text>
+(a20)</text>
         <box w="184.000000"
              h="52.000000"/>
         <binding x="7.200000"
@@ -11711,11 +11606,7 @@ a20</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>get
-<<<<<<< HEAD
 (a24)</text>
-=======
-a24</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <box w="60.000000"
              h="40.000000"/>
         <binding x="7.200000"
@@ -12375,7 +12266,7 @@ a24</text>
                   bold="false"/>
         <text>Selected
 Process
-p11</text>
+(p11)</text>
         <ellipse w="114.000000"
                  h="40.000000"/>
         <token x="-84.915637"
@@ -12442,7 +12333,7 @@ p11</text>
                   bold="false"/>
         <text>Idle
 Objects
-p16</text>
+(p16)</text>
         <ellipse w="80.000000"
                  h="95.845335"/>
         <token x="-69.000000"
@@ -12507,12 +12398,7 @@ p16</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P13
-(p13)</text>
-=======
         <text>p13</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="60.000000"/>
         <token x="-88.444612"
@@ -12577,22 +12463,17 @@ p16</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P12
-(p12)</text>
-=======
         <text>p12</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="69.578186"/>
-        <token x="-20.000000"
-               y="28.000000"/>
-        <marking x="0.000000"
-                 y="0.000000"
+        <token x="-34.000000"
+               y="26.000000"/>
+        <marking x="37.000000"
+                 y="-13.000000"
                  hidden="false">
           <snap snap_id="0"
-                anchor.horizontal="0"
-                anchor.vertical="0"/>
+                anchor.horizontal="1"
+                anchor.vertical="1"/>
         </marking>
         <type id="ID1421701200">
           <posattr x="1715.500000"
@@ -12647,9 +12528,9 @@ p16</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-        <text>Busy
+        <text>Busy 
 objects
-p15</text>
+(p15)</text>
         <ellipse w="83.971879"
                  h="101.873456"/>
         <token x="-45.985940"
@@ -12714,12 +12595,7 @@ p15</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P14
-(p14)</text>
-=======
         <text>p14</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="89.648489"/>
         <token x="-128.163403"
@@ -12786,7 +12662,7 @@ p15</text>
         <textattr colour="Fucia"
                   bold="false"/>
         <text>Suspend
-a17</text>
+(a17)</text>
         <box w="50.070302"
              h="40.000000"/>
         <binding x="7.200000"
@@ -12804,8 +12680,8 @@ a17</text>
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">p7=hd pl7
-andalso (if (mem pl26 p7)
-then (ob27=ob19 andalso p23=p7)
+andalso (if (mem pl26 p7) 
+then (ob27=ob19 andalso p23=p7) 
 else (ob27=0 andalso p23=0))</text>
         </cond>
         <time id="ID1421701174">
@@ -12864,7 +12740,7 @@ else (ob27=0 andalso p23=0))</text>
         <textattr colour="Fucia"
                   bold="false"/>
         <text>Activate
-a18</text>
+(a18)</text>
         <box w="60.000000"
              h="40.000000"/>
         <binding x="7.200000"
@@ -12881,7 +12757,7 @@ a18</text>
           <textattr colour="Fucia"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">pl8&lt;&gt;[0] andalso
+                version="4.0.1">pl8&lt;&gt;[0] andalso 
 p8=hd pl8</text>
         </cond>
         <time id="ID1421701180">
@@ -13333,7 +13209,7 @@ p8=hd pl8</text>
                   bold="false"/>
         <text>Idle
 Objects
-p16</text>
+(p16)</text>
         <ellipse w="60.000000"
                  h="69.845335"/>
         <token x="-69.000000"
@@ -13398,12 +13274,7 @@ p16</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P13
-(p13)</text>
-=======
         <text>p13</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="54.000000"/>
         <token x="-88.444612"
@@ -13469,7 +13340,7 @@ p16</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>future
-p23</text>
+(p23)</text>
         <ellipse w="60.000000"
                  h="50.000000"/>
         <token x="-10.000000"
@@ -13534,12 +13405,7 @@ p23</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P22
-(p22)</text>
-=======
         <text>p22</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="52.000000"/>
         <token x="-73.000000"
@@ -13604,12 +13470,7 @@ p23</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P18
-(p18)</text>
-=======
         <text>p18</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="56.000000"/>
         <token x="-87.000000"
@@ -13676,7 +13537,7 @@ p23</text>
                   bold="false"/>
         <text>Selected
 Process
-p11</text>
+(p11)</text>
         <ellipse w="78.000000"
                  h="60.000000"/>
         <token x="-73.915637"
@@ -13741,12 +13602,7 @@ p11</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P14
-(p14)</text>
-=======
         <text>p14</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="62.000000"
                  h="55.648489"/>
         <token x="-85.163403"
@@ -13813,7 +13669,7 @@ p11</text>
                   bold="false"/>
         <text>List of
 callees
-p21</text>
+(p21)</text>
         <ellipse w="76.000000"
                  h="79.521945"/>
         <token x="-87.748620"
@@ -13878,12 +13734,7 @@ p21</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P12
-(p12)</text>
-=======
         <text>p12</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="74.000000"
                  h="57.578186"/>
         <token x="-109.296978"
@@ -13948,9 +13799,9 @@ p21</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-        <text>Busy
+        <text>Busy 
 objects
-p15</text>
+(p15)</text>
         <ellipse w="63.971879"
                  h="101.873456"/>
         <token x="-45.985940"
@@ -14017,7 +13868,7 @@ p15</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>Return
-a19</text>
+(a19)</text>
         <box w="91.775033"
              h="81.704731"/>
         <binding x="7.200000"
@@ -14035,9 +13886,9 @@ a19</text>
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">p9=hd pl9
-andalso
-(if (mem pl27 p9)
-then p24=p9
+andalso 
+(if (mem pl27 p9) 
+then p24=p9 
 else not (p24=p9))</text>
         </cond>
         <time id="ID1421807358">
@@ -14368,7 +14219,7 @@ else not (p24=p9))</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">if (mem pl27 p9 andalso i4&gt;1) then 1`(ob11,hd (tl pl9),i4-1) else (if
+                version="4.0.1">if (mem pl27 p9 andalso i4&gt;1) then 1`(ob11,hd (tl pl9),i4-1) else (if 
 (mem pl27 p9 andalso i4&lt;=1) then empty else 1`(ob11,p24,i4))</text>
         </annot>
       </arc>
@@ -14465,7 +14316,7 @@ else not (p24=p9))</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">if (mem pl27 p9 andalso i4&gt;1) then ((ob11,ins (rm p9 pl27) (hd (tl pl9)), ins (rm (p9,i4) pll2) (hd (tl pl9),i4-1))) else (if
+                version="4.0.1">if (mem pl27 p9 andalso i4&gt;1) then ((ob11,ins (rm p9 pl27) (hd (tl pl9)), ins (rm (p9,i4) pll2) (hd (tl pl9),i4-1))) else (if 
 (mem pl27 p9 andalso i4&lt;=1) then (ob11,rm p9 pl27,rm (p9,i4) pll2) else (ob11,pl27,pll2))</text>
         </annot>
       </arc>
@@ -14538,7 +14389,7 @@ else not (p24=p9))</text>
                   bold="false"/>
         <text>Communication
 Pairs
-p24</text>
+(p24)</text>
         <ellipse w="119.578186"
                  h="53.901577"/>
         <token x="-247.558803"
@@ -14605,7 +14456,7 @@ p24</text>
                   bold="false"/>
         <text>Blocked
 Objects
-p17</text>
+(p17)</text>
         <ellipse w="101.704731"
                  h="83.690670"/>
         <token x="30.711761"
@@ -14672,8 +14523,8 @@ p17</text>
                   bold="false"/>
         <text>Blocked
 Objects
-List
-p26</text>
+List 
+(p26)</text>
         <ellipse w="101.339159"
                  h="96.000000"/>
         <token x="24.753942"
@@ -14738,9 +14589,9 @@ p26</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-        <text>Busy
+        <text>Busy 
 objects
-p15</text>
+(p15)</text>
         <ellipse w="63.971879"
                  h="101.873456"/>
         <token x="-45.985940"
@@ -14806,7 +14657,7 @@ p15</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>future
-p23</text>
+(p23)</text>
         <ellipse w="60.000000"
                  h="50.000000"/>
         <token x="-10.000000"
@@ -14873,7 +14724,7 @@ p23</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>Read-Fut
-a25</text>
+(a25)</text>
         <box w="72.412122"
              h="67.859395"/>
         <binding x="7.200000"
@@ -15206,12 +15057,7 @@ p15=p19</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P14
-(p14)</text>
-=======
         <text>p14</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="89.648489"/>
         <token x="-128.163403"
@@ -15276,12 +15122,7 @@ p15=p19</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P13
-(p13)</text>
-=======
         <text>p13</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-88.444612"
@@ -15346,9 +15187,9 @@ p15=p19</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-        <text>Busy
+        <text>Busy 
 objects
-p15</text>
+(p15)</text>
         <ellipse w="63.971879"
                  h="101.873456"/>
         <token x="-45.985940"
@@ -15415,7 +15256,7 @@ p15</text>
                   bold="false"/>
         <text>Process
 Counter
-p4</text>
+(p4)</text>
         <ellipse w="112.000000"
                  h="57.873456"/>
         <token x="-38.000000"
@@ -15481,7 +15322,7 @@ p4</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>COST
-p3</text>
+(p3)</text>
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-34.000000"
@@ -15546,12 +15387,7 @@ p3</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P12
-(p12)</text>
-=======
         <text>p12</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="99.578186"/>
         <token x="-109.296978"
@@ -15619,7 +15455,7 @@ p3</text>
                   bold="false"/>
         <text>Synch
 self-call
-a16</text>
+(a16)</text>
         <box w="60.000000"
              h="119.437576"/>
         <binding x="7.200000"
@@ -15772,7 +15608,7 @@ else 1`(ob28,p22,i2)++1`(ob3,(p17+1),1)</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">if mem pl25 (hd pl19) then (ob3,ins (rm (hd pl19) pl25) (p17+1),ins (rm (p22,i2) pll) (p17+1,i2+1))
+                version="4.0.1">if mem pl25 (hd pl19) then (ob3,ins (rm (hd pl19) pl25) (p17+1),ins (rm (p22,i2) pll) (p17+1,i2+1)) 
 else (ob3,(p17+1)::pl25,(p17+1,1)::pll)</text>
         </annot>
       </arc>
@@ -16114,7 +15950,7 @@ else (ob3,(p17+1)::pl25,(p17+1,1)::pll)</text>
                   bold="false"/>
         <text>DC
  selector
-p7</text>
+(p7)</text>
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-32.592724"
@@ -16179,12 +16015,7 @@ p7</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P12
-(p12)</text>
-=======
         <text>p12</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="54.894546"/>
         <token x="-109.296978"
@@ -16253,7 +16084,7 @@ p7</text>
 of the
 occupied
 DC
-p6</text>
+(p6)</text>
         <ellipse w="60.000000"
                  h="86.000000"/>
         <token x="-42.028121"
@@ -16318,9 +16149,9 @@ p6</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-        <text>Busy
+        <text>Busy 
 objects
-p15</text>
+(p15)</text>
         <ellipse w="63.971879"
                  h="101.873456"/>
         <token x="-45.985940"
@@ -16729,11 +16560,7 @@ p15</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P8(p8)</text>
-=======
         <text>p8</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-43.084363"
@@ -16787,7 +16614,7 @@ p15</text>
                   bold="false"/>
         <text>Object
 to move
-p10</text>
+(p10)</text>
         <ellipse w="60.000000"
                  h="30.000000"/>
         <token x="-10.000000"
@@ -16843,7 +16670,7 @@ p10</text>
 of the
 occupied
 DC
-p6</text>
+(p6)</text>
         <ellipse w="88.000000"
                  h="86.000000"/>
         <token x="-40.028121"
@@ -16908,12 +16735,7 @@ p6</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P12
-(p12)</text>
-=======
         <text>p12</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="99.578186"/>
         <token x="-109.296978"
@@ -16978,9 +16800,9 @@ p6</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-        <text>Busy
+        <text>Busy 
 objects
-p15</text>
+(p15)</text>
         <ellipse w="63.971879"
                  h="101.873456"/>
         <token x="-45.985940"
@@ -17047,7 +16869,7 @@ p15</text>
                   bold="false"/>
         <text>DC
  selector
-p7</text>
+(p7)</text>
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-32.592724"
@@ -17114,7 +16936,7 @@ p7</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>Move to
-a13</text>
+(a13)</text>
         <box w="112.070302"
              h="58.000000"/>
         <binding x="7.200000"
@@ -17189,7 +17011,7 @@ a13</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>Move from
-a10</text>
+(a10)</text>
         <box w="101.831275"
              h="52.000000"/>
         <binding x="7.200000"
@@ -17778,13 +17600,13 @@ a10</text>
                   bold="false"/>
         <text>DC
  selector
-p7</text>
+(p7)</text>
         <ellipse w="60.000000"
                  h="40.000000"/>
-        <token x="-69.000000"
-               y="17.000000"/>
-        <marking x="46.000000"
-                 y="-4.000000"
+        <token x="-78.000000"
+               y="0.000000"/>
+        <marking x="51.000000"
+                 y="1.000000"
                  hidden="false">
           <snap snap_id="0"
                 anchor.horizontal="1"
@@ -17845,7 +17667,7 @@ p7</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>find dc by decr
-a9</text>
+(a9)</text>
         <box w="108.000000"
              h="28.000000"/>
         <binding x="7.200000"
@@ -17920,7 +17742,7 @@ a9</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>find dc by incr
-a8</text>
+(a8)</text>
         <box w="100.000000"
              h="26.000000"/>
         <binding x="7.200000"
@@ -18128,7 +17950,7 @@ a8</text>
         <text>Object
 id
 counter
-p9</text>
+(p9)</text>
         <ellipse w="87.803154"
                  h="51.915637"/>
         <token x="-74.971880"
@@ -18180,12 +18002,7 @@ p9</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P29
-(p29)</text>
-=======
         <text>p29</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="54.894547"/>
         <token x="-75.000000"
@@ -18239,7 +18056,7 @@ p9</text>
                   bold="false"/>
         <text>Process&amp;Cost
 Lists Initiaton
-p5</text>
+(p5)</text>
         <ellipse w="107.662549"
                  h="44.964849"/>
         <token x="-10.000000"
@@ -18293,7 +18110,7 @@ p5</text>
                   bold="false"/>
         <text>Process
 Counter
-p4</text>
+(p4)</text>
         <ellipse w="112.000000"
                  h="57.873456"/>
         <token x="-72.000000"
@@ -18358,12 +18175,7 @@ p4</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P14
-(p14)</text>
-=======
         <text>p14</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="89.648489"/>
         <token x="-128.163403"
@@ -18430,7 +18242,7 @@ p4</text>
                   bold="false"/>
         <text>DC
  selector
-p7</text>
+(p7)</text>
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-32.592724"
@@ -18496,7 +18308,7 @@ p7</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>COST
-p3</text>
+(p3)</text>
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="57.000000"
@@ -18561,9 +18373,9 @@ p3</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-        <text>Busy
+        <text>Busy 
 objects
-p15</text>
+(p15)</text>
         <ellipse w="63.971879"
                  h="101.873456"/>
         <token x="-45.985940"
@@ -18632,7 +18444,7 @@ p15</text>
 of the
 occupied
 DC
-p6</text>
+(p6)</text>
         <ellipse w="60.000000"
                  h="86.000000"/>
         <token x="-41.269333"
@@ -18699,7 +18511,7 @@ p6</text>
                   bold="false"/>
         <text>Selected
 Process
-p11</text>
+(p11)</text>
         <ellipse w="114.000000"
                  h="40.000000"/>
         <token x="-84.915637"
@@ -18764,12 +18576,7 @@ p11</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P12
-(p12)</text>
-=======
         <text>p12</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="54.894546"/>
         <token x="-109.296978"
@@ -18834,12 +18641,7 @@ p11</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P13
-(p13)</text>
-=======
         <text>p13</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-88.444612"
@@ -19781,7 +19583,7 @@ p11</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>COST
-p3</text>
+(p3)</text>
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="57.000000"
@@ -19848,7 +19650,7 @@ p3</text>
                   bold="false"/>
         <text>Process&amp;Cost
 Lists Initiaton
-p5</text>
+(p5)</text>
         <ellipse w="107.662549"
                  h="44.964849"/>
         <token x="-10.000000"
@@ -19913,12 +19715,7 @@ p5</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P29
-(p29)</text>
-=======
         <text>p29</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-10.000000"
@@ -19985,7 +19782,7 @@ p5</text>
                   bold="false"/>
         <text>Process
 Counter
-p4</text>
+(p4)</text>
         <ellipse w="112.000000"
                  h="57.873456"/>
         <token x="-38.000000"
@@ -20054,7 +19851,7 @@ p4</text>
         <text>define
 cost
 by decr
-a5</text>
+(a5)</text>
         <box w="60.000000"
              h="59.859395"/>
         <binding x="7.200000"
@@ -20128,10 +19925,10 @@ a5</text>
                   type="solid"/>
         <textattr colour="Black"
                   bold="false"/>
-        <text>define
+        <text>define 
 cost
 by incr
-a4</text>
+(a4)</text>
         <box w="60.000000"
              h="57.873456"/>
         <binding x="7.200000"
@@ -20207,7 +20004,7 @@ a4</text>
                   bold="false"/>
         <text>Init process
 creator
-a6</text>
+(a6)</text>
         <box w="100.000000"
              h="40.000000"/>
         <binding x="7.200000"
@@ -20639,7 +20436,7 @@ a6</text>
                   bold="false"/>
         <text>Selected
 Process
-p11</text>
+(p11)</text>
         <ellipse w="114.000000"
                  h="40.000000"/>
         <token x="-84.915637"
@@ -20706,7 +20503,7 @@ p11</text>
                   bold="false"/>
         <text>Process
 Counter
-p4</text>
+(p4)</text>
         <ellipse w="112.000000"
                  h="57.873456"/>
         <token x="-38.000000"
@@ -20775,7 +20572,7 @@ p4</text>
         <text>select
 process
 by incr
-a11</text>
+(a11)</text>
         <box w="60.000000"
              h="55.887516"/>
         <binding x="7.200000"
@@ -20852,7 +20649,7 @@ a11</text>
         <text>select
 process
 by decr
-a12</text>
+(a12)</text>
         <box w="60.000000"
              h="49.929698"/>
         <binding x="7.200000"
@@ -21103,7 +20900,7 @@ a12</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>Class
-p2</text>
+(p2)</text>
         <ellipse w="58.000000"
                  h="43.915637"/>
         <token x="-66.000000"
@@ -21157,7 +20954,7 @@ p2</text>
                   bold="false"/>
         <text>Process&amp;Cost
 Lists Initiaton
-p5</text>
+(p5)</text>
         <ellipse w="107.662549"
                  h="44.964849"/>
         <token x="-10.000000"
@@ -21222,9 +21019,9 @@ p5</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-        <text>Busy
+        <text>Busy 
 objects
-p15</text>
+(p15)</text>
         <ellipse w="63.971879"
                  h="101.873456"/>
         <token x="-45.985940"
@@ -21293,7 +21090,7 @@ p15</text>
 of the
 occupied
 DC
-p6</text>
+(p6)</text>
         <ellipse w="60.000000"
                  h="86.000000"/>
         <token x="-40.028121"
@@ -21358,12 +21155,7 @@ p6</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P29
-(p29)</text>
-=======
         <text>p29</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-10.000000"
@@ -21430,7 +21222,7 @@ p6</text>
                   bold="false"/>
         <text>DC
  selector
-p7</text>
+(p7)</text>
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-32.592724"
@@ -21495,12 +21287,7 @@ p7</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P14
-(p14)</text>
-=======
         <text>p14</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="89.648489"/>
         <token x="-128.163403"
@@ -21568,7 +21355,7 @@ p7</text>
         <text>Object
 id
 counter
-p9</text>
+(p9)</text>
         <ellipse w="67.943759"
                  h="51.915637"/>
         <token x="5.028120"
@@ -21633,12 +21420,7 @@ p9</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P13
-(p13)</text>
-=======
         <text>p13</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-88.444612"
@@ -21705,7 +21487,7 @@ p9</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>New Object
-a7</text>
+(a7)</text>
         <box w="134.000000"
              h="60.000000"/>
         <subst subpage="ID1421771084"
@@ -21739,7 +21521,7 @@ a7</text>
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">u1&gt;0
-andalso
+andalso 
 (z=0 orelse not (mem l&apos; z))</text>
         </cond>
         <time id="ID1421855233">
@@ -22212,7 +21994,7 @@ Creation</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>Class
-p2</text>
+(p2)</text>
         <ellipse w="58.000000"
                  h="43.915637"/>
         <token x="-67.000000"
@@ -22277,12 +22059,7 @@ p2</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P13
-(p13)</text>
-=======
         <text>p13</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="50.000000"/>
         <token x="-88.444612"
@@ -22350,7 +22127,7 @@ p2</text>
         <text>Object
 id
 counter
-p9</text>
+(p9)</text>
         <ellipse w="67.943759"
                  h="67.915637"/>
         <token x="17.028120"
@@ -22419,7 +22196,7 @@ p9</text>
 of the
 occupied
 DC
-p6</text>
+(p6)</text>
         <ellipse w="60.000000"
                  h="86.000000"/>
         <token x="27.971879"
@@ -22484,9 +22261,9 @@ p6</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-        <text>Busy
+        <text>Busy 
 objects
-p15</text>
+(p15)</text>
         <ellipse w="63.971879"
                  h="81.873456"/>
         <token x="-45.985940"
@@ -22553,7 +22330,7 @@ p15</text>
                   bold="false"/>
         <text>Process&amp;Cost
 Lists Initiaton
-p5</text>
+(p5)</text>
         <ellipse w="107.662549"
                  h="76.964849"/>
         <token x="-10.000000"
@@ -22618,12 +22395,7 @@ p5</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P14
-(p14)</text>
-=======
         <text>p14</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="89.648489"/>
         <token x="-128.163403"
@@ -22690,7 +22462,7 @@ p5</text>
                   bold="false"/>
         <text>DC
  selector
-p7</text>
+(p7)</text>
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-32.592724"
@@ -22755,12 +22527,7 @@ p7</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P29
-(p29)</text>
-=======
         <text>p29</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-86.000000"
@@ -22827,7 +22594,7 @@ p7</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>New Object
-a7</text>
+(a7)</text>
         <box w="134.000000"
              h="60.000000"/>
         <binding x="7.200000"
@@ -22845,7 +22612,7 @@ a7</text>
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">u1&gt;0
-andalso
+andalso 
 (z=0 orelse not (mem l&apos; z))</text>
         </cond>
         <time id="ID1421771088">
@@ -23364,7 +23131,7 @@ andalso
                   bold="false"/>
         <text>class
 counter
-p1</text>
+(p1)</text>
         <ellipse w="60.000000"
                  h="43.915637"/>
         <token x="-111.000000"
@@ -23417,7 +23184,7 @@ p1</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>Class
-p2</text>
+(p2)</text>
         <ellipse w="58.000000"
                  h="43.915637"/>
         <token x="-67.000000"
@@ -23484,8 +23251,8 @@ p2</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>new Class
-Identifier
-a1</text>
+Identifier 
+(a1)</text>
         <box w="106.000000"
              h="43.915637"/>
         <binding x="7.200000"
@@ -23561,7 +23328,7 @@ a1</text>
                   bold="false"/>
         <text>find class
 by incrementing
-a2</text>
+(a2)</text>
         <box w="104.000000"
              h="43.915637"/>
         <binding x="7.200000"
@@ -23637,7 +23404,7 @@ a2</text>
                   bold="false"/>
         <text>find class
 by decrementing
- a3</text>
+ (a3)</text>
         <box w="116.000000"
              h="43.915637"/>
         <binding x="7.200000"
@@ -23941,7 +23708,7 @@ by decrementing
         <text>Object
 id
 counter
-p9</text>
+(p9)</text>
         <ellipse w="67.943759"
                  h="51.915637"/>
         <token x="-47.971880"
@@ -24006,12 +23773,7 @@ p9</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-<<<<<<< HEAD
-        <text>P12
-(p12)</text>
-=======
         <text>p12</text>
->>>>>>> b6ca9b4205db299904751ce86c9b21004a376dbc
         <ellipse w="60.000000"
                  h="99.578186"/>
         <token x="-109.296978"
@@ -24080,7 +23842,7 @@ p9</text>
         <text>select
 obect
 by incr
-a14</text>
+(a14)</text>
         <box w="60.000000"
              h="57.873456"/>
         <binding x="7.200000"
@@ -24157,7 +23919,7 @@ a14</text>
         <text>select
 object
 by decr
-a15</text>
+(a15)</text>
         <box w="60.000000"
              h="51.915637"/>
         <binding x="7.200000"
@@ -24458,22 +24220,7 @@ a15</text>
           <text>&lt;same as model&gt;</text>
         </value>
       </option>
-      <option name="extensions.10006.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10011.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10003.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10004.enable">
+      <option name="extensions.10001.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -24488,12 +24235,22 @@ a15</text>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10001.enable">
+      <option name="extensions.10004.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10005.enable">
+      <option name="extensions.10003.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10006.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10011.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -24503,12 +24260,17 @@ a15</text>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10011.options.disable">
+      <option name="extensions.10005.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10007.options.discover">
         <value>
           <boolean>false</boolean>
         </value>
       </option>
-      <option name="extensions.10007.options.discover">
+      <option name="extensions.10011.options.disable">
         <value>
           <boolean>false</boolean>
         </value>
@@ -24711,10 +24473,10 @@ a15</text>
     </options>
     <binders>
       <cpnbinder id="ID1421566768"
-                 x="250"
-                 y="0"
-                 width="1873"
-                 height="1007">
+                 x="150"
+                 y="35"
+                 width="1769"
+                 height="890">
         <sheets>
           <cpnsheet id="ID2215"
                     panx="-97.801594"
@@ -24735,8 +24497,8 @@ a15</text>
             </zorder>
           </cpnsheet>
           <cpnsheet id="ID1422959266"
-                    panx="102.000000"
-                    pany="-208.000000"
+                    panx="104.000000"
+                    pany="-206.000000"
                     zoom="1.000000"
                     instance="ID1422718312">
             <zorder>
@@ -24744,8 +24506,8 @@ a15</text>
             </zorder>
           </cpnsheet>
           <cpnsheet id="ID1422968828"
-                    panx="-424.400000"
-                    pany="49.800000"
+                    panx="-456.400000"
+                    pany="-89.200000"
                     zoom="0.800000"
                     instance="ID1422554187">
             <zorder>
@@ -24762,8 +24524,8 @@ a15</text>
             </zorder>
           </cpnsheet>
           <cpnsheet id="ID1423646593"
-                    panx="-1707.000000"
-                    pany="-78.000000"
+                    panx="-1716.000000"
+                    pany="-74.000000"
                     zoom="1.000000"
                     instance="ID1421701251">
             <zorder>
@@ -24789,8 +24551,8 @@ a15</text>
             </zorder>
           </cpnsheet>
           <cpnsheet id="ID1426357392"
-                    panx="-1263.000000"
-                    pany="-178.000000"
+                    panx="-1274.000000"
+                    pany="-102.000000"
                     zoom="1.000000"
                     instance="ID1421807450">
             <zorder>
@@ -24852,8 +24614,8 @@ a15</text>
             </zorder>
           </cpnsheet>
           <cpnsheet id="ID1429047688"
-                    panx="-1994.000000"
-                    pany="326.000000"
+                    panx="-1882.000000"
+                    pany="352.000000"
                     zoom="1.000000"
                     instance="ID1421718827">
             <zorder>
@@ -24861,8 +24623,8 @@ a15</text>
             </zorder>
           </cpnsheet>
           <cpnsheet id="ID1427212541"
-                    panx="302.000000"
-                    pany="18.000000"
+                    panx="304.000000"
+                    pany="17.000000"
                     zoom="1.000000"
                     instance="ID1421603747">
             <zorder>
@@ -24889,25 +24651,25 @@ a15</text>
           </cpnsheet>
         </sheets>
         <zorder>
-          <position value="0"/>
-          <position value="1"/>
-          <position value="2"/>
-          <position value="3"/>
-          <position value="4"/>
-          <position value="5"/>
-          <position value="6"/>
-          <position value="7"/>
-          <position value="8"/>
-          <position value="9"/>
-          <position value="10"/>
-          <position value="11"/>
-          <position value="12"/>
-          <position value="13"/>
-          <position value="14"/>
-          <position value="15"/>
-          <position value="16"/>
-          <position value="17"/>
           <position value="18"/>
+          <position value="17"/>
+          <position value="16"/>
+          <position value="15"/>
+          <position value="14"/>
+          <position value="13"/>
+          <position value="12"/>
+          <position value="11"/>
+          <position value="10"/>
+          <position value="9"/>
+          <position value="8"/>
+          <position value="7"/>
+          <position value="6"/>
+          <position value="5"/>
+          <position value="4"/>
+          <position value="3"/>
+          <position value="2"/>
+          <position value="1"/>
+          <position value="0"/>
         </zorder>
       </cpnbinder>
     </binders>
@@ -24987,7 +24749,9 @@ a15</text>
           <IndexNode expanded="false"/>
         </IndexNode>
       </IndexNode>
-      <IndexNode expanded="false"/>
+      <IndexNode expanded="false">
+        <IndexNode expanded="false"/>
+      </IndexNode>
       <IndexNode expanded="false">
         <IndexNode expanded="false">
           <IndexNode expanded="true"/>

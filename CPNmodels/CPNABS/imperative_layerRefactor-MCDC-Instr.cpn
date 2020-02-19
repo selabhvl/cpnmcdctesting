@@ -8033,8 +8033,8 @@ is Idle
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1421718565">
-          <posattr x="2697.500000"
-                   y="197.000000"/>
+          <posattr x="1396.000000"
+                   y="-197.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -8044,8 +8044,7 @@ is Idle
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">EXPR(&quot;Cidle&quot;, AP(&quot;?&quot;, if EXPR(&quot;?&quot;,AP(&quot;1&quot;, b2=true)) then 
-EXPR(&quot;?&quot;,AP(&quot;2&quot;, ob14 =ob25)) else EXPR(&quot;?&quot;,AP(&quot;3&quot;, ob14&lt;&gt;ob25))))</text>
+                version="4.0.1">EXPR(&quot;Cidle&quot;,ITE(AP(&quot;1&quot;, b2=true),AP(&quot;2&quot;, ob14 =ob25),AP(&quot;3&quot;, ob14&lt;&gt;ob25)))</text>
         </cond>
         <time id="ID1421718566">
           <posattr x="1503.380486"
@@ -8110,8 +8109,8 @@ is Busy
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1421718571">
-          <posattr x="2640.000000"
-                   y="587.000000"/>
+          <posattr x="1884.000000"
+                   y="-175.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -8121,8 +8120,7 @@ is Busy
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">EXPR(&quot;CBua22&quot;, AP(&quot;?&quot;, if EXPR(&quot;?&quot;,AP(&quot;1&quot;, b2=true)) then EXPR(&quot;?&quot;,AP(&quot;2&quot;, ob14 =ob25))
- else EXPR(&quot;?&quot;,AP(&quot;3&quot;, ob14&lt;&gt;ob25))))</text>
+                version="4.0.1">EXPR(&quot;CBua22&quot;, ITE(AP(&quot;1&quot;, b2=true),AP(&quot;2&quot;, ob14 =ob25),AP(&quot;3&quot;, ob14&lt;&gt;ob25)))</text>
         </cond>
         <time id="ID1421718572">
           <posattr x="1831.232851"
@@ -8187,8 +8185,8 @@ is Blocked
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1421718577">
-          <posattr x="2566.000000"
-                   y="-184.000000"/>
+          <posattr x="2441.500000"
+                   y="-158.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -8199,7 +8197,7 @@ is Blocked
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">EXPR(&quot;CBloa23&quot;, AND(AND(AP(&quot;1&quot;, ob10=ob25), AP(&quot;2&quot;, ob14&lt;&gt;ob10)), 
-AP(&quot;?&quot;,if EXPR(&quot;?&quot;,AP(&quot;3&quot;, b2=true)) then EXPR(&quot;&quot;,AP(&quot;4&quot;, ob26=ob14)) else EXPR(&quot;&quot;,AP(&quot;5&quot;, ob26&lt;&gt;ob14)))))</text>
+ITE(AP(&quot;3&quot;, b2=true),AP(&quot;4&quot;, ob26=ob14),AP(&quot;5&quot;, ob26&lt;&gt;ob14))))</text>
         </cond>
         <time id="ID1421718578">
           <posattr x="2371.057095"
@@ -12719,7 +12717,7 @@ objects
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1421701173">
-          <posattr x="2211.000000"
+          <posattr x="2251.000000"
                    y="-52.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -12731,9 +12729,8 @@ objects
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">EXPR(&quot;Suspa17&quot;, AND(AP(&quot;1&quot;, p7=hd pl7),
- AP(&quot;?&quot;, (if EXPR(&quot;?&quot;,AP(&quot;2&quot;, (mem pl26 p7)))  
-then EXPR(&quot;?&quot;,AND(AP(&quot;3&quot;, (ob27=ob19)), AP(&quot;4&quot;,p23=p7))) 
-else EXPR(&quot;?&quot;,AND(AP(&quot;5&quot;, (ob27=0)), AP(&quot;6&quot;, p23=0))) )) ) )</text>
+ ITE(AP(&quot;2&quot;, (mem pl26 p7)),AND(AP(&quot;3&quot;, (ob27=ob19)), AP(&quot;4&quot;,p23=p7)),
+AND(AP(&quot;5&quot;, (ob27=0)), AP(&quot;6&quot;, p23=0)) ) ))</text>
         </cond>
         <time id="ID1421701174">
           <posattr x="2013.535151"
@@ -13940,7 +13937,7 @@ objects
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">EXPR(&quot;Returna19&quot;, AND(AP(&quot;1&quot;, p9=hd pl9), AP(&quot;?&quot;, (if EXPR(&quot;?&quot;,AP(&quot;2&quot;, (mem pl27 p9))) then EXPR(&quot;?&quot;,AP(&quot;3&quot;, p24=p9)) else EXPR(&quot;?&quot;,AP(&quot;4&quot;, not (p24=p9)))))))</text>
+                version="4.0.1">EXPR(&quot;Returna19&quot;, AND(AP(&quot;1&quot;, p9=hd pl9), ITE(AP(&quot;2&quot;, (mem pl27 p9)),AP(&quot;3&quot;, p24=p9),AP(&quot;4&quot;, not (p24=p9)) ) ))</text>
         </cond>
         <time id="ID1421807358">
           <posattr x="1347.387516"
@@ -15514,7 +15511,7 @@ self-call
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1421781649">
-          <posattr x="965.500000"
+          <posattr x="851.000000"
                    y="-329.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -15526,8 +15523,8 @@ self-call
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">EXPR(&quot;Ssca16&quot;, AND(AP(&quot;1&quot;, ob20=ob3),
-AP(&quot;?&quot;, (if EXPR(&quot;?&quot;,AP(&quot;2&quot;, mem pl25 (hd pl19))) then 
-EXPR(&quot;?&quot;,AND(AP(&quot;3&quot;, ob28=ob3), AP(&quot;4&quot;, p22=hd pl19))) else EXPR(&quot;?&quot;,AND(AP(&quot;5&quot;, ob28=0), AP(&quot;6&quot;,p22=0)) ) ) ) ))</text>
+ITE(AP(&quot;2&quot;, mem pl25 (hd pl19)),AND(AP(&quot;3&quot;, ob28=ob3), AP(&quot;4&quot;, p22=hd pl19)),
+AND(AP(&quot;5&quot;, ob28=0), AP(&quot;6&quot;,p22=0)) ) ) )</text>
         </cond>
         <time id="ID1421781650">
           <posattr x="570.093291"
@@ -24234,7 +24231,7 @@ by decr
         <textattr colour="Black"
                   bold="false"/>
         <label/>
-        <text>mcdcgen ();</text>
+        <text>mcdcgen (&quot;CPNmodels/CPNABS/cpnabs.txt&quot;);</text>
       </Aux>
       <Aux id="ID1519728645">
         <posattr x="-378.000000"
@@ -24336,32 +24333,17 @@ by decr
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10011.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10003.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10004.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10007.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
       <option name="extensions.10008.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
       <option name="extensions.10001.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10007.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -24376,12 +24358,27 @@ by decr
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10011.options.disable">
+      <option name="extensions.10011.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10004.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10003.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10007.options.discover">
         <value>
           <boolean>false</boolean>
         </value>
       </option>
-      <option name="extensions.10007.options.discover">
+      <option name="extensions.10011.options.disable">
         <value>
           <boolean>false</boolean>
         </value>
@@ -24584,10 +24581,10 @@ by decr
     </options>
     <binders>
       <cpnbinder id="ID1421566768"
-                 x="280"
-                 y="36"
-                 width="1760"
-                 height="956">
+                 x="104"
+                 y="57"
+                 width="1680"
+                 height="867">
         <sheets>
           <cpnsheet id="ID2215"
                     panx="-97.801594"
@@ -24599,8 +24596,8 @@ by decr
             </zorder>
           </cpnsheet>
           <cpnsheet id="ID1519728388"
-                    panx="-26.000000"
-                    pany="9.000000"
+                    panx="-47.000000"
+                    pany="-2.000000"
                     zoom="1.000000"
                     instance="ID1519728312">
             <zorder>
@@ -24617,8 +24614,8 @@ by decr
             </zorder>
           </cpnsheet>
           <cpnsheet id="ID1519751648"
-                    panx="-2004.000000"
-                    pany="415.000000"
+                    panx="-1801.000000"
+                    pany="136.000000"
                     zoom="1.000000"
                     instance="ID1421718827">
             <zorder>
@@ -24635,8 +24632,8 @@ by decr
             </zorder>
           </cpnsheet>
           <cpnsheet id="ID1519774729"
-                    panx="-1810.000000"
-                    pany="-78.000000"
+                    panx="-1817.000000"
+                    pany="-76.000000"
                     zoom="1.000000"
                     instance="ID1421701251">
             <zorder>
@@ -24744,23 +24741,23 @@ by decr
           </cpnsheet>
         </sheets>
         <zorder>
+          <position value="0"/>
           <position value="1"/>
+          <position value="2"/>
+          <position value="3"/>
           <position value="4"/>
           <position value="5"/>
+          <position value="6"/>
+          <position value="7"/>
           <position value="8"/>
+          <position value="9"/>
           <position value="10"/>
           <position value="11"/>
-          <position value="9"/>
+          <position value="12"/>
           <position value="13"/>
           <position value="14"/>
-          <position value="12"/>
           <position value="15"/>
           <position value="16"/>
-          <position value="3"/>
-          <position value="7"/>
-          <position value="2"/>
-          <position value="6"/>
-          <position value="0"/>
         </zorder>
       </cpnbinder>
     </binders>
@@ -24840,7 +24837,9 @@ by decr
           <IndexNode expanded="false"/>
         </IndexNode>
       </IndexNode>
-      <IndexNode expanded="false"/>
+      <IndexNode expanded="false">
+        <IndexNode expanded="false"/>
+      </IndexNode>
       <IndexNode expanded="false">
         <IndexNode expanded="true">
           <IndexNode expanded="true"/>

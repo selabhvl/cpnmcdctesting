@@ -9,8 +9,8 @@
     <globbox>
       <block id="ID1590760315">
         <id>MBT</id>
-        <ml id="ID1590760636">val cpnmcdclibpath =  &quot;C:/Users/faustin/Desktop/cpnmcdctesting/&quot;;
-          <layout>val cpnmcdclibpath =  &quot;C:/Users/faustin/Desktop/cpnmcdctesting/&quot;;</layout>
+        <ml id="ID1590760636">val cpnmcdclibpath =  &quot;../../&quot;;
+          <layout>val cpnmcdclibpath =  &quot;../../&quot;;</layout>
         </ml>
         <ml id="ID1590760551">val fmodelpath = cpnmcdclibpath^&quot;/examples/tpc/&quot;;
           <layout>val fmodelpath = cpnmcdclibpath^&quot;/examples/tpc/&quot;;</layout>
@@ -5089,7 +5089,7 @@ Prepare</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1412840199">
-          <posattr x="-500.000000"
+          <posattr x="-435.500000"
                    y="44.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -5100,7 +5100,7 @@ Prepare</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[id = id&apos;]</text>
+                version="4.0.1">[EXPR(&quot;HP&quot;, AP(&quot;1&quot;,id = id&apos;))]</text>
         </cond>
         <time id="ID1412840200">
           <posattr x="-520.500000"
@@ -5526,7 +5526,7 @@ Accept</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1412840860">
-          <posattr x="-627.000000"
+          <posattr x="-691.500000"
                    y="133.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -5537,7 +5537,7 @@ Accept</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[id = id&apos;]</text>
+                version="4.0.1">[EXPR(&quot;HA&quot;, AP(&quot;1&quot;,id = id&apos;))]</text>
         </cond>
         <time id="ID1412840861">
           <posattr x="-480.500000"
@@ -7558,7 +7558,7 @@ Detector</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1590762478">
+        <annot id="ID1590765100">
           <posattr x="-515.000000"
                    y="263.000000"/>
           <fillattr colour="White"
@@ -7847,7 +7847,7 @@ Detector</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1590762479">
+        <annot id="ID1590765101">
           <posattr x="-515.000000"
                    y="375.000000"/>
           <fillattr colour="White"
@@ -9948,7 +9948,7 @@ Prepare</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1590762480">
+        <annot id="ID1590765102">
           <posattr x="-344.000000"
                    y="296.000000"/>
           <fillattr colour="White"
@@ -10810,8 +10810,8 @@ Messages</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1413114871">
-          <posattr x="-44.000000"
-                   y="19.000000"/>
+          <posattr x="40.000000"
+                   y="-4.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -10821,8 +10821,7 @@ Messages</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[preparereplies&apos; = (cid, crnd, (vrnd,vvalue))::preparereplies,
- crnd &gt; 0]</text>
+                version="4.0.1">[preparereplies&apos; = (cid, crnd, (vrnd,vvalue))::preparereplies, EXPR(&quot;APQF&quot;, AP(&quot;1&quot;,crnd &gt; 0))]</text>
         </cond>
         <time id="ID1413114872">
           <posattr x="-189.500000"
@@ -11846,8 +11845,8 @@ AcceptQF</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1413324064">
-          <posattr x="-50.500000"
-                   y="-201.000000"/>
+          <posattr x="6.500000"
+                   y="-208.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -11857,8 +11856,7 @@ AcceptQF</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[acceptreplies&apos; = (cid, rnd,value)::acceptreplies,
- rnd &gt; 0]</text>
+                version="4.0.1">[acceptreplies&apos; = (cid, rnd,value)::acceptreplies, EXPR(&quot;AAQF&quot;, AP(&quot;1&quot;,rnd &gt; 0))]</text>
         </cond>
         <time id="ID1413324065">
           <posattr x="-189.500000"
@@ -12871,7 +12869,7 @@ Round</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1541504474">
-          <posattr x="-788.000000"
+          <posattr x="-919.500000"
                    y="11.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -12882,7 +12880,7 @@ Round</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[id&apos; = id andalso id = lid,value &lt;&gt;&quot;&quot;]</text>
+                version="4.0.1">[EXPR(&quot;OLR&quot;, AND(AND(AP(&quot;1&quot;,id&apos; = id), AP(&quot;2&quot;, id = lid)),AP(&quot;3&quot;,value &lt;&gt;&quot;&quot;)))]</text>
         </cond>
         <time id="ID1541504475">
           <posattr x="-571.500000"
@@ -12947,7 +12945,7 @@ ID</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1542951666">
-          <posattr x="-960.500000"
+          <posattr x="-1031.000000"
                    y="-148.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -12958,7 +12956,7 @@ ID</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[id &lt;&gt; lid]</text>
+                version="4.0.1">[EXPR(&quot;SLID&quot;, AP(&quot;1&quot;,id &lt;&gt; lid))]</text>
         </cond>
         <time id="ID1542951667">
           <posattr x="-823.500000"
@@ -13033,7 +13031,7 @@ Request</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[id = id&apos;]</text>
+                version="4.0.1">[EXPR(&quot;SR&quot;, AP(&quot;1&quot;,id = id&apos;))]</text>
         </cond>
         <time id="ID1543989085">
           <posattr x="-281.500000"
@@ -13509,8 +13507,8 @@ else (id, rnd,value)</text>
 which is the same with one of IDs</text>
       </Aux>
       <Aux id="ID1544833408">
-        <posattr x="-882.000000"
-                 y="472.000000"/>
+        <posattr x="-863.000000"
+                 y="350.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -13523,8 +13521,8 @@ which is the same with one of IDs</text>
         <text>fun InitRndNumbers () = List.tabulate (n,(fn i =&gt; (List.nth(allIDs,i),i+1,&quot;&quot;)));</text>
       </Aux>
       <Aux id="ID1544840496">
-        <posattr x="-672.000000"
-                 y="504.000000"/>
+        <posattr x="-687.000000"
+                 y="420.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -14404,7 +14402,7 @@ Value</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1590762481">
+        <annot id="ID1590765103">
           <posattr x="-741.000000"
                    y="557.000000"/>
           <fillattr colour="White"
@@ -14481,7 +14479,7 @@ Value</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1590762482">
+        <annot id="ID1590765104">
           <posattr x="-741.000000"
                    y="368.000000"/>
           <fillattr colour="White"
@@ -16057,7 +16055,7 @@ Value</text>
                    currentcyckle="2"/>
         <transend idref="ID1547605490"/>
         <placeend idref="ID1547605506"/>
-        <annot id="ID1590762483">
+        <annot id="ID1590765105">
           <posattr x="-589.000000"
                    y="360.000000"/>
           <fillattr colour="White"
@@ -19878,8 +19876,8 @@ IDs</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1540868356">
-          <posattr x="-1042.000000"
-                   y="1104.000000"/>
+          <posattr x="-851.000000"
+                   y="1097.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -19889,7 +19887,7 @@ IDs</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[length ids &gt; 1, List.hd(ids) = lid orelse lid = 0]</text>
+                version="4.0.1">[EXPR(&quot;OCID&quot;, AND(AP(&quot;1&quot;,length ids &gt; 1), OR(AP(&quot;2&quot;,List.hd(ids) = lid), AP(&quot;3&quot;,lid = 0))))]</text>
         </cond>
         <time id="ID1540868357">
           <posattr x="-834.500000"
@@ -19953,8 +19951,8 @@ Leader</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1540897945">
-          <posattr x="-467.000000"
-                   y="1077.000000"/>
+          <posattr x="-395.000000"
+                   y="1087.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -19964,7 +19962,7 @@ Leader</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[length ids &lt;&gt; 0]</text>
+                version="4.0.1">[EXPR(&quot;EL&quot;, AP(&quot;1&quot;,length ids &lt;&gt; 0))]</text>
         </cond>
         <time id="ID1540897946">
           <posattr x="-345.500000"
@@ -20104,8 +20102,8 @@ IDs</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1542821368">
-          <posattr x="-1411.000000"
-                   y="1205.000000"/>
+          <posattr x="-1372.000000"
+                   y="1197.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -20115,7 +20113,8 @@ IDs</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[length ids = 1, lid = List.hd(ids)]</text>
+                version="4.0.1">[EXPR(&quot;RSID&quot;, AND(AP(&quot;1&quot;,length ids = 1), 
+AP(&quot;2&quot;,lid = List.hd(ids))))]</text>
         </cond>
         <time id="ID1542821369">
           <posattr x="-1201.500000"
@@ -21007,7 +21006,7 @@ Counter</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[num = 0]</text>
+                version="4.0.1">[EXPR(&quot;RC&quot;, AP(&quot;1&quot;,num = 0))]</text>
         </cond>
         <time id="ID1546227887">
           <posattr x="-163.500000"
@@ -21072,7 +21071,7 @@ Counter</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1546227892">
-          <posattr x="-695.860000"
+          <posattr x="-808.360000"
                    y="107.040000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -21083,7 +21082,7 @@ Counter</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[cnt &lt;&gt; 0, id&apos;&lt;&gt;0]</text>
+                version="4.0.1">[EXPR(&quot;TLD&quot;, AND(AP(&quot;1&quot;,cnt &lt;&gt; 0), AP(&quot;2&quot;, id&apos;&lt;&gt;0)))]</text>
         </cond>
         <time id="ID1546227893">
           <posattr x="-571.500000"
@@ -21145,7 +21144,7 @@ Counter</text>
                    currentcyckle="2"/>
         <transend idref="ID1536644940"/>
         <placeend idref="ID1536591430"/>
-        <annot id="ID1590762484">
+        <annot id="ID1590765106">
           <posattr x="-612.000000"
                    y="490.000000"/>
           <fillattr colour="White"
@@ -21806,7 +21805,7 @@ else id&apos;</text>
         <text>use (cpnmcdclibpath^&quot;config/simrun.sml&quot;);</text>
       </Aux>
       <Aux id="ID1590761172">
-        <posattr x="-210.000000"
+        <posattr x="-325.000000"
                  y="210.000000"/>
         <fillattr colour="White"
                   pattern=""
@@ -21817,7 +21816,7 @@ else id&apos;</text>
         <textattr colour="Black"
                   bold="false"/>
         <label/>
-        <text>mcdcgen ();</text>
+        <text>mcdcgen (&quot;CPNmodels/Paxos/paxos.txt&quot;);</text>
       </Aux>
       <Aux id="ID1590761241">
         <posattr x="-336.000000"
@@ -22176,10 +22175,10 @@ else id&apos;</text>
     </options>
     <binders>
       <cpnbinder id="ID1547630586"
-                 x="216"
-                 y="23"
-                 width="1640"
-                 height="880">
+                 x="343"
+                 y="45"
+                 width="1531"
+                 height="730">
         <sheets>
           <cpnsheet id="ID1590748444"
                     panx="268.909424"
@@ -22200,8 +22199,8 @@ else id&apos;</text>
             </zorder>
           </cpnsheet>
           <cpnsheet id="ID1590760766"
-                    panx="76.000000"
-                    pany="23.000000"
+                    panx="78.000000"
+                    pany="22.000000"
                     zoom="1.000000"
                     instance="ID1590760678">
             <zorder>
@@ -22226,7 +22225,52 @@ else id&apos;</text>
               <position value="0"/>
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1590764647"
+          <cpnsheet id="ID1590787637"
+                    panx="64.000000"
+                    pany="-27.000000"
+                    zoom="1.000000"
+                    instance="ID1412449298">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1590787991"
+                    panx="457.000000"
+                    pany="86.000000"
+                    zoom="1.000000"
+                    instance="ID1412840905">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1590789011"
+                    panx="691.000000"
+                    pany="78.000000"
+                    zoom="1.000000"
+                    instance="ID1412840236">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1590790762"
+                    panx="191.000000"
+                    pany="109.000000"
+                    zoom="1.000000"
+                    instance="ID1412449544">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1590791129"
+                    panx="-170.000000"
+                    pany="139.000000"
+                    zoom="1.000000"
+                    instance="ID1413813270">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1590798486"
                     panx="297.000000"
                     pany="210.000000"
                     zoom="1.000000"
@@ -22235,8 +22279,8 @@ else id&apos;</text>
               <position value="0"/>
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1590764830"
-                    panx="464.000000"
+          <cpnsheet id="ID1590798913"
+                    panx="551.000000"
                     pany="230.000000"
                     zoom="1.000000"
                     instance="ID1536591530">
@@ -22244,15 +22288,81 @@ else id&apos;</text>
               <position value="0"/>
             </zorder>
           </cpnsheet>
+          <cpnsheet id="ID1590799764"
+                    panx="763.000000"
+                    pany="997.000000"
+                    zoom="1.000000"
+                    instance="ID1536588798">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1590800627"
+                    panx="264.000000"
+                    pany="202.000000"
+                    zoom="1.000000"
+                    instance="ID1412449048">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1590801069"
+                    panx="598.000000"
+                    pany="45.000000"
+                    zoom="1.000000"
+                    instance="ID1413848937">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1590802389"
+                    panx="212.000000"
+                    pany="204.000000"
+                    zoom="1.000000"
+                    instance="ID1412977708">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1590803288"
+                    panx="146.000000"
+                    pany="26.000000"
+                    zoom="1.000000"
+                    instance="ID1412978650">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1590804199"
+                    panx="603.000000"
+                    pany="119.000000"
+                    zoom="1.000000"
+                    instance="ID1537122435">
+            <zorder>
+              <position value="0"/>
+              <position value="1"/>
+            </zorder>
+          </cpnsheet>
         </sheets>
         <zorder>
+          <position value="0"/>
           <position value="2"/>
           <position value="3"/>
           <position value="4"/>
-          <position value="0"/>
+          <position value="11"/>
+          <position value="12"/>
+          <position value="14"/>
+          <position value="15"/>
+          <position value="16"/>
+          <position value="13"/>
+          <position value="17"/>
+          <position value="10"/>
+          <position value="9"/>
+          <position value="8"/>
           <position value="1"/>
           <position value="5"/>
           <position value="6"/>
+          <position value="7"/>
         </zorder>
       </cpnbinder>
     </binders>
@@ -22335,7 +22445,7 @@ else id&apos;</text>
       <IndexNode expanded="false">
         <IndexNode expanded="false"/>
       </IndexNode>
-      <IndexNode expanded="false">
+      <IndexNode expanded="true">
         <IndexNode expanded="true">
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>

@@ -21,3 +21,5 @@ if __name__ == "__main__":
     for key in d:
         print(d[key])
         print(d[key].remaining_conditions())
+        b, r = d[key].is_mcdc_covered()
+        print('MCDC covered? {0}\tR {1}'.format(b, r))

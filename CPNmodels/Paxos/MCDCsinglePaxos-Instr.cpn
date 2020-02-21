@@ -7558,7 +7558,7 @@ Detector</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1590765100">
+        <annot id="ID1590804469">
           <posattr x="-515.000000"
                    y="263.000000"/>
           <fillattr colour="White"
@@ -7847,7 +7847,7 @@ Detector</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1590765101">
+        <annot id="ID1590804470">
           <posattr x="-515.000000"
                    y="375.000000"/>
           <fillattr colour="White"
@@ -9948,7 +9948,7 @@ Prepare</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1590765102">
+        <annot id="ID1590804471">
           <posattr x="-344.000000"
                    y="296.000000"/>
           <fillattr colour="White"
@@ -14402,7 +14402,7 @@ Value</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1590765103">
+        <annot id="ID1590804472">
           <posattr x="-741.000000"
                    y="557.000000"/>
           <fillattr colour="White"
@@ -14479,7 +14479,7 @@ Value</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1590765104">
+        <annot id="ID1590804473">
           <posattr x="-741.000000"
                    y="368.000000"/>
           <fillattr colour="White"
@@ -16055,7 +16055,7 @@ Value</text>
                    currentcyckle="2"/>
         <transend idref="ID1547605490"/>
         <placeend idref="ID1547605506"/>
-        <annot id="ID1590765105">
+        <annot id="ID1590804474">
           <posattr x="-589.000000"
                    y="360.000000"/>
           <fillattr colour="White"
@@ -21144,7 +21144,7 @@ Counter</text>
                    currentcyckle="2"/>
         <transend idref="ID1536644940"/>
         <placeend idref="ID1536591430"/>
-        <annot id="ID1590765106">
+        <annot id="ID1590804475">
           <posattr x="-612.000000"
                    y="490.000000"/>
           <fillattr colour="White"
@@ -21816,7 +21816,7 @@ else id&apos;</text>
         <textattr colour="Black"
                   bold="false"/>
         <label/>
-        <text>mcdcgen (&quot;CPNmodels/Paxos/paxos.txt&quot;);</text>
+        <text>mcdcgen (&quot;CPNmodels/Paxos/paxos.log&quot;);</text>
       </Aux>
       <Aux id="ID1590761241">
         <posattr x="-336.000000"
@@ -22346,7 +22346,6 @@ else id&apos;</text>
         </sheets>
         <zorder>
           <position value="0"/>
-          <position value="2"/>
           <position value="3"/>
           <position value="4"/>
           <position value="11"/>
@@ -22363,6 +22362,7 @@ else id&apos;</text>
           <position value="5"/>
           <position value="6"/>
           <position value="7"/>
+          <position value="2"/>
         </zorder>
       </cpnbinder>
     </binders>
@@ -22442,9 +22442,7 @@ else id&apos;</text>
           <IndexNode expanded="false"/>
         </IndexNode>
       </IndexNode>
-      <IndexNode expanded="false">
-        <IndexNode expanded="false"/>
-      </IndexNode>
+      <IndexNode expanded="false"/>
       <IndexNode expanded="true">
         <IndexNode expanded="true">
           <IndexNode expanded="true"/>

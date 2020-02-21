@@ -9,8 +9,8 @@
     <globbox>
       <block id="ID1519728049">
         <id>MBT</id>
-        <ml id="ID1519728277">val cpnmcdclibpath =  &quot;C:/Users/faustin/Desktop/cpnmcdctesting/&quot;;
-          <layout>val cpnmcdclibpath =  &quot;C:/Users/faustin/Desktop/cpnmcdctesting/&quot;;</layout>
+        <ml id="ID1519728277">val cpnmcdclibpath =  &quot;../../&quot;;
+          <layout>val cpnmcdclibpath =  &quot;../../&quot;;</layout>
         </ml>
         <ml id="ID1519728206">val fmodelpath = cpnmcdclibpath^&quot;/examples/tpc/&quot;;
           <layout>val fmodelpath = cpnmcdclibpath^&quot;/examples/tpc/&quot;;</layout>
@@ -21569,7 +21569,7 @@ counter
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1421855232">
-          <posattr x="-230.500000"
+          <posattr x="-249.500000"
                    y="-30.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -21580,7 +21580,7 @@ counter
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">EXPR(&quot;fcda3&quot;, AND(AP(&quot;1&quot;,u1&gt;0), OR(AP(&quot;2&quot;, z=0 ), AP(&quot;3&quot;, not (mem l&apos; z)))))</text>
+                version="4.0.1">EXPR(&quot;NOuppera7&quot;, AND(AP(&quot;1&quot;,u1&gt;0), OR(AP(&quot;2&quot;, z=0 ), AP(&quot;3&quot;, not (mem l&apos; z)))))</text>
         </cond>
         <time id="ID1421855233">
           <posattr x="165.500000"
@@ -22661,7 +22661,7 @@ Lists Initiaton
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1421771087">
-          <posattr x="-385.500000"
+          <posattr x="-386.000000"
                    y="-25.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -22672,7 +22672,7 @@ Lists Initiaton
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">EXPR(&quot;fcda3&quot;, AND(OR(AP(&quot;2&quot;, z=0 ), AP(&quot;3&quot;, not (mem l&apos; z))), AP(&quot;1&quot;,u1&gt;0)))</text>
+                version="4.0.1">EXPR(&quot;NOa7&quot;, AND(AP(&quot;1&quot;,u1&gt;0), OR(AP(&quot;2&quot;, z=0 ), AP(&quot;3&quot;, not (mem l&apos; z)))))</text>
         </cond>
         <time id="ID1421771088">
           <posattr x="165.500000"
@@ -24231,7 +24231,7 @@ by decr
         <textattr colour="Black"
                   bold="false"/>
         <label/>
-        <text>mcdcgen (&quot;CPNmodels/CPNABS/cpnabs.txt&quot;);</text>
+        <text>mcdcgen (&quot;CPNmodels/CPNABS/cpnabs.log&quot;);</text>
       </Aux>
       <Aux id="ID1519728645">
         <posattr x="-378.000000"
@@ -24328,7 +24328,7 @@ by decr
           <text>&lt;same as model&gt;</text>
         </value>
       </option>
-      <option name="extensions.10006.enable">
+      <option name="extensions.10007.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -24338,12 +24338,7 @@ by decr
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10001.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10007.enable">
+      <option name="extensions.10002.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -24353,12 +24348,17 @@ by decr
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10002.enable">
+      <option name="extensions.10001.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10011.enable">
+      <option name="extensions.10006.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10003.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -24368,7 +24368,7 @@ by decr
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10003.enable">
+      <option name="extensions.10011.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -24581,10 +24581,10 @@ by decr
     </options>
     <binders>
       <cpnbinder id="ID1421566768"
-                 x="104"
-                 y="57"
-                 width="1680"
-                 height="867">
+                 x="203"
+                 y="94"
+                 width="1753"
+                 height="898">
         <sheets>
           <cpnsheet id="ID2215"
                     panx="-97.801594"
@@ -24721,15 +24721,6 @@ by decr
               <position value="0"/>
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1519833587"
-                    panx="0.000000"
-                    pany="-63.000000"
-                    zoom="1.000000"
-                    instance="ID1421855368">
-            <zorder>
-              <position value="0"/>
-            </zorder>
-          </cpnsheet>
           <cpnsheet id="ID1519834305"
                     panx="-90.000000"
                     pany="404.000000"
@@ -24739,23 +24730,42 @@ by decr
               <position value="0"/>
             </zorder>
           </cpnsheet>
+          <cpnsheet id="ID1519838180"
+                    panx="40.000000"
+                    pany="-175.000000"
+                    zoom="1.000000"
+                    instance="ID1421771170">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1519833587"
+                    panx="0.000000"
+                    pany="-63.000000"
+                    zoom="1.000000"
+                    instance="ID1421855368">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
         </sheets>
         <zorder>
-          <position value="2"/>
           <position value="3"/>
-          <position value="4"/>
           <position value="5"/>
           <position value="6"/>
-          <position value="7"/>
           <position value="8"/>
           <position value="9"/>
           <position value="10"/>
           <position value="11"/>
-          <position value="12"/>
+          <position value="15"/>
+          <position value="4"/>
+          <position value="2"/>
+          <position value="7"/>
           <position value="13"/>
           <position value="14"/>
-          <position value="15"/>
+          <position value="12"/>
           <position value="16"/>
+          <position value="17"/>
           <position value="0"/>
           <position value="1"/>
         </zorder>
@@ -24840,7 +24850,7 @@ by decr
       <IndexNode expanded="false">
         <IndexNode expanded="false"/>
       </IndexNode>
-      <IndexNode expanded="false">
+      <IndexNode expanded="true">
         <IndexNode expanded="true">
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>

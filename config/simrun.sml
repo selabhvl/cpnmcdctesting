@@ -1,4 +1,4 @@
-fun mcdcgen (logfilename) =
+fun mcdcgenTimeout (timeout, logfilename) =
   let
       val _ = Logging.start(logfilename);
 
@@ -7,6 +7,12 @@ fun mcdcgen (logfilename) =
       val _ = CPN'Sim.init_all();
       (* If this bails out, you did not load the SS-tool in the model yet *)
       val _ = DeleteStateSpace();
+      val _ = OGSet.StopOptions{
+        Nodes = NoLimit,
+        Arcs = NoLimit,
+        Secs = timeout,
+        Predicate = fn _ => false
+      };
       val _ = CalculateOccGraph();
 
       val _ = Logging.log "MCDC instrumentation stopped";
@@ -15,3 +21,5 @@ fun mcdcgen (logfilename) =
   in
       ()
   end;
+
+fun mcdcgen (logfilename) = mcdcgenTimeout(0,logfilename);

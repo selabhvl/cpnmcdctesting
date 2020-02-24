@@ -16,7 +16,8 @@ class MCDC_Table:
         # l = ['{0}\t{1}\n'.format(bin(i), bin(self.table[i])) for i in self.table.keys()]
         # l = ['{0:0{pad}b}\t{1:0b}\n'.format(i, self.table[i], pad=self.num_truth_values) for i in self.table.keys()]
         l = ['{0}\t{1}\n'.format(self._key_str(i), self._val_str(self.table[i])) for i in sorted(self.table.keys())]
-        return '{0}\n{1}'.format(self.name, red(lambda a, b: a + b, l))
+        rows = red(lambda a, b: a + b, l)
+        return '{0}\n{1}'.format(self.name, rows.rstrip())
 
     def __len__(self):
         # type: (MCDC_Table) -> int
@@ -30,7 +31,7 @@ class MCDC_Table:
         # type: (MCDC_Table) -> str
         return '{0:0b}'.format(val)
 
-    def num_truth_values(self):
+    def num_conditions(self):
         # type: (MCDC_Table) -> int
         return self.num_truth_values
 
@@ -59,8 +60,19 @@ class MCDC_Table:
 
             self.table[dec] = val
 
+    def remove(self, truth_values):
+        # type: (MCDC_Table, str) -> None
+        dec = int(truth_values, 2)
+        del self.table[dec]
+
+    def conditions(self):
+        # type: (MCDC_Table) -> list
+        # Returns all the entries in the truth table (i.e., only the conditions, not the result expression)
+        return list(self._key_str(i) for i in self.table.keys())
+
     def remaining_conditions(self):
         # type: (MCDC_Table) -> (int, iter)
+        # Generates all the combinations that are not included in the truth table
         total_number_conditions = 0
         if self.num_truth_values is not None:
             total_number_conditions = pow(2, self.num_truth_values)

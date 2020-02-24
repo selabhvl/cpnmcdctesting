@@ -27,18 +27,18 @@ Test2
 The expression we evaluate is:
 (A || B) && (C || D)
 
-TODO: Complete
-
 A: (u == 0)	B: (x>5)	C: (y<6)	D: (z == 0)	
 
 |Test case nº |  A  |  B  |  C  |  D  | (A and B) and (C or D) |
 |:------------: | :----: | :----: | :----: | :----: | :----: | 
-| 1	| F |	| F |	| F |	| F |	| F |
-| 2	| F |	| F |	| F |	| T |	| F |
-| 3	| F |	| F |	| T |	| _ |	| F |
-| 4	| F |	| T |	| F |	| F |	| F |
-| 5	| F |	| T |	| F |	| T |	| T |
-| 6	| F |	| T |	| T |	| _ |	| T |
-| 7	| T |	| _ |	| F |	| F |	| F |
-| 8	| T |	| _ |	| F |	| T |	| T |
-| 9	| T |	| _ |	| T |	| _ |	| T |
+| 1	| F | F | F | F | F |
+| 2	| F | F | F | T | F |
+| 3	| F | F | T | _ | F |
+| 4	| F | T | F | F | F |
+| 5	| F | T | F | T | T |
+| 6	| F | T | T | _ | T |
+| 7	| T | _ | F | F | F |
+| 8	| T | _ | F | T | T |
+| 9	| T | _ | T | _ | T |
+
+For **Modified condition/decision coverage** (MC/DC), it's enough to evaluate test cases nº 2, 5, 7, 8 and 9.

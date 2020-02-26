@@ -20,8 +20,16 @@ if __name__ == "__main__":
     gnu_data = csv.writer(gnu_file, delimiter='\t', quoting=csv.QUOTE_MINIMAL)
 
     # Statistics
-    # trans_set = set()
-    num_trans = 1.0
+    # Calculate the number of transition ins the PN for normalizing the statistics
+    trans_set = set()
+    for line in log.read_line():
+        filtered_row = log.filter_line(line)
+        if filtered_row is not None:
+            id_name, truth_values, result = filtered_row
+            trans_set.add(id_name)
+    num_trans = len(trans_set)
+
+    # Main loop
     trans_mcdc_covered = set()
     trans_branch_covered = set()
 
@@ -36,8 +44,6 @@ if __name__ == "__main__":
             id_name, truth_values, result = filtered_row
             if id_name not in trans.keys():
                 trans[id_name] = MCDC_Table(id_name)
-                # trans_set.add(id_name)
-                num_trans += 1.0
 
             trans[id_name].update(truth_values, result)
 

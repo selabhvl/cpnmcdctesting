@@ -116,8 +116,7 @@ class MCDC_Table:
         r = {key: [] for key in range(self.num_truth_values)}
         for cond in range(self.num_truth_values):
             ff_keys, tt_keys = self.partition(cond)
-            print('{0}\t0:{1}\t1:{2}'.format(cond, [self._key_str(f) for f in ff_keys],
-                                             [self._key_str(t) for t in tt_keys]))
+            # print('{0}\t0:{1}\t1:{2}'.format(cond, [self._key_str(f) for f in ff_keys], [self._key_str(t) for t in tt_keys]))
             for f_key in ff_keys:
                 # fp_key = flip2(f_key, cond)
                 fp_key = flip(f_key, self.num_truth_values - cond - 1)
@@ -126,3 +125,7 @@ class MCDC_Table:
                         r[cond] += [(f_key, fp_key)]
 
         return all(len(r[cond]) > 0 for cond in r.keys()), r
+
+    def is_branch_covered(self):
+        # type: (MCDC_Table) -> bool
+        return (True in self.table.values()) and (False in self.table.values())

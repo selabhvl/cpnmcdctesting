@@ -1,25 +1,33 @@
-fun mcdcgenTimeout (timeout, logfilename) =
+fun mcdcgenConfig (timeout, applyConfig, cs, logfilename) =
   let
       val _ = Logging.start(logfilename);
 
       val _ = Logging.log "MCDC instrumentation started";
 
       val _ = CPN'Sim.init_all();
-      (* If this bails out, you did not load the SS-tool in the model yet *)
-      val _ = DeleteStateSpace();
       val _ = OGSet.StopOptions{
         Nodes = NoLimit,
         Arcs = NoLimit,
         Secs = timeout,
         Predicate = fn _ => false
       };
+      (* If this bails out, you did not load the SS-tool in the model yet *)
+      (* We always run the base-model first. It's easy to roll your own driver *)
+      val _ = DeleteStateSpace();
       val _ = CalculateOccGraph();
-
+      (* Any further configurations? *)
+      val _ = List.foldl (fn (c,cnt) => let
+        val _ = DeleteStateSpace();
+        val _ = Logging.log ("run " ^ Int.toString cnt)
+        val _ = applyConfig c;
+        val _ = CalculateOccGraph();
+        in (cnt+1) end
+      ) 1 cs;
       val _ = Logging.log "MCDC instrumentation stopped";
       val _ = Logging.stop();
-
   in
       ()
   end;
 
+fun mcdcgenTimeout (timeout, logfilename) = mcdcgenConfig(timeout,fn f =>f,[],logfilename);
 fun mcdcgen (logfilename) = mcdcgenTimeout(0,logfilename);

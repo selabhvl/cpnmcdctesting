@@ -790,6 +790,25 @@ setTimeOutAllowed false,
 setRoles [(client(1),[subscriber,publisher]),(client(2),[subscriber,publisher])],
 setVersion acyclic
 );
+
+fun applyConfig (s,p) = let val _ = (
+
+setLimit 1, 
+setAllowSubscribe p,
+setAllowPublish s,
+setIUnsubscribe (true),
+setPidConnLimit 0,
+setPidSubLimit 0,
+setPidPubLimit 1,
+setPidUnsubLimit  2,
+setBoutmsgsBound 1,
+setTimeOutAllowed false,
+setRoles [(client(1),[subscriber,publisher]),(client(2),[subscriber,publisher])],
+setVersion acyclic
+) in () end;
+
+val co1 = ([2],[2]);
+val co2 = ([],[]);
               <layout>fun initializeConfiguration () = (
 
 setLimit 1, 
@@ -804,7 +823,26 @@ setBoutmsgsBound 1,
 setTimeOutAllowed false,
 setRoles [(client(1),[subscriber,publisher]),(client(2),[subscriber,publisher])],
 setVersion acyclic
-);</layout>
+);
+
+fun applyConfig (s,p) = let val _ = (
+
+setLimit 1, 
+setAllowSubscribe p,
+setAllowPublish s,
+setIUnsubscribe (true),
+setPidConnLimit 0,
+setPidSubLimit 0,
+setPidPubLimit 1,
+setPidUnsubLimit  2,
+setBoutmsgsBound 1,
+setTimeOutAllowed false,
+setRoles [(client(1),[subscriber,publisher]),(client(2),[subscriber,publisher])],
+setVersion acyclic
+) in () end;
+
+val co1 = ([2],[2]);
+val co2 = ([],[]);</layout>
             </ml>
             <ml id="ID1592481102">fun connectDisconnect () = (
 
@@ -10740,7 +10778,7 @@ AP(&quot;2&quot;, cLR boutmsgs)))]</text>
                    currentcyckle="2"/>
         <transend idref="ID1592510022"/>
         <placeend idref="ID1592509158"/>
-        <annot id="ID1593243920">
+        <annot id="ID1593319756">
           <posattr x="-66.000000"
                    y="1086.000000"/>
           <fillattr colour="White"
@@ -19686,7 +19724,7 @@ SUBACK</text>
                    currentcyckle="2"/>
         <transend idref="ID1592492078"/>
         <placeend idref="ID1592491972"/>
-        <annot id="ID1593243921">
+        <annot id="ID1593319757">
           <posattr x="-24.000000"
                    y="1078.000000"/>
           <fillattr colour="White"
@@ -21890,9 +21928,7 @@ AP(&quot;2&quot;,(hasCONNACK  (cs,inmsgs)))))]</text>
       <hguideline id="ID1547314809"
                   y="-831.000000"/>
       <hguideline id="ID1547316414"
-                  y="-661.000000">
-        <guideline_elm idref="ID1591843199"/>
-      </hguideline>
+                  y="-661.000000"/>
       <hguideline id="ID1591360636"
                   y="-956.000000">
         <guideline_elm idref="ID1534056936"/>
@@ -21900,9 +21936,7 @@ AP(&quot;2&quot;,(hasCONNACK  (cs,inmsgs)))))]</text>
       <vguideline id="ID1591345661"
                   x="-989.000000"/>
       <vguideline id="ID1591345869"
-                  x="-503.000000">
-        <guideline_elm idref="ID1593276717"/>
-      </vguideline>
+                  x="-503.000000"/>
     </page>
     <page id="ID1536475716">
       <pageattr name="Validation"/>
@@ -26269,7 +26303,8 @@ end;</text>
         <textattr colour="Black"
                   bold="false"/>
         <label/>
-        <text>mcdcgen (&quot;CPNmodels/MQTT/mqtt.log&quot;);</text>
+        <text>(* Invocation with default settings (no timeout) *)
+mcdcgen (&quot;CPNmodels/MQTT/mqtt.log&quot;);</text>
       </Aux>
       <Aux id="ID1593197650">
         <posattr x="-69.000000"
@@ -26298,6 +26333,21 @@ end;</text>
                   bold="false"/>
         <label/>
         <text>use (cpnmcdclibpath^&quot;config/instrumentation.sml&quot;);</text>
+      </Aux>
+      <Aux id="ID1593321969">
+        <posattr x="-381.000000"
+                 y="22.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <label/>
+        <text>(* Invocation without timeout; base model + 2 configurations *)
+mcdcgenConfig (0, applyConfig,[co1,co2],&quot;CPNmodels/MQTT/mqtt.log&quot;);</text>
       </Aux>
     </page>
     <instances>
@@ -26393,7 +26443,7 @@ end;</text>
           <text>&lt;same as model&gt;</text>
         </value>
       </option>
-      <option name="extensions.10008.enable">
+      <option name="extensions.10002.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -26413,39 +26463,9 @@ end;</text>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10004.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10007.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10011.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
       <option name="extensions.10005.enable">
         <value>
           <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10002.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10007.options.discover">
-        <value>
-          <boolean>false</boolean>
-        </value>
-      </option>
-      <option name="extensions.10011.options.disable">
-        <value>
-          <boolean>false</boolean>
         </value>
       </option>
       <option name="repavg">
@@ -26768,7 +26788,6 @@ end;</text>
           </cpnsheet>
         </sheets>
         <zorder>
-          <position value="1"/>
           <position value="9"/>
           <position value="10"/>
           <position value="7"/>
@@ -26777,10 +26796,11 @@ end;</text>
           <position value="11"/>
           <position value="12"/>
           <position value="0"/>
-          <position value="2"/>
           <position value="3"/>
           <position value="4"/>
           <position value="5"/>
+          <position value="1"/>
+          <position value="2"/>
         </zorder>
       </cpnbinder>
     </binders>
@@ -26848,21 +26868,9 @@ end;</text>
           <IndexNode expanded="false"/>
           <IndexNode expanded="false"/>
           <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-        </IndexNode>
-        <IndexNode expanded="false">
-          <IndexNode expanded="false"/>
-        </IndexNode>
-        <IndexNode expanded="false">
-          <IndexNode expanded="false"/>
         </IndexNode>
       </IndexNode>
-      <IndexNode expanded="false">
-        <IndexNode expanded="false"/>
-      </IndexNode>
+      <IndexNode expanded="false"/>
       <IndexNode expanded="true">
         <IndexNode expanded="true">
           <IndexNode expanded="true"/>

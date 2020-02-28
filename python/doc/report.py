@@ -38,6 +38,10 @@ if __name__ == "__main__":
     prev_stats = []
     stats = []
 
+    fieldnames = ['# num lines', '# mcdc coverage', '# branch coverage', '# num trans',
+                  '# trans with more than 2 conds']
+    gnu_data.writerow(fieldnames)
+
     i = 0
     for line in log.read_line():
         filtered_row = log.filter_line(line)
@@ -64,5 +68,9 @@ if __name__ == "__main__":
             if prev_stats != stats:
                 print([i] + stats)
                 gnu_data.writerow([i] + stats)
-
     gnu_file.close()
+
+    num_conds = sum(t.num_conditions() for t in trans.values())
+    num_conds_mcdc_covered = sum(t.num_conds_mcdc_covered() for t in trans.values())
+    print('num trans: {0}\tnum conds: {1}\t num conds mcdc covered: {2}'.format(num_trans, num_conds, num_conds_mcdc_covered))
+

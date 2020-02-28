@@ -33,6 +33,8 @@ if __name__ == "__main__":
     trans_mcdc_covered = set()
     trans_branch_covered = set()
 
+    num_trans_more_two_conds = 0
+
     prev_stats = []
     stats = []
 
@@ -44,6 +46,8 @@ if __name__ == "__main__":
             id_name, truth_values, result = filtered_row
             if id_name not in trans.keys():
                 trans[id_name] = MCDC_Table(id_name)
+                if len(truth_values) >= 2:
+                    num_trans_more_two_conds += 1
 
             trans[id_name].update(truth_values, result)
 
@@ -53,8 +57,10 @@ if __name__ == "__main__":
             if (id_name not in trans_branch_covered) and (trans[id_name].is_branch_covered()):
                 trans_branch_covered.add(id_name)
 
+            # Number of transitions
+            # Number of transitions with more than two conditions
             prev_stats = stats
-            stats = [len(trans_mcdc_covered)/num_trans, len(trans_branch_covered)/num_trans]
+            stats = [len(trans_mcdc_covered)/num_trans, len(trans_branch_covered)/num_trans, len(trans), num_trans_more_two_conds]
             if prev_stats != stats:
                 print([i] + stats)
                 gnu_data.writerow([i] + stats)

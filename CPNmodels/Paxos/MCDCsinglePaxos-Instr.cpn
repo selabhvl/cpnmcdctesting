@@ -5311,8 +5311,8 @@ else (id, rnd, (vrnd,vvalue))</text>
     <page id="ID1412840857">
       <pageattr name="Handle Accept"/>
       <place id="ID1412840876">
-        <posattr x="-822.000000"
-                 y="42.000000"/>
+        <posattr x="-756.000000"
+                 y="69.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -5335,8 +5335,8 @@ Accept</text>
                 anchor.vertical="2"/>
         </marking>
         <type id="ID1412840877">
-          <posattr x="-734.500000"
-                   y="15.000000"/>
+          <posattr x="-748.000000"
+                   y="116.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5349,8 +5349,8 @@ Accept</text>
                 version="4.0.1">ReplicaIDxMessage</text>
         </type>
         <initmark id="ID1412840878">
-          <posattr x="-763.000000"
-                   y="68.000000"/>
+          <posattr x="-697.000000"
+                   y="95.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5364,8 +5364,8 @@ Accept</text>
         </initmark>
         <port id="ID1412840879"
               type="In">
-          <posattr x="-822.000000"
-                   y="14.000000"/>
+          <posattr x="-792.000000"
+                   y="91.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5377,8 +5377,8 @@ Accept</text>
         </port>
       </place>
       <place id="ID1412851774">
-        <posattr x="-294.000000"
-                 y="-42.000000"/>
+        <posattr x="-313.000000"
+                 y="69.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -5400,8 +5400,8 @@ Accept</text>
                 anchor.vertical="0"/>
         </marking>
         <type id="ID1412851775">
-          <posattr x="-208.500000"
-                   y="-65.000000"/>
+          <posattr x="-353.000000"
+                   y="26.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5414,8 +5414,8 @@ Accept</text>
                 version="4.0.1">ReplicaIDxMessage</text>
         </type>
         <initmark id="ID1412851776">
-          <posattr x="-237.000000"
-                   y="-18.000000"/>
+          <posattr x="-256.000000"
+                   y="92.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5429,8 +5429,8 @@ Accept</text>
         </initmark>
         <port id="ID1412851777"
               type="Out">
-          <posattr x="-294.000000"
-                   y="-66.000000"/>
+          <posattr x="-313.000000"
+                   y="45.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5442,8 +5442,8 @@ Accept</text>
         </port>
       </place>
       <place id="ID1413425794">
-        <posattr x="-294.000000"
-                 y="182.000000"/>
+        <posattr x="-559.000000"
+                 y="336.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -5458,16 +5458,16 @@ State</text>
                  h="62.000000"/>
         <token x="-60.000000"
                y="35.000000"/>
-        <marking x="0.000000"
-                 y="0.000000"
+        <marking x="43.000000"
+                 y="-10.000000"
                  hidden="false">
           <snap snap_id="0"
-                anchor.horizontal="0"
-                anchor.vertical="0"/>
+                anchor.horizontal="1"
+                anchor.vertical="1"/>
         </marking>
         <type id="ID1413425795">
-          <posattr x="-164.500000"
-                   y="152.000000"/>
+          <posattr x="-559.000000"
+                   y="378.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5480,8 +5480,8 @@ State</text>
                 version="4.0.1">ReplicaIDxRndxAcceptedMessage</text>
         </type>
         <initmark id="ID1413425796">
-          <posattr x="-226.000000"
-                   y="213.000000"/>
+          <posattr x="-491.000000"
+                   y="367.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5495,8 +5495,8 @@ State</text>
         </initmark>
         <port id="ID1413425797"
               type="I/O">
-          <posattr x="-329.000000"
-                   y="157.000000"/>
+          <posattr x="-594.000000"
+                   y="311.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5510,7 +5510,7 @@ State</text>
       <trans id="ID1412840859"
              explicit="false">
         <posattr x="-546.000000"
-                 y="42.000000"/>
+                 y="69.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -5526,8 +5526,8 @@ Accept</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1412840860">
-          <posattr x="-691.500000"
-                   y="133.000000"/>
+          <posattr x="-545.000000"
+                   y="-36.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5541,7 +5541,7 @@ Accept</text>
         </cond>
         <time id="ID1412840861">
           <posattr x="-480.500000"
-                   y="133.000000"/>
+                   y="160.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5555,7 +5555,7 @@ Accept</text>
         </time>
         <code id="ID1412840862">
           <posattr x="-460.500000"
-                   y="-70.000000"/>
+                   y="-43.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5569,7 +5569,7 @@ Accept</text>
         </code>
         <priority id="ID1412840864">
           <posattr x="-635.000000"
-                   y="-49.000000"/>
+                   y="-22.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5600,8 +5600,8 @@ Accept</text>
         <transend idref="ID1412840859"/>
         <placeend idref="ID1412851774"/>
         <annot id="ID1413113549">
-          <posattr x="-259.000000"
-                   y="5.000000"/>
+          <posattr x="-376.000000"
+                   y="115.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5633,10 +5633,10 @@ else empty</text>
                    currentcyckle="2"/>
         <transend idref="ID1412840859"/>
         <placeend idref="ID1413425794"/>
-        <bendpoint id="ID1413463812"
+        <bendpoint id="ID1593250977"
                    serial="1">
-          <posattr x="-420.000000"
-                   y="182.000000"/>
+          <posattr x="-546.000000"
+                   y="294.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5647,8 +5647,8 @@ else empty</text>
                     bold="false"/>
         </bendpoint>
         <annot id="ID1413463811">
-          <posattr x="-409.000000"
-                   y="225.000000"/>
+          <posattr x="-440.000000"
+                   y="235.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5680,23 +5680,10 @@ else (id, rnd, (vrnd,vvalue))</text>
                    currentcyckle="2"/>
         <transend idref="ID1412840859"/>
         <placeend idref="ID1413425794"/>
-        <bendpoint id="ID1546702614"
+        <bendpoint id="ID1593251518"
                    serial="1">
-          <posattr x="-389.000000"
-                   y="70.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-        </bendpoint>
-        <bendpoint id="ID1546701080"
-                   serial="2">
-          <posattr x="-294.000000"
-                   y="145.000000"/>
+          <posattr x="-559.000000"
+                   y="294.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5707,8 +5694,8 @@ else (id, rnd, (vrnd,vvalue))</text>
                     bold="false"/>
         </bendpoint>
         <annot id="ID1413540041">
-          <posattr x="-270.000000"
-                   y="95.000000"/>
+          <posattr x="-664.000000"
+                   y="256.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5739,8 +5726,8 @@ else (id, rnd, (vrnd,vvalue))</text>
         <transend idref="ID1412840859"/>
         <placeend idref="ID1412840876"/>
         <annot id="ID1546660892">
-          <posattr x="-693.000000"
-                   y="53.000000"/>
+          <posattr x="-708.000000"
+                   y="34.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -7558,7 +7545,7 @@ Detector</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1590804469">
+        <annot id="ID1593243887">
           <posattr x="-515.000000"
                    y="263.000000"/>
           <fillattr colour="White"
@@ -7847,7 +7834,7 @@ Detector</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1590804470">
+        <annot id="ID1593243888">
           <posattr x="-515.000000"
                    y="375.000000"/>
           <fillattr colour="White"
@@ -9948,7 +9935,7 @@ Prepare</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1590804471">
+        <annot id="ID1593243889">
           <posattr x="-344.000000"
                    y="296.000000"/>
           <fillattr colour="White"
@@ -14402,7 +14389,7 @@ Value</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1590804472">
+        <annot id="ID1593243890">
           <posattr x="-741.000000"
                    y="557.000000"/>
           <fillattr colour="White"
@@ -14479,7 +14466,7 @@ Value</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1590804473">
+        <annot id="ID1593243891">
           <posattr x="-741.000000"
                    y="368.000000"/>
           <fillattr colour="White"
@@ -16055,7 +16042,7 @@ Value</text>
                    currentcyckle="2"/>
         <transend idref="ID1547605490"/>
         <placeend idref="ID1547605506"/>
-        <annot id="ID1590804474">
+        <annot id="ID1593243892">
           <posattr x="-589.000000"
                    y="360.000000"/>
           <fillattr colour="White"
@@ -21144,7 +21131,7 @@ Counter</text>
                    currentcyckle="2"/>
         <transend idref="ID1536644940"/>
         <placeend idref="ID1536591430"/>
-        <annot id="ID1590804475">
+        <annot id="ID1593243893">
           <posattr x="-612.000000"
                    y="490.000000"/>
           <fillattr colour="White"
@@ -21922,32 +21909,17 @@ else id&apos;</text>
           <text>&lt;same as model&gt;</text>
         </value>
       </option>
-      <option name="extensions.10007.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
       <option name="extensions.10008.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10002.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10005.enable">
+      <option name="extensions.10006.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
       <option name="extensions.10001.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10006.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -21962,7 +21934,22 @@ else id&apos;</text>
           <boolean>true</boolean>
         </value>
       </option>
+      <option name="extensions.10007.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
       <option name="extensions.10011.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10005.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10002.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -22346,23 +22333,23 @@ else id&apos;</text>
         </sheets>
         <zorder>
           <position value="0"/>
+          <position value="1"/>
+          <position value="2"/>
           <position value="3"/>
+          <position value="5"/>
           <position value="4"/>
-          <position value="11"/>
-          <position value="12"/>
-          <position value="14"/>
           <position value="15"/>
           <position value="16"/>
-          <position value="13"/>
           <position value="17"/>
-          <position value="10"/>
-          <position value="9"/>
-          <position value="8"/>
-          <position value="1"/>
-          <position value="5"/>
+          <position value="14"/>
+          <position value="13"/>
           <position value="6"/>
           <position value="7"/>
-          <position value="2"/>
+          <position value="8"/>
+          <position value="9"/>
+          <position value="10"/>
+          <position value="11"/>
+          <position value="12"/>
         </zorder>
       </cpnbinder>
     </binders>
@@ -22442,7 +22429,9 @@ else id&apos;</text>
           <IndexNode expanded="false"/>
         </IndexNode>
       </IndexNode>
-      <IndexNode expanded="false"/>
+      <IndexNode expanded="false">
+        <IndexNode expanded="false"/>
+      </IndexNode>
       <IndexNode expanded="true">
         <IndexNode expanded="true">
           <IndexNode expanded="true"/>

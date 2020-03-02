@@ -42,9 +42,11 @@ if __name__ == "__main__":
                   '# trans with more than 2 conds']
     gnu_data.writerow(fieldnames)
 
+    last = 0
     i = 0
     for line in log.read_line():
         filtered_row = log.filter_line(line)
+        last += 1
         if filtered_row is not None:
             i += 1
             id_name, truth_values, result = filtered_row
@@ -68,6 +70,10 @@ if __name__ == "__main__":
             if prev_stats != stats:
                 print([i] + stats)
                 gnu_data.writerow([i] + stats)
+
+    # Print final value with last line no. Not yet sure if that's useful,
+    # since on long traces it will squeeeeeze everything to the left:
+    # gnu_data.writerow([last] + stats)
     gnu_file.close()
 
     num_conds = sum(t.num_conditions() for t in trans.values())

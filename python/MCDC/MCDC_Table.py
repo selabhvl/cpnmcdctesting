@@ -97,6 +97,11 @@ class MCDC_Table:
         # return sorted(ff, key=lambda x: int(x,2)), sorted(tt, key=lambda x: int(x,2))
         return sorted(ff), sorted(tt)
 
+    def num_conds_mcdc_covered(self):
+        _, conds = self.is_mcdc_covered()
+        num_conds_covered = sum(c != [] for c in conds.values())
+        return num_conds_covered
+
     def is_mcdc_covered(self):
         # type: (MCDC_Table) -> (bool, dict)
         def flip(f, c):

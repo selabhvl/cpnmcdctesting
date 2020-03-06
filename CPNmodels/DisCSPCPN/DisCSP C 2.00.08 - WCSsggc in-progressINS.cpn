@@ -7,6 +7,20 @@
              format="6"/>
   <cpnet>
     <globbox>
+      <block id="ID1561293169">
+        <id>MBT</id>
+      </block>
+      <ml id="ID1561293377">val cpnmcdclibpath =  &quot;../../&quot;;
+        <layout>val cpnmcdclibpath =  &quot;../../&quot;;</layout>
+      </ml>
+      <use id="ID1561293301">
+        <ml>(cpnmcdclibpath^&quot;config/logging.sml&quot;)</ml>
+        <layout>use (cpnmcdclibpath^&quot;config/logging.sml&quot;);</layout>
+      </use>
+      <use id="ID1561293237">
+        <ml>(cpnmcdclibpath^&quot;config/instrumentation.sml&quot;)</ml>
+        <layout>use (cpnmcdclibpath^&quot;config/instrumentation.sml&quot;);</layout>
+      </use>
       <block id="ID1412310166">
         <id>Standard priorities</id>
         <ml id="ID1412310255">val P_HIGH = 100;
@@ -2682,12 +2696,12 @@ nogoods</text>
                  h="56.000000"/>
         <token x="-60.000000"
                y="32.000000"/>
-        <marking x="-5.000000"
-                 y="-24.000000"
+        <marking x="-14.000000"
+                 y="13.000000"
                  hidden="false">
-          <snap snap_id="0"
-                anchor.horizontal="2"
-                anchor.vertical="1"/>
+          <snap snap_id="3"
+                anchor.horizontal="1"
+                anchor.vertical="2"/>
         </marking>
         <type id="ID1545840759">
           <posattr x="147.500000"
@@ -2735,12 +2749,12 @@ view</text>
                  h="56.000000"/>
         <token x="-110.000000"
                y="0.000000"/>
-        <marking x="-18.000000"
-                 y="67.000000"
+        <marking x="92.000000"
+                 y="5.000000"
                  hidden="false">
           <snap snap_id="0"
                 anchor.horizontal="1"
-                anchor.vertical="2"/>
+                anchor.vertical="1"/>
         </marking>
         <type id="ID1545845354">
           <posattr x="157.500000"
@@ -3105,8 +3119,8 @@ msg</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1545880056">
-          <posattr x="-783.000000"
-                   y="235.000000"/>
+          <posattr x="-621.000000"
+                   y="241.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3116,7 +3130,7 @@ msg</text>
           <textattr colour="Blue"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[(#sbj msg)= isOk orelse (#sbj msg)=noGood orelse (#sbj msg)=Mix]</text>
+                version="4.0.1">[EXPR(&quot;t1HM&quot;, OR(OR(AP(&quot;1&quot;, (#sbj msg)= isOk), AP(&quot;2&quot;, (#sbj msg)=noGood )), AP(&quot;3&quot;, (#sbj msg)=Mix)))]</text>
         </cond>
         <time id="ID1545880057">
           <posattr x="-27.500000"
@@ -3133,8 +3147,8 @@ msg</text>
                 version="4.0.1"/>
         </time>
         <code id="ID1545880058">
-          <posattr x="-742.000000"
-                   y="198.000000"/>
+          <posattr x="-863.000000"
+                   y="168.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3183,8 +3197,8 @@ value</text>
         <binding x="15.200000"
                  y="-104.000000"/>
         <cond id="ID1545880878">
-          <posattr x="-926.500000"
-                   y="-81.000000"/>
+          <posattr x="-870.500000"
+                   y="-75.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3194,7 +3208,7 @@ value</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[cval&lt;&gt;tag]</text>
+                version="4.0.1">[EXPR(&quot;t3CV&quot;, AP(&quot;1&quot;, cval&lt;&gt;tag))]</text>
         </cond>
         <time id="ID1545880879">
           <posattr x="-27.500000"
@@ -3211,8 +3225,8 @@ value</text>
                 version="4.0.1"/>
         </time>
         <code id="ID1545880880">
-          <posattr x="-733.000000"
-                   y="-121.000000"/>
+          <posattr x="-828.000000"
+                   y="-139.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3261,8 +3275,8 @@ consist_dom</text>
         <binding x="-180.800000"
                  y="-134.000000"/>
         <cond id="ID1545881703">
-          <posattr x="-607.500000"
-                   y="57.000000"/>
+          <posattr x="-679.000000"
+                   y="52.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3272,7 +3286,7 @@ consist_dom</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[condx(id, p, aview) andalso guardChooseCVal(id, l&apos;val, p, aview, l&apos;rng)]</text>
+                version="4.0.1">[EXPR(&quot;t2ccd&quot;, AND(AP(&quot;1&quot;, condx(id, p, aview)), AP(&quot;2&quot;, guardChooseCVal(id, l&apos;val, p, aview, l&apos;rng))))]</text>
         </cond>
         <time id="ID1545881704">
           <posattr x="-19.500000"
@@ -3289,8 +3303,8 @@ consist_dom</text>
                 version="4.0.1"/>
         </time>
         <code id="ID1545881705">
-          <posattr x="-760.500000"
-                   y="-5.000000"/>
+          <posattr x="-833.500000"
+                   y="-13.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3339,8 +3353,8 @@ Backtrack</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1545882531">
-          <posattr x="-927.000000"
-                   y="-273.000000"/>
+          <posattr x="-627.000000"
+                   y="-509.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3350,7 +3364,7 @@ Backtrack</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[condx(id, p, aview) andalso guardBacktrack(id, p, aview, l&apos;sng, l&apos;rng)]</text>
+                version="4.0.1">[EXPR(&quot;t5pbt&quot;, AND(AP(&quot;1&quot;, condx(id, p, aview)), AP(&quot;2&quot;, guardBacktrack(id, p, aview, l&apos;sng, l&apos;rng))))]</text>
         </cond>
         <time id="ID1545882532">
           <posattr x="-24.500000"
@@ -3367,8 +3381,8 @@ Backtrack</text>
                 version="4.0.1"/>
         </time>
         <code id="ID1545882533">
-          <posattr x="-844.000000"
-                   y="-313.000000"/>
+          <posattr x="-801.000000"
+                   y="-435.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3416,8 +3430,8 @@ actionBackTrack1(id, l&apos;val, aview, l&apos;rng);</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1545887512">
-          <posattr x="-934.500000"
-                   y="-167.000000"/>
+          <posattr x="-857.500000"
+                   y="-249.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3427,7 +3441,7 @@ actionBackTrack1(id, l&apos;val, aview, l&apos;rng);</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[cval&lt;&gt;tag]</text>
+                version="4.0.1">[EXPR(&quot;t4bt&quot;, AP(&quot;1&quot;, cval&lt;&gt;tag))]</text>
         </cond>
         <time id="ID1545887513">
           <posattr x="-30.500000"
@@ -3444,8 +3458,8 @@ actionBackTrack1(id, l&apos;val, aview, l&apos;rng);</text>
                 version="4.0.1"/>
         </time>
         <code id="ID1545887514">
-          <posattr x="-801.500000"
-                   y="-202.000000"/>
+          <posattr x="-798.500000"
+                   y="-310.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3494,8 +3508,8 @@ solution</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1545888361">
-          <posattr x="546.000000"
-                   y="-298.000000"/>
+          <posattr x="212.000000"
+                   y="-486.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3505,7 +3519,7 @@ solution</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[false andalso guardStop(id, p, aview, l&apos;sng, l&apos;rng)]</text>
+                version="4.0.1">[EXPR(&quot;t6ns&quot;, AND(AP(&quot;1&quot;, false), AP(&quot;2&quot;, guardStop(id, p, aview, l&apos;sng, l&apos;rng))))]</text>
         </cond>
         <time id="ID1545888362">
           <posattr x="392.500000"
@@ -3522,8 +3536,8 @@ solution</text>
                 version="4.0.1"/>
         </time>
         <code id="ID1545888363">
-          <posattr x="460.500000"
-                   y="-340.000000"/>
+          <posattr x="204.500000"
+                   y="-545.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -4817,7 +4831,7 @@ actionStop2(id, l&apos;msg);</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">if cval = (~1) then (id,[]) else (id, [cval])</text>
+                version="4.0.1">if EXPR(&quot;Arc1&quot;, AP(&quot;1&quot;, cval = (~1))) then (id,[]) else (id, [cval])</text>
         </annot>
       </arc>
       <arc id="ID1546389412"
@@ -5845,8 +5859,8 @@ actionStop2(id, l&apos;msg);</text>
       </arc>
       <constraints/>
       <Aux id="ID1550762348">
-        <posattr x="-798.000000"
-                 y="98.000000"/>
+        <posattr x="-998.000000"
+                 y="84.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -5856,11 +5870,11 @@ actionStop2(id, l&apos;msg);</text>
         <textattr colour="Black"
                   bold="false"/>
         <label/>
-        <text>(id=1 orelse (id&lt;&gt;1 andalso id2=1 andalso l&apos;val2 &lt;&gt; [])) andalso</text>
+        <text>EXPR(&quot;t2ccd2&quot;, AND(OR(AP(&quot;1&quot;, id=1), (AND(AND(AP(&quot;2&quot;, id&lt;&gt;1),  AP(&quot;3&quot;, id2=1)), AP(&quot;4&quot;,  l&apos;val2 &lt;&gt; []) ) )))))</text>
       </Aux>
       <Aux id="ID1551109497">
-        <posattr x="-154.000000"
-                 y="-504.000000"/>
+        <posattr x="-193.000000"
+                 y="-546.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -6071,8 +6085,8 @@ actionStop2(id, l&apos;msg);</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1551160992">
-          <posattr x="-349.000000"
-                   y="81.000000"/>
+          <posattr x="-434.000000"
+                   y="77.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -6082,7 +6096,7 @@ actionStop2(id, l&apos;msg);</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[opp(cval, cval1)]</text>
+                version="4.0.1">[EXPR(&quot;t7f1&quot;, AP(&quot;1&quot;, opp(cval, cval1)))]</text>
         </cond>
         <time id="ID1546809368">
           <posattr x="-291.500000"
@@ -6219,8 +6233,8 @@ actionStop2(id, l&apos;msg);</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1551160723">
-          <posattr x="-130.000000"
-                   y="-12.000000"/>
+          <posattr x="-139.000000"
+                   y="-25.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -6230,7 +6244,7 @@ actionStop2(id, l&apos;msg);</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[opp(cval, cval1) andalso opp(cval1, cval2)]</text>
+                version="4.0.1">[EXPR(&quot;t8f1&quot;,AND(AP(&quot;1&quot;, opp(cval, cval1)), AP(&quot;2&quot;, opp(cval1, cval2))))]</text>
         </cond>
         <time id="ID1546814393">
           <posattr x="-13.500000"
@@ -6261,8 +6275,8 @@ actionStop2(id, l&apos;msg);</text>
                 version="4.0.1"/>
         </code>
         <priority id="ID1546814396">
-          <posattr x="-235.500000"
-                   y="-31.000000"/>
+          <posattr x="-238.500000"
+                   y="-52.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -6304,7 +6318,7 @@ actionStop2(id, l&apos;msg);</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[opp(cval, cval1) andalso opp(cval1, cval2) andalso opp(cval2, cval3)]</text>
+                version="4.0.1">[EXPR(&quot;t9f4&quot;,AND(AND(AP(&quot;1&quot;, opp(cval, cval1)) , AP(&quot;2&quot;, opp(cval1, cval2))), AP(&quot;3&quot;, opp(cval2, cval3))))]</text>
         </cond>
         <time id="ID1560840653">
           <posattr x="284.500000"
@@ -6368,7 +6382,7 @@ actionStop2(id, l&apos;msg);</text>
                  y="-3.000000"/>
         <cond id="ID1560843714">
           <posattr x="466.000000"
-                   y="136.000000"/>
+                   y="129.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -6378,7 +6392,8 @@ actionStop2(id, l&apos;msg);</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[opp(cval, cval1) andalso opp(cval1, cval2) andalso opp(cval2, cval3) andalso opp(cval3, cval4)]</text>
+                version="4.0.1">[EXPR(&quot;t10f5&quot;,AND(AND(AND(AP(&quot;1&quot;, opp(cval, cval1)), AP(&quot;2&quot;, opp(cval1, cval2))), 
+AP(&quot;3&quot;, opp(cval2, cval3))), AP(&quot;4&quot;,  opp(cval3, cval4))))]</text>
         </cond>
         <time id="ID1560843715">
           <posattr x="548.500000"
@@ -6797,6 +6812,66 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
    end;</text>
       </Aux>
     </page>
+    <page id="ID1561293413">
+      <pageattr name="MCDC"/>
+      <constraints/>
+      <Aux id="ID1561293558">
+        <posattr x="-672.000000"
+                 y="321.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <label/>
+        <text>use (cpnmcdclibpath^&quot;config/simrun.sml&quot;);</text>
+      </Aux>
+      <Aux id="ID1561293655">
+        <posattr x="-672.000000"
+                 y="252.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <label/>
+        <text>mcdcgen (&quot;CPNmodels/DisCSPCPN/DisCSPWCSsggc.log&quot;);</text>
+      </Aux>
+      <Aux id="ID1561293949">
+        <posattr x="-672.000000"
+                 y="168.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <label/>
+        <text>use (cpnmcdclibpath^&quot;config/instrumentation.sml&quot;);</text>
+      </Aux>
+      <Aux id="ID1561294088">
+        <posattr x="-672.000000"
+                 y="84.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <label/>
+        <text>use (cpnmcdclibpath^&quot;boot.sml&quot;);</text>
+      </Aux>
+    </page>
     <group id="ID1551324417"
            name="AEvents">
       <group_elm idref="ID1545880055"/>
@@ -6838,6 +6913,8 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
       </instance>
       <instance id="ID1549596121"
                 page="ID1549596119"/>
+      <instance id="ID1561293415"
+                page="ID1561293413"/>
     </instances>
     <options>
       <option name="realtimestamp">
@@ -7113,20 +7190,20 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
     </options>
     <binders>
       <cpnbinder id="ID1561288925"
-                 x="85"
-                 y="22"
-                 width="1601"
-                 height="838">
+                 x="180"
+                 y="23"
+                 width="1550"
+                 height="903">
         <sheets>
           <cpnsheet id="ID1561288911"
-                    panx="168.000000"
-                    pany="-116.000000"
+                    panx="213.000000"
+                    pany="-195.000000"
                     zoom="1.000000"
                     instance="ID2149">
             <zorder>
+              <position value="3"/>
               <position value="1"/>
               <position value="2"/>
-              <position value="3"/>
               <position value="0"/>
             </zorder>
           </cpnsheet>
@@ -7136,12 +7213,45 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
                     zoom="1.000000"
                     instance="ID1549596121">
             <zorder>
+              <position value="0"/>
+              <position value="1"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1561293497"
+                    panx="0.000000"
+                    pany="0.000000"
+                    zoom="1.000000"
+                    instance="ID1561293415">
+            <zorder>
               <position value="1"/>
               <position value="0"/>
             </zorder>
           </cpnsheet>
+          <cpnsheet id="ID1561308550"
+                    panx="-144.000000"
+                    pany="127.000000"
+                    zoom="1.000000"
+                    instance="ID1546782030">
+            <zorder>
+              <position value="0"/>
+              <position value="1"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1561314879"
+                    panx="-83.000000"
+                    pany="130.000000"
+                    zoom="1.000000"
+                    instance="ID1546940385">
+            <zorder>
+              <position value="0"/>
+              <position value="1"/>
+            </zorder>
+          </cpnsheet>
         </sheets>
         <zorder>
+          <position value="2"/>
+          <position value="4"/>
+          <position value="3"/>
           <position value="1"/>
           <position value="0"/>
         </zorder>
@@ -7454,8 +7564,14 @@ INT.mkstr_ms(Agent&apos;flag_1_mark) ^ &quot;\n&quot;;</layout>
           <IndexNode expanded="false"/>
         </IndexNode>
       </IndexNode>
-      <IndexNode expanded="false"/>
+      <IndexNode expanded="false">
+        <IndexNode expanded="false"/>
+      </IndexNode>
       <IndexNode expanded="true">
+        <IndexNode expanded="false"/>
+        <IndexNode expanded="true"/>
+        <IndexNode expanded="true"/>
+        <IndexNode expanded="true"/>
         <IndexNode expanded="false">
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>
@@ -7706,6 +7822,7 @@ INT.mkstr_ms(Agent&apos;flag_1_mark) ^ &quot;\n&quot;;</layout>
           <IndexNode expanded="true"/>
         </IndexNode>
       </IndexNode>
+      <IndexNode expanded="true"/>
       <IndexNode expanded="true"/>
     </IndexNode>
   </cpnet>

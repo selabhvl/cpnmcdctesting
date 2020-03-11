@@ -6765,12 +6765,32 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10006.enable">
+      <option name="extensions.10007.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10008.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10004.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
       <option name="extensions.10003.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10006.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10011.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -6783,6 +6803,16 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
       <option name="extensions.10005.enable">
         <value>
           <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10007.options.discover">
+        <value>
+          <boolean>false</boolean>
+        </value>
+      </option>
+      <option name="extensions.10011.options.disable">
+        <value>
+          <boolean>false</boolean>
         </value>
       </option>
       <option name="repavg">
@@ -6981,7 +7011,42 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
         </value>
       </option>
     </options>
-    <binders/>
+    <binders>
+      <cpnbinder id="ID1561062034"
+                 x="230"
+                 y="73"
+                 width="1770"
+                 height="963">
+        <sheets>
+          <cpnsheet id="ID1561062016"
+                    panx="261.000000"
+                    pany="102.000000"
+                    zoom="1.000000"
+                    instance="ID1548505640">
+            <zorder>
+              <position value="1"/>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1561062047"
+                    panx="146.000000"
+                    pany="-187.000000"
+                    zoom="1.000000"
+                    instance="ID2149">
+            <zorder>
+              <position value="0"/>
+              <position value="1"/>
+              <position value="2"/>
+              <position value="3"/>
+            </zorder>
+          </cpnsheet>
+        </sheets>
+        <zorder>
+          <position value="0"/>
+          <position value="1"/>
+        </zorder>
+      </cpnbinder>
+    </binders>
     <monitorblock name="Monitors">
       <monitor id="ID1551326535"
                name="AEvents"
@@ -7276,6 +7341,16 @@ INT.mkstr_ms(Agent&apos;flag_1_mark) ^ &quot;\n&quot;;</layout>
           <IndexNode expanded="false"/>
           <IndexNode expanded="false"/>
           <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+        </IndexNode>
+        <IndexNode expanded="false">
+          <IndexNode expanded="false"/>
+        </IndexNode>
+        <IndexNode expanded="false">
           <IndexNode expanded="false"/>
         </IndexNode>
       </IndexNode>

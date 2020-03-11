@@ -6834,12 +6834,32 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10006.enable">
+      <option name="extensions.10007.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10008.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10004.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
       <option name="extensions.10003.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10006.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10011.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -6852,6 +6872,16 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
       <option name="extensions.10005.enable">
         <value>
           <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10007.options.discover">
+        <value>
+          <boolean>false</boolean>
+        </value>
+      </option>
+      <option name="extensions.10011.options.disable">
+        <value>
+          <boolean>false</boolean>
         </value>
       </option>
       <option name="repavg">
@@ -7054,8 +7084,8 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
       <cpnbinder id="ID1561288909"
                  x="626"
                  y="83"
-                 width="1030"
-                 height="509">
+                 width="1272"
+                 height="896">
         <sheets>
           <cpnsheet id="ID1561288897"
                     panx="208.000000"
@@ -7067,9 +7097,22 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
               <position value="0"/>
             </zorder>
           </cpnsheet>
+          <cpnsheet id="ID1561290984"
+                    panx="148.000000"
+                    pany="-131.000000"
+                    zoom="1.000000"
+                    instance="ID2149">
+            <zorder>
+              <position value="1"/>
+              <position value="2"/>
+              <position value="3"/>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
         </sheets>
         <zorder>
           <position value="0"/>
+          <position value="1"/>
         </zorder>
       </cpnbinder>
     </binders>
@@ -7305,7 +7348,7 @@ INT.mkstr_ms(Agent&apos;flag_1_mark) ^ &quot;\n&quot;;</layout>
                 value="txt"/>
       </monitor>
     </monitorblock>
-    <IndexNode expanded="false">
+    <IndexNode expanded="true">
       <IndexNode expanded="false"/>
       <IndexNode expanded="false"/>
       <IndexNode expanded="false">
@@ -7367,6 +7410,16 @@ INT.mkstr_ms(Agent&apos;flag_1_mark) ^ &quot;\n&quot;;</layout>
           <IndexNode expanded="false"/>
           <IndexNode expanded="false"/>
           <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+        </IndexNode>
+        <IndexNode expanded="false">
+          <IndexNode expanded="false"/>
+        </IndexNode>
+        <IndexNode expanded="false">
           <IndexNode expanded="false"/>
         </IndexNode>
       </IndexNode>

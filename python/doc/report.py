@@ -11,7 +11,8 @@ if __name__ == "__main__":
     if len(sys.argv) < 4:
         _, filename, gnu_filename = sys.argv
     else:
-        _, filename, gnu_filename, input_num_trans = sys.argv
+        _, filename, gnu_filename, input_num_trans_str = sys.argv
+        input_num_trans = int(input_num_trans_str)
 
     log = LogFile(filename=filename)
 

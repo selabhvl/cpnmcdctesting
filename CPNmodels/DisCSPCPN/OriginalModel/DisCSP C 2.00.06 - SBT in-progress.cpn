@@ -2982,8 +2982,8 @@ msg</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1545880056">
-          <posattr x="-710.500000"
-                   y="235.000000"/>
+          <posattr x="-572.500000"
+                   y="237.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3010,8 +3010,8 @@ msg</text>
                 version="4.0.1"/>
         </time>
         <code id="ID1545880058">
-          <posattr x="-742.000000"
-                   y="198.000000"/>
+          <posattr x="-590.000000"
+                   y="193.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3060,8 +3060,8 @@ value</text>
         <binding x="15.200000"
                  y="-104.000000"/>
         <cond id="ID1545880878">
-          <posattr x="-926.500000"
-                   y="-81.000000"/>
+          <posattr x="-772.500000"
+                   y="-71.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3088,8 +3088,8 @@ value</text>
                 version="4.0.1"/>
         </time>
         <code id="ID1545880880">
-          <posattr x="-819.000000"
-                   y="-116.000000"/>
+          <posattr x="-697.000000"
+                   y="-127.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3138,8 +3138,8 @@ consist_dom</text>
         <binding x="-180.800000"
                  y="-134.000000"/>
         <cond id="ID1545881703">
-          <posattr x="-827.000000"
-                   y="45.000000"/>
+          <posattr x="-662.000000"
+                   y="54.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3166,8 +3166,8 @@ consist_dom</text>
                 version="4.0.1"/>
         </time>
         <code id="ID1545881705">
-          <posattr x="-836.500000"
-                   y="5.000000"/>
+          <posattr x="-700.500000"
+                   y="-6.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3216,8 +3216,8 @@ Backtrack</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1545882531">
-          <posattr x="-838.500000"
-                   y="-273.000000"/>
+          <posattr x="-674.500000"
+                   y="-286.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3244,8 +3244,8 @@ Backtrack</text>
                 version="4.0.1"/>
         </time>
         <code id="ID1545882533">
-          <posattr x="-844.000000"
-                   y="-313.000000"/>
+          <posattr x="-663.000000"
+                   y="-357.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3293,8 +3293,8 @@ actionBackTrack1(id, l&apos;val, aview, l&apos;rng);</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1545887512">
-          <posattr x="-934.500000"
-                   y="-167.000000"/>
+          <posattr x="-724.500000"
+                   y="-178.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3321,8 +3321,8 @@ actionBackTrack1(id, l&apos;val, aview, l&apos;rng);</text>
                 version="4.0.1"/>
         </time>
         <code id="ID1545887514">
-          <posattr x="-801.500000"
-                   y="-202.000000"/>
+          <posattr x="-705.500000"
+                   y="-223.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5722,8 +5722,8 @@ actionStop2(id, l&apos;msg);</text>
       </arc>
       <constraints/>
       <Aux id="ID1550762348">
-        <posattr x="-966.000000"
-                 y="100.000000"/>
+        <posattr x="-817.000000"
+                 y="99.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -6737,12 +6737,12 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
           <text>&lt;same as model&gt;</text>
         </value>
       </option>
-      <option name="extensions.10002.enable">
+      <option name="extensions.10001.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10003.enable">
+      <option name="extensions.10007.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -6752,14 +6752,44 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
           <boolean>true</boolean>
         </value>
       </option>
+      <option name="extensions.10003.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10011.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
       <option name="extensions.10005.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10001.enable">
+      <option name="extensions.10004.enable">
         <value>
           <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10002.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10008.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10007.options.discover">
+        <value>
+          <boolean>false</boolean>
+        </value>
+      </option>
+      <option name="extensions.10011.options.disable">
+        <value>
+          <boolean>false</boolean>
         </value>
       </option>
       <option name="repavg">
@@ -6960,14 +6990,14 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
     </options>
     <binders>
       <cpnbinder id="ID1561111375"
-                 x="215"
-                 y="51"
-                 width="1200"
-                 height="636">
+                 x="119"
+                 y="30"
+                 width="1680"
+                 height="893">
         <sheets>
           <cpnsheet id="ID1561111361"
-                    panx="157.000000"
-                    pany="-78.000000"
+                    panx="51.000000"
+                    pany="-98.000000"
                     zoom="1.000000"
                     instance="ID2149">
             <zorder>
@@ -6977,9 +7007,31 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
               <position value="0"/>
             </zorder>
           </cpnsheet>
+          <cpnsheet id="ID1561113948"
+                    panx="-142.000000"
+                    pany="130.000000"
+                    zoom="1.000000"
+                    instance="ID1546782030">
+            <zorder>
+              <position value="0"/>
+              <position value="1"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1561114081"
+                    panx="-142.000000"
+                    pany="130.000000"
+                    zoom="1.000000"
+                    instance="ID1546940385">
+            <zorder>
+              <position value="0"/>
+              <position value="1"/>
+            </zorder>
+          </cpnsheet>
         </sheets>
         <zorder>
+          <position value="1"/>
           <position value="0"/>
+          <position value="2"/>
         </zorder>
       </cpnbinder>
     </binders>
@@ -7278,9 +7330,21 @@ INT.mkstr_ms(Agent&apos;flag_1_mark) ^ &quot;\n&quot;;</layout>
           <IndexNode expanded="false"/>
           <IndexNode expanded="false"/>
           <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+        </IndexNode>
+        <IndexNode expanded="false">
+          <IndexNode expanded="false"/>
+        </IndexNode>
+        <IndexNode expanded="false">
+          <IndexNode expanded="false"/>
         </IndexNode>
       </IndexNode>
-      <IndexNode expanded="false"/>
+      <IndexNode expanded="false">
+        <IndexNode expanded="false"/>
+      </IndexNode>
       <IndexNode expanded="false">
         <IndexNode expanded="false">
           <IndexNode expanded="true"/>

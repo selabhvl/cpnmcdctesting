@@ -118,7 +118,7 @@ class MCDC_Table:
         #     return int(key_str, 2)
 
         # r = dict.fromkeys(self.table.keys())
-        r = {key: [] for key in range(self.num_truth_values)}
+        r = {key: [] for key in range(1, self.num_truth_values+1)}
         for cond in range(self.num_truth_values):
             ff_keys, tt_keys = self.partition(cond)
             # print('{0}\t0:{1}\t1:{2}'.format(cond, [self._key_str(f) for f in ff_keys], [self._key_str(t) for t in tt_keys]))
@@ -127,7 +127,7 @@ class MCDC_Table:
                 fp_key = flip(f_key, self.num_truth_values - cond - 1)
                 if fp_key in tt_keys:
                     if self.table[f_key] != self.table[fp_key]:
-                        r[cond] += [(f_key, fp_key)]
+                        r[cond+1] += [(self._key_str(f_key), self._key_str(fp_key))]
 
         return all(len(r[cond]) > 0 for cond in r.keys()), r
 

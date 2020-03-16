@@ -35,3 +35,4 @@ script. This will generate... [TODO: @nrequeno]
 ## TODO
 
 - we should have timestamps in the logfile (@VolkerStolz)
+- how to use together with simulation (@lmkr)

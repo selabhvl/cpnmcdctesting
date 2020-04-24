@@ -31,7 +31,30 @@ right-click and evaluate the `use`-expression
   configurations)
 
 When you have recorded enough data, process the logfile through the Python
-script. This will generate... [TODO: @nrequeno]
+scripts in the python/doc folder. The command: 
+
+```
+$ python doc/demo.py execution_trace.log
+```
+
+ parses the `execution_trace.log` file and calculates coverage information. It prints individual reports in the form of the truth tables for each decision, which summarises the conditions that are fired during the execution of the CPN model.
+   
+In the case that the decision is not MC/DC covered, the Python script points out the remaining valuations of the truth tables that should be evaluated in order to fulfil this criteria. 
+
+Additionally, 
+
+```
+$ python doc/report.py execution_trace.log gnu_plot.data (num_PN_transitions)
+```
+
+will process the `execution_trace.log` file and report the percentage of transitions in the Petri net that satisfy the MC/DC and branch coverage criteria. 
+ The output file is in the GNU Plot format, so that it can be later easily plotted by running the following command:
+ 
+ ```
+ plot "gnu_plot.data" using 1:2 title 'MCDC' with lines,\
+     "gnu_plot.data" using 1:3 title 'BC' with lines
+```
+More details about the installation and usage of the Python script are found in the python/README.md file.
 
 ## TODO
 

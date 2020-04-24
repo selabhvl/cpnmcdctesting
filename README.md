@@ -10,8 +10,9 @@ simulation.
 
 The original models are from:
 * CPNABS: https://github.com/natasa-gkolfi/cpnabs
-* Paxos:
-* MQTT:
+* Paxos: https://github.com/selabhvl/singleDecreePaxosCPN
+* DisCSP: https://github.com/carlospascal/DisCSP-CPN-Models
+* MQTT: https://github.com/selabhvl/sweeplinemc/MQTT.cpn
 * [TODO: @fahishakiye]
 
 You can read more about our testing library in our forthcoming publication.

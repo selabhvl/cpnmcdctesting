@@ -20,15 +20,26 @@ You can read more about our testing library in our forthcoming publication.
 This work is supported through the [EU H2020 project COEMS](https://www.coems.eu).
 
 ## USAGE
-- open your model in CPNTools
-- open the State Space tool and
+- Open your model in CPNTools (download available at http://cpntools.org/)
+- Open the State Space tool and
   run state space exploration (with `timeout=1`), so that the required SML
   functions become available
-- include the library into your model through `use` (see e.g. example models),  
-right-click and evaluate the `use`-expression
-- annotate boolean decisions with `EXPR`-invocations in your model
-- invoke one of the `mcdcgen`-functions (with/without timeout, with one or more
-  configurations)
+- Set the path to instrumentation library (e.g `val cpnmcdclibpath =  "path/to/library";`)
+- Include the library into your model through `use` (see e.g. example models),
+  * `use (cpnmcdclibpath^"config/logging.sml");`
+  * `use (cpnmcdclibpath^"config/instrumentation.sml");`
+  * `use (cpnmcdclibpath^"boot.sml");`
+  * `use (cpnmcdclibpath^"config/simrun.sml");`
+
+-  To evaluate the `use`-expression, right-click and evaluate
+- Annotate Boolean decisions with `EXPR`-invocations in your model for example:
+ * The decision : `a > 0 andalso (b orelse (c = 42))`
+ * Can be transformed into: `EXPR("decision_name", AND(AP("1", a>0), OR(AP("2",b), AP("3", c=42))))`
+- MC/DC tool invocation:
+  * right-click and evaluate the `use (cpnmcdclibpath^"config/simrun.sml");`
+  * invoke one of the `mcdcgen`-functions (with/without timeout, with one or more
+  configurations) `mcdcgen("path/to/filename.log");`
+
 
 When you have recorded enough data, process the logfile through the Python
 script. This will generate... [TODO: @nrequeno]

@@ -10,8 +10,9 @@ simulation.
 
 The original models are from:
 * CPNABS: https://github.com/natasa-gkolfi/cpnabs
-* Paxos:
-* MQTT:
+* Paxos: https://github.com/selabhvl/singleDecreePaxosCPN
+* DisCSP: https://github.com/carlospascal/DisCSP-CPN-Models
+* MQTT: https://bitbucket.org/alejandrort/mqtt-cpn-public/
 * [TODO: @fahishakiye]
 
 You can read more about our testing library in our forthcoming publication.
@@ -35,3 +36,4 @@ script. This will generate... [TODO: @nrequeno]
 ## TODO
 
 - we should have timestamps in the logfile (@VolkerStolz)
+- how to use together with simulation (@lmkr)

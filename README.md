@@ -13,7 +13,6 @@ The original models are from:
 * Paxos: https://github.com/selabhvl/singleDecreePaxosCPN
 * DisCSP: https://github.com/carlospascal/DisCSP-CPN-Models
 * MQTT: https://bitbucket.org/alejandrort/mqtt-cpn-public/
-* [TODO: @fahishakiye]
 
 You can read more about our testing library in our forthcoming publication.
 

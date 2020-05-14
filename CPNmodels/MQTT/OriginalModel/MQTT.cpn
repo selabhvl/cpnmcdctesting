@@ -10740,7 +10740,7 @@ cLR boutmsgs]</text>
                    currentcyckle="2"/>
         <transend idref="ID1592510022"/>
         <placeend idref="ID1592509158"/>
-        <annot id="ID1593243918">
+        <annot id="ID1593278824">
           <posattr x="-66.000000"
                    y="1086.000000"/>
           <fillattr colour="White"
@@ -19684,7 +19684,7 @@ SUBACK</text>
                    currentcyckle="2"/>
         <transend idref="ID1592492078"/>
         <placeend idref="ID1592491972"/>
-        <annot id="ID1593243919">
+        <annot id="ID1593278825">
           <posattr x="-24.000000"
                    y="1078.000000"/>
           <fillattr colour="White"
@@ -21229,8 +21229,8 @@ UNSUBACK</text>
     <page id="ID1534056922">
       <pageattr name="CONNECT"/>
       <place id="ID1534056930">
-        <posattr x="-410.000000"
-                 y="1146.000000"/>
+        <posattr x="-359.000000"
+                 y="1050.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -21241,19 +21241,19 @@ UNSUBACK</text>
                   bold="false"/>
         <text>CtoB</text>
         <ellipse w="76.000000"
-                 h="54.000000"/>
+                 h="36.000000"/>
         <token x="-10.000000"
                y="21.000000"/>
-        <marking x="-20.000000"
-                 y="-45.000000"
+        <marking x="-22.000000"
+                 y="-35.000000"
                  hidden="false">
           <snap snap_id="0"
                 anchor.horizontal="3"
                 anchor.vertical="1"/>
         </marking>
         <type id="ID1534056931">
-          <posattr x="-394.000000"
-                   y="1184.000000"/>
+          <posattr x="-357.000000"
+                   y="1010.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21266,8 +21266,8 @@ UNSUBACK</text>
                 version="4.0.1">BrokerxMessages</text>
         </type>
         <initmark id="ID1534056932">
-          <posattr x="-348.000000"
-                   y="1174.000000"/>
+          <posattr x="-297.000000"
+                   y="1072.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21281,8 +21281,8 @@ UNSUBACK</text>
         </initmark>
         <port id="ID1534056933"
               type="Out">
-          <posattr x="-368.000000"
-                   y="1146.000000"/>
+          <posattr x="-317.000000"
+                   y="1050.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21305,7 +21305,7 @@ UNSUBACK</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>Clients</text>
-        <ellipse w="96.000000"
+        <ellipse w="76.000000"
                  h="38.000000"/>
         <token x="-32.000000"
                y="50.000000"/>
@@ -21317,7 +21317,7 @@ UNSUBACK</text>
                 anchor.vertical="3"/>
         </marking>
         <type id="ID1534056937">
-          <posattr x="-566.500000"
+          <posattr x="-576.500000"
                    y="949.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -21331,7 +21331,7 @@ UNSUBACK</text>
                 version="4.0.1">ClientxState</text>
         </type>
         <initmark id="ID1536550897">
-          <posattr x="-588.000000"
+          <posattr x="-595.000000"
                    y="979.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -21359,8 +21359,8 @@ UNSUBACK</text>
         </port>
       </place>
       <place id="ID1547293861">
-        <posattr x="-420.000000"
-                 y="798.000000"/>
+        <posattr x="-346.000000"
+                 y="863.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -21371,19 +21371,19 @@ UNSUBACK</text>
                   bold="false"/>
         <text>BtoC</text>
         <ellipse w="76.000000"
-                 h="54.000000"/>
+                 h="36.000000"/>
         <token x="-10.000000"
                y="0.000000"/>
-        <marking x="-68.000000"
-                 y="-35.000000"
+        <marking x="-7.000000"
+                 y="29.000000"
                  hidden="false">
           <snap snap_id="0"
-                anchor.horizontal="3"
-                anchor.vertical="1"/>
+                anchor.horizontal="2"
+                anchor.vertical="2"/>
         </marking>
         <type id="ID1547293862">
-          <posattr x="-420.000000"
-                   y="836.000000"/>
+          <posattr x="-346.000000"
+                   y="834.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21396,8 +21396,8 @@ UNSUBACK</text>
                 version="4.0.1">ClientxMessages</text>
         </type>
         <initmark id="ID1547293863">
-          <posattr x="-358.000000"
-                   y="826.000000"/>
+          <posattr x="-284.000000"
+                   y="885.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21411,8 +21411,8 @@ UNSUBACK</text>
         </initmark>
         <port id="ID1547294769"
               type="In">
-          <posattr x="-390.000000"
-                   y="819.000000"/>
+          <posattr x="-316.000000"
+                   y="878.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21426,7 +21426,7 @@ UNSUBACK</text>
       <trans id="ID1534056924"
              explicit="false">
         <posattr x="-657.000000"
-                 y="1134.000000"/>
+                 y="1050.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -21437,28 +21437,28 @@ UNSUBACK</text>
                   bold="false"/>
         <text>Send
 CONNECT</text>
-        <box w="90.000000"
-             h="64.000000"/>
+        <box w="74.000000"
+             h="44.000000"/>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1534056925">
-          <posattr x="-533.000000"
-                   y="1195.000000"/>
+          <posattr x="-512.000000"
+                   y="1092.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
-          <lineattr colour="Black"
+          <lineattr colour="Red"
                     thick="0"
                     type="Solid"/>
-          <textattr colour="Black"
+          <textattr colour="Red"
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">[(isClientState (cs,READY) orelse (isClientState(cs, DISC))),
 nLR outmsgs]</text>
         </cond>
         <time id="ID1534056926">
-          <posattr x="-597.500000"
-                   y="1177.000000"/>
+          <posattr x="-605.500000"
+                   y="1083.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21471,8 +21471,8 @@ nLR outmsgs]</text>
                 version="4.0.1"/>
         </time>
         <code id="ID1534056927">
-          <posattr x="-577.500000"
-                   y="1070.000000"/>
+          <posattr x="-585.500000"
+                   y="996.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21485,8 +21485,8 @@ nLR outmsgs]</text>
                 version="4.0.1"/>
         </code>
         <priority id="ID1534056929">
-          <posattr x="-740.000000"
-                   y="1091.000000"/>
+          <posattr x="-732.000000"
+                   y="1017.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21502,7 +21502,7 @@ nLR outmsgs]</text>
       <trans id="ID1547296598"
              explicit="false">
         <posattr x="-657.000000"
-                 y="798.000000"/>
+                 y="864.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -21513,13 +21513,13 @@ nLR outmsgs]</text>
                   bold="false"/>
         <text>Receive
 CONNACK</text>
-        <box w="92.000000"
-             h="64.000000"/>
+        <box w="72.000000"
+             h="46.000000"/>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1547296599">
-          <posattr x="-616.000000"
-                   y="735.000000"/>
+          <posattr x="-598.000000"
+                   y="823.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21533,8 +21533,8 @@ CONNACK</text>
  hasCONNACK  (cs,inmsgs)]</text>
         </cond>
         <time id="ID1547296600">
-          <posattr x="-596.500000"
-                   y="841.000000"/>
+          <posattr x="-606.500000"
+                   y="898.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21547,8 +21547,8 @@ CONNACK</text>
                 version="4.0.1"/>
         </time>
         <code id="ID1547296601">
-          <posattr x="-576.500000"
-                   y="734.000000"/>
+          <posattr x="-586.500000"
+                   y="809.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21561,8 +21561,8 @@ CONNACK</text>
                 version="4.0.1"/>
         </code>
         <priority id="ID1547296603">
-          <posattr x="-741.000000"
-                   y="755.000000"/>
+          <posattr x="-731.000000"
+                   y="830.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21592,10 +21592,10 @@ CONNACK</text>
                    currentcyckle="2"/>
         <transend idref="ID1534056924"/>
         <placeend idref="ID1534056930"/>
-        <bendpoint id="ID1593259201"
+        <bendpoint id="ID1593297591"
                    serial="1">
-          <posattr x="-473.000000"
-                   y="1134.000000"/>
+          <posattr x="-462.000000"
+                   y="1040.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21606,8 +21606,8 @@ CONNACK</text>
                     bold="false"/>
         </bendpoint>
         <annot id="ID1534056935">
-          <posattr x="-505.000000"
-                   y="1099.000000"/>
+          <posattr x="-498.000000"
+                   y="1029.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21639,7 +21639,7 @@ CONNACK</text>
         <placeend idref="ID1534056936"/>
         <annot id="ID1534056941">
           <posattr x="-569.000000"
-                   y="1024.000000"/>
+                   y="995.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21671,7 +21671,7 @@ CONNACK</text>
         <placeend idref="ID1534056936"/>
         <annot id="ID1534056943">
           <posattr x="-674.500000"
-                   y="1034.000000"/>
+                   y="999.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21701,22 +21701,9 @@ CONNACK</text>
                    currentcyckle="2"/>
         <transend idref="ID1534056924"/>
         <placeend idref="ID1534056930"/>
-        <bendpoint id="ID1591848259"
-                   serial="1">
-          <posattr x="-504.000000"
-                   y="1146.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-        </bendpoint>
         <annot id="ID1534059849">
-          <posattr x="-527.000000"
-                   y="1157.000000"/>
+          <posattr x="-553.000000"
+                   y="1061.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21746,10 +21733,10 @@ CONNACK</text>
                    currentcyckle="2"/>
         <transend idref="ID1547296598"/>
         <placeend idref="ID1547293861"/>
-        <bendpoint id="ID1593278523"
+        <bendpoint id="ID1593292193"
                    serial="1">
-          <posattr x="-574.000000"
-                   y="786.000000"/>
+          <posattr x="-504.000000"
+                   y="852.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21760,8 +21747,8 @@ CONNACK</text>
                     bold="false"/>
         </bendpoint>
         <annot id="ID1547299515">
-          <posattr x="-540.000000"
-                   y="782.000000"/>
+          <posattr x="-482.000000"
+                   y="841.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21793,7 +21780,7 @@ CONNACK</text>
         <placeend idref="ID1534056936"/>
         <annot id="ID1547304136">
           <posattr x="-571.500000"
-                   y="886.000000"/>
+                   y="913.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21824,8 +21811,8 @@ CONNACK</text>
         <transend idref="ID1547296598"/>
         <placeend idref="ID1534056936"/>
         <annot id="ID1547305008">
-          <posattr x="-690.500000"
-                   y="884.000000"/>
+          <posattr x="-674.500000"
+                   y="917.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21855,22 +21842,9 @@ CONNACK</text>
                    currentcyckle="2"/>
         <transend idref="ID1547296598"/>
         <placeend idref="ID1547293861"/>
-        <bendpoint id="ID1593276387"
-                   serial="1">
-          <posattr x="-560.000000"
-                   y="798.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-        </bendpoint>
         <annot id="ID1591342386">
-          <posattr x="-529.000000"
-                   y="809.000000"/>
+          <posattr x="-524.000000"
+                   y="875.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -26324,17 +26298,12 @@ end;</text>
           <text>&lt;same as model&gt;</text>
         </value>
       </option>
-      <option name="extensions.10008.enable">
+      <option name="extensions.10007.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10006.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10001.enable">
+      <option name="extensions.10002.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -26344,17 +26313,12 @@ end;</text>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10004.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10007.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
       <option name="extensions.10011.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10008.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -26364,7 +26328,17 @@ end;</text>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10002.enable">
+      <option name="extensions.10001.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10006.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10004.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -26579,8 +26553,8 @@ end;</text>
       <cpnbinder id="ID1592831344"
                  x="272"
                  y="23"
-                 width="1326"
-                 height="975">
+                 width="1436"
+                 height="838">
         <sheets>
           <cpnsheet id="ID1593169748"
                     panx="50.000000"
@@ -26610,8 +26584,8 @@ end;</text>
             </zorder>
           </cpnsheet>
           <cpnsheet id="ID1593172244"
-                    panx="467.000000"
-                    pany="842.000000"
+                    panx="389.000000"
+                    pany="857.000000"
                     zoom="1.000000"
                     instance="ID1534056958">
             <zorder>

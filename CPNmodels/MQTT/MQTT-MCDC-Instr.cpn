@@ -10778,7 +10778,7 @@ AP(&quot;2&quot;, cLR boutmsgs)))]</text>
                    currentcyckle="2"/>
         <transend idref="ID1592510022"/>
         <placeend idref="ID1592509158"/>
-        <annot id="ID1593328318">
+        <annot id="ID1593328622">
           <posattr x="-66.000000"
                    y="1086.000000"/>
           <fillattr colour="White"
@@ -19724,7 +19724,7 @@ SUBACK</text>
                    currentcyckle="2"/>
         <transend idref="ID1592492078"/>
         <placeend idref="ID1592491972"/>
-        <annot id="ID1593328319">
+        <annot id="ID1593328623">
           <posattr x="-24.000000"
                    y="1078.000000"/>
           <fillattr colour="White"
@@ -21270,8 +21270,8 @@ AP(&quot;1&quot;, ((#1 cs) = c ))))]</text>
     <page id="ID1534056922">
       <pageattr name="CONNECT"/>
       <place id="ID1534056930">
-        <posattr x="-436.000000"
-                 y="1115.000000"/>
+        <posattr x="-399.000000"
+                 y="1050.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -21282,19 +21282,19 @@ AP(&quot;1&quot;, ((#1 cs) = c ))))]</text>
                   bold="false"/>
         <text>CtoB</text>
         <ellipse w="76.000000"
-                 h="54.000000"/>
-        <token x="-11.000000"
-               y="17.000000"/>
-        <marking x="-11.000000"
-                 y="-44.000000"
+                 h="40.000000"/>
+        <token x="-13.000000"
+               y="22.000000"/>
+        <marking x="-13.000000"
+                 y="-35.000000"
                  hidden="false">
           <snap snap_id="0"
-                anchor.horizontal="2"
+                anchor.horizontal="3"
                 anchor.vertical="1"/>
         </marking>
         <type id="ID1534056931">
-          <posattr x="-436.000000"
-                   y="1153.000000"/>
+          <posattr x="-395.000000"
+                   y="1009.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21307,8 +21307,8 @@ AP(&quot;1&quot;, ((#1 cs) = c ))))]</text>
                 version="4.0.1">BrokerxMessages</text>
         </type>
         <initmark id="ID1534056932">
-          <posattr x="-374.000000"
-                   y="1143.000000"/>
+          <posattr x="-337.000000"
+                   y="1073.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21322,8 +21322,8 @@ AP(&quot;1&quot;, ((#1 cs) = c ))))]</text>
         </initmark>
         <port id="ID1534056933"
               type="Out">
-          <posattr x="-396.000000"
-                   y="1103.000000"/>
+          <posattr x="-357.000000"
+                   y="1050.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21336,7 +21336,7 @@ AP(&quot;1&quot;, ((#1 cs) = c ))))]</text>
       </place>
       <place id="ID1534056936">
         <posattr x="-691.000000"
-                 y="956.000000"/>
+                 y="966.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -21346,7 +21346,7 @@ AP(&quot;1&quot;, ((#1 cs) = c ))))]</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>Clients</text>
-        <ellipse w="96.000000"
+        <ellipse w="72.000000"
                  h="38.000000"/>
         <token x="-32.000000"
                y="50.000000"/>
@@ -21358,8 +21358,8 @@ AP(&quot;1&quot;, ((#1 cs) = c ))))]</text>
                 anchor.vertical="3"/>
         </marking>
         <type id="ID1534056937">
-          <posattr x="-600.500000"
-                   y="949.000000"/>
+          <posattr x="-612.500000"
+                   y="959.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21372,8 +21372,8 @@ AP(&quot;1&quot;, ((#1 cs) = c ))))]</text>
                 version="4.0.1">ClientxState</text>
         </type>
         <initmark id="ID1536550897">
-          <posattr x="-622.000000"
-                   y="979.000000"/>
+          <posattr x="-630.000000"
+                   y="989.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21387,8 +21387,8 @@ AP(&quot;1&quot;, ((#1 cs) = c ))))]</text>
         </initmark>
         <port id="ID1534056939"
               type="I/O">
-          <posattr x="-632.000000"
-                   y="973.000000"/>
+          <posattr x="-628.000000"
+                   y="977.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21400,8 +21400,8 @@ AP(&quot;1&quot;, ((#1 cs) = c ))))]</text>
         </port>
       </place>
       <place id="ID1547293861">
-        <posattr x="-439.000000"
-                 y="798.000000"/>
+        <posattr x="-394.000000"
+                 y="866.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -21412,19 +21412,19 @@ AP(&quot;1&quot;, ((#1 cs) = c ))))]</text>
                   bold="false"/>
         <text>BtoC</text>
         <ellipse w="76.000000"
-                 h="54.000000"/>
-        <token x="-10.000000"
-               y="0.000000"/>
-        <marking x="-91.000000"
-                 y="-28.000000"
+                 h="38.000000"/>
+        <token x="-5.000000"
+               y="-11.000000"/>
+        <marking x="-89.000000"
+                 y="39.000000"
                  hidden="false">
           <snap snap_id="0"
                 anchor.horizontal="3"
-                anchor.vertical="1"/>
+                anchor.vertical="2"/>
         </marking>
         <type id="ID1547293862">
-          <posattr x="-439.000000"
-                   y="836.000000"/>
+          <posattr x="-383.000000"
+                   y="839.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21437,8 +21437,8 @@ AP(&quot;1&quot;, ((#1 cs) = c ))))]</text>
                 version="4.0.1">ClientxMessages</text>
         </type>
         <initmark id="ID1547293863">
-          <posattr x="-377.000000"
-                   y="826.000000"/>
+          <posattr x="-332.000000"
+                   y="889.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21452,8 +21452,8 @@ AP(&quot;1&quot;, ((#1 cs) = c ))))]</text>
         </initmark>
         <port id="ID1547294769"
               type="In">
-          <posattr x="-397.000000"
-                   y="822.000000"/>
+          <posattr x="-351.000000"
+                   y="878.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21467,7 +21467,7 @@ AP(&quot;1&quot;, ((#1 cs) = c ))))]</text>
       <trans id="ID1534056924"
              explicit="false">
         <posattr x="-691.000000"
-                 y="1115.000000"/>
+                 y="1050.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -21478,28 +21478,28 @@ AP(&quot;1&quot;, ((#1 cs) = c ))))]</text>
                   bold="false"/>
         <text>Send
 CONNECT</text>
-        <box w="86.000000"
-             h="64.000000"/>
+        <box w="72.000000"
+             h="38.000000"/>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1534056925">
-          <posattr x="-556.000000"
-                   y="1179.000000"/>
+          <posattr x="-549.000000"
+                   y="1090.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
-          <lineattr colour="Black"
+          <lineattr colour="Red"
                     thick="0"
                     type="Solid"/>
-          <textattr colour="Black"
+          <textattr colour="Red"
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">[EXPR(&quot;Sc&quot;, AND(OR(AP(&quot;1&quot;,isClientState (cs,READY)), 
 (AP(&quot;2&quot;, isClientState(cs, DISC)))), AP(&quot;3&quot;,nLR outmsgs)))]</text>
         </cond>
         <time id="ID1534056926">
-          <posattr x="-633.500000"
-                   y="1158.000000"/>
+          <posattr x="-640.500000"
+                   y="1080.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21512,8 +21512,8 @@ CONNECT</text>
                 version="4.0.1"/>
         </time>
         <code id="ID1534056927">
-          <posattr x="-613.500000"
-                   y="1051.000000"/>
+          <posattr x="-620.500000"
+                   y="999.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21526,8 +21526,8 @@ CONNECT</text>
                 version="4.0.1"/>
         </code>
         <priority id="ID1534056929">
-          <posattr x="-772.000000"
-                   y="1072.000000"/>
+          <posattr x="-765.000000"
+                   y="1020.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21543,7 +21543,7 @@ CONNECT</text>
       <trans id="ID1547296598"
              explicit="false">
         <posattr x="-691.000000"
-                 y="798.000000"/>
+                 y="866.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -21554,13 +21554,13 @@ CONNECT</text>
                   bold="false"/>
         <text>Receive
 CONNACK</text>
-        <box w="90.000000"
-             h="64.000000"/>
+        <box w="76.000000"
+             h="42.000000"/>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1547296599">
-          <posattr x="-577.000000"
-                   y="733.000000"/>
+          <posattr x="-579.000000"
+                   y="820.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21570,12 +21570,12 @@ CONNACK</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">[EXPR(&quot;Rc&quot;,AND(AP(&quot;1&quot;,(isClientState (cs,WAIT))), 
-AP(&quot;2&quot;,(hasCONNACK  (cs,inmsgs)))))]</text>
+                version="4.0.1">[EXPR(&quot;Rc&quot;,AND(AP(&quot;1&quot;,isClientState (cs,WAIT)), 
+AP(&quot;2&quot;,hasCONNACK  (cs,inmsgs))))]</text>
         </cond>
         <time id="ID1547296600">
-          <posattr x="-631.500000"
-                   y="841.000000"/>
+          <posattr x="-638.500000"
+                   y="898.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21588,8 +21588,8 @@ AP(&quot;2&quot;,(hasCONNACK  (cs,inmsgs)))))]</text>
                 version="4.0.1"/>
         </time>
         <code id="ID1547296601">
-          <posattr x="-611.500000"
-                   y="734.000000"/>
+          <posattr x="-618.500000"
+                   y="813.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21602,8 +21602,8 @@ AP(&quot;2&quot;,(hasCONNACK  (cs,inmsgs)))))]</text>
                 version="4.0.1"/>
         </code>
         <priority id="ID1547296603">
-          <posattr x="-774.000000"
-                   y="755.000000"/>
+          <posattr x="-767.000000"
+                   y="834.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21633,10 +21633,10 @@ AP(&quot;2&quot;,(hasCONNACK  (cs,inmsgs)))))]</text>
                    currentcyckle="2"/>
         <transend idref="ID1534056924"/>
         <placeend idref="ID1534056930"/>
-        <bendpoint id="ID1593276717"
+        <bendpoint id="ID1593370089"
                    serial="1">
-          <posattr x="-503.000000"
-                   y="1105.000000"/>
+          <posattr x="-439.000000"
+                   y="1039.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21647,8 +21647,8 @@ AP(&quot;2&quot;,(hasCONNACK  (cs,inmsgs)))))]</text>
                     bold="false"/>
         </bendpoint>
         <annot id="ID1534056935">
-          <posattr x="-537.000000"
-                   y="1072.000000"/>
+          <posattr x="-545.000000"
+                   y="1028.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21680,7 +21680,7 @@ AP(&quot;2&quot;,(hasCONNACK  (cs,inmsgs)))))]</text>
         <placeend idref="ID1534056936"/>
         <annot id="ID1534056941">
           <posattr x="-603.000000"
-                   y="1012.000000"/>
+                   y="1004.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21711,8 +21711,8 @@ AP(&quot;2&quot;,(hasCONNACK  (cs,inmsgs)))))]</text>
         <transend idref="ID1534056924"/>
         <placeend idref="ID1534056936"/>
         <annot id="ID1534056943">
-          <posattr x="-731.500000"
-                   y="1036.000000"/>
+          <posattr x="-708.500000"
+                   y="1003.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21742,10 +21742,10 @@ AP(&quot;2&quot;,(hasCONNACK  (cs,inmsgs)))))]</text>
                    currentcyckle="2"/>
         <transend idref="ID1534056924"/>
         <placeend idref="ID1534056930"/>
-        <bendpoint id="ID1591848259"
+        <bendpoint id="ID1593371394"
                    serial="1">
-          <posattr x="-588.000000"
-                   y="1115.000000"/>
+          <posattr x="-443.000000"
+                   y="1050.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21756,8 +21756,8 @@ AP(&quot;2&quot;,(hasCONNACK  (cs,inmsgs)))))]</text>
                     bold="false"/>
         </bendpoint>
         <annot id="ID1534059849">
-          <posattr x="-587.000000"
-                   y="1126.000000"/>
+          <posattr x="-550.000000"
+                   y="1061.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21788,8 +21788,8 @@ AP(&quot;2&quot;,(hasCONNACK  (cs,inmsgs)))))]</text>
         <transend idref="ID1547296598"/>
         <placeend idref="ID1547293861"/>
         <annot id="ID1547299515">
-          <posattr x="-567.000000"
-                   y="780.000000"/>
+          <posattr x="-549.000000"
+                   y="848.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21834,7 +21834,7 @@ AP(&quot;2&quot;,(hasCONNACK  (cs,inmsgs)))))]</text>
         </bendpoint>
         <annot id="ID1547304136">
           <posattr x="-612.500000"
-                   y="890.000000"/>
+                   y="914.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21864,10 +21864,10 @@ AP(&quot;2&quot;,(hasCONNACK  (cs,inmsgs)))))]</text>
                    currentcyckle="2"/>
         <transend idref="ID1547296598"/>
         <placeend idref="ID1534056936"/>
-        <bendpoint id="ID1593295444"
+        <bendpoint id="ID1593462775"
                    serial="1">
           <posattr x="-700.000000"
-                   y="903.000000"/>
+                   y="924.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21878,8 +21878,8 @@ AP(&quot;2&quot;,(hasCONNACK  (cs,inmsgs)))))]</text>
                     bold="false"/>
         </bendpoint>
         <annot id="ID1547305008">
-          <posattr x="-728.500000"
-                   y="882.000000"/>
+          <posattr x="-710.500000"
+                   y="929.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21910,8 +21910,8 @@ AP(&quot;2&quot;,(hasCONNACK  (cs,inmsgs)))))]</text>
         <transend idref="ID1547296598"/>
         <placeend idref="ID1547293861"/>
         <annot id="ID1591342386">
-          <posattr x="-571.000000"
-                   y="816.000000"/>
+          <posattr x="-554.000000"
+                   y="884.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -21930,9 +21930,7 @@ AP(&quot;2&quot;,(hasCONNACK  (cs,inmsgs)))))]</text>
       <hguideline id="ID1547316414"
                   y="-661.000000"/>
       <hguideline id="ID1591360636"
-                  y="-956.000000">
-        <guideline_elm idref="ID1534056936"/>
-      </hguideline>
+                  y="-961.000000"/>
       <vguideline id="ID1591345661"
                   x="-989.000000"/>
       <vguideline id="ID1591345869"
@@ -26448,12 +26446,22 @@ mcdcgenConfig (0, applyConfig,[co1,co2],&quot;CPNmodels/MQTT/mqtt.log&quot;);</t
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10008.enable">
+      <option name="extensions.10002.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10002.enable">
+      <option name="extensions.10003.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10011.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10008.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -26473,17 +26481,7 @@ mcdcgenConfig (0, applyConfig,[co1,co2],&quot;CPNmodels/MQTT/mqtt.log&quot;);</t
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10003.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
       <option name="extensions.10004.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10011.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -26696,10 +26694,10 @@ mcdcgenConfig (0, applyConfig,[co1,co2],&quot;CPNmodels/MQTT/mqtt.log&quot;);</t
     </options>
     <binders>
       <cpnbinder id="ID1592831344"
-                 x="273"
-                 y="148"
-                 width="1683"
-                 height="545">
+                 x="288"
+                 y="147"
+                 width="1315"
+                 height="695">
         <sheets>
           <cpnsheet id="ID1593169748"
                     panx="50.000000"
@@ -26745,8 +26743,8 @@ mcdcgenConfig (0, applyConfig,[co1,co2],&quot;CPNmodels/MQTT/mqtt.log&quot;);</t
             </zorder>
           </cpnsheet>
           <cpnsheet id="ID1593216306"
-                    panx="432.000000"
-                    pany="906.000000"
+                    panx="547.000000"
+                    pany="888.000000"
                     zoom="1.000000"
                     instance="ID1534056958">
             <zorder>
@@ -26848,7 +26846,6 @@ mcdcgenConfig (0, applyConfig,[co1,co2],&quot;CPNmodels/MQTT/mqtt.log&quot;);</t
           <position value="3"/>
           <position value="12"/>
           <position value="8"/>
-          <position value="5"/>
           <position value="11"/>
           <position value="7"/>
           <position value="9"/>
@@ -26861,6 +26858,7 @@ mcdcgenConfig (0, applyConfig,[co1,co2],&quot;CPNmodels/MQTT/mqtt.log&quot;);</t
           <position value="0"/>
           <position value="1"/>
           <position value="2"/>
+          <position value="5"/>
         </zorder>
       </cpnbinder>
     </binders>
@@ -26940,7 +26938,9 @@ mcdcgenConfig (0, applyConfig,[co1,co2],&quot;CPNmodels/MQTT/mqtt.log&quot;);</t
           <IndexNode expanded="false"/>
         </IndexNode>
       </IndexNode>
-      <IndexNode expanded="false"/>
+      <IndexNode expanded="false">
+        <IndexNode expanded="false"/>
+      </IndexNode>
       <IndexNode expanded="true">
         <IndexNode expanded="true">
           <IndexNode expanded="true"/>

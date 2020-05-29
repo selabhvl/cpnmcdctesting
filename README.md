@@ -14,7 +14,8 @@ The original models are from:
 * DisCSP: https://github.com/carlospascal/DisCSP-CPN-Models
 * MQTT: https://bitbucket.org/alejandrort/mqtt-cpn-public/
 
-You can read more about our testing library in our forthcoming publication.
+You can read more about our testing library in our forthcoming publication,
+please see [the arXiv preprint](https://arxiv.org/abs/2005.09806).
 
 This work is supported through the [EU H2020 project COEMS](https://www.coems.eu).
 

@@ -10,10 +10,14 @@ class LogFile:
 
     @staticmethod
     def _reg_exp():
-        id_name = r'(?P<id_name>[^:]*)'
-        truth_values = r'(?P<truth_values>[^:]*)'
-        result = r'(?P<result>[^:]*)'
-        bool_expr = r'(\b{0}\:\b({1}\:\b{2}\b)*)'.format(id_name, truth_values, result)
+        # id_name = r'(?P<id_name>[^:]*)'
+        # truth_values = r'(?P<truth_values>[^:]*)'
+        # result = r'(?P<result>[^:]*)'
+        # bool_expr = r'(\b{0}\:\b({1}\:\b{2}\b)*)'.format(id_name, truth_values, result)
+        id_name = r'(?P<id_name>[\w]+)'
+        truth_values = r'(?P<truth_values>[0|1]+)'
+        result = r'(?P<result>[0|1])'
+        bool_expr = r'(\b{0}\:\b{1}\:\b{2}\b)'.format(id_name, truth_values, result)
         return re.compile(bool_expr)
 
     def read_line(self):

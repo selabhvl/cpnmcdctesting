@@ -37,6 +37,24 @@ class MCDC_Table:
 
     def update(self, truth_values, result):
         # type: (MCDC_Table, str, str) -> None
+
+        def expand_joker_symbol(truth_values):
+            # type: (str) -> list
+
+            result_set = []
+
+            if '?' in truth_values:
+                # '?' symbol may happen multiple times in the sequence
+                pos = truth_values.find('?')
+                seq1 = truth_values[:pos] + '0' + truth_values[pos + 1:]
+                seq2 = truth_values[:pos] + '1' + truth_values[pos + 1:]
+                result_set.extend(expand_joker_symbol(seq1))
+                result_set.extend(expand_joker_symbol(seq2))
+            else:
+                result_set = [truth_values]
+
+            return result_set
+
         # Each truth_values[i] represents a bool bit 0/1 (False/True)
         # truth_values = '0110101'
         if self.num_truth_values is None:
@@ -47,16 +65,19 @@ class MCDC_Table:
                                                                                                  self.num_truth_values)
         # Interpret the bool array as an decimal number and use it for indexing the dictionary
         if '?' in truth_values:
-            pos = truth_values.find('?')
-            self.update(truth_values[:pos] + '0' + truth_values[pos + 1:], result)
-            self.update(truth_values[:pos] + '1' + truth_values[pos + 1:], result)
+            # '?' symbol may happen multiple times in the sequence
+            seq_list = expand_joker_symbol(truth_values)
+            for seq in seq_list:
+                self.update(seq, result)
         else:
+            # Convert truth_value "010" into integer(2)
             dec = int(truth_values, 2)
             # Convert result "0"/"1" into bool False/True
             val = bool(int(result))
 
             # Prevent updating the 'result' value in the MCDC Table
-            assert (dec not in self.table.keys()) or (self.table[dec] == val)
+            assert (dec not in self.table.keys()) or (self.table[dec] == val), \
+                'Error inserting ({0}, {1}): already in the truth table with value {2}'.format(truth_values, val, not val)
 
             self.table[dec] = val
 

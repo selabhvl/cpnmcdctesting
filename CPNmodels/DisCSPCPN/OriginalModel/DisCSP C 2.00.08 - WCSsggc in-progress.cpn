@@ -7,6 +7,20 @@
              format="6"/>
   <cpnet>
     <globbox>
+      <block id="ID1590766810">
+        <id>MBT</id>
+        <ml id="ID1590766861">val cpnmcdclibpath =  &quot;../../../&quot;;
+          <layout>val cpnmcdclibpath =  &quot;../../../&quot;;</layout>
+        </ml>
+        <use id="ID1590766911">
+          <ml>(cpnmcdclibpath^&quot;config/logging.sml&quot;)</ml>
+          <layout>use (cpnmcdclibpath^&quot;config/logging.sml&quot;);</layout>
+        </use>
+        <use id="ID1590766975">
+          <ml>(cpnmcdclibpath^&quot;config/instrumentation.sml&quot;)</ml>
+          <layout>use (cpnmcdclibpath^&quot;config/instrumentation.sml&quot;);</layout>
+        </use>
+      </block>
       <block id="ID1412310166">
         <id>Standard priorities</id>
         <ml id="ID1412310255">val P_HIGH = 100;
@@ -6797,6 +6811,67 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
    end;</text>
       </Aux>
     </page>
+    <page id="ID1590767073">
+      <pageattr name="MCDC"/>
+      <constraints/>
+      <Aux id="ID1590767259">
+        <posattr x="-476.000000"
+                 y="284.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <label/>
+        <text>use (cpnmcdclibpath^&quot;config/simrun.sml&quot;);</text>
+      </Aux>
+      <Aux id="ID1590767362">
+        <posattr x="-477.000000"
+                 y="168.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <label/>
+        <text>(* Invocation with default settings (no timeout) *)
+mcdcgen (&quot;CPNmodels/DisCSPCPN/OriginalModel/DisCSPWCSsggcorig.log&quot;);</text>
+      </Aux>
+      <Aux id="ID1590767477">
+        <posattr x="-462.000000"
+                 y="68.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <label/>
+        <text>use (cpnmcdclibpath^&quot;config/instrumentation.sml&quot;);</text>
+      </Aux>
+      <Aux id="ID1590767604">
+        <posattr x="-452.000000"
+                 y="-15.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <label/>
+        <text>use (cpnmcdclibpath^&quot;boot.sml&quot;);</text>
+      </Aux>
+    </page>
     <group id="ID1551324417"
            name="AEvents">
       <group_elm idref="ID1545880055"/>
@@ -6838,6 +6913,8 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
       </instance>
       <instance id="ID1549596121"
                 page="ID1549596119"/>
+      <instance id="ID1590767075"
+                page="ID1590767073"/>
     </instances>
     <options>
       <option name="realtimestamp">
@@ -6860,17 +6937,7 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
           <text>&lt;same as model&gt;</text>
         </value>
       </option>
-      <option name="extensions.10006.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10003.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10002.enable">
+      <option name="extensions.10011.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -6880,7 +6947,12 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10004.enable">
+      <option name="extensions.10007.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10002.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -6895,12 +6967,17 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10011.enable">
+      <option name="extensions.10003.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10007.enable">
+      <option name="extensions.10004.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10006.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -7113,8 +7190,8 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
     </options>
     <binders>
       <cpnbinder id="ID1561288925"
-                 x="85"
-                 y="22"
+                 x="443"
+                 y="65"
                  width="1601"
                  height="838">
         <sheets>
@@ -7140,10 +7217,21 @@ printPathToFinalNodes(prefix, ArcDescriptor, ArcsInPath, ListDeadMarkings)</text
               <position value="0"/>
             </zorder>
           </cpnsheet>
+          <cpnsheet id="ID1590767200"
+                    panx="-183.000000"
+                    pany="-30.000000"
+                    zoom="1.000000"
+                    instance="ID1590767075">
+            <zorder>
+              <position value="1"/>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
         </sheets>
         <zorder>
           <position value="1"/>
           <position value="0"/>
+          <position value="2"/>
         </zorder>
       </cpnbinder>
     </binders>
@@ -7454,8 +7542,15 @@ INT.mkstr_ms(Agent&apos;flag_1_mark) ^ &quot;\n&quot;;</layout>
           <IndexNode expanded="false"/>
         </IndexNode>
       </IndexNode>
-      <IndexNode expanded="false"/>
+      <IndexNode expanded="false">
+        <IndexNode expanded="false"/>
+      </IndexNode>
       <IndexNode expanded="true">
+        <IndexNode expanded="true">
+          <IndexNode expanded="true"/>
+          <IndexNode expanded="true"/>
+          <IndexNode expanded="true"/>
+        </IndexNode>
         <IndexNode expanded="false">
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>
@@ -7706,6 +7801,7 @@ INT.mkstr_ms(Agent&apos;flag_1_mark) ^ &quot;\n&quot;;</layout>
           <IndexNode expanded="true"/>
         </IndexNode>
       </IndexNode>
+      <IndexNode expanded="true"/>
       <IndexNode expanded="true"/>
     </IndexNode>
   </cpnet>

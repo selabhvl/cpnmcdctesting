@@ -7,6 +7,20 @@
              format="6"/>
   <cpnet>
     <globbox>
+      <block id="ID1593300057">
+        <id>MBT</id>
+        <ml id="ID1593300710">val cpnmcdclibpath =  &quot;../../../&quot;;
+          <layout>val cpnmcdclibpath =  &quot;../../../&quot;;</layout>
+        </ml>
+        <use id="ID1593300582">
+          <ml>(cpnmcdclibpath^&quot;config/logging.sml&quot;)</ml>
+          <layout>use (cpnmcdclibpath^&quot;config/logging.sml&quot;);</layout>
+        </use>
+        <use id="ID1593300468">
+          <ml>(cpnmcdclibpath^&quot;config/instrumentation.sml&quot;)</ml>
+          <layout>use (cpnmcdclibpath^&quot;config/instrumentation.sml&quot;);</layout>
+        </use>
+      </block>
       <ml id="ID1549245649">val larsmodelpath =  &quot;C:/work/git/mqtt/pcs954_version/&quot;;
         <layout>val larsmodelpath =  &quot;C:/work/git/mqtt/pcs954_version/&quot;;</layout>
       </ml>
@@ -10740,7 +10754,7 @@ cLR boutmsgs]</text>
                    currentcyckle="2"/>
         <transend idref="ID1592510022"/>
         <placeend idref="ID1592509158"/>
-        <annot id="ID1593278824">
+        <annot id="ID1593297892">
           <posattr x="-66.000000"
                    y="1086.000000"/>
           <fillattr colour="White"
@@ -19684,7 +19698,7 @@ SUBACK</text>
                    currentcyckle="2"/>
         <transend idref="ID1592492078"/>
         <placeend idref="ID1592491972"/>
-        <annot id="ID1593278825">
+        <annot id="ID1593297893">
           <posattr x="-24.000000"
                    y="1078.000000"/>
           <fillattr colour="White"
@@ -26207,6 +26221,82 @@ end;</text>
         <text>use  (modelpath^&quot;sweeplinemc/build.sml&quot;);</text>
       </Aux>
     </page>
+    <page id="ID1593301045">
+      <pageattr name="MCDC"/>
+      <constraints/>
+      <Aux id="ID1593302370">
+        <posattr x="-449.000000"
+                 y="294.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <label/>
+        <text>use (cpnmcdclibpath^&quot;config/simrun.sml&quot;);</text>
+      </Aux>
+      <Aux id="ID1593302605">
+        <posattr x="-445.000000"
+                 y="210.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <label/>
+        <text>(* Invocation with default settings (no timeout) *)
+mcdcgen (&quot;CPNmodels/MQTT/OriginalModel/mqttorig.log&quot;);</text>
+      </Aux>
+      <Aux id="ID1593302979">
+        <posattr x="-443.000000"
+                 y="126.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <label/>
+        <text>(* Invocation without timeout; base model + 2 configurations *)
+mcdcgenConfig (0, applyConfig,[co1,co2],&quot;CPNmodels/MQTT/OriginalModel/mqttorig.log&quot;);</text>
+      </Aux>
+      <Aux id="ID1593303380">
+        <posattr x="-435.000000"
+                 y="42.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <label/>
+        <text>use (cpnmcdclibpath^&quot;config/instrumentation.sml&quot;);</text>
+      </Aux>
+      <Aux id="ID1593303808">
+        <posattr x="-442.000000"
+                 y="-42.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <label/>
+        <text>use (cpnmcdclibpath^&quot;boot.sml&quot;);</text>
+      </Aux>
+    </page>
     <instances>
       <instance id="ID2149"
                 page="ID6">
@@ -26276,6 +26366,8 @@ end;</text>
                 page="ID1592901667"/>
       <instance id="ID1592938987"
                 page="ID1592938985"/>
+      <instance id="ID1593301047"
+                page="ID1593301045"/>
     </instances>
     <options>
       <option name="realtimestamp">
@@ -26298,27 +26390,7 @@ end;</text>
           <text>&lt;same as model&gt;</text>
         </value>
       </option>
-      <option name="extensions.10007.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
       <option name="extensions.10002.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10003.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10011.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10008.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -26328,17 +26400,37 @@ end;</text>
           <boolean>true</boolean>
         </value>
       </option>
+      <option name="extensions.10008.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
       <option name="extensions.10001.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10006.enable">
+      <option name="extensions.10007.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
       <option name="extensions.10004.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10011.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10003.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10006.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -26551,8 +26643,8 @@ end;</text>
     </options>
     <binders>
       <cpnbinder id="ID1592831344"
-                 x="272"
-                 y="23"
+                 x="620"
+                 y="81"
                  width="1436"
                  height="838">
         <sheets>
@@ -26574,60 +26666,6 @@ end;</text>
               <position value="0"/>
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1593172186"
-                    panx="373.000000"
-                    pany="677.000000"
-                    zoom="1.000000"
-                    instance="ID1438489792">
-            <zorder>
-              <position value="0"/>
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593172244"
-                    panx="389.000000"
-                    pany="857.000000"
-                    zoom="1.000000"
-                    instance="ID1534056958">
-            <zorder>
-              <position value="0"/>
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593172371"
-                    panx="184.000000"
-                    pany="862.000000"
-                    zoom="1.000000"
-                    instance="ID1534062519">
-            <zorder>
-              <position value="0"/>
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593172747"
-                    panx="-131.000000"
-                    pany="384.000000"
-                    zoom="1.000000"
-                    instance="ID1437846865">
-            <zorder>
-              <position value="0"/>
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593172821"
-                    panx="-139.000000"
-                    pany="241.000000"
-                    zoom="1.000000"
-                    instance="ID1438546002">
-            <zorder>
-              <position value="0"/>
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593172904"
-                    panx="-105.000000"
-                    pany="587.000000"
-                    zoom="1.000000"
-                    instance="ID1534148047">
-            <zorder>
-              <position value="0"/>
-            </zorder>
-          </cpnsheet>
           <textsheet id="ID1593173181"
                      panx="7.000000"
                      pany="20.000000"
@@ -26635,51 +26673,6 @@ end;</text>
                      decl="ID1592653822">
             <zorder/>
           </textsheet>
-          <cpnsheet id="ID1593176176"
-                    panx="363.000000"
-                    pany="864.000000"
-                    zoom="1.000000"
-                    instance="ID1534060299">
-            <zorder>
-              <position value="0"/>
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593176237"
-                    panx="320.000000"
-                    pany="949.000000"
-                    zoom="1.000000"
-                    instance="ID1549266604">
-            <zorder>
-              <position value="0"/>
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593176692"
-                    panx="-35.000000"
-                    pany="313.000000"
-                    zoom="1.000000"
-                    instance="ID1534148860">
-            <zorder>
-              <position value="0"/>
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593177411"
-                    panx="327.000000"
-                    pany="865.000000"
-                    zoom="1.000000"
-                    instance="ID1549268571">
-            <zorder>
-              <position value="0"/>
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593178023"
-                    panx="-163.000000"
-                    pany="111.000000"
-                    zoom="1.000000"
-                    instance="ID1534149671">
-            <zorder>
-              <position value="0"/>
-            </zorder>
-          </cpnsheet>
           <cpnsheet id="ID1593179544"
                     panx="812.000000"
                     pany="695.000000"
@@ -26707,25 +26700,24 @@ end;</text>
               <position value="0"/>
             </zorder>
           </cpnsheet>
+          <cpnsheet id="ID1593301201"
+                    panx="10.000000"
+                    pany="4.000000"
+                    zoom="1.000000"
+                    instance="ID1593301047">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
         </sheets>
         <zorder>
-          <position value="10"/>
-          <position value="12"/>
-          <position value="13"/>
-          <position value="5"/>
-          <position value="6"/>
-          <position value="11"/>
-          <position value="9"/>
-          <position value="14"/>
-          <position value="15"/>
-          <position value="2"/>
-          <position value="8"/>
-          <position value="1"/>
-          <position value="4"/>
-          <position value="7"/>
-          <position value="16"/>
-          <position value="0"/>
           <position value="3"/>
+          <position value="4"/>
+          <position value="2"/>
+          <position value="5"/>
+          <position value="0"/>
+          <position value="1"/>
+          <position value="6"/>
         </zorder>
       </cpnbinder>
     </binders>
@@ -26808,7 +26800,12 @@ end;</text>
       <IndexNode expanded="false">
         <IndexNode expanded="false"/>
       </IndexNode>
-      <IndexNode expanded="false">
+      <IndexNode expanded="true">
+        <IndexNode expanded="true">
+          <IndexNode expanded="true"/>
+          <IndexNode expanded="true"/>
+          <IndexNode expanded="true"/>
+        </IndexNode>
         <IndexNode expanded="true"/>
         <IndexNode expanded="true"/>
         <IndexNode expanded="true"/>
@@ -26818,7 +26815,7 @@ end;</text>
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>
         </IndexNode>
-        <IndexNode expanded="true">
+        <IndexNode expanded="false">
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>
@@ -26980,6 +26977,7 @@ end;</text>
           </IndexNode>
         </IndexNode>
       </IndexNode>
+      <IndexNode expanded="true"/>
       <IndexNode expanded="true"/>
       <IndexNode expanded="true"/>
       <IndexNode expanded="true"/>

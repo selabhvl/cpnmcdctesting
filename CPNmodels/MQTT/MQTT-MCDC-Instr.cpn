@@ -10778,7 +10778,7 @@ AP(&quot;2&quot;, cLR boutmsgs)))]</text>
                    currentcyckle="2"/>
         <transend idref="ID1592510022"/>
         <placeend idref="ID1592509158"/>
-        <annot id="ID1593328622">
+        <annot id="ID1593463382">
           <posattr x="-66.000000"
                    y="1086.000000"/>
           <fillattr colour="White"
@@ -19724,7 +19724,7 @@ SUBACK</text>
                    currentcyckle="2"/>
         <transend idref="ID1592492078"/>
         <placeend idref="ID1592491972"/>
-        <annot id="ID1593328623">
+        <annot id="ID1593463383">
           <posattr x="-24.000000"
                    y="1078.000000"/>
           <fillattr colour="White"
@@ -26441,11 +26441,6 @@ mcdcgenConfig (0, applyConfig,[co1,co2],&quot;CPNmodels/MQTT/mqtt.log&quot;);</t
           <text>&lt;same as model&gt;</text>
         </value>
       </option>
-      <option name="extensions.10007.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
       <option name="extensions.10002.enable">
         <value>
           <boolean>true</boolean>
@@ -26456,7 +26451,7 @@ mcdcgenConfig (0, applyConfig,[co1,co2],&quot;CPNmodels/MQTT/mqtt.log&quot;);</t
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10011.enable">
+      <option name="extensions.10006.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -26471,27 +26466,32 @@ mcdcgenConfig (0, applyConfig,[co1,co2],&quot;CPNmodels/MQTT/mqtt.log&quot;);</t
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10001.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10006.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
       <option name="extensions.10004.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10007.options.discover">
+      <option name="extensions.10011.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10007.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10001.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10011.options.disable">
         <value>
           <boolean>false</boolean>
         </value>
       </option>
-      <option name="extensions.10011.options.disable">
+      <option name="extensions.10007.options.discover">
         <value>
           <boolean>false</boolean>
         </value>
@@ -26694,10 +26694,10 @@ mcdcgenConfig (0, applyConfig,[co1,co2],&quot;CPNmodels/MQTT/mqtt.log&quot;);</t
     </options>
     <binders>
       <cpnbinder id="ID1592831344"
-                 x="288"
-                 y="147"
-                 width="1315"
-                 height="695">
+                 x="259"
+                 y="105"
+                 width="1272"
+                 height="635">
         <sheets>
           <cpnsheet id="ID1593169748"
                     panx="50.000000"
@@ -26854,11 +26854,11 @@ mcdcgenConfig (0, applyConfig,[co1,co2],&quot;CPNmodels/MQTT/mqtt.log&quot;);</t
           <position value="6"/>
           <position value="13"/>
           <position value="15"/>
+          <position value="1"/>
+          <position value="5"/>
           <position value="4"/>
           <position value="0"/>
-          <position value="1"/>
           <position value="2"/>
-          <position value="5"/>
         </zorder>
       </cpnbinder>
     </binders>
@@ -26938,9 +26938,7 @@ mcdcgenConfig (0, applyConfig,[co1,co2],&quot;CPNmodels/MQTT/mqtt.log&quot;);</t
           <IndexNode expanded="false"/>
         </IndexNode>
       </IndexNode>
-      <IndexNode expanded="false">
-        <IndexNode expanded="false"/>
-      </IndexNode>
+      <IndexNode expanded="false"/>
       <IndexNode expanded="true">
         <IndexNode expanded="true">
           <IndexNode expanded="true"/>

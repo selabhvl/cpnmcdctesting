@@ -51,7 +51,7 @@ def extract_elements_with_conditions(xml_tree):
     return parent
 
 
-def find_element(elements_with_conditions, name):
+def find_element_with_expr(elements_with_conditions, name):
     # type: (set, str) -> Element
     sname = name.strip()
     for element in elements_with_conditions:
@@ -59,10 +59,11 @@ def find_element(elements_with_conditions, name):
         text = cond.find('text').text
         if text is not None:
             res = cond_regex.match(text)
-            cond_name = res.group(1)
-            if cond_name == sname:
-                print(cond_name, cond.attrib, element.attrib)
-                return element
+            if res is not None:
+                cond_name = res.group(1)
+                if cond_name == sname:
+                    print(cond_name, cond.attrib, element.attrib)
+                    return element
 
 
 def find_element_f(xml_tree, name):
@@ -74,10 +75,11 @@ def find_element_f(xml_tree, name):
         text = cond.find('text').text
         if text is not None:
             res = cond_regex.match(text)
-            cond_name = res.group(1)
-            if cond_name == sname:
-                return cond
-            # print(id, cond_name)
+            if res is not None:
+                cond_name = res.group(1)
+                if cond_name == sname:
+                    return cond
+                # print(id, cond_name)
 
 
 if __name__ == "__main__":
@@ -104,9 +106,10 @@ if __name__ == "__main__":
     xml_tree = ET.parse(in_filename)
     elements = extract_elements_with_conditions(xml_tree)
     for cond in file:
-        e = find_element(elements, cond)
-        b, r = file[cond].is_mcdc_covered()
-        color = 'Green' if b else 'Red'
-        set_color(e, color)
+        e = find_element_with_expr(elements, cond)
+        if e is not None:
+            b, r = file[cond].is_mcdc_covered()
+            color = 'Green' if b else 'Red'
+            set_color(e, color)
 
     xml_tree.write(out_filename)

@@ -2299,9 +2299,9 @@ timer</text>
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">(* REQx  *)
-[ EXPR(&quot;RQ1T1&quot;, AND(NOT(AP(&quot;1&quot;, p_the_coin_sensor = true)), 
+EXPR(&quot;RQ1T1&quot;, AND(NOT(AP(&quot;1&quot;, p_the_coin_sensor = true)), 
 AND(AP(&quot;2&quot;,the_coin_sensor = true),  AND(AP(&quot;3&quot;, the_system_mode = idle),
- AP(&quot;4&quot;,not(String.isSuffix &quot;REQ001&quot; trace))))))]</text>
+ AP(&quot;4&quot;,not(String.isSuffix &quot;REQ001&quot; trace))))))</text>
         </cond>
         <time id="IDREQ001ti">
           <posattr x="75.500000"
@@ -2638,22 +2638,6 @@ p_the_coin_sensor, the_coin_sensor)</text>
         </annot>
       </arc>
       <constraints/>
-      <Aux id="ID1590768255">
-        <posattr x="-568.000000"
-                 y="420.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Red"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Red"
-                  bold="false"/>
-        <label/>
-        <text>(* REQx  *)
-[ not (p_the_coin_sensor = true)  andalso  the_coin_sensor = true  
-andalso  the_system_mode = idle, not(String.isSuffix &quot;REQ001&quot; trace)]</text>
-      </Aux>
     </page>
     <page id="IDREQ002page">
       <pageattr name="REQ002"/>
@@ -3007,7 +2991,7 @@ timer</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="IDREQ002cond">
-          <posattr x="-284.500000"
+          <posattr x="-282.000000"
                    y="310.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -3019,14 +3003,14 @@ timer</text>
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">(* REQx  *)
-[EXPR(&quot;RQ2T1&quot;, AND(NOT(AP(&quot;1&quot;,p_the_coffee_request_button =true)),  
+EXPR(&quot;RQ2T1&quot;, AND(NOT(AP(&quot;1&quot;,p_the_coffee_request_button =true)),  
 AND(AP(&quot;2&quot;, the_coffee_request_button =true),  
 AND(AP(&quot;3&quot;, p_the_coin_sensor = false),  
 AND(AP(&quot;4&quot;, the_coin_sensor = false) , 
 AND(AP(&quot;5&quot;,the_system_mode = choice),  
 AND(AP(&quot;6&quot;,(time() - the_request_timer)  &lt;= 30),
 NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ002&quot; trace)))
-))))))) ]</text>
+)))))))</text>
         </cond>
         <time id="IDREQ002ti">
           <posattr x="75.500000"
@@ -3362,27 +3346,6 @@ p_the_coin_sensor, the_coin_sensor)</text>
         </annot>
       </arc>
       <constraints/>
-      <Aux id="ID1590769271">
-        <posattr x="-490.000000"
-                 y="479.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Red"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Red"
-                  bold="false"/>
-        <label/>
-        <text>(* REQx  *)
-[not(p_the_coffee_request_button =true)  
-andalso the_coffee_request_button =true  
-andalso p_the_coin_sensor = false  
-andalso the_coin_sensor = false  
-andalso the_system_mode = choice,  
-(time() - the_request_timer)  &lt;= 30,
-not(String.isSuffix &quot;REQ002&quot; trace) ]</text>
-      </Aux>
     </page>
     <page id="IDREQ003page">
       <pageattr name="REQ003"/>
@@ -3736,7 +3699,7 @@ not(String.isSuffix &quot;REQ002&quot; trace) ]</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="IDREQ003cond">
-          <posattr x="-256.500000"
+          <posattr x="-254.000000"
                    y="370.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -3748,14 +3711,14 @@ not(String.isSuffix &quot;REQ002&quot; trace) ]</text>
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">(* REQx  *)
-[EXPR(&quot;RQ3T1&quot;, AND(NOT(AP(&quot;1&quot;,p_the_coffee_request_button = true)),  
+EXPR(&quot;RQ3T1&quot;, AND(NOT(AP(&quot;1&quot;,p_the_coffee_request_button = true)),  
 AND(AP(&quot;2&quot;, the_coffee_request_button = true),
 AND(AP(&quot;3&quot;, p_the_coin_sensor = false),  
 AND(AP(&quot;4&quot;, the_coin_sensor = false),
 AND(AP(&quot;5&quot;,   the_system_mode = choice),
 AND(AP(&quot;6&quot;,  (time() - the_request_timer)  &gt; 30), 
 NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ003&quot; trace)))
-))))))) ]</text>
+)))))))</text>
         </cond>
         <time id="IDREQ003ti">
           <posattr x="75.500000"
@@ -4091,25 +4054,6 @@ NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ003&quot; trace)))
         </annot>
       </arc>
       <constraints/>
-      <Aux id="ID1590769499">
-        <posattr x="-546.000000"
-                 y="558.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Red"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Red"
-                  bold="false"/>
-        <label/>
-        <text>(* REQx  *)
-     [ not (p_the_coffee_request_button = true)  
-andalso  the_coffee_request_button = true  
-andalso  p_the_coin_sensor = false  
-andalso  the_coin_sensor = false  andalso  the_system_mode = choice
-,  (time() - the_request_timer)  &gt; 30, not(String.isSuffix &quot;REQ003&quot; trace) ]</text>
-      </Aux>
     </page>
     <page id="IDREQ004page">
       <pageattr name="REQ004"/>
@@ -4475,11 +4419,11 @@ andalso  the_coin_sensor = false  andalso  the_system_mode = choice
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">(* REQx  *)
-[EXPR(&quot;RQ4T1&quot;, AND(AND(AND(
+EXPR(&quot;RQ4T1&quot;, AND(AND(AND(
 AP(&quot;1&quot;, the_system_mode = preparing_weak_coffee), 
  AP(&quot;2&quot;,(time() - the_request_timer)  &lt;= 30)), 
 AP(&quot;3&quot;, (time() - the_request_timer)  &gt;= 10)), 
-NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ004&quot; trace))))) ]</text>
+NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ004&quot; trace)))))</text>
         </cond>
         <time id="IDREQ004ti">
           <posattr x="75.500000"
@@ -4815,24 +4759,6 @@ NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ004&quot; trace))))) ]</text>
         </annot>
       </arc>
       <constraints/>
-      <Aux id="ID1590769868">
-        <posattr x="-504.000000"
-                 y="546.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Red"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Red"
-                  bold="false"/>
-        <label/>
-        <text>(* REQx  *)
-[the_system_mode = preparing_weak_coffee, 
- (time() - the_request_timer)  &lt;= 30  
-andalso   (time() - the_request_timer)  &gt;= 10, 
-not(String.isSuffix &quot;REQ004&quot; trace) ]</text>
-      </Aux>
     </page>
     <page id="IDREQ005page">
       <pageattr name="REQ005"/>
@@ -5198,11 +5124,11 @@ timer</text>
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">(* REQx  *)
-[EXPR(&quot;RQ5T1&quot;, AND(AND(AND(
+EXPR(&quot;RQ5T1&quot;, AND(AND(AND(
 AP(&quot;1&quot;, the_system_mode=preparing_strong_coffee), 
 AP(&quot;2&quot;,(time() - the_request_timer)  &lt;= 50)),  
 AP(&quot;3&quot;,(time() - the_request_timer)  &gt;= 30)),
-NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ005&quot; trace))))) ]</text>
+NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ005&quot; trace)))))</text>
         </cond>
         <time id="IDREQ005ti">
           <posattr x="75.500000"
@@ -5538,24 +5464,6 @@ p_the_coin_sensor, the_coin_sensor)</text>
         </annot>
       </arc>
       <constraints/>
-      <Aux id="ID1590770221">
-        <posattr x="-462.000000"
-                 y="449.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Red"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Red"
-                  bold="false"/>
-        <label/>
-        <text>(* REQx  *)
-[the_system_mode=preparing_strong_coffee, 
-(time() - the_request_timer)  &lt;= 50  
-andalso  (time() - the_request_timer)  &gt;= 30,
-not(String.isSuffix &quot;REQ005&quot; trace) ]</text>
-      </Aux>
     </page>
     <page id="ID1590765582">
       <pageattr name="MCDC"/>
@@ -5586,7 +5494,7 @@ not(String.isSuffix &quot;REQ005&quot; trace) ]</text>
         <textattr colour="Black"
                   bold="false"/>
         <label/>
-        <text>mcdcgen (&quot;CPNmodels/NewModels/NatCPN/VM.log&quot;);</text>
+        <text>mcdcgen (&quot;CPNmodels/NatCPN/VM.log&quot;);</text>
       </Aux>
       <Aux id="ID1590767306">
         <posattr x="-252.000000"
@@ -5704,6 +5612,16 @@ not(String.isSuffix &quot;REQ005&quot; trace) ]</text>
           <text>&lt;same as model&gt;</text>
         </value>
       </option>
+      <option name="extensions.10002.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10006.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
       <option name="extensions.10007.enable">
         <value>
           <boolean>true</boolean>
@@ -5714,22 +5632,7 @@ not(String.isSuffix &quot;REQ005&quot; trace) ]</text>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10002.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10005.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
       <option name="extensions.10001.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10006.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -5740,6 +5643,11 @@ not(String.isSuffix &quot;REQ005&quot; trace) ]</text>
         </value>
       </option>
       <option name="extensions.10004.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10005.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -5959,8 +5867,8 @@ not(String.isSuffix &quot;REQ005&quot; trace) ]</text>
       <cpnbinder id="ID2210"
                  x="409"
                  y="20"
-                 width="1469"
-                 height="888">
+                 width="1277"
+                 height="601">
         <sheets>
           <cpnsheet id="ID2215"
                     panx="-150.000000"
@@ -5981,8 +5889,8 @@ not(String.isSuffix &quot;REQ005&quot; trace) ]</text>
             </zorder>
           </cpnsheet>
           <cpnsheet id="IDREQ001sh"
-                    panx="132.000000"
-                    pany="302.000000"
+                    panx="149.000000"
+                    pany="409.000000"
                     zoom="1.548628"
                     instance="IDREQ001id">
             <zorder>
@@ -5990,8 +5898,8 @@ not(String.isSuffix &quot;REQ005&quot; trace) ]</text>
             </zorder>
           </cpnsheet>
           <cpnsheet id="IDREQ002sh"
-                    panx="44.000000"
-                    pany="314.000000"
+                    panx="190.000000"
+                    pany="353.000000"
                     zoom="1.428571"
                     instance="IDREQ002id">
             <zorder>
@@ -6045,15 +5953,15 @@ not(String.isSuffix &quot;REQ005&quot; trace) ]</text>
           </cpnsheet>
         </sheets>
         <zorder>
+          <position value="1"/>
+          <position value="0"/>
+          <position value="2"/>
+          <position value="3"/>
           <position value="4"/>
+          <position value="5"/>
           <position value="7"/>
           <position value="6"/>
           <position value="8"/>
-          <position value="2"/>
-          <position value="3"/>
-          <position value="5"/>
-          <position value="0"/>
-          <position value="1"/>
         </zorder>
       </cpnbinder>
     </binders>

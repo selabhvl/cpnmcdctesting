@@ -5526,26 +5526,6 @@ p_the_coin_sensor, the_coin_sensor)</text>
           <text>&lt;same as model&gt;</text>
         </value>
       </option>
-      <option name="extensions.10001.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10007.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10006.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10003.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
       <option name="extensions.10011.enable">
         <value>
           <boolean>true</boolean>
@@ -5556,7 +5536,7 @@ p_the_coin_sensor, the_coin_sensor)</text>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10004.enable">
+      <option name="extensions.10007.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -5571,12 +5551,32 @@ p_the_coin_sensor, the_coin_sensor)</text>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10007.options.discover">
+      <option name="extensions.10001.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10003.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10004.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10006.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10011.options.disable">
         <value>
           <boolean>false</boolean>
         </value>
       </option>
-      <option name="extensions.10011.options.disable">
+      <option name="extensions.10007.options.discover">
         <value>
           <boolean>false</boolean>
         </value>
@@ -5858,14 +5858,14 @@ p_the_coin_sensor, the_coin_sensor)</text>
           </cpnsheet>
         </sheets>
         <zorder>
-          <position value="1"/>
-          <position value="2"/>
           <position value="3"/>
           <position value="4"/>
           <position value="5"/>
           <position value="6"/>
           <position value="7"/>
           <position value="0"/>
+          <position value="1"/>
+          <position value="2"/>
         </zorder>
       </cpnbinder>
     </binders>

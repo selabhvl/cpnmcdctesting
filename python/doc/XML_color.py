@@ -6,12 +6,18 @@ import re
 from MCDC.LogFile import LogFile
 from MCDC.MCDC_Table import MCDC_Table
 
-pattern = r"\W*EXPR\W*(?P<cond_name>\w+)\b"
+# pattern = r"\W*EXPR\W*(?P<cond_name>\w+)\b"
+pattern = r"[.\s]*(?<=EXPR)\W*(?P<cond_name>\w+)[.\s]*"
 cond_regex = re.compile(pattern)
-# example = '[EXPR("sS", AND(AND(AND(AND(AND( AND(AP("1",(checkClientCON(cs))), AP("2",(nLR msgs))), AP("3",(c = #1 cs))), AP("4",(listpids = []))), AP("5",(notSubscribed(t,cs)))), AP("6",(subLR (#pid (#2 cs))))), AP("7",(isSubscriber(cs)))))]'
+# example = '(* REQx  *)\n' \
+#           '    EXPR("RQ4T1", AND(AND(AND(\n' \
+#           '    AP("1", the_system_mode = preparing_weak_coffee),\n' \
+#           '    AP("2",(time() - the_request_timer)  <= 30)),\n' \
+#           '    AP("3", (time() - the_request_timer)  >= 10)),\n' \
+#           '    NOT(AP("4",(String.isSuffix "REQ004" trace)))))\n'
 # res = cond_regex.match(example)
-# res.group(1)
 # res.group('cond_name')
+
 
 def main(file_name):
     tree = ET.parse(file_name)
@@ -47,18 +53,29 @@ def set_color(element, color):
 
 def extract_elements_with_conditions(xml_tree):
     # type: (ET) -> set
+    # Transitions have conditions
     parent = {p for p in xml_tree.findall('.//cond/..')}
     return parent
 
 
-def find_element_with_expr(elements_with_conditions, name):
+def extract_elements_with_annotations(xml_tree):
+    # type: (ET) -> set
+    # Arcs have annotations
+    parent = {p for p in xml_tree.findall('.//annot/..')}
+    return parent
+
+#TODO: Do we also process the "conditions" in the arcs? Right now, we only color transitions.
+def find_element_by_expr_name(elements_with_conditions, expr_name):
     # type: (set, str) -> Element
-    sname = name.strip()
+    sname = expr_name.strip()
     for element in elements_with_conditions:
         cond = element.find('cond')
         text = cond.find('text').text
         if text is not None:
-            res = cond_regex.match(text)
+            # res = cond_regex.match(text)
+            res = cond_regex.search(text)
+            # print(text)
+            # print(res)
             if res is not None:
                 cond_name = res.group(1)
                 if cond_name == sname:
@@ -105,11 +122,11 @@ if __name__ == "__main__":
 
     xml_tree = ET.parse(in_filename)
     elements = extract_elements_with_conditions(xml_tree)
-    for cond in file:
-        e = find_element_with_expr(elements, cond)
+    for expr_name in file:
+        e = find_element_by_expr_name(elements, expr_name)
         if e is not None:
             b, r = file[cond].is_mcdc_covered()
             color = 'Green' if b else 'Red'
             set_color(e, color)
 
-    xml_tree.write(out_filename)
+    xml_tree.write(out_filename, xml_declaration=True)

@@ -648,8 +648,8 @@ end</layout>
       </block>
       <block id="ID1547263327">
         <id>TestCases</id>
-        <ml id="ID1547263188">val mbtcpnlibpath =  &quot;c:/work/mbtcpnlib/&quot;;
-          <layout>val mbtcpnlibpath =  &quot;c:/work/mbtcpnlib/&quot;;</layout>
+        <ml id="ID1547263188">val mbtcpnlibpath =  &quot;../../&quot;;
+          <layout>val mbtcpnlibpath =  &quot;../../&quot;;</layout>
         </ml>
         <color id="ID1547263597">
           <id>TCInEvent</id>
@@ -7537,7 +7537,7 @@ Detector</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1593265174">
+        <annot id="ID1593265450">
           <posattr x="-515.000000"
                    y="263.000000"/>
           <fillattr colour="White"
@@ -7826,7 +7826,7 @@ Detector</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1593265175">
+        <annot id="ID1593265451">
           <posattr x="-515.000000"
                    y="375.000000"/>
           <fillattr colour="White"
@@ -9927,7 +9927,7 @@ Prepare</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1593265176">
+        <annot id="ID1593265452">
           <posattr x="-344.000000"
                    y="296.000000"/>
           <fillattr colour="White"
@@ -14377,7 +14377,7 @@ Value</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1593265177">
+        <annot id="ID1593265453">
           <posattr x="-741.000000"
                    y="557.000000"/>
           <fillattr colour="White"
@@ -14454,7 +14454,7 @@ Value</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1593265178">
+        <annot id="ID1593265454">
           <posattr x="-741.000000"
                    y="368.000000"/>
           <fillattr colour="White"
@@ -16028,7 +16028,7 @@ Value</text>
                    currentcyckle="2"/>
         <transend idref="ID1547605490"/>
         <placeend idref="ID1547605506"/>
-        <annot id="ID1593265179">
+        <annot id="ID1593265455">
           <posattr x="-589.000000"
                    y="360.000000"/>
           <fillattr colour="White"
@@ -21110,7 +21110,7 @@ Counter</text>
                    currentcyckle="2"/>
         <transend idref="ID1536644940"/>
         <placeend idref="ID1536591430"/>
-        <annot id="ID1593265180">
+        <annot id="ID1593265456">
           <posattr x="-612.000000"
                    y="490.000000"/>
           <fillattr colour="White"
@@ -21886,27 +21886,7 @@ Counter</text>
           <text>&lt;same as model&gt;</text>
         </value>
       </option>
-      <option name="extensions.10007.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10008.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10002.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10005.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10001.enable">
+      <option name="extensions.10003.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -21916,7 +21896,12 @@ Counter</text>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10003.enable">
+      <option name="extensions.10001.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10008.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -21926,17 +21911,32 @@ Counter</text>
           <boolean>true</boolean>
         </value>
       </option>
+      <option name="extensions.10005.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
       <option name="extensions.10011.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10007.options.discover">
+      <option name="extensions.10002.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10007.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10011.options.disable">
         <value>
           <boolean>false</boolean>
         </value>
       </option>
-      <option name="extensions.10011.options.disable">
+      <option name="extensions.10007.options.discover">
         <value>
           <boolean>false</boolean>
         </value>

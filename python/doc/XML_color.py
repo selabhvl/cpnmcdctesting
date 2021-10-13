@@ -125,7 +125,7 @@ if __name__ == "__main__":
     for expr_name in file:
         e = find_element_by_expr_name(elements, expr_name)
         if e is not None:
-            b, r = file[cond].is_mcdc_covered()
+            b, r = file[expr_name].is_mcdc_covered()
             color = 'Green' if b else 'Red'
             set_color(e, color)
 

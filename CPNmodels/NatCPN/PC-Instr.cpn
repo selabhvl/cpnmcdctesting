@@ -7,19 +7,19 @@
              format="6"/>
   <cpnet>
     <globbox>
-      <block id="ID1590766480">
+      <block id="ID1590814455">
         <id>MBT</id>
-        <ml id="ID1590766727">val cpnmcdclibpath =  &quot;../../&quot;;
+        <ml id="ID1590814723">val cpnmcdclibpath =  &quot;../../&quot;;
           <layout>val cpnmcdclibpath =  &quot;../../&quot;;</layout>
         </ml>
-        <ml id="ID1590766650">val fmodelpath = cpnmcdclibpath^&quot;/examples/tpc/&quot;;
+        <ml id="ID1590814640">val fmodelpath = cpnmcdclibpath^&quot;/examples/tpc/&quot;;
           <layout>val fmodelpath = cpnmcdclibpath^&quot;/examples/tpc/&quot;;</layout>
         </ml>
-        <use id="ID1590766586">
+        <use id="ID1590814570">
           <ml>(cpnmcdclibpath^&quot;config/logging.sml&quot;)</ml>
           <layout>use (cpnmcdclibpath^&quot;config/logging.sml&quot;);</layout>
         </use>
-        <use id="ID1590766532">
+        <use id="ID1590814513">
           <ml>(cpnmcdclibpath^&quot;config/instrumentation.sml&quot;)</ml>
           <layout>use (cpnmcdclibpath^&quot;config/instrumentation.sml&quot;);</layout>
         </use>
@@ -44,20 +44,22 @@
           <layout>globref outfile = TextIO.stdOut;</layout>
         </globref>
         <ml id="ID1415025750">val Head = &quot;TIME;&quot;^
-                                                        &quot;I:the_coffee_request_button;&quot;^
-                                                        &quot;I:the_coin_sensor;&quot;^
+                                                        &quot;I:the_left_priority_button;&quot;^
+                                                        &quot;I:the_right_priority_button;&quot;^
+                                                        &quot;I:the_left_command;&quot;^
+                                                        &quot;I:the_right_command;&quot;^
    
-   &quot;O:the_system_mode;&quot;^
-   &quot;O:the_coffee_machine_output;&quot;^&quot;\n&quot;;
+   &quot;O:the_output;&quot;^&quot;\n&quot;;
           <layout>val Head = &quot;TIME;&quot;^
-                                &quot;I:the_coffee_request_button;&quot;^
-                                &quot;I:the_coin_sensor;&quot;^
+                                &quot;I:the_left_priority_button;&quot;^
+                                &quot;I:the_right_priority_button;&quot;^
+                                &quot;I:the_left_command;&quot;^
+                                &quot;I:the_right_command;&quot;^
    
-   &quot;O:the_system_mode;&quot;^
-   &quot;O:the_coffee_machine_output;&quot;^&quot;\n&quot;;</layout>
+   &quot;O:the_output;&quot;^&quot;\n&quot;;</layout>
         </ml>
-        <ml id="ID1415867491">val InputQty = 32;
-          <layout>val InputQty = 32;</layout>
+        <ml id="ID1415867491">val InputQty = 25;
+          <layout>val InputQty = 25;</layout>
         </ml>
         <color id="ID85042">
           <id>UNIT</id>
@@ -90,16 +92,6 @@
         <color id="ID5">
           <id>STRING</id>
           <string/>
-        </color>
-        <color id="ID1414984454">
-          <id>INTV1</id>
-          <int>
-            <with>
-              <ml>0</ml>
-              <ml>11</ml>
-            </with>
-          </int>
-          <layout>colset INTV1 = int with 0..11;</layout>
         </color>
         <color id="IDTBool">
           <id>TBOOL</id>
@@ -148,68 +140,63 @@
             <id>BOOL</id>
             <id>BOOL</id>
             <id>BOOL</id>
+            <id>BOOL</id>
+            <id>BOOL</id>
+            <id>BOOL</id>
+            <id>BOOL</id>
           </product>
-          <layout>colset INPUTLIM = product INPUTCOUNTER *BOOL*BOOL*BOOL*BOOL 
+          <layout>colset INPUTLIM = product INPUTCOUNTER *BOOL*BOOL*BOOL*BOOL*BOOL*BOOL*BOOL*BOOL 
                                               timed;</layout>
         </color>
-        <var id="the_coffee_request_button">
+        <var id="the_left_priority_button">
           <type>
             <id>BOOL</id>
           </type>
-          <id>the_coffee_request_button</id>
-          <id>p_the_coffee_request_button</id>
-          <layout>var the_coffee_request_button, p_the_coffee_request_button : BOOL;</layout>
+          <id>the_left_priority_button</id>
+          <id>p_the_left_priority_button</id>
+          <layout>var the_left_priority_button, p_the_left_priority_button : BOOL;</layout>
         </var>
-        <var id="the_coin_sensor">
+        <var id="the_right_priority_button">
           <type>
             <id>BOOL</id>
           </type>
-          <id>the_coin_sensor</id>
-          <id>p_the_coin_sensor</id>
-          <layout>var the_coin_sensor, p_the_coin_sensor : BOOL;</layout>
+          <id>the_right_priority_button</id>
+          <id>p_the_right_priority_button</id>
+          <layout>var the_right_priority_button, p_the_right_priority_button : BOOL;</layout>
         </var>
-        <color id="IDthe_system_mode">
-          <id>OCSTHE_SYSTEM_MODE</id>
-          <timed/>
-          <enum>
-            <id>choice</id>
-            <id>idle</id>
-            <id>preparing_strong_coffee</id>
-            <id>preparing_weak_coffee</id>
-          </enum>
-          <layout>colset OCSTHE_SYSTEM_MODE = with choice|idle|preparing_strong_coffee|preparing_weak_coffee| timed;</layout>
+        <var id="the_left_command">
+          <type>
+            <id>BOOL</id>
+          </type>
+          <id>the_left_command</id>
+          <id>p_the_left_command</id>
+          <layout>var the_left_command, p_the_left_command : BOOL;</layout>
+        </var>
+        <var id="the_right_command">
+          <type>
+            <id>BOOL</id>
+          </type>
+          <id>the_right_command</id>
+          <id>p_the_right_command</id>
+          <layout>var the_right_command, p_the_right_command : BOOL;</layout>
+        </var>
+        <color id="ID1414984454">
+          <id>INTV1</id>
+          <int>
+            <with>
+              <ml>0</ml>
+              <ml>11</ml>
+            </with>
+          </int>
+          <layout>colset INTV1 = int with 0..11;</layout>
         </color>
-        <var id="the_system_mode">
+        <var id="the_output">
           <type>
-            <id>OCSTHE_SYSTEM_MODE</id>
+            <id>INT</id>
           </type>
-          <id>the_system_mode</id>
-          <id>p_the_system_mode</id>
-          <layout>var the_system_mode, p_the_system_mode : OCSTHE_SYSTEM_MODE;</layout>
-        </var>
-        <color id="IDthe_coffee_machine_output">
-          <id>OCSTHE_COFFEE_MACHINE_OUTPUT</id>
-          <timed/>
-          <enum>
-            <id>strong</id>
-            <id>weak</id>
-          </enum>
-          <layout>colset OCSTHE_COFFEE_MACHINE_OUTPUT = with strong|weak| timed;</layout>
-        </color>
-        <var id="the_coffee_machine_output">
-          <type>
-            <id>OCSTHE_COFFEE_MACHINE_OUTPUT</id>
-          </type>
-          <id>the_coffee_machine_output</id>
-          <id>p_the_coffee_machine_output</id>
-          <layout>var the_coffee_machine_output, p_the_coffee_machine_output : OCSTHE_COFFEE_MACHINE_OUTPUT;</layout>
-        </var>
-        <var id="the_request_timer">
-          <type>
-            <id>TIME</id>
-          </type>
-          <id>the_request_timer</id>
-          <layout>var the_request_timer : TIME;</layout>
+          <id>the_output</id>
+          <id>p_the_output</id>
+          <layout>var the_output, p_the_output : INT;</layout>
         </var>
         <var id="ID1413723254">
           <type>
@@ -233,49 +220,38 @@
             <id>TIME</id>
             <id>BOOL</id>
             <id>BOOL</id>
-            <id>OCSTHE_SYSTEM_MODE</id>
-            <id>OCSTHE_COFFEE_MACHINE_OUTPUT</id>
+            <id>BOOL</id>
+            <id>BOOL</id>
+            <id>INT</id>
             <id>STRING</id>
           </product>
           <layout>colset TO = product INT * TIME  
-                     *BOOL*BOOL * OCSTHE_SYSTEM_MODE* OCSTHE_COFFEE_MACHINE_OUTPUT * STRING timed;</layout>
+                     *BOOL*BOOL*BOOL*BOOL * INT  * STRING timed;</layout>
         </color>
-        <ml id="ID1415056101">fun vector (rt,the_coffee_request_button, 
-                                    the_coin_sensor, 
-                                    the_system_mode,
-                                           the_coffee_machine_output,
+        <ml id="ID1415056101">fun vector (rt,the_left_priority_button, 
+                                                the_right_priority_button, 
+                                                the_left_command, 
+                                                the_right_command, 
+                                                the_output,
+                                                        req) = (ModelTime.toString rt)^&quot;;&quot;^
+                                                                                                            (Bool.toString the_left_priority_button)^&quot;;&quot;^
+                                                                                                            (Bool.toString the_right_priority_button)^&quot;;&quot;^
+                                                                                                            (Bool.toString the_left_command)^&quot;;&quot;^
+                                                                                                            (Bool.toString the_right_command)^&quot;;&quot;^
+   
+   (Int.toString the_output)^&quot;;&quot;^ req^&quot;\n&quot;;
+          <layout>fun vector (rt,the_left_priority_button, 
+                                    the_right_priority_button, 
+                                    the_left_command, 
+                                    the_right_command, 
+                                    the_output,
                                             req) = (ModelTime.toString rt)^&quot;;&quot;^
-                                                                                                (Bool.toString the_coffee_request_button)^&quot;;&quot;^
-                                                                                                (Bool.toString the_coin_sensor)^&quot;;&quot;^
-   (case the_system_mode 
-   of   choice =&gt; &quot;0&quot; 
-   | idle =&gt; &quot;1&quot; 
-   | preparing_strong_coffee =&gt; &quot;2&quot; 
-   | preparing_weak_coffee =&gt; &quot;3&quot; 
-   )^&quot;;&quot;^
-   (case the_coffee_machine_output 
-   of   strong =&gt; &quot;0&quot; 
-   | weak =&gt; &quot;1&quot; 
-   )^&quot;;&quot;^
-    req^&quot;\n&quot;;
-          <layout>fun vector (rt,the_coffee_request_button, 
-                                    the_coin_sensor, 
-                                    the_system_mode,
-                                           the_coffee_machine_output,
-                                            req) = (ModelTime.toString rt)^&quot;;&quot;^
-                                                                                                (Bool.toString the_coffee_request_button)^&quot;;&quot;^
-                                                                                                (Bool.toString the_coin_sensor)^&quot;;&quot;^
-   (case the_system_mode 
-   of   choice =&gt; &quot;0&quot; 
-   | idle =&gt; &quot;1&quot; 
-   | preparing_strong_coffee =&gt; &quot;2&quot; 
-   | preparing_weak_coffee =&gt; &quot;3&quot; 
-   )^&quot;;&quot;^
-   (case the_coffee_machine_output 
-   of   strong =&gt; &quot;0&quot; 
-   | weak =&gt; &quot;1&quot; 
-   )^&quot;;&quot;^
-    req^&quot;\n&quot;;</layout>
+                                                                                                (Bool.toString the_left_priority_button)^&quot;;&quot;^
+                                                                                                (Bool.toString the_right_priority_button)^&quot;;&quot;^
+                                                                                                (Bool.toString the_left_command)^&quot;;&quot;^
+                                                                                                (Bool.toString the_right_command)^&quot;;&quot;^
+   
+   (Int.toString the_output)^&quot;;&quot;^ req^&quot;\n&quot;;</layout>
         </ml>
       </block>
     </globbox>
@@ -385,8 +361,8 @@
                 version="4.0.1">INPUTLIM</text>
         </type>
         <initmark id="ID1415056802">
-          <posattr x="100.000000"
-                   y="-160.000000"/>
+          <posattr x="104.000000"
+                   y="-156.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -396,7 +372,7 @@
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">( 0, false, false, false, false)</text>
+                version="4.0.1">( 0, false, false, false, false, false, false, false, false)</text>
         </initmark>
         <fusioninfo id="ID1415390976"
                     name="Inputs">
@@ -581,8 +557,10 @@
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">(n, 
-       p_the_coffee_request_button, the_coffee_request_button, 
-       p_the_coin_sensor, the_coin_sensor)</text>
+       p_the_left_priority_button, the_left_priority_button, 
+       p_the_right_priority_button, the_right_priority_button, 
+       p_the_left_command, the_left_command, 
+       p_the_right_command, the_right_command)</text>
         </annot>
       </arc>
       <arc id="ID1415056873"
@@ -603,7 +581,7 @@
         <transend idref="ID1415056788"/>
         <placeend idref="IDGenInput"/>
         <annot id="ID1415056874">
-          <posattr x="195.500000"
+          <posattr x="200.000000"
                    y="-30.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -615,8 +593,10 @@
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">(i+1, 
-         the_coffee_request_button, BOOL.ran() , 
-         the_coin_sensor, BOOL.ran()  )@+round(uniform(2.0,3.0))</text>
+         the_left_priority_button, BOOL.ran() , 
+         the_right_priority_button, BOOL.ran() , 
+         the_left_command, BOOL.ran() , 
+         the_right_command, BOOL.ran()  )@+round(uniform(9.0,51.0))</text>
         </annot>
       </arc>
       <constraints/>
@@ -637,12 +617,26 @@
    val endTime = Time.now();
    val iti = Time.toMilliseconds(Time.-(endTime,startTime))</text>
       </Aux>
+      <Aux id="ID1590819119">
+        <posattr x="-378.000000"
+                 y="168.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Purple"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Purple"
+                  bold="false"/>
+        <label/>
+        <text>n=i, i&lt;InputQty</text>
+      </Aux>
     </page>
     <page id="ID7">
       <pageattr name="NoAttendedReq"/>
       <place id="IDinnoREQ">
         <posattr x="42.000000"
-                 y="483.000000"/>
+                 y="366.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -665,7 +659,7 @@
         </marking>
         <type id="ID1415103152">
           <posattr x="42.000000"
-                   y="445.000000"/>
+                   y="328.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -679,7 +673,7 @@
         </type>
         <initmark id="ID1415103153">
           <posattr x="42.000000"
-                   y="521.000000"/>
+                   y="404.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -689,12 +683,12 @@
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">( 0, false, false, false, false)</text>
+                version="4.0.1">( 0, false, false, false, false, false, false, false, false)</text>
         </initmark>
         <fusioninfo id="ID1415408156"
                     name="Inputs">
           <posattr x="11.000000"
-                   y="461.000000"/>
+                   y="344.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -756,7 +750,7 @@
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">(InputQty+2, ModelTime.fromInt(9999)
-       , false, false, idle, strong,
+       , false, false, false, false, 3,
         &quot;STOP&quot;)</text>
         </initmark>
         <fusioninfo id="ID1415538576"
@@ -904,7 +898,7 @@
                     bold="false"/>
         </fusioninfo>
       </place>
-      <place id="IDnoREQthe_system_mode">
+      <place id="IDnoREQthe_output">
         <posattr x="-96.000000"
                  y="-42.000000"/>
         <fillattr colour="White"
@@ -916,75 +910,6 @@
         <textattr colour="Black"
                   bold="false"/>
         <text>the
-         system
-         mode</text>
-        <ellipse w="95.000000"
-                 h="80.000000"/>
-        <token x="-20.000000"
-               y="30.000000"/>
-        <marking x="-10.000000"
-                 y="20.000000"
-                 hidden="false">
-          <snap snap_id="0"
-                anchor.horizontal="0"
-                anchor.vertical="0"/>
-        </marking>
-        <type id="IDnoREQthe_system_mode1">
-          <posattr x="-80.000000"
-                   y="-100.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">OCSTHE_SYSTEM_MODE</text>
-        </type>
-        <initmark id="IDnoREQthe_system_mode2">
-          <posattr x="-107.000000"
-                   y="9.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">idle</text>
-        </initmark>
-        <fusioninfo id="IDnoREQthe_system_modef"
-                    name="the_system_mode">
-          <posattr x="-130.000000"
-                   y="-85.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-        </fusioninfo>
-      </place>
-      <place id="IDnoREQthe_coffee_machine_output">
-        <posattr x="54.000000"
-                 y="-32.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="3"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <text>the
-         coffee
-         machine
          output</text>
         <ellipse w="95.000000"
                  h="80.000000"/>
@@ -997,9 +922,9 @@
                 anchor.horizontal="0"
                 anchor.vertical="0"/>
         </marking>
-        <type id="IDnoREQthe_coffee_machine_output1">
-          <posattr x="70.000000"
-                   y="-85.000000"/>
+        <type id="IDnoREQthe_output1">
+          <posattr x="-85.500000"
+                   y="-93.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -1009,75 +934,10 @@
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">OCSTHE_COFFEE_MACHINE_OUTPUT</text>
+                version="4.0.1">INT</text>
         </type>
-        <initmark id="IDnoREQthe_coffee_machine_output2">
-          <posattr x="40.000000"
-                   y="22.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">strong</text>
-        </initmark>
-        <fusioninfo id="IDnoREQthe_coffee_machine_outputf"
-                    name="the_coffee_machine_output">
-          <posattr x="30.000000"
-                   y="-70.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-        </fusioninfo>
-      </place>
-      <place id="IDnoREQthe_request_timer">
-        <posattr x="336.000000"
-                 y="-42.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="3"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <text>the_request_timer</text>
-        <ellipse w="88.000000"
-                 h="80.000000"/>
-        <token x="-1.000000"
-               y="7.000000"/>
-        <marking x="-1.000000"
-                 y="0.000000"
-                 hidden="false">
-          <snap snap_id="0"
-                anchor.horizontal="0"
-                anchor.vertical="0"/>
-        </marking>
-        <type id="IDnoREQthe_request_timer1">
-          <posattr x="402.500000"
-                   y="-80.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">TIME</text>
-        </type>
-        <initmark id="IDnoREQthe_request_timer2">
-          <posattr x="321.000000"
+        <initmark id="IDnoREQthe_output2">
+          <posattr x="-110.000000"
                    y="12.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -1088,12 +948,12 @@
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">0</text>
+                version="4.0.1">3</text>
         </initmark>
-        <fusioninfo id="IDnoREQthe_request_timerf"
-                    name="F_the_request_timer">
-          <posattr x="302.000000"
-                   y="-73.000000"/>
+        <fusioninfo id="IDnoREQthe_outputf"
+                    name="the_output">
+          <posattr x="-130.000000"
+                   y="-85.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -1196,8 +1056,8 @@
         <transend idref="IDnoREQ"/>
         <placeend idref="IDinnoREQ"/>
         <annot id="ID1415103164">
-          <posattr x="-18.000000"
-                   y="379.000000"/>
+          <posattr x="-248.000000"
+                   y="328.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -1208,8 +1068,10 @@
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">(n, 
-       p_the_coffee_request_button, the_coffee_request_button, 
-       p_the_coin_sensor, the_coin_sensor)</text>
+       p_the_left_priority_button, the_left_priority_button, 
+       p_the_right_priority_button, the_right_priority_button, 
+       p_the_left_command, the_left_command, 
+       p_the_right_command, the_right_command)</text>
         </annot>
       </arc>
       <arc id="ID1415103173"
@@ -1230,8 +1092,8 @@
         <transend idref="IDnoREQ"/>
         <placeend idref="ID1415103160"/>
         <annot id="ID1415103174">
-          <posattr x="247.000000"
-                   y="307.000000"/>
+          <posattr x="407.000000"
+                   y="290.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -1242,9 +1104,8 @@
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">(z,
-   time(), the_coffee_request_button, the_coin_sensor ,
-                  the_system_mode,
-                  the_coffee_machine_output,trace)</text>
+   time(), the_left_priority_button, the_right_priority_button, the_left_command, the_right_command ,
+                  the_output,trace)</text>
         </annot>
       </arc>
       <arc id="ID1415590568"
@@ -1375,7 +1236,7 @@
                 version="4.0.1">trace</text>
         </annot>
       </arc>
-      <arc id="IDarcnoREQthe_system_mode"
+      <arc id="IDarcnoREQthe_output"
            orientation="BOTHDIR"
            order="1">
         <posattr x="0.000000"
@@ -1391,8 +1252,8 @@
         <arrowattr headsize="1.200000"
                    currentcyckle="2"/>
         <transend idref="IDnoREQ"/>
-        <placeend idref="IDnoREQthe_system_mode"/>
-        <annot id="IDarcnoREQthe_system_modeannot">
+        <placeend idref="IDnoREQthe_output"/>
+        <annot id="IDarcnoREQthe_outputannot">
           <posattr x="-50.000000"
                    y="30.000000"/>
           <fillattr colour="White"
@@ -1404,103 +1265,7 @@
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">the_system_mode</text>
-        </annot>
-      </arc>
-      <arc id="IDarcnoREQthe_coffee_machine_output"
-           orientation="BOTHDIR"
-           order="1">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="IDnoREQ"/>
-        <placeend idref="IDnoREQthe_coffee_machine_output"/>
-        <annot id="IDarcnoREQthe_coffee_machine_outputannot">
-          <posattr x="50.000000"
-                   y="50.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">the_coffee_machine_output</text>
-        </annot>
-      </arc>
-      <arc id="IDarcnoREQthe_request_timert1"
-           orientation="PtoT"
-           order="2">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="IDnoREQ"/>
-        <placeend idref="IDnoREQthe_request_timer"/>
-        <annot id="IDarcnoREQthe_request_timert1annot">
-          <posattr x="279.000000"
-                   y="79.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">the_request_timer</text>
-        </annot>
-      </arc>
-      <arc id="ID1415868508"
-           orientation="TtoP"
-           order="1">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="IDnoREQ"/>
-        <placeend idref="IDnoREQthe_request_timer"/>
-        <annot id="ID1415868509">
-          <posattr x="61.000000"
-                   y="122.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">the_request_timer</text>
+                version="4.0.1">the_output</text>
         </annot>
       </arc>
       <constraints/>
@@ -1586,20 +1351,20 @@
                   bold="false"/>
         <text>Test
    Oracles</text>
-        <ellipse w="78.000000"
-                 h="64.000000"/>
+        <ellipse w="98.000000"
+                 h="96.000000"/>
         <token x="-10.000000"
                y="0.000000"/>
-        <marking x="22.000000"
-                 y="-47.000000"
+        <marking x="16.000000"
+                 y="31.000000"
                  hidden="false">
           <snap snap_id="0"
                 anchor.horizontal="1"
                 anchor.vertical="3"/>
         </marking>
         <type id="ID1415178030">
-          <posattr x="80.500000"
-                   y="345.000000"/>
+          <posattr x="87.500000"
+                   y="334.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -1612,8 +1377,8 @@
                 version="4.0.1">TO</text>
         </type>
         <initmark id="ID1415178031">
-          <posattr x="42.000000"
-                   y="435.000000"/>
+          <posattr x="59.000000"
+                   y="455.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -1624,13 +1389,13 @@
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">(InputQty+2, ModelTime.fromInt(9999)
-   , false, false, idle, strong,
+   , false, false, false, false, 3,
    &quot;STOP&quot;)</text>
         </initmark>
         <fusioninfo id="ID1415541967"
                     name="Tests">
-          <posattr x="11.000000"
-                   y="352.000000"/>
+          <posattr x="18.000000"
+                   y="334.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -1642,8 +1407,8 @@
         </fusioninfo>
       </place>
       <place id="ID1415555724">
-        <posattr x="-210.000000"
-                 y="210.000000"/>
+        <posattr x="321.000000"
+                 y="278.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -1666,8 +1431,8 @@
                 anchor.vertical="0"/>
         </marking>
         <type id="ID1415555725">
-          <posattr x="-199.500000"
-                   y="158.000000"/>
+          <posattr x="331.500000"
+                   y="226.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -1680,8 +1445,8 @@
                 version="4.0.1">INT</text>
         </type>
         <initmark id="ID1415555726">
-          <posattr x="-165.000000"
-                   y="248.000000"/>
+          <posattr x="365.000000"
+                   y="316.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -1713,8 +1478,8 @@
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="ID1415178009">
-          <posattr x="-82.500000"
-                   y="273.000000"/>
+          <posattr x="-92.000000"
+                   y="240.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -1742,8 +1507,8 @@
                 version="4.0.1"/>
         </time>
         <code id="ID1415178011">
-          <posattr x="342.500000"
-                   y="143.000000"/>
+          <posattr x="335.000000"
+                   y="75.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -1753,10 +1518,11 @@
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">input (i,rt,the_coffee_request_button, 
-               the_coin_sensor, 
-               the_system_mode, 
-                      the_coffee_machine_output, 
+                version="4.0.1">input (i,rt,the_left_priority_button, 
+               the_right_priority_button, 
+               the_left_command, 
+               the_right_command, 
+               the_output, 
                        req);
    action
       if rt=0 then (outfile := TextIO.openOut(OS.Path.concat 
@@ -1765,10 +1531,11 @@
       if rt&gt;=0 then
                       if req&lt;&gt; &quot;STOP&quot; then
                                 TextIO.output(!outfile, 
-                                vector (rt,the_coffee_request_button, 
-                                           the_coin_sensor, 
-                                           the_system_mode, 
-                                                  the_coffee_machine_output, 
+                                vector (rt,the_left_priority_button, 
+                                           the_right_priority_button, 
+                                           the_left_command, 
+                                           the_right_command, 
+                                           the_output, 
                                                    req)  )  
                      else ( TextIO.closeOut(!outfile) )   else ();</text>
         </code>
@@ -1805,8 +1572,8 @@
         <transend idref="ID1415178008"/>
         <placeend idref="ID1415178029"/>
         <annot id="ID1415178102">
-          <posattr x="-109.000000"
-                   y="355.000000"/>
+          <posattr x="426.000000"
+                   y="326.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -1816,10 +1583,9 @@
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">(z,rt, the_coffee_request_button, 
-the_coin_sensor,
-the_system_mode, 
-the_coffee_machine_output, req)</text>
+                version="4.0.1">(z,rt, the_left_priority_button, the_right_priority_button, the_left_command, the_right_command,
+   the_output, 
+    req)</text>
         </annot>
       </arc>
       <arc id="ID1415178103"
@@ -1872,8 +1638,8 @@ the_coffee_machine_output, req)</text>
         <transend idref="ID1415178008"/>
         <placeend idref="ID1415555724"/>
         <annot id="ID1415557388">
-          <posattr x="-85.000000"
-                   y="192.000000"/>
+          <posattr x="181.000000"
+                   y="263.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -1904,8 +1670,8 @@ the_coffee_machine_output, req)</text>
         <transend idref="ID1415178008"/>
         <placeend idref="ID1415555724"/>
         <annot id="ID1415557898">
-          <posattr x="-101.000000"
-                   y="228.000000"/>
+          <posattr x="206.500000"
+                   y="229.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -1919,16 +1685,16 @@ the_coffee_machine_output, req)</text>
         </annot>
       </arc>
       <constraints/>
-      <Aux id="ID1590771153">
-        <posattr x="-407.000000"
-                 y="473.000000"/>
+      <Aux id="ID1590818434">
+        <posattr x="-420.000000"
+                 y="504.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
-        <lineattr colour="Red"
+        <lineattr colour="Black"
                   thick="1"
                   type="Solid"/>
-        <textattr colour="Red"
+        <textattr colour="Black"
                   bold="false"/>
         <label/>
         <text>(i=InputQty),
@@ -1939,7 +1705,7 @@ the_coffee_machine_output, req)</text>
       <pageattr name="REQ001"/>
       <place id="IDinREQ001">
         <posattr x="30.000000"
-                 y="368.000000"/>
+                 y="416.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -1949,8 +1715,8 @@ the_coffee_machine_output, req)</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>Input</text>
-        <ellipse w="57.740000"
-                 h="46.900000"/>
+        <ellipse w="78.000000"
+                 h="54.000000"/>
         <token x="-10.000000"
                y="0.000000"/>
         <marking x="-1.000000"
@@ -1961,8 +1727,8 @@ the_coffee_machine_output, req)</text>
                 anchor.vertical="3"/>
         </marking>
         <type id="IDinREQ0011">
-          <posattr x="83.000000"
-                   y="341.000000"/>
+          <posattr x="30.000000"
+                   y="378.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -1975,8 +1741,8 @@ the_coffee_machine_output, req)</text>
                 version="4.0.1">INPUTLIM</text>
         </type>
         <initmark id="IDinREQ0012">
-          <posattr x="-87.870000"
-                   y="375.000000"/>
+          <posattr x="10.000000"
+                   y="452.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -1986,12 +1752,12 @@ the_coffee_machine_output, req)</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">(0, false, false, false, false)</text>
+                version="4.0.1">(0, false, false, false, false, false, false, false, false)</text>
         </initmark>
         <fusioninfo id="IDinREQ001f"
                     name="Inputs">
-          <posattr x="30.000000"
-                   y="340.550000"/>
+          <posattr x="-15.000000"
+                   y="392.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -2003,7 +1769,7 @@ the_coffee_machine_output, req)</text>
         </fusioninfo>
       </place>
       <place id="IDTraceREQ001">
-        <posattr x="-178.000000"
+        <posattr x="-220.000000"
                  y="210.000000"/>
         <fillattr colour="White"
                   pattern=""
@@ -2014,7 +1780,7 @@ the_coffee_machine_output, req)</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>Trace</text>
-        <ellipse w="49.668277"
+        <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-29.000000"
                y="21.000000"/>
@@ -2026,8 +1792,8 @@ the_coffee_machine_output, req)</text>
                 anchor.vertical="2"/>
         </marking>
         <type id="IDTraceREQ0012">
-          <posattr x="-177.165862"
-                   y="169.000000"/>
+          <posattr x="-204.000000"
+                   y="180.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -2040,7 +1806,7 @@ the_coffee_machine_output, req)</text>
                 version="4.0.1">STRING</text>
         </type>
         <initmark id="IDTraceREQ0013">
-          <posattr x="-192.000000"
+          <posattr x="-234.000000"
                    y="241.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -2055,8 +1821,8 @@ the_coffee_machine_output, req)</text>
         </initmark>
         <fusioninfo id="IDTraceREQ001f"
                     name="Traces">
-          <posattr x="-178.000000"
-                   y="186.000000"/>
+          <posattr x="-244.000000"
+                   y="193.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -2067,9 +1833,9 @@ the_coffee_machine_output, req)</text>
                     bold="false"/>
         </fusioninfo>
       </place>
-      <place id="IDREQ001the_system_mode">
-        <posattr x="-150.000000"
-                 y="84.000000"/>
+      <place id="IDREQ001the_output">
+        <posattr x="-250.000000"
+                 y="-10.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -2079,12 +1845,11 @@ the_coffee_machine_output, req)</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>the
-system
-mode</text>
-        <ellipse w="58.000000"
-                 h="58.125604"/>
-        <token x="-10.000000"
-               y="0.000000"/>
+             output</text>
+        <ellipse w="88.000000"
+                 h="80.000000"/>
+        <token x="-1.000000"
+               y="7.000000"/>
         <marking x="-1.000000"
                  y="0.000000"
                  hidden="false">
@@ -2092,9 +1857,9 @@ mode</text>
                 anchor.horizontal="0"
                 anchor.vertical="0"/>
         </marking>
-        <type id="IDREQ001the_system_mode1">
-          <posattr x="-135.000000"
-                   y="35.937198"/>
+        <type id="IDREQ001the_output1">
+          <posattr x="-200.000000"
+                   y="-70.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -2104,64 +1869,10 @@ mode</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">OCSTHE_SYSTEM_MODE</text>
+                version="4.0.1">INT</text>
         </type>
-        <initmark id="IDREQ001the_system_mode2">
-          <posattr x="-139.000000"
-                   y="124.062802"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">idle</text>
-        </initmark>
-        <fusioninfo id="IDREQ001the_system_modef"
-                    name="F_the_system_mode">
-          <posattr x="-138.000000"
-                   y="53.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-        </fusioninfo>
-      </place>
-      <place id="IDREQ001the_coffee_machine_output">
-        <posattr x="195.000000"
-                 y="84.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="3"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <text>the
-coffee
-machine
-output</text>
-        <ellipse w="71.542673"
-                 h="66.834138"/>
-        <token x="-21.771337"
-               y="26.000000"/>
-        <marking x="-1.000000"
-                 y="0.000000"
-                 hidden="false">
-          <snap snap_id="0"
-                anchor.horizontal="0"
-                anchor.vertical="0"/>
-        </marking>
-        <type id="IDREQ001the_coffee_machine_output1">
-          <posattr x="191.000000"
+        <initmark id="IDREQ001the_output2">
+          <posattr x="-200.000000"
                    y="30.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -2172,93 +1883,12 @@ output</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">OCSTHE_COFFEE_MACHINE_OUTPUT</text>
-        </type>
-        <initmark id="IDREQ001the_coffee_machine_output2">
-          <posattr x="215.500000"
-                   y="128.417069"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">strong</text>
+                version="4.0.1">3</text>
         </initmark>
-        <fusioninfo id="IDREQ001the_coffee_machine_outputf"
-                    name="F_the_coffee_machine_output">
-          <posattr x="209.000000"
-                   y="46.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-        </fusioninfo>
-      </place>
-      <place id="IDREQ001the_request_timer">
-        <posattr x="232.000000"
-                 y="210.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="3"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <text>the
-request
-timer</text>
-        <ellipse w="64.000000"
-                 h="60.251208"/>
-        <token x="-9.394525"
-               y="12.165862"/>
-        <marking x="-1.000000"
-                 y="0.000000"
-                 hidden="false">
-          <snap snap_id="0"
-                anchor.horizontal="1"
-                anchor.vertical="1"/>
-        </marking>
-        <type id="IDREQ001the_request_timer1">
-          <posattr x="285.000000"
-                   y="188.874396"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">TIME</text>
-        </type>
-        <initmark id="IDREQ001the_request_timer2">
-          <posattr x="261.000000"
-                   y="241.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">0</text>
-        </initmark>
-        <fusioninfo id="IDREQ001the_request_timerf"
-                    name="F_the_request_timer">
-          <posattr x="220.000000"
-                   y="173.000000"/>
+        <fusioninfo id="IDREQ001the_outputf"
+                    name="F_the_output">
+          <posattr x="-230.000000"
+                   y="-50.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -2287,8 +1917,8 @@ timer</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="IDREQ001cond">
-          <posattr x="-239.000000"
-                   y="316.000000"/>
+          <posattr x="-451.500000"
+                   y="342.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -2299,9 +1929,12 @@ timer</text>
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">(* REQx  *)
-EXPR(&quot;RQ1T1&quot;, AND(NOT(AP(&quot;1&quot;, p_the_coin_sensor = true)), 
-AND(AP(&quot;2&quot;,the_coin_sensor = true),  AND(AP(&quot;3&quot;, the_system_mode = idle),
- AP(&quot;4&quot;,not(String.isSuffix &quot;REQ001&quot; trace))))))</text>
+     EXPR(&quot;RQ4T1&quot;, AND(AND(AND(AND(
+AP(&quot;1&quot;,the_left_priority_button = false), 
+AP(&quot;2&quot;,the_right_priority_button = false )), 
+AP(&quot;3&quot;,the_left_command = true  )),
+AP(&quot;4&quot;,  the_right_command = true )),
+     NOT(AP(&quot;5&quot;, String.isSuffix &quot;REQ001&quot; trace))))</text>
         </cond>
         <time id="IDREQ001ti">
           <posattr x="75.500000"
@@ -2364,8 +1997,8 @@ AND(AP(&quot;2&quot;,the_coin_sensor = true),  AND(AP(&quot;3&quot;, the_system_
         <transend idref="IDREQ001"/>
         <placeend idref="IDTraceREQ001"/>
         <annot id="IDarcTraceREQ0011annot">
-          <posattr x="-59.000000"
-                   y="223.000000"/>
+          <posattr x="-90.000000"
+                   y="225.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -2396,8 +2029,8 @@ AND(AP(&quot;2&quot;,the_coin_sensor = true),  AND(AP(&quot;3&quot;, the_system_
         <transend idref="IDREQ001"/>
         <placeend idref="IDTraceREQ001"/>
         <annot id="IDarcTraceREQ0012annot">
-          <posattr x="-90.000000"
-                   y="203.000000"/>
+          <posattr x="-125.000000"
+                   y="192.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -2428,8 +2061,8 @@ AND(AP(&quot;2&quot;,the_coin_sensor = true),  AND(AP(&quot;3&quot;, the_system_
         <transend idref="IDREQ001"/>
         <placeend idref="IDinREQ001"/>
         <annot id="IDinREQ001annot">
-          <posattr x="171.500000"
-                   y="297.000000"/>
+          <posattr x="309.000000"
+                   y="337.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -2440,12 +2073,13 @@ AND(AP(&quot;2&quot;,the_coin_sensor = true),  AND(AP(&quot;3&quot;, the_system_
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">(n, 
-p_the_coffee_request_button, 
-the_coffee_request_button, 
-p_the_coin_sensor, the_coin_sensor)</text>
+         p_the_left_priority_button, the_left_priority_button, 
+         p_the_right_priority_button, the_right_priority_button, 
+         p_the_left_command, the_left_command, 
+         p_the_right_command, the_right_command)</text>
         </annot>
       </arc>
-      <arc id="IDarcREQ001the_system_mode1"
+      <arc id="IDarcREQ001the_output1"
            orientation="TtoP"
            order="1">
         <posattr x="0.000000"
@@ -2461,10 +2095,10 @@ p_the_coin_sensor, the_coin_sensor)</text>
         <arrowattr headsize="1.200000"
                    currentcyckle="2"/>
         <transend idref="IDREQ001"/>
-        <placeend idref="IDREQ001the_system_mode"/>
-        <annot id="IDarcREQ001the_system_modea1">
-          <posattr x="-74.000000"
-                   y="164.000000"/>
+        <placeend idref="IDREQ001the_output"/>
+        <annot id="IDarcREQ001the_outputa1">
+          <posattr x="-120.000000"
+                   y="120.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -2474,10 +2108,10 @@ p_the_coin_sensor, the_coin_sensor)</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">choice</text>
+                version="4.0.1">0</text>
         </annot>
       </arc>
-      <arc id="IDarcREQ001the_system_mode2"
+      <arc id="IDarcREQ001the_output2"
            orientation="PtoT"
            order="2">
         <posattr x="0.000000"
@@ -2493,10 +2127,10 @@ p_the_coin_sensor, the_coin_sensor)</text>
         <arrowattr headsize="1.200000"
                    currentcyckle="2"/>
         <transend idref="IDREQ001"/>
-        <placeend idref="IDREQ001the_system_mode"/>
-        <annot id="IDarcREQ001the_system_modea2">
-          <posattr x="17.000000"
-                   y="145.000000"/>
+        <placeend idref="IDREQ001the_output"/>
+        <annot id="IDarcREQ001the_outputa2">
+          <posattr x="-100.500000"
+                   y="60.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -2506,144 +2140,35 @@ p_the_coin_sensor, the_coin_sensor)</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">the_system_mode</text>
-        </annot>
-      </arc>
-      <arc id="IDarcREQ001the_coffee_machine_output1"
-           orientation="TtoP"
-           order="1">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="IDREQ001"/>
-        <placeend idref="IDREQ001the_coffee_machine_output"/>
-        <annot id="IDarcREQ001the_coffee_machine_outputa1">
-          <posattr x="48.500000"
-                   y="112.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">the_coffee_machine_output</text>
-        </annot>
-      </arc>
-      <arc id="IDarcREQ001the_coffee_machine_output2"
-           orientation="PtoT"
-           order="2">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="IDREQ001"/>
-        <placeend idref="IDREQ001the_coffee_machine_output"/>
-        <annot id="IDarcREQ001the_coffee_machine_outputa2">
-          <posattr x="221.000000"
-                   y="147.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">the_coffee_machine_output</text>
-        </annot>
-      </arc>
-      <arc id="IDarcREQ001the_request_timert1"
-           orientation="PtoT"
-           order="2">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="IDREQ001"/>
-        <placeend idref="IDREQ001the_request_timer"/>
-        <annot id="IDarcREQ001the_request_timert1annot">
-          <posattr x="136.000000"
-                   y="228.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">the_request_timer</text>
-        </annot>
-      </arc>
-      <arc id="IDarcREQ001the_request_timert2"
-           orientation="TtoP"
-           order="1">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="IDREQ001"/>
-        <placeend idref="IDREQ001the_request_timer"/>
-        <annot id="IDarcREQ001the_request_timert2annot">
-          <posattr x="130.000000"
-                   y="192.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">time()</text>
+                version="4.0.1">the_output</text>
         </annot>
       </arc>
       <constraints/>
+      <Aux id="ID1590815988">
+        <posattr x="-756.000000"
+                 y="516.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Purple"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Purple"
+                  bold="false"/>
+        <label/>
+        <text>(* REQx  *)
+     [the_left_priority_button = false  
+andalso  the_right_priority_button = false  
+andalso  the_left_command = true  
+andalso  the_right_command = true 
+     , not(String.isSuffix &quot;REQ001&quot; trace) ]</text>
+      </Aux>
     </page>
     <page id="IDREQ002page">
       <pageattr name="REQ002"/>
       <place id="IDinREQ002">
         <posattr x="30.000000"
-                 y="393.000000"/>
+                 y="416.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -2653,7 +2178,7 @@ p_the_coin_sensor, the_coin_sensor)</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>Input</text>
-        <ellipse w="64.000000"
+        <ellipse w="78.000000"
                  h="54.000000"/>
         <token x="-10.000000"
                y="0.000000"/>
@@ -2665,8 +2190,8 @@ p_the_coin_sensor, the_coin_sensor)</text>
                 anchor.vertical="3"/>
         </marking>
         <type id="IDinREQ0021">
-          <posattr x="85.000000"
-                   y="364.000000"/>
+          <posattr x="30.000000"
+                   y="378.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -2679,8 +2204,8 @@ p_the_coin_sensor, the_coin_sensor)</text>
                 version="4.0.1">INPUTLIM</text>
         </type>
         <initmark id="IDinREQ0022">
-          <posattr x="-85.000000"
-                   y="410.000000"/>
+          <posattr x="10.000000"
+                   y="452.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -2690,12 +2215,12 @@ p_the_coin_sensor, the_coin_sensor)</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">(0, false, false, false, false)</text>
+                version="4.0.1">(0, false, false, false, false, false, false, false, false)</text>
         </initmark>
         <fusioninfo id="IDinREQ002f"
                     name="Inputs">
-          <posattr x="28.000000"
-                   y="373.000000"/>
+          <posattr x="-15.000000"
+                   y="392.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -2707,7 +2232,7 @@ p_the_coin_sensor, the_coin_sensor)</text>
         </fusioninfo>
       </place>
       <place id="IDTraceREQ002">
-        <posattr x="-198.000000"
+        <posattr x="-220.000000"
                  y="210.000000"/>
         <fillattr colour="White"
                   pattern=""
@@ -2730,8 +2255,8 @@ p_the_coin_sensor, the_coin_sensor)</text>
                 anchor.vertical="2"/>
         </marking>
         <type id="IDTraceREQ0022">
-          <posattr x="-195.000000"
-                   y="168.000000"/>
+          <posattr x="-204.000000"
+                   y="180.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -2744,7 +2269,7 @@ p_the_coin_sensor, the_coin_sensor)</text>
                 version="4.0.1">STRING</text>
         </type>
         <initmark id="IDTraceREQ0023">
-          <posattr x="-212.000000"
+          <posattr x="-234.000000"
                    y="241.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -2759,8 +2284,8 @@ p_the_coin_sensor, the_coin_sensor)</text>
         </initmark>
         <fusioninfo id="IDTraceREQ002f"
                     name="Traces">
-          <posattr x="-198.000000"
-                   y="186.000000"/>
+          <posattr x="-244.000000"
+                   y="193.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -2771,9 +2296,9 @@ p_the_coin_sensor, the_coin_sensor)</text>
                     bold="false"/>
         </fusioninfo>
       </place>
-      <place id="IDREQ002the_system_mode">
-        <posattr x="-138.000000"
-                 y="84.000000"/>
+      <place id="IDREQ002the_output">
+        <posattr x="-250.000000"
+                 y="-10.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -2783,12 +2308,11 @@ p_the_coin_sensor, the_coin_sensor)</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>the
-system
-mode</text>
-        <ellipse w="63.626667"
-                 h="57.150000"/>
-        <token x="-10.000000"
-               y="0.000000"/>
+             output</text>
+        <ellipse w="88.000000"
+                 h="80.000000"/>
+        <token x="-1.000000"
+               y="7.000000"/>
         <marking x="-1.000000"
                  y="0.000000"
                  hidden="false">
@@ -2796,9 +2320,9 @@ mode</text>
                 anchor.horizontal="0"
                 anchor.vertical="0"/>
         </marking>
-        <type id="IDREQ002the_system_mode1">
-          <posattr x="-119.186667"
-                   y="37.425000"/>
+        <type id="IDREQ002the_output1">
+          <posattr x="-200.000000"
+                   y="-70.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -2808,11 +2332,11 @@ mode</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">OCSTHE_SYSTEM_MODE</text>
+                version="4.0.1">INT</text>
         </type>
-        <initmark id="IDREQ002the_system_mode2">
-          <posattr x="-138.000000"
-                   y="123.575000"/>
+        <initmark id="IDREQ002the_output2">
+          <posattr x="-200.000000"
+                   y="30.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -2822,147 +2346,12 @@ mode</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">idle</text>
+                version="4.0.1">3</text>
         </initmark>
-        <fusioninfo id="IDREQ002the_system_modef"
-                    name="F_the_system_mode">
-          <posattr x="-120.000000"
-                   y="52.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-        </fusioninfo>
-      </place>
-      <place id="IDREQ002the_coffee_machine_output">
-        <posattr x="186.000000"
-                 y="94.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="3"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <text>the
-coffee
-machine
-output</text>
-        <ellipse w="71.243333"
-                 h="64.766667"/>
-        <token x="-21.621667"
-               y="25.000000"/>
-        <marking x="-1.000000"
-                 y="0.000000"
-                 hidden="false">
-          <snap snap_id="0"
-                anchor.horizontal="0"
-                anchor.vertical="0"/>
-        </marking>
-        <type id="IDREQ002the_coffee_machine_output1">
-          <posattr x="163.911667"
-                   y="40.616667"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">OCSTHE_COFFEE_MACHINE_OUTPUT</text>
-        </type>
-        <initmark id="IDREQ002the_coffee_machine_output2">
-          <posattr x="206.500000"
-                   y="137.383333"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">strong</text>
-        </initmark>
-        <fusioninfo id="IDREQ002the_coffee_machine_outputf"
-                    name="F_the_coffee_machine_output">
-          <posattr x="205.000000"
-                   y="58.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-        </fusioninfo>
-      </place>
-      <place id="IDREQ002the_request_timer">
-        <posattr x="231.000000"
-                 y="210.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="3"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <text>the
-request
-timer</text>
-        <ellipse w="66.880000"
-                 h="57.120000"/>
-        <token x="-16.995000"
-               y="13.093333"/>
-        <marking x="-1.000000"
-                 y="0.000000"
-                 hidden="false">
-          <snap snap_id="0"
-                anchor.horizontal="1"
-                anchor.vertical="1"/>
-        </marking>
-        <type id="IDREQ002the_request_timer1">
-          <posattr x="282.000000"
-                   y="191.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">TIME</text>
-        </type>
-        <initmark id="IDREQ002the_request_timer2">
-          <posattr x="252.000000"
-                   y="246.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">0</text>
-        </initmark>
-        <fusioninfo id="IDREQ002the_request_timerf"
-                    name="F_the_request_timer">
-          <posattr x="209.000000"
-                   y="176.000000"/>
+        <fusioninfo id="IDREQ002the_outputf"
+                    name="F_the_output">
+          <posattr x="-230.000000"
+                   y="-50.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -2991,8 +2380,8 @@ timer</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="IDREQ002cond">
-          <posattr x="-282.000000"
-                   y="310.000000"/>
+          <posattr x="-295.500000"
+                   y="350.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3003,14 +2392,12 @@ timer</text>
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">(* REQx  *)
-EXPR(&quot;RQ2T1&quot;, AND(NOT(AP(&quot;1&quot;,p_the_coffee_request_button =true)),  
-AND(AP(&quot;2&quot;, the_coffee_request_button =true),  
-AND(AP(&quot;3&quot;, p_the_coin_sensor = false),  
-AND(AP(&quot;4&quot;, the_coin_sensor = false) , 
-AND(AP(&quot;5&quot;,the_system_mode = choice),  
-AND(AP(&quot;6&quot;,(time() - the_request_timer)  &lt;= 30),
-NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ002&quot; trace)))
-)))))))</text>
+     EXPR(&quot;RQ2T1&quot;, AND(AND(AND(AND(
+AP(&quot;1&quot;,the_left_priority_button = false ), 
+AP(&quot;2&quot;,the_right_priority_button = false)),  
+AP(&quot;3&quot;,  the_left_command = false  )),
+AP(&quot;4&quot;,  the_right_command = true )),
+     NOT(AP(&quot;1&quot;, String.isSuffix &quot;REQ002&quot; trace))))</text>
         </cond>
         <time id="IDREQ002ti">
           <posattr x="75.500000"
@@ -3073,7 +2460,7 @@ NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ002&quot; trace)))
         <transend idref="IDREQ002"/>
         <placeend idref="IDTraceREQ002"/>
         <annot id="IDarcTraceREQ0021annot">
-          <posattr x="-80.000000"
+          <posattr x="-90.000000"
                    y="225.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -3105,7 +2492,7 @@ NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ002&quot; trace)))
         <transend idref="IDREQ002"/>
         <placeend idref="IDTraceREQ002"/>
         <annot id="IDarcTraceREQ0022annot">
-          <posattr x="-111.000000"
+          <posattr x="-125.000000"
                    y="192.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -3137,8 +2524,8 @@ NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ002&quot; trace)))
         <transend idref="IDREQ002"/>
         <placeend idref="IDinREQ002"/>
         <annot id="IDinREQ002annot">
-          <posattr x="153.500000"
-                   y="324.000000"/>
+          <posattr x="240.000000"
+                   y="340.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3148,12 +2535,14 @@ NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ002&quot; trace)))
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">(n, p_the_coffee_request_button, 
-the_coffee_request_button, 
-p_the_coin_sensor, the_coin_sensor)</text>
+                version="4.0.1">(n, 
+         p_the_left_priority_button, the_left_priority_button, 
+         p_the_right_priority_button, the_right_priority_button, 
+         p_the_left_command, the_left_command, 
+         p_the_right_command, the_right_command)</text>
         </annot>
       </arc>
-      <arc id="IDarcREQ002the_system_mode1"
+      <arc id="IDarcREQ002the_output1"
            orientation="TtoP"
            order="1">
         <posattr x="0.000000"
@@ -3169,10 +2558,10 @@ p_the_coin_sensor, the_coin_sensor)</text>
         <arrowattr headsize="1.200000"
                    currentcyckle="2"/>
         <transend idref="IDREQ002"/>
-        <placeend idref="IDREQ002the_system_mode"/>
-        <annot id="IDarcREQ002the_system_modea1">
-          <posattr x="-149.500000"
-                   y="148.000000"/>
+        <placeend idref="IDREQ002the_output"/>
+        <annot id="IDarcREQ002the_outputa1">
+          <posattr x="-120.000000"
+                   y="120.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3182,10 +2571,10 @@ p_the_coin_sensor, the_coin_sensor)</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">preparing_weak_coffee</text>
+                version="4.0.1">1</text>
         </annot>
       </arc>
-      <arc id="IDarcREQ002the_system_mode2"
+      <arc id="IDarcREQ002the_output2"
            orientation="PtoT"
            order="2">
         <posattr x="0.000000"
@@ -3201,10 +2590,10 @@ p_the_coin_sensor, the_coin_sensor)</text>
         <arrowattr headsize="1.200000"
                    currentcyckle="2"/>
         <transend idref="IDREQ002"/>
-        <placeend idref="IDREQ002the_system_mode"/>
-        <annot id="IDarcREQ002the_system_modea2">
-          <posattr x="24.000000"
-                   y="148.000000"/>
+        <placeend idref="IDREQ002the_output"/>
+        <annot id="IDarcREQ002the_outputa2">
+          <posattr x="-100.500000"
+                   y="60.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3214,138 +2603,29 @@ p_the_coin_sensor, the_coin_sensor)</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">the_system_mode</text>
-        </annot>
-      </arc>
-      <arc id="IDarcREQ002the_coffee_machine_output1"
-           orientation="TtoP"
-           order="1">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="IDREQ002"/>
-        <placeend idref="IDREQ002the_coffee_machine_output"/>
-        <annot id="IDarcREQ002the_coffee_machine_outputa1">
-          <posattr x="49.000000"
-                   y="118.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">the_coffee_machine_output</text>
-        </annot>
-      </arc>
-      <arc id="IDarcREQ002the_coffee_machine_output2"
-           orientation="PtoT"
-           order="2">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="IDREQ002"/>
-        <placeend idref="IDREQ002the_coffee_machine_output"/>
-        <annot id="IDarcREQ002the_coffee_machine_outputa2">
-          <posattr x="213.000000"
-                   y="151.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">the_coffee_machine_output</text>
-        </annot>
-      </arc>
-      <arc id="IDarcREQ002the_request_timert1"
-           orientation="PtoT"
-           order="2">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="IDREQ002"/>
-        <placeend idref="IDREQ002the_request_timer"/>
-        <annot id="IDarcREQ002the_request_timert1annot">
-          <posattr x="135.000000"
-                   y="228.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">the_request_timer</text>
-        </annot>
-      </arc>
-      <arc id="IDarcREQ002the_request_timert2"
-           orientation="TtoP"
-           order="1">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="IDREQ002"/>
-        <placeend idref="IDREQ002the_request_timer"/>
-        <annot id="IDarcREQ002the_request_timert2annot">
-          <posattr x="123.000000"
-                   y="203.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">time()</text>
+                version="4.0.1">the_output</text>
         </annot>
       </arc>
       <constraints/>
+      <Aux id="ID1590816312">
+        <posattr x="-528.000000"
+                 y="520.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Purple"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Purple"
+                  bold="false"/>
+        <label/>
+        <text>(* REQx  *)
+     [the_left_priority_button = false  
+andalso  the_right_priority_button = false  
+andalso  the_left_command = false  
+andalso  the_right_command = true 
+     , not(String.isSuffix &quot;REQ002&quot; trace)]</text>
+      </Aux>
     </page>
     <page id="IDREQ003page">
       <pageattr name="REQ003"/>
@@ -3398,7 +2678,7 @@ p_the_coin_sensor, the_coin_sensor)</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">(0, false, false, false, false)</text>
+                version="4.0.1">(0, false, false, false, false, false, false, false, false)</text>
         </initmark>
         <fusioninfo id="IDinREQ003f"
                     name="Inputs">
@@ -3479,7 +2759,7 @@ p_the_coin_sensor, the_coin_sensor)</text>
                     bold="false"/>
         </fusioninfo>
       </place>
-      <place id="IDREQ003the_system_mode">
+      <place id="IDREQ003the_output">
         <posattr x="-250.000000"
                  y="-10.000000"/>
         <fillattr colour="White"
@@ -3491,75 +2771,6 @@ p_the_coin_sensor, the_coin_sensor)</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>the
-             system
-             mode</text>
-        <ellipse w="88.000000"
-                 h="80.000000"/>
-        <token x="-1.000000"
-               y="7.000000"/>
-        <marking x="-1.000000"
-                 y="0.000000"
-                 hidden="false">
-          <snap snap_id="0"
-                anchor.horizontal="0"
-                anchor.vertical="0"/>
-        </marking>
-        <type id="IDREQ003the_system_mode1">
-          <posattr x="-200.000000"
-                   y="-70.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">OCSTHE_SYSTEM_MODE</text>
-        </type>
-        <initmark id="IDREQ003the_system_mode2">
-          <posattr x="-205.000000"
-                   y="28.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">idle</text>
-        </initmark>
-        <fusioninfo id="IDREQ003the_system_modef"
-                    name="F_the_system_mode">
-          <posattr x="-230.000000"
-                   y="-50.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-        </fusioninfo>
-      </place>
-      <place id="IDREQ003the_coffee_machine_output">
-        <posattr x="108.000000"
-                 y="-42.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="3"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <text>the
-             coffee
-             machine
              output</text>
         <ellipse w="88.000000"
                  h="80.000000"/>
@@ -3572,9 +2783,9 @@ p_the_coin_sensor, the_coin_sensor)</text>
                 anchor.horizontal="0"
                 anchor.vertical="0"/>
         </marking>
-        <type id="IDREQ003the_coffee_machine_output1">
-          <posattr x="178.000000"
-                   y="-102.000000"/>
+        <type id="IDREQ003the_output1">
+          <posattr x="-200.000000"
+                   y="-70.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3584,11 +2795,11 @@ p_the_coin_sensor, the_coin_sensor)</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">OCSTHE_COFFEE_MACHINE_OUTPUT</text>
+                version="4.0.1">INT</text>
         </type>
-        <initmark id="IDREQ003the_coffee_machine_output2">
-          <posattr x="161.500000"
-                   y="-3.000000"/>
+        <initmark id="IDREQ003the_output2">
+          <posattr x="-200.000000"
+                   y="30.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3598,79 +2809,12 @@ p_the_coin_sensor, the_coin_sensor)</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">strong</text>
+                version="4.0.1">3</text>
         </initmark>
-        <fusioninfo id="IDREQ003the_coffee_machine_outputf"
-                    name="F_the_coffee_machine_output">
-          <posattr x="141.000000"
-                   y="-73.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-        </fusioninfo>
-      </place>
-      <place id="IDREQ003the_request_timer">
-        <posattr x="300.000000"
-                 y="210.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="3"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <text>the
-              request
-              timer</text>
-        <ellipse w="88.000000"
-                 h="80.000000"/>
-        <token x="-1.000000"
-               y="7.000000"/>
-        <marking x="-1.000000"
-                 y="0.000000"
-                 hidden="false">
-          <snap snap_id="0"
-                anchor.horizontal="1"
-                anchor.vertical="1"/>
-        </marking>
-        <type id="IDREQ003the_request_timer1">
-          <posattr x="330.000000"
-                   y="160.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">TIME</text>
-        </type>
-        <initmark id="IDREQ003the_request_timer2">
-          <posattr x="350.000000"
-                   y="240.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">0</text>
-        </initmark>
-        <fusioninfo id="IDREQ003the_request_timerf"
-                    name="F_the_request_timer">
-          <posattr x="240.000000"
-                   y="170.000000"/>
+        <fusioninfo id="IDREQ003the_outputf"
+                    name="F_the_output">
+          <posattr x="-230.000000"
+                   y="-50.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3699,8 +2843,8 @@ p_the_coin_sensor, the_coin_sensor)</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="IDREQ003cond">
-          <posattr x="-254.000000"
-                   y="370.000000"/>
+          <posattr x="-346.500000"
+                   y="349.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -3711,14 +2855,12 @@ p_the_coin_sensor, the_coin_sensor)</text>
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">(* REQx  *)
-EXPR(&quot;RQ3T1&quot;, AND(NOT(AP(&quot;1&quot;,p_the_coffee_request_button = true)),  
-AND(AP(&quot;2&quot;, the_coffee_request_button = true),
-AND(AP(&quot;3&quot;, p_the_coin_sensor = false),  
-AND(AP(&quot;4&quot;, the_coin_sensor = false),
-AND(AP(&quot;5&quot;,   the_system_mode = choice),
-AND(AP(&quot;6&quot;,  (time() - the_request_timer)  &gt; 30), 
-NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ003&quot; trace)))
-)))))))</text>
+     EXPR(&quot;RQ3T1&quot;, AND(AND(AND(AND(
+AP(&quot;1&quot;,the_left_priority_button = false),  
+AP(&quot;2&quot;, the_right_priority_button = false)),
+AP(&quot;3&quot;,  the_left_command = true  )),
+AP(&quot;4&quot;,the_right_command = false  )),
+     NOT(AP(&quot;5&quot;,String.isSuffix &quot;REQ003&quot; trace))))</text>
         </cond>
         <time id="IDREQ003ti">
           <posattr x="75.500000"
@@ -3857,11 +2999,13 @@ NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ003&quot; trace)))
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">(n, 
-         p_the_coffee_request_button, the_coffee_request_button, 
-         p_the_coin_sensor, the_coin_sensor)</text>
+         p_the_left_priority_button, the_left_priority_button, 
+         p_the_right_priority_button, the_right_priority_button, 
+         p_the_left_command, the_left_command, 
+         p_the_right_command, the_right_command)</text>
         </annot>
       </arc>
-      <arc id="IDarcREQ003the_system_mode1"
+      <arc id="IDarcREQ003the_output1"
            orientation="TtoP"
            order="1">
         <posattr x="0.000000"
@@ -3877,8 +3021,8 @@ NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ003&quot; trace)))
         <arrowattr headsize="1.200000"
                    currentcyckle="2"/>
         <transend idref="IDREQ003"/>
-        <placeend idref="IDREQ003the_system_mode"/>
-        <annot id="IDarcREQ003the_system_modea1">
+        <placeend idref="IDREQ003the_output"/>
+        <annot id="IDarcREQ003the_outputa1">
           <posattr x="-120.000000"
                    y="120.000000"/>
           <fillattr colour="White"
@@ -3890,10 +3034,10 @@ NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ003&quot; trace)))
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">preparing_strong_coffee</text>
+                version="4.0.1">2</text>
         </annot>
       </arc>
-      <arc id="IDarcREQ003the_system_mode2"
+      <arc id="IDarcREQ003the_output2"
            orientation="PtoT"
            order="2">
         <posattr x="0.000000"
@@ -3909,9 +3053,9 @@ NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ003&quot; trace)))
         <arrowattr headsize="1.200000"
                    currentcyckle="2"/>
         <transend idref="IDREQ003"/>
-        <placeend idref="IDREQ003the_system_mode"/>
-        <annot id="IDarcREQ003the_system_modea2">
-          <posattr x="-100.000000"
+        <placeend idref="IDREQ003the_output"/>
+        <annot id="IDarcREQ003the_outputa2">
+          <posattr x="-100.500000"
                    y="60.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -3922,138 +3066,29 @@ NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ003&quot; trace)))
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">the_system_mode</text>
-        </annot>
-      </arc>
-      <arc id="IDarcREQ003the_coffee_machine_output1"
-           orientation="TtoP"
-           order="1">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="IDREQ003"/>
-        <placeend idref="IDREQ003the_coffee_machine_output"/>
-        <annot id="IDarcREQ003the_coffee_machine_outputa1">
-          <posattr x="70.000000"
-                   y="136.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">the_coffee_machine_output</text>
-        </annot>
-      </arc>
-      <arc id="IDarcREQ003the_coffee_machine_output2"
-           orientation="PtoT"
-           order="2">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="IDREQ003"/>
-        <placeend idref="IDREQ003the_coffee_machine_output"/>
-        <annot id="IDarcREQ003the_coffee_machine_outputa2">
-          <posattr x="133.000000"
-                   y="99.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">the_coffee_machine_output</text>
-        </annot>
-      </arc>
-      <arc id="IDarcREQ003the_request_timert1"
-           orientation="PtoT"
-           order="2">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="IDREQ003"/>
-        <placeend idref="IDREQ003the_request_timer"/>
-        <annot id="IDarcREQ003the_request_timert1annot">
-          <posattr x="180.000000"
-                   y="230.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">the_request_timer</text>
-        </annot>
-      </arc>
-      <arc id="IDarcREQ003the_request_timert2"
-           orientation="TtoP"
-           order="1">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="IDREQ003"/>
-        <placeend idref="IDREQ003the_request_timer"/>
-        <annot id="IDarcREQ003the_request_timert2annot">
-          <posattr x="180.000000"
-                   y="190.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">time()</text>
+                version="4.0.1">the_output</text>
         </annot>
       </arc>
       <constraints/>
+      <Aux id="ID1590816589">
+        <posattr x="-480.000000"
+                 y="504.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Purple"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Purple"
+                  bold="false"/>
+        <label/>
+        <text>(* REQx  *)
+     [the_left_priority_button = false  
+andalso  the_right_priority_button = false  
+andalso  the_left_command = true  
+andalso  the_right_command = false  
+     , not(String.isSuffix &quot;REQ003&quot; trace)]</text>
+      </Aux>
     </page>
     <page id="IDREQ004page">
       <pageattr name="REQ004"/>
@@ -4106,7 +3141,7 @@ NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ003&quot; trace)))
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">(0, false, false, false, false)</text>
+                version="4.0.1">(0, false, false, false, false, false, false, false, false)</text>
         </initmark>
         <fusioninfo id="IDinREQ004f"
                     name="Inputs">
@@ -4187,7 +3222,7 @@ NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ003&quot; trace)))
                     bold="false"/>
         </fusioninfo>
       </place>
-      <place id="IDREQ004the_system_mode">
+      <place id="IDREQ004the_output">
         <posattr x="-250.000000"
                  y="-10.000000"/>
         <fillattr colour="White"
@@ -4199,75 +3234,6 @@ NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ003&quot; trace)))
         <textattr colour="Black"
                   bold="false"/>
         <text>the
-             system
-             mode</text>
-        <ellipse w="88.000000"
-                 h="80.000000"/>
-        <token x="-1.000000"
-               y="7.000000"/>
-        <marking x="-1.000000"
-                 y="0.000000"
-                 hidden="false">
-          <snap snap_id="0"
-                anchor.horizontal="0"
-                anchor.vertical="0"/>
-        </marking>
-        <type id="IDREQ004the_system_mode1">
-          <posattr x="-200.000000"
-                   y="-70.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">OCSTHE_SYSTEM_MODE</text>
-        </type>
-        <initmark id="IDREQ004the_system_mode2">
-          <posattr x="-205.000000"
-                   y="28.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">idle</text>
-        </initmark>
-        <fusioninfo id="IDREQ004the_system_modef"
-                    name="F_the_system_mode">
-          <posattr x="-230.000000"
-                   y="-50.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-        </fusioninfo>
-      </place>
-      <place id="IDREQ004the_coffee_machine_output">
-        <posattr x="84.000000"
-                 y="-52.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="3"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <text>the
-             coffee
-             machine
              output</text>
         <ellipse w="88.000000"
                  h="80.000000"/>
@@ -4280,9 +3246,9 @@ NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ003&quot; trace)))
                 anchor.horizontal="0"
                 anchor.vertical="0"/>
         </marking>
-        <type id="IDREQ004the_coffee_machine_output1">
-          <posattr x="154.000000"
-                   y="-112.000000"/>
+        <type id="IDREQ004the_output1">
+          <posattr x="-200.000000"
+                   y="-70.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -4292,11 +3258,11 @@ NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ003&quot; trace)))
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">OCSTHE_COFFEE_MACHINE_OUTPUT</text>
+                version="4.0.1">INT</text>
         </type>
-        <initmark id="IDREQ004the_coffee_machine_output2">
-          <posattr x="137.500000"
-                   y="-13.000000"/>
+        <initmark id="IDREQ004the_output2">
+          <posattr x="-200.000000"
+                   y="30.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -4306,79 +3272,12 @@ NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ003&quot; trace)))
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">strong</text>
+                version="4.0.1">3</text>
         </initmark>
-        <fusioninfo id="IDREQ004the_coffee_machine_outputf"
-                    name="F_the_coffee_machine_output">
-          <posattr x="117.000000"
-                   y="-83.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-        </fusioninfo>
-      </place>
-      <place id="IDREQ004the_request_timer">
-        <posattr x="300.000000"
-                 y="210.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="3"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <text>the
-              request
-              timer</text>
-        <ellipse w="88.000000"
-                 h="80.000000"/>
-        <token x="-1.000000"
-               y="7.000000"/>
-        <marking x="-1.000000"
-                 y="0.000000"
-                 hidden="false">
-          <snap snap_id="0"
-                anchor.horizontal="1"
-                anchor.vertical="1"/>
-        </marking>
-        <type id="IDREQ004the_request_timer1">
-          <posattr x="330.000000"
-                   y="160.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">TIME</text>
-        </type>
-        <initmark id="IDREQ004the_request_timer2">
-          <posattr x="350.000000"
-                   y="240.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">0</text>
-        </initmark>
-        <fusioninfo id="IDREQ004the_request_timerf"
-                    name="F_the_request_timer">
-          <posattr x="240.000000"
-                   y="170.000000"/>
+        <fusioninfo id="IDREQ004the_outputf"
+                    name="F_the_output">
+          <posattr x="-230.000000"
+                   y="-50.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -4407,8 +3306,8 @@ NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ003&quot; trace)))
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="IDREQ004cond">
-          <posattr x="-259.500000"
-                   y="352.000000"/>
+          <posattr x="-281.500000"
+                   y="344.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -4419,11 +3318,12 @@ NOT(AP(&quot;7&quot;,(String.isSuffix &quot;REQ003&quot; trace)))
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">(* REQx  *)
-EXPR(&quot;RQ4T1&quot;, AND(AND(AND(
-AP(&quot;1&quot;, the_system_mode = preparing_weak_coffee), 
- AP(&quot;2&quot;,(time() - the_request_timer)  &lt;= 30)), 
-AP(&quot;3&quot;, (time() - the_request_timer)  &gt;= 10)), 
-NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ004&quot; trace)))))</text>
+     EXPR(&quot;RQ4T1&quot;, AND(AND(AND(AND(
+AP(&quot;1&quot;, the_left_priority_button = false),  
+AP(&quot;2&quot;,  the_right_priority_button = false )), 
+AP(&quot;3&quot;, the_left_command = false  )),
+AP(&quot;4&quot;, the_right_command = false )),
+     NOT(AP(&quot;5&quot;,String.isSuffix &quot;REQ004&quot; trace) )))</text>
         </cond>
         <time id="IDREQ004ti">
           <posattr x="75.500000"
@@ -4562,11 +3462,13 @@ NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ004&quot; trace)))))</text>
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">(n, 
-         p_the_coffee_request_button, the_coffee_request_button, 
-         p_the_coin_sensor, the_coin_sensor)</text>
+         p_the_left_priority_button, the_left_priority_button, 
+         p_the_right_priority_button, the_right_priority_button, 
+         p_the_left_command, the_left_command, 
+         p_the_right_command, the_right_command)</text>
         </annot>
       </arc>
-      <arc id="IDarcREQ004the_system_mode1"
+      <arc id="IDarcREQ004the_output1"
            orientation="TtoP"
            order="1">
         <posattr x="0.000000"
@@ -4582,8 +3484,8 @@ NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ004&quot; trace)))))</text>
         <arrowattr headsize="1.200000"
                    currentcyckle="2"/>
         <transend idref="IDREQ004"/>
-        <placeend idref="IDREQ004the_system_mode"/>
-        <annot id="IDarcREQ004the_system_modea1">
+        <placeend idref="IDREQ004the_output"/>
+        <annot id="IDarcREQ004the_outputa1">
           <posattr x="-120.000000"
                    y="120.000000"/>
           <fillattr colour="White"
@@ -4595,10 +3497,10 @@ NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ004&quot; trace)))))</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">idle</text>
+                version="4.0.1">3</text>
         </annot>
       </arc>
-      <arc id="IDarcREQ004the_system_mode2"
+      <arc id="IDarcREQ004the_output2"
            orientation="PtoT"
            order="2">
         <posattr x="0.000000"
@@ -4614,9 +3516,9 @@ NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ004&quot; trace)))))</text>
         <arrowattr headsize="1.200000"
                    currentcyckle="2"/>
         <transend idref="IDREQ004"/>
-        <placeend idref="IDREQ004the_system_mode"/>
-        <annot id="IDarcREQ004the_system_modea2">
-          <posattr x="-100.000000"
+        <placeend idref="IDREQ004the_output"/>
+        <annot id="IDarcREQ004the_outputa2">
+          <posattr x="-100.500000"
                    y="60.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -4627,144 +3529,35 @@ NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ004&quot; trace)))))</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">the_system_mode</text>
-        </annot>
-      </arc>
-      <arc id="IDarcREQ004the_coffee_machine_output1"
-           orientation="TtoP"
-           order="1">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="IDREQ004"/>
-        <placeend idref="IDREQ004the_coffee_machine_output"/>
-        <annot id="IDarcREQ004the_coffee_machine_outputa1">
-          <posattr x="63.000000"
-                   y="131.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">weak</text>
-        </annot>
-      </arc>
-      <arc id="IDarcREQ004the_coffee_machine_output2"
-           orientation="PtoT"
-           order="2">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="IDREQ004"/>
-        <placeend idref="IDREQ004the_coffee_machine_output"/>
-        <annot id="IDarcREQ004the_coffee_machine_outputa2">
-          <posattr x="122.000000"
-                   y="88.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">the_coffee_machine_output</text>
-        </annot>
-      </arc>
-      <arc id="IDarcREQ004the_request_timert1"
-           orientation="PtoT"
-           order="2">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="IDREQ004"/>
-        <placeend idref="IDREQ004the_request_timer"/>
-        <annot id="IDarcREQ004the_request_timert1annot">
-          <posattr x="180.000000"
-                   y="230.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">the_request_timer</text>
-        </annot>
-      </arc>
-      <arc id="IDarcREQ004the_request_timert2"
-           orientation="TtoP"
-           order="1">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="IDREQ004"/>
-        <placeend idref="IDREQ004the_request_timer"/>
-        <annot id="IDarcREQ004the_request_timert2annot">
-          <posattr x="180.000000"
-                   y="190.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">the_request_timer</text>
+                version="4.0.1">the_output</text>
         </annot>
       </arc>
       <constraints/>
+      <Aux id="ID1590816829">
+        <posattr x="-462.000000"
+                 y="494.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Purple"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Purple"
+                  bold="false"/>
+        <label/>
+        <text>(* REQx  *)
+     [the_left_priority_button = false  
+andalso  the_right_priority_button = false  
+andalso  the_left_command = false  
+andalso  the_right_command = false 
+     , not(String.isSuffix &quot;REQ004&quot; trace) ]</text>
+      </Aux>
     </page>
     <page id="IDREQ005page">
       <pageattr name="REQ005"/>
       <place id="IDinREQ005">
         <posattr x="30.000000"
-                 y="366.000000"/>
+                 y="416.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -4774,7 +3567,7 @@ NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ004&quot; trace)))))</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>Input</text>
-        <ellipse w="54.000000"
+        <ellipse w="78.000000"
                  h="54.000000"/>
         <token x="-10.000000"
                y="0.000000"/>
@@ -4786,8 +3579,8 @@ NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ004&quot; trace)))))</text>
                 anchor.vertical="3"/>
         </marking>
         <type id="IDinREQ0051">
-          <posattr x="93.000000"
-                   y="336.000000"/>
+          <posattr x="30.000000"
+                   y="378.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -4800,8 +3593,8 @@ NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ004&quot; trace)))))</text>
                 version="4.0.1">INPUTLIM</text>
         </type>
         <initmark id="IDinREQ0052">
-          <posattr x="-78.000000"
-                   y="384.000000"/>
+          <posattr x="10.000000"
+                   y="452.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -4811,12 +3604,12 @@ NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ004&quot; trace)))))</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">(0, false, false, false, false)</text>
+                version="4.0.1">(0, false, false, false, false, false, false, false, false)</text>
         </initmark>
         <fusioninfo id="IDinREQ005f"
                     name="Inputs">
-          <posattr x="31.000000"
-                   y="345.000000"/>
+          <posattr x="-15.000000"
+                   y="392.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -4828,7 +3621,7 @@ NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ004&quot; trace)))))</text>
         </fusioninfo>
       </place>
       <place id="IDTraceREQ005">
-        <posattr x="-168.000000"
+        <posattr x="-220.000000"
                  y="210.000000"/>
         <fillattr colour="White"
                   pattern=""
@@ -4839,7 +3632,7 @@ NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ004&quot; trace)))))</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>Trace</text>
-        <ellipse w="48.800000"
+        <ellipse w="60.000000"
                  h="40.000000"/>
         <token x="-29.000000"
                y="21.000000"/>
@@ -4851,8 +3644,8 @@ NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ004&quot; trace)))))</text>
                 anchor.vertical="2"/>
         </marking>
         <type id="IDTraceREQ0052">
-          <posattr x="-163.000000"
-                   y="168.000000"/>
+          <posattr x="-204.000000"
+                   y="180.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -4865,7 +3658,7 @@ NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ004&quot; trace)))))</text>
                 version="4.0.1">STRING</text>
         </type>
         <initmark id="IDTraceREQ0053">
-          <posattr x="-182.000000"
+          <posattr x="-234.000000"
                    y="241.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -4880,8 +3673,8 @@ NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ004&quot; trace)))))</text>
         </initmark>
         <fusioninfo id="IDTraceREQ005f"
                     name="Traces">
-          <posattr x="-168.000000"
-                   y="186.000000"/>
+          <posattr x="-244.000000"
+                   y="193.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -4892,9 +3685,9 @@ NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ004&quot; trace)))))</text>
                     bold="false"/>
         </fusioninfo>
       </place>
-      <place id="IDREQ005the_system_mode">
-        <posattr x="-146.000000"
-                 y="100.000000"/>
+      <place id="IDREQ005the_output">
+        <posattr x="-250.000000"
+                 y="-10.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -4904,12 +3697,11 @@ NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ004&quot; trace)))))</text>
         <textattr colour="Black"
                   bold="false"/>
         <text>the
-system
-mode</text>
-        <ellipse w="67.200000"
-                 h="62.400000"/>
-        <token x="-10.000000"
-               y="0.000000"/>
+             output</text>
+        <ellipse w="88.000000"
+                 h="80.000000"/>
+        <token x="-1.000000"
+               y="7.000000"/>
         <marking x="-1.000000"
                  y="0.000000"
                  hidden="false">
@@ -4917,9 +3709,9 @@ mode</text>
                 anchor.horizontal="0"
                 anchor.vertical="0"/>
         </marking>
-        <type id="IDREQ005the_system_mode1">
-          <posattr x="-119.000000"
-                   y="48.000000"/>
+        <type id="IDREQ005the_output1">
+          <posattr x="-200.000000"
+                   y="-70.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -4929,11 +3721,11 @@ mode</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">OCSTHE_SYSTEM_MODE</text>
+                version="4.0.1">INT</text>
         </type>
-        <initmark id="IDREQ005the_system_mode2">
-          <posattr x="-146.000000"
-                   y="142.200000"/>
+        <initmark id="IDREQ005the_output2">
+          <posattr x="-200.000000"
+                   y="30.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -4943,147 +3735,12 @@ mode</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">idle</text>
+                version="4.0.1">3</text>
         </initmark>
-        <fusioninfo id="IDREQ005the_system_modef"
-                    name="F_the_system_mode">
-          <posattr x="-126.000000"
-                   y="64.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-        </fusioninfo>
-      </place>
-      <place id="IDREQ005the_coffee_machine_output">
-        <posattr x="113.000000"
-                 y="98.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="3"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <text>the
-coffee
-machine
-output</text>
-        <ellipse w="73.600000"
-                 h="64.000000"/>
-        <token x="-10.000000"
-               y="0.000000"/>
-        <marking x="-1.000000"
-                 y="0.000000"
-                 hidden="false">
-          <snap snap_id="0"
-                anchor.horizontal="0"
-                anchor.vertical="0"/>
-        </marking>
-        <type id="IDREQ005the_coffee_machine_output1">
-          <posattr x="128.800000"
-                   y="46.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">OCSTHE_COFFEE_MACHINE_OUTPUT</text>
-        </type>
-        <initmark id="IDREQ005the_coffee_machine_output2">
-          <posattr x="169.500000"
-                   y="124.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">strong</text>
-        </initmark>
-        <fusioninfo id="IDREQ005the_coffee_machine_outputf"
-                    name="F_the_coffee_machine_output">
-          <posattr x="138.000000"
-                   y="62.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-        </fusioninfo>
-      </place>
-      <place id="IDREQ005the_request_timer">
-        <posattr x="221.000000"
-                 y="210.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="3"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <text>the
-request
-timer</text>
-        <ellipse w="58.320000"
-                 h="55.760000"/>
-        <token x="-14.000000"
-               y="15.000000"/>
-        <marking x="-1.000000"
-                 y="0.000000"
-                 hidden="false">
-          <snap snap_id="0"
-                anchor.horizontal="1"
-                anchor.vertical="1"/>
-        </marking>
-        <type id="IDREQ005the_request_timer1">
-          <posattr x="267.160000"
-                   y="190.120000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">TIME</text>
-        </type>
-        <initmark id="IDREQ005the_request_timer2">
-          <posattr x="239.160000"
-                   y="243.880000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">0</text>
-        </initmark>
-        <fusioninfo id="IDREQ005the_request_timerf"
-                    name="F_the_request_timer">
-          <posattr x="206.000000"
-                   y="177.000000"/>
+        <fusioninfo id="IDREQ005the_outputf"
+                    name="F_the_output">
+          <posattr x="-230.000000"
+                   y="-50.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5112,8 +3769,8 @@ timer</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="IDREQ005cond">
-          <posattr x="-138.000000"
-                   y="305.000000"/>
+          <posattr x="-289.500000"
+                   y="307.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5124,11 +3781,10 @@ timer</text>
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">(* REQx  *)
-EXPR(&quot;RQ5T1&quot;, AND(AND(AND(
-AP(&quot;1&quot;, the_system_mode=preparing_strong_coffee), 
-AP(&quot;2&quot;,(time() - the_request_timer)  &lt;= 50)),  
-AP(&quot;3&quot;,(time() - the_request_timer)  &gt;= 30)),
-NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ005&quot; trace)))))</text>
+     EXPR(&quot;RQ5T1&quot;, AND(AND(
+AP(&quot;1&quot;,the_left_priority_button = true),  
+AP(&quot;2&quot; ,the_right_priority_button = false)),
+  NOT(AP(&quot;3&quot;,String.isSuffix &quot;REQ005&quot; trace))))</text>
         </cond>
         <time id="IDREQ005ti">
           <posattr x="75.500000"
@@ -5191,8 +3847,8 @@ NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ005&quot; trace)))))</text>
         <transend idref="IDREQ005"/>
         <placeend idref="IDTraceREQ005"/>
         <annot id="IDarcTraceREQ0051annot">
-          <posattr x="-55.000000"
-                   y="217.000000"/>
+          <posattr x="-90.000000"
+                   y="225.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5223,8 +3879,8 @@ NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ005&quot; trace)))))</text>
         <transend idref="IDREQ005"/>
         <placeend idref="IDTraceREQ005"/>
         <annot id="IDarcTraceREQ0052annot">
-          <posattr x="-83.000000"
-                   y="203.000000"/>
+          <posattr x="-125.000000"
+                   y="192.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5255,8 +3911,8 @@ NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ005&quot; trace)))))</text>
         <transend idref="IDREQ005"/>
         <placeend idref="IDinREQ005"/>
         <annot id="IDinREQ005annot">
-          <posattr x="171.500000"
-                   y="285.000000"/>
+          <posattr x="271.000000"
+                   y="338.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5266,12 +3922,14 @@ NOT(AP(&quot;4&quot;,(String.isSuffix &quot;REQ005&quot; trace)))))</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">(n, p_the_coffee_request_button, 
-the_coffee_request_button, 
-p_the_coin_sensor, the_coin_sensor)</text>
+                version="4.0.1">(n, 
+         p_the_left_priority_button, the_left_priority_button, 
+         p_the_right_priority_button, the_right_priority_button, 
+         p_the_left_command, the_left_command, 
+         p_the_right_command, the_right_command)</text>
         </annot>
       </arc>
-      <arc id="IDarcREQ005the_system_mode1"
+      <arc id="IDarcREQ005the_output1"
            orientation="TtoP"
            order="1">
         <posattr x="0.000000"
@@ -5287,10 +3945,10 @@ p_the_coin_sensor, the_coin_sensor)</text>
         <arrowattr headsize="1.200000"
                    currentcyckle="2"/>
         <transend idref="IDREQ005"/>
-        <placeend idref="IDREQ005the_system_mode"/>
-        <annot id="IDarcREQ005the_system_modea1">
-          <posattr x="-84.000000"
-                   y="160.000000"/>
+        <placeend idref="IDREQ005the_output"/>
+        <annot id="IDarcREQ005the_outputa1">
+          <posattr x="-120.000000"
+                   y="120.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5300,10 +3958,10 @@ p_the_coin_sensor, the_coin_sensor)</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">idle</text>
+                version="4.0.1">4</text>
         </annot>
       </arc>
-      <arc id="IDarcREQ005the_system_mode2"
+      <arc id="IDarcREQ005the_output2"
            orientation="PtoT"
            order="2">
         <posattr x="0.000000"
@@ -5319,10 +3977,10 @@ p_the_coin_sensor, the_coin_sensor)</text>
         <arrowattr headsize="1.200000"
                    currentcyckle="2"/>
         <transend idref="IDREQ005"/>
-        <placeend idref="IDREQ005the_system_mode"/>
-        <annot id="IDarcREQ005the_system_modea2">
-          <posattr x="-23.000000"
-                   y="128.000000"/>
+        <placeend idref="IDREQ005the_output"/>
+        <annot id="IDarcREQ005the_outputa2">
+          <posattr x="-100.500000"
+                   y="60.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5332,10 +3990,307 @@ p_the_coin_sensor, the_coin_sensor)</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">the_system_mode</text>
+                version="4.0.1">the_output</text>
         </annot>
       </arc>
-      <arc id="IDarcREQ005the_coffee_machine_output1"
+      <constraints/>
+      <Aux id="ID1590817096">
+        <posattr x="-445.000000"
+                 y="504.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Purple"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Purple"
+                  bold="false"/>
+        <label/>
+        <text>(* REQx  *)
+     [the_left_priority_button = true  
+andalso  the_right_priority_button = false  
+     , not(String.isSuffix &quot;REQ005&quot; trace)]</text>
+      </Aux>
+    </page>
+    <page id="IDREQ006page">
+      <pageattr name="REQ006"/>
+      <place id="IDinREQ006">
+        <posattr x="30.000000"
+                 y="416.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <text>Input</text>
+        <ellipse w="78.000000"
+                 h="54.000000"/>
+        <token x="-10.000000"
+               y="0.000000"/>
+        <marking x="-1.000000"
+                 y="0.000000"
+                 hidden="false">
+          <snap snap_id="2"
+                anchor.horizontal="1"
+                anchor.vertical="3"/>
+        </marking>
+        <type id="IDinREQ0061">
+          <posattr x="30.000000"
+                   y="378.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">INPUTLIM</text>
+        </type>
+        <initmark id="IDinREQ0062">
+          <posattr x="10.000000"
+                   y="452.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">(0, false, false, false, false, false, false, false, false)</text>
+        </initmark>
+        <fusioninfo id="IDinREQ006f"
+                    name="Inputs">
+          <posattr x="-15.000000"
+                   y="392.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+        </fusioninfo>
+      </place>
+      <place id="IDTraceREQ006">
+        <posattr x="-220.000000"
+                 y="210.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <text>Trace</text>
+        <ellipse w="60.000000"
+                 h="40.000000"/>
+        <token x="-29.000000"
+               y="21.000000"/>
+        <marking x="-1.000000"
+                 y="0.000000"
+                 hidden="false">
+          <snap snap_id="2"
+                anchor.horizontal="1"
+                anchor.vertical="2"/>
+        </marking>
+        <type id="IDTraceREQ0062">
+          <posattr x="-204.000000"
+                   y="180.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">STRING</text>
+        </type>
+        <initmark id="IDTraceREQ0063">
+          <posattr x="-234.000000"
+                   y="241.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">1`&quot;&quot;</text>
+        </initmark>
+        <fusioninfo id="IDTraceREQ006f"
+                    name="Traces">
+          <posattr x="-244.000000"
+                   y="193.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+        </fusioninfo>
+      </place>
+      <place id="IDREQ006the_output">
+        <posattr x="-250.000000"
+                 y="-10.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="3"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <text>the
+             output</text>
+        <ellipse w="88.000000"
+                 h="80.000000"/>
+        <token x="-1.000000"
+               y="7.000000"/>
+        <marking x="-1.000000"
+                 y="0.000000"
+                 hidden="false">
+          <snap snap_id="0"
+                anchor.horizontal="0"
+                anchor.vertical="0"/>
+        </marking>
+        <type id="IDREQ006the_output1">
+          <posattr x="-200.000000"
+                   y="-70.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">INT</text>
+        </type>
+        <initmark id="IDREQ006the_output2">
+          <posattr x="-200.000000"
+                   y="30.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">3</text>
+        </initmark>
+        <fusioninfo id="IDREQ006the_outputf"
+                    name="F_the_output">
+          <posattr x="-230.000000"
+                   y="-50.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+        </fusioninfo>
+      </place>
+      <trans id="IDREQ006"
+             explicit="false">
+        <posattr x="30.000000"
+                 y="210.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="3"
+                  type="solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <text>REQ006</text>
+        <box w="62.000000"
+             h="40.000000"/>
+        <binding x="7.200000"
+                 y="-3.000000"/>
+        <cond id="IDREQ006cond">
+          <posattr x="-303.500000"
+                   y="316.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">(* REQx  *)
+     EXPR(&quot;RQ6T1&quot;,AND(AND(AND(AND(
+AP(&quot;1&quot;,the_left_priority_button = true ), 
+AP(&quot;2&quot;,p_the_left_priority_button = true )), 
+AP(&quot;3&quot;,  p_the_right_priority_button = false  )),
+AP(&quot;4&quot;,the_right_priority_button = true  )),
+     NOT(AP(&quot;5&quot;, String.isSuffix &quot;REQ006&quot; trace) )))</text>
+        </cond>
+        <time id="IDREQ006ti">
+          <posattr x="75.500000"
+                   y="241.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1"/>
+        </time>
+        <code id="IDREQ006code">
+          <posattr x="95.500000"
+                   y="158.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1"/>
+        </code>
+        <priority id="IDREQ006pri">
+          <posattr x="-39.000000"
+                   y="179.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1"/>
+        </priority>
+      </trans>
+      <arc id="IDarcTraceREQ0061"
            orientation="TtoP"
            order="1">
         <posattr x="0.000000"
@@ -5350,11 +4305,11 @@ p_the_coin_sensor, the_coin_sensor)</text>
                   bold="false"/>
         <arrowattr headsize="1.200000"
                    currentcyckle="2"/>
-        <transend idref="IDREQ005"/>
-        <placeend idref="IDREQ005the_coffee_machine_output"/>
-        <annot id="IDarcREQ005the_coffee_machine_outputa1">
-          <posattr x="34.500000"
-                   y="157.000000"/>
+        <transend idref="IDREQ006"/>
+        <placeend idref="IDTraceREQ006"/>
+        <annot id="IDarcTraceREQ0061annot">
+          <posattr x="-90.000000"
+                   y="225.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5364,10 +4319,10 @@ p_the_coin_sensor, the_coin_sensor)</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">strong</text>
+                version="4.0.1">trace^&quot;REQ006&quot;</text>
         </annot>
       </arc>
-      <arc id="IDarcREQ005the_coffee_machine_output2"
+      <arc id="IDarcTraceREQ0062"
            orientation="PtoT"
            order="2">
         <posattr x="0.000000"
@@ -5382,74 +4337,10 @@ p_the_coin_sensor, the_coin_sensor)</text>
                   bold="false"/>
         <arrowattr headsize="1.200000"
                    currentcyckle="2"/>
-        <transend idref="IDREQ005"/>
-        <placeend idref="IDREQ005the_coffee_machine_output"/>
-        <annot id="IDarcREQ005the_coffee_machine_outputa2">
-          <posattr x="177.000000"
-                   y="145.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">the_coffee_machine_output</text>
-        </annot>
-      </arc>
-      <arc id="IDarcREQ005the_request_timert1"
-           orientation="PtoT"
-           order="2">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="IDREQ005"/>
-        <placeend idref="IDREQ005the_request_timer"/>
-        <annot id="IDarcREQ005the_request_timert1annot">
-          <posattr x="133.000000"
-                   y="228.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">the_request_timer</text>
-        </annot>
-      </arc>
-      <arc id="IDarcREQ005the_request_timert2"
-           orientation="TtoP"
-           order="1">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="IDREQ005"/>
-        <placeend idref="IDREQ005the_request_timer"/>
-        <annot id="IDarcREQ005the_request_timert2annot">
-          <posattr x="127.000000"
+        <transend idref="IDREQ006"/>
+        <placeend idref="IDTraceREQ006"/>
+        <annot id="IDarcTraceREQ0062annot">
+          <posattr x="-125.000000"
                    y="192.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -5460,17 +4351,1058 @@ p_the_coin_sensor, the_coin_sensor)</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">the_request_timer</text>
+                version="4.0.1">trace</text>
+        </annot>
+      </arc>
+      <arc id="IDainREQ006"
+           orientation="BOTHDIR"
+           order="1">
+        <posattr x="0.000000"
+                 y="0.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <arrowattr headsize="1.200000"
+                   currentcyckle="2"/>
+        <transend idref="IDREQ006"/>
+        <placeend idref="IDinREQ006"/>
+        <annot id="IDinREQ006annot">
+          <posattr x="240.000000"
+                   y="340.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">(n, 
+         p_the_left_priority_button, the_left_priority_button, 
+         p_the_right_priority_button, the_right_priority_button, 
+         p_the_left_command, the_left_command, 
+         p_the_right_command, the_right_command)</text>
+        </annot>
+      </arc>
+      <arc id="IDarcREQ006the_output1"
+           orientation="TtoP"
+           order="1">
+        <posattr x="0.000000"
+                 y="0.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <arrowattr headsize="1.200000"
+                   currentcyckle="2"/>
+        <transend idref="IDREQ006"/>
+        <placeend idref="IDREQ006the_output"/>
+        <annot id="IDarcREQ006the_outputa1">
+          <posattr x="-120.000000"
+                   y="120.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">4</text>
+        </annot>
+      </arc>
+      <arc id="IDarcREQ006the_output2"
+           orientation="PtoT"
+           order="2">
+        <posattr x="0.000000"
+                 y="0.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <arrowattr headsize="1.200000"
+                   currentcyckle="2"/>
+        <transend idref="IDREQ006"/>
+        <placeend idref="IDREQ006the_output"/>
+        <annot id="IDarcREQ006the_outputa2">
+          <posattr x="-100.500000"
+                   y="60.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">the_output</text>
         </annot>
       </arc>
       <constraints/>
+      <Aux id="ID1590817390">
+        <posattr x="-561.000000"
+                 y="524.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Purple"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Purple"
+                  bold="false"/>
+        <label/>
+        <text>(* REQx  *)
+     [the_left_priority_button = true  
+andalso  p_the_left_priority_button = true  
+andalso  p_the_right_priority_button = false  
+andalso  the_right_priority_button = true  
+     , not(String.isSuffix &quot;REQ006&quot; trace) ]</text>
+      </Aux>
     </page>
-    <page id="ID1590765582">
+    <page id="IDREQ007page">
+      <pageattr name="REQ007"/>
+      <place id="IDinREQ007">
+        <posattr x="30.000000"
+                 y="416.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <text>Input</text>
+        <ellipse w="78.000000"
+                 h="54.000000"/>
+        <token x="-10.000000"
+               y="0.000000"/>
+        <marking x="-1.000000"
+                 y="0.000000"
+                 hidden="false">
+          <snap snap_id="2"
+                anchor.horizontal="1"
+                anchor.vertical="3"/>
+        </marking>
+        <type id="IDinREQ0071">
+          <posattr x="30.000000"
+                   y="378.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">INPUTLIM</text>
+        </type>
+        <initmark id="IDinREQ0072">
+          <posattr x="10.000000"
+                   y="452.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">(0, false, false, false, false, false, false, false, false)</text>
+        </initmark>
+        <fusioninfo id="IDinREQ007f"
+                    name="Inputs">
+          <posattr x="-15.000000"
+                   y="392.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+        </fusioninfo>
+      </place>
+      <place id="IDTraceREQ007">
+        <posattr x="-220.000000"
+                 y="210.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <text>Trace</text>
+        <ellipse w="60.000000"
+                 h="40.000000"/>
+        <token x="-29.000000"
+               y="21.000000"/>
+        <marking x="-1.000000"
+                 y="0.000000"
+                 hidden="false">
+          <snap snap_id="2"
+                anchor.horizontal="1"
+                anchor.vertical="2"/>
+        </marking>
+        <type id="IDTraceREQ0072">
+          <posattr x="-204.000000"
+                   y="180.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">STRING</text>
+        </type>
+        <initmark id="IDTraceREQ0073">
+          <posattr x="-234.000000"
+                   y="241.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">1`&quot;&quot;</text>
+        </initmark>
+        <fusioninfo id="IDTraceREQ007f"
+                    name="Traces">
+          <posattr x="-244.000000"
+                   y="193.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+        </fusioninfo>
+      </place>
+      <place id="IDREQ007the_output">
+        <posattr x="-250.000000"
+                 y="-10.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="3"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <text>the
+             output</text>
+        <ellipse w="88.000000"
+                 h="80.000000"/>
+        <token x="-1.000000"
+               y="7.000000"/>
+        <marking x="-1.000000"
+                 y="0.000000"
+                 hidden="false">
+          <snap snap_id="0"
+                anchor.horizontal="0"
+                anchor.vertical="0"/>
+        </marking>
+        <type id="IDREQ007the_output1">
+          <posattr x="-200.000000"
+                   y="-70.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">INT</text>
+        </type>
+        <initmark id="IDREQ007the_output2">
+          <posattr x="-200.000000"
+                   y="30.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">3</text>
+        </initmark>
+        <fusioninfo id="IDREQ007the_outputf"
+                    name="F_the_output">
+          <posattr x="-230.000000"
+                   y="-50.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+        </fusioninfo>
+      </place>
+      <trans id="IDREQ007"
+             explicit="false">
+        <posattr x="30.000000"
+                 y="210.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="3"
+                  type="solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <text>REQ007</text>
+        <box w="62.000000"
+             h="40.000000"/>
+        <binding x="7.200000"
+                 y="-3.000000"/>
+        <cond id="IDREQ007cond">
+          <posattr x="-287.500000"
+                   y="329.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">(* REQx  *)
+     EXPR(&quot;RQ7T1&quot;, AND(AND(
+AP(&quot;1&quot;,the_left_priority_button = false ), 
+AP(&quot;2&quot;,the_right_priority_button = true)), 
+     NOT(AP(&quot;3&quot;,String.isSuffix &quot;REQ007&quot; trace))))</text>
+        </cond>
+        <time id="IDREQ007ti">
+          <posattr x="75.500000"
+                   y="241.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1"/>
+        </time>
+        <code id="IDREQ007code">
+          <posattr x="95.500000"
+                   y="158.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1"/>
+        </code>
+        <priority id="IDREQ007pri">
+          <posattr x="-39.000000"
+                   y="179.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1"/>
+        </priority>
+      </trans>
+      <arc id="IDarcTraceREQ0071"
+           orientation="TtoP"
+           order="1">
+        <posattr x="0.000000"
+                 y="0.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <arrowattr headsize="1.200000"
+                   currentcyckle="2"/>
+        <transend idref="IDREQ007"/>
+        <placeend idref="IDTraceREQ007"/>
+        <annot id="IDarcTraceREQ0071annot">
+          <posattr x="-90.000000"
+                   y="225.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">trace^&quot;REQ007&quot;</text>
+        </annot>
+      </arc>
+      <arc id="IDarcTraceREQ0072"
+           orientation="PtoT"
+           order="2">
+        <posattr x="0.000000"
+                 y="0.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <arrowattr headsize="1.200000"
+                   currentcyckle="2"/>
+        <transend idref="IDREQ007"/>
+        <placeend idref="IDTraceREQ007"/>
+        <annot id="IDarcTraceREQ0072annot">
+          <posattr x="-125.000000"
+                   y="192.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">trace</text>
+        </annot>
+      </arc>
+      <arc id="IDainREQ007"
+           orientation="BOTHDIR"
+           order="1">
+        <posattr x="0.000000"
+                 y="0.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <arrowattr headsize="1.200000"
+                   currentcyckle="2"/>
+        <transend idref="IDREQ007"/>
+        <placeend idref="IDinREQ007"/>
+        <annot id="IDinREQ007annot">
+          <posattr x="240.000000"
+                   y="340.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">(n, 
+         p_the_left_priority_button, the_left_priority_button, 
+         p_the_right_priority_button, the_right_priority_button, 
+         p_the_left_command, the_left_command, 
+         p_the_right_command, the_right_command)</text>
+        </annot>
+      </arc>
+      <arc id="IDarcREQ007the_output1"
+           orientation="TtoP"
+           order="1">
+        <posattr x="0.000000"
+                 y="0.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <arrowattr headsize="1.200000"
+                   currentcyckle="2"/>
+        <transend idref="IDREQ007"/>
+        <placeend idref="IDREQ007the_output"/>
+        <annot id="IDarcREQ007the_outputa1">
+          <posattr x="-120.000000"
+                   y="120.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">5</text>
+        </annot>
+      </arc>
+      <arc id="IDarcREQ007the_output2"
+           orientation="PtoT"
+           order="2">
+        <posattr x="0.000000"
+                 y="0.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <arrowattr headsize="1.200000"
+                   currentcyckle="2"/>
+        <transend idref="IDREQ007"/>
+        <placeend idref="IDREQ007the_output"/>
+        <annot id="IDarcREQ007the_outputa2">
+          <posattr x="-100.500000"
+                   y="60.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">the_output</text>
+        </annot>
+      </arc>
+      <constraints/>
+      <Aux id="ID1590817711">
+        <posattr x="-515.000000"
+                 y="472.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Purple"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Purple"
+                  bold="false"/>
+        <label/>
+        <text>(* REQx  *)
+     [the_left_priority_button = false  
+andalso  the_right_priority_button = true 
+     , not(String.isSuffix &quot;REQ007&quot; trace)]</text>
+      </Aux>
+    </page>
+    <page id="IDREQ008page">
+      <pageattr name="REQ008"/>
+      <place id="IDinREQ008">
+        <posattr x="30.000000"
+                 y="416.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <text>Input</text>
+        <ellipse w="78.000000"
+                 h="54.000000"/>
+        <token x="-10.000000"
+               y="0.000000"/>
+        <marking x="-1.000000"
+                 y="0.000000"
+                 hidden="false">
+          <snap snap_id="2"
+                anchor.horizontal="1"
+                anchor.vertical="3"/>
+        </marking>
+        <type id="IDinREQ0081">
+          <posattr x="30.000000"
+                   y="378.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">INPUTLIM</text>
+        </type>
+        <initmark id="IDinREQ0082">
+          <posattr x="10.000000"
+                   y="452.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">(0, false, false, false, false, false, false, false, false)</text>
+        </initmark>
+        <fusioninfo id="IDinREQ008f"
+                    name="Inputs">
+          <posattr x="-15.000000"
+                   y="392.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+        </fusioninfo>
+      </place>
+      <place id="IDTraceREQ008">
+        <posattr x="-282.000000"
+                 y="138.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <text>Trace</text>
+        <ellipse w="60.000000"
+                 h="40.000000"/>
+        <token x="-29.000000"
+               y="21.000000"/>
+        <marking x="-1.000000"
+                 y="0.000000"
+                 hidden="false">
+          <snap snap_id="2"
+                anchor.horizontal="1"
+                anchor.vertical="2"/>
+        </marking>
+        <type id="IDTraceREQ0082">
+          <posattr x="-266.000000"
+                   y="108.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">STRING</text>
+        </type>
+        <initmark id="IDTraceREQ0083">
+          <posattr x="-296.000000"
+                   y="169.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">1`&quot;&quot;</text>
+        </initmark>
+        <fusioninfo id="IDTraceREQ008f"
+                    name="Traces">
+          <posattr x="-306.000000"
+                   y="121.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+        </fusioninfo>
+      </place>
+      <place id="IDREQ008the_output">
+        <posattr x="378.000000"
+                 y="138.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="3"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <text>the
+             output</text>
+        <ellipse w="88.000000"
+                 h="80.000000"/>
+        <token x="-1.000000"
+               y="7.000000"/>
+        <marking x="-1.000000"
+                 y="0.000000"
+                 hidden="false">
+          <snap snap_id="0"
+                anchor.horizontal="0"
+                anchor.vertical="0"/>
+        </marking>
+        <type id="IDREQ008the_output1">
+          <posattr x="428.000000"
+                   y="78.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">INT</text>
+        </type>
+        <initmark id="IDREQ008the_output2">
+          <posattr x="428.000000"
+                   y="178.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">3</text>
+        </initmark>
+        <fusioninfo id="IDREQ008the_outputf"
+                    name="F_the_output">
+          <posattr x="398.000000"
+                   y="98.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+        </fusioninfo>
+      </place>
+      <trans id="IDREQ008"
+             explicit="false">
+        <posattr x="30.000000"
+                 y="138.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="3"
+                  type="solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <text>REQ008</text>
+        <box w="62.000000"
+             h="40.000000"/>
+        <binding x="7.200000"
+                 y="-3.000000"/>
+        <cond id="IDREQ008cond">
+          <posattr x="-271.500000"
+                   y="295.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">(* REQx  *)
+     EXPR(&quot;RQ8T1&quot;, AND(AND(AND(AND(
+AP(&quot;1&quot;,p_the_left_priority_button = false),  
+AP(&quot;2&quot;,the_left_priority_button = true )), 
+AP(&quot;3&quot;, the_right_priority_button = true)),  
+AP(&quot;4&quot;,p_the_right_priority_button = true)),  
+     NOT(AP(&quot;5&quot;,String.isSuffix &quot;REQ008&quot; trace))))</text>
+        </cond>
+        <time id="IDREQ008ti">
+          <posattr x="75.500000"
+                   y="169.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1"/>
+        </time>
+        <code id="IDREQ008code">
+          <posattr x="95.500000"
+                   y="86.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1"/>
+        </code>
+        <priority id="IDREQ008pri">
+          <posattr x="-39.000000"
+                   y="107.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1"/>
+        </priority>
+      </trans>
+      <arc id="IDarcTraceREQ0081"
+           orientation="TtoP"
+           order="1">
+        <posattr x="0.000000"
+                 y="0.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <arrowattr headsize="1.200000"
+                   currentcyckle="2"/>
+        <transend idref="IDREQ008"/>
+        <placeend idref="IDTraceREQ008"/>
+        <annot id="IDarcTraceREQ0081annot">
+          <posattr x="-119.000000"
+                   y="153.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">trace^&quot;REQ008&quot;</text>
+        </annot>
+      </arc>
+      <arc id="IDarcTraceREQ0082"
+           orientation="PtoT"
+           order="2">
+        <posattr x="0.000000"
+                 y="0.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <arrowattr headsize="1.200000"
+                   currentcyckle="2"/>
+        <transend idref="IDREQ008"/>
+        <placeend idref="IDTraceREQ008"/>
+        <annot id="IDarcTraceREQ0082annot">
+          <posattr x="-165.000000"
+                   y="120.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">trace</text>
+        </annot>
+      </arc>
+      <arc id="IDainREQ008"
+           orientation="BOTHDIR"
+           order="1">
+        <posattr x="0.000000"
+                 y="0.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <arrowattr headsize="1.200000"
+                   currentcyckle="2"/>
+        <transend idref="IDREQ008"/>
+        <placeend idref="IDinREQ008"/>
+        <annot id="IDinREQ008annot">
+          <posattr x="240.000000"
+                   y="318.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">(n, 
+         p_the_left_priority_button, the_left_priority_button, 
+         p_the_right_priority_button, the_right_priority_button, 
+         p_the_left_command, the_left_command, 
+         p_the_right_command, the_right_command)</text>
+        </annot>
+      </arc>
+      <arc id="IDarcREQ008the_output1"
+           orientation="TtoP"
+           order="1">
+        <posattr x="0.000000"
+                 y="0.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <arrowattr headsize="1.200000"
+                   currentcyckle="2"/>
+        <transend idref="IDREQ008"/>
+        <placeend idref="IDREQ008the_output"/>
+        <annot id="IDarcREQ008the_outputa1">
+          <posattr x="197.000000"
+                   y="117.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">5</text>
+        </annot>
+      </arc>
+      <arc id="IDarcREQ008the_output2"
+           orientation="PtoT"
+           order="2">
+        <posattr x="0.000000"
+                 y="0.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <arrowattr headsize="1.200000"
+                   currentcyckle="2"/>
+        <transend idref="IDREQ008"/>
+        <placeend idref="IDREQ008the_output"/>
+        <annot id="IDarcREQ008the_outputa2">
+          <posattr x="223.000000"
+                   y="155.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">the_output</text>
+        </annot>
+      </arc>
+      <constraints/>
+      <Aux id="ID1590818059">
+        <posattr x="-504.000000"
+                 y="484.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Purple"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Purple"
+                  bold="false"/>
+        <label/>
+        <text>(* REQx  *)
+     [p_the_left_priority_button = false  
+andalso  the_left_priority_button = true  
+andalso  the_right_priority_button = true  
+andalso  p_the_right_priority_button = true  
+     , not(String.isSuffix &quot;REQ008&quot; trace)]</text>
+      </Aux>
+    </page>
+    <page id="ID1590815628">
       <pageattr name="MCDC"/>
       <constraints/>
-      <Aux id="ID1590766960">
-        <posattr x="-252.000000"
-                 y="210.000000"/>
+      <Aux id="ID1590815668">
+        <posattr x="-210.000000"
+                 y="190.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -5482,9 +5414,9 @@ p_the_coin_sensor, the_coin_sensor)</text>
         <label/>
         <text>use (cpnmcdclibpath^&quot;config/simrun.sml&quot;);</text>
       </Aux>
-      <Aux id="ID1590767063">
-        <posattr x="-252.000000"
-                 y="99.000000"/>
+      <Aux id="ID1590815699">
+        <posattr x="-210.000000"
+                 y="126.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -5494,11 +5426,11 @@ p_the_coin_sensor, the_coin_sensor)</text>
         <textattr colour="Black"
                   bold="false"/>
         <label/>
-        <text>mcdcgen (&quot;CPNmodels/NatCPN/VM.log&quot;);</text>
+        <text>mcdcgen (&quot;CPNmodels/NatCPN/PC.log&quot;);</text>
       </Aux>
-      <Aux id="ID1590767306">
-        <posattr x="-252.000000"
-                 y="27.000000"/>
+      <Aux id="ID1590815767">
+        <posattr x="-221.000000"
+                 y="63.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -5520,16 +5452,12 @@ p_the_coin_sensor, the_coin_sensor)</text>
       <fusion_elm idref="IDinREQ003"/>
       <fusion_elm idref="IDinREQ004"/>
       <fusion_elm idref="IDinREQ005"/>
+      <fusion_elm idref="IDinREQ006"/>
+      <fusion_elm idref="IDinREQ007"/>
+      <fusion_elm idref="IDinREQ008"/>
     </fusion>
     <fusion id="ID1415434723"
-            name="Timers">
-      <fusion_elm idref="IDnoREQthe_request_timer"/>
-      <fusion_elm idref="IDREQ001the_request_timer"/>
-      <fusion_elm idref="IDREQ002the_request_timer"/>
-      <fusion_elm idref="IDREQ003the_request_timer"/>
-      <fusion_elm idref="IDREQ004the_request_timer"/>
-      <fusion_elm idref="IDREQ005the_request_timer"/>
-    </fusion>
+            name="Timers"/>
     <fusion id="ID1415489158"
             name="NextInput">
       <fusion_elm idref="ID1415334672"/>
@@ -5552,24 +5480,21 @@ p_the_coin_sensor, the_coin_sensor)</text>
       <fusion_elm idref="IDTraceREQ003"/>
       <fusion_elm idref="IDTraceREQ004"/>
       <fusion_elm idref="IDTraceREQ005"/>
+      <fusion_elm idref="IDTraceREQ006"/>
+      <fusion_elm idref="IDTraceREQ007"/>
+      <fusion_elm idref="IDTraceREQ008"/>
     </fusion>
-    <fusion id="IDthe_system_modefus"
-            name="F_the_system_mode">
-      <fusion_elm idref="IDnoREQthe_system_mode"/>
-      <fusion_elm idref="IDREQ001the_system_mode"/>
-      <fusion_elm idref="IDREQ002the_system_mode"/>
-      <fusion_elm idref="IDREQ003the_system_mode"/>
-      <fusion_elm idref="IDREQ004the_system_mode"/>
-      <fusion_elm idref="IDREQ005the_system_mode"/>
-    </fusion>
-    <fusion id="IDthe_coffee_machine_outputfus"
-            name="F_the_coffee_machine_output">
-      <fusion_elm idref="IDnoREQthe_coffee_machine_output"/>
-      <fusion_elm idref="IDREQ001the_coffee_machine_output"/>
-      <fusion_elm idref="IDREQ002the_coffee_machine_output"/>
-      <fusion_elm idref="IDREQ003the_coffee_machine_output"/>
-      <fusion_elm idref="IDREQ004the_coffee_machine_output"/>
-      <fusion_elm idref="IDREQ005the_coffee_machine_output"/>
+    <fusion id="IDthe_outputfus"
+            name="F_the_output">
+      <fusion_elm idref="IDnoREQthe_output"/>
+      <fusion_elm idref="IDREQ001the_output"/>
+      <fusion_elm idref="IDREQ002the_output"/>
+      <fusion_elm idref="IDREQ003the_output"/>
+      <fusion_elm idref="IDREQ004the_output"/>
+      <fusion_elm idref="IDREQ005the_output"/>
+      <fusion_elm idref="IDREQ006the_output"/>
+      <fusion_elm idref="IDREQ007the_output"/>
+      <fusion_elm idref="IDREQ008the_output"/>
     </fusion>
     <instances>
       <instance id="ID2149"
@@ -5588,8 +5513,14 @@ p_the_coin_sensor, the_coin_sensor)</text>
                 page="IDREQ004page"/>
       <instance id="IDREQ005id"
                 page="IDREQ005page"/>
-      <instance id="ID1590765584"
-                page="ID1590765582"/>
+      <instance id="IDREQ006id"
+                page="IDREQ006page"/>
+      <instance id="IDREQ007id"
+                page="IDREQ007page"/>
+      <instance id="IDREQ008id"
+                page="IDREQ008page"/>
+      <instance id="ID1590815630"
+                page="ID1590815628"/>
     </instances>
     <options>
       <option name="realtimestamp">
@@ -5835,14 +5766,14 @@ p_the_coin_sensor, the_coin_sensor)</text>
     </options>
     <binders>
       <cpnbinder id="ID2210"
-                 x="409"
-                 y="20"
+                 x="380"
+                 y="90"
                  width="1275"
                  height="640">
         <sheets>
           <cpnsheet id="ID2215"
-                    panx="-150.000000"
-                    pany="-100.000000"
+                    panx="-100.000000"
+                    pany="-104.000000"
                     zoom="1.250000"
                     instance="ID2149">
             <zorder>
@@ -5850,8 +5781,8 @@ p_the_coin_sensor, the_coin_sensor)</text>
             </zorder>
           </cpnsheet>
           <cpnsheet id="ID2216"
-                    panx="-243.000000"
-                    pany="168.000000"
+                    panx="-190.000000"
+                    pany="160.000000"
                     zoom="1.000000"
                     instance="ID2150">
             <zorder>
@@ -5859,18 +5790,18 @@ p_the_coin_sensor, the_coin_sensor)</text>
             </zorder>
           </cpnsheet>
           <cpnsheet id="IDREQ001sh"
-                    panx="149.000000"
-                    pany="409.000000"
-                    zoom="1.548628"
+                    panx="120.000000"
+                    pany="266.000000"
+                    zoom="1.000000"
                     instance="IDREQ001id">
             <zorder>
               <position value="0"/>
             </zorder>
           </cpnsheet>
           <cpnsheet id="IDREQ002sh"
-                    panx="190.000000"
-                    pany="353.000000"
-                    zoom="1.428571"
+                    panx="-105.000000"
+                    pany="200.000000"
+                    zoom="1.000000"
                     instance="IDREQ002id">
             <zorder>
               <position value="0"/>
@@ -5886,7 +5817,7 @@ p_the_coin_sensor, the_coin_sensor)</text>
             </zorder>
           </cpnsheet>
           <cpnsheet id="IDREQ004sh"
-                    panx="-95.000000"
+                    panx="-105.000000"
                     pany="200.000000"
                     zoom="1.000000"
                     instance="IDREQ004id">
@@ -5895,43 +5826,73 @@ p_the_coin_sensor, the_coin_sensor)</text>
             </zorder>
           </cpnsheet>
           <cpnsheet id="IDREQ005sh"
-                    panx="86.750000"
-                    pany="341.250000"
-                    zoom="1.562500"
+                    panx="-105.000000"
+                    pany="200.000000"
+                    zoom="1.000000"
                     instance="IDREQ005id">
             <zorder>
               <position value="0"/>
             </zorder>
           </cpnsheet>
+          <cpnsheet id="IDREQ006sh"
+                    panx="-105.000000"
+                    pany="200.000000"
+                    zoom="1.000000"
+                    instance="IDREQ006id">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="IDREQ007sh"
+                    panx="-105.000000"
+                    pany="200.000000"
+                    zoom="1.000000"
+                    instance="IDREQ007id">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="IDREQ008sh"
+                    panx="-105.000000"
+                    pany="200.000000"
+                    zoom="1.000000"
+                    instance="IDREQ008id">
+            <zorder>
+              <position value="0"/>
+            </zorder>
+          </cpnsheet>
           <cpnsheet id="ID2217"
-                    panx="-260.000000"
-                    pany="147.000000"
+                    panx="-105.000000"
+                    pany="230.000000"
                     zoom="1.000000"
                     instance="ID2151">
             <zorder>
               <position value="0"/>
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1590766902"
+          <cpnsheet id="ID1590815646"
                     panx="0.000000"
-                    pany="-44.000000"
+                    pany="0.000000"
                     zoom="1.000000"
-                    instance="ID1590765584">
+                    instance="ID1590815630">
             <zorder>
               <position value="0"/>
             </zorder>
           </cpnsheet>
         </sheets>
         <zorder>
-          <position value="1"/>
+          <position value="11"/>
           <position value="0"/>
+          <position value="1"/>
+          <position value="10"/>
+          <position value="9"/>
+          <position value="8"/>
           <position value="2"/>
-          <position value="3"/>
-          <position value="4"/>
+          <position value="7"/>
           <position value="5"/>
           <position value="6"/>
-          <position value="8"/>
-          <position value="7"/>
+          <position value="3"/>
+          <position value="4"/>
         </zorder>
       </cpnbinder>
     </binders>
@@ -6001,7 +5962,9 @@ p_the_coin_sensor, the_coin_sensor)</text>
           <IndexNode expanded="false"/>
         </IndexNode>
       </IndexNode>
-      <IndexNode expanded="false"/>
+      <IndexNode expanded="false">
+        <IndexNode expanded="false"/>
+      </IndexNode>
       <IndexNode expanded="true">
         <IndexNode expanded="true">
           <IndexNode expanded="true"/>
@@ -6035,16 +5998,17 @@ p_the_coin_sensor, the_coin_sensor)</text>
           <IndexNode expanded="false"/>
           <IndexNode expanded="false"/>
           <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
           <IndexNode expanded="true"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
         </IndexNode>
       </IndexNode>
+      <IndexNode expanded="true"/>
+      <IndexNode expanded="true"/>
+      <IndexNode expanded="true"/>
       <IndexNode expanded="true"/>
       <IndexNode expanded="true"/>
       <IndexNode expanded="true"/>

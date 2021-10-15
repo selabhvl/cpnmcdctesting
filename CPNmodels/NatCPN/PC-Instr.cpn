@@ -1507,7 +1507,7 @@
                 version="4.0.1"/>
         </time>
         <code id="ID1415178011">
-          <posattr x="335.000000"
+          <posattr x="420.000000"
                    y="75.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -1525,11 +1525,11 @@
                the_output, 
                        req);
    action
-      if rt=0 then (outfile := TextIO.openOut(OS.Path.concat 
+      if EXPR(&quot;Action1&quot; , AP(&quot;1&quot;,  rt=0)) then (outfile := TextIO.openOut(OS.Path.concat 
                         (Output.getSimOutputDir(), &quot;TC.csv&quot;)) ;
                      TextIO.output(!outfile,Head) )    else ();
-      if rt&gt;=0 then
-                      if req&lt;&gt; &quot;STOP&quot; then
+      if EXPR(&quot;Action2&quot; , AP(&quot;1&quot;,  rt&gt;=0)) then
+                      if EXPR(&quot;Action3&quot; , AP(&quot;1&quot;,  req&lt;&gt; &quot;STOP&quot;)) then
                                 TextIO.output(!outfile, 
                                 vector (rt,the_left_priority_button, 
                                            the_right_priority_button, 
@@ -1699,6 +1699,39 @@
         <label/>
         <text>(i=InputQty),
    (z=n)</text>
+      </Aux>
+      <Aux id="ID1590820050">
+        <posattr x="682.000000"
+                 y="210.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Purple"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Purple"
+                  bold="false"/>
+        <label/>
+        <text>input (i,rt,the_left_priority_button, 
+               the_right_priority_button, 
+               the_left_command, 
+               the_right_command, 
+               the_output, 
+                       req);
+   action
+      if rt=0 then (outfile := TextIO.openOut(OS.Path.concat 
+                        (Output.getSimOutputDir(), &quot;TC.csv&quot;)) ;
+                     TextIO.output(!outfile,Head) )    else ();
+      if rt&gt;=0 then
+                      if req&lt;&gt; &quot;STOP&quot; then
+                                TextIO.output(!outfile, 
+                                vector (rt,the_left_priority_button, 
+                                           the_right_priority_button, 
+                                           the_left_command, 
+                                           the_right_command, 
+                                           the_output, 
+                                                   req)  )  
+                     else ( TextIO.closeOut(!outfile) )   else ();</text>
       </Aux>
     </page>
     <page id="IDREQ001page">
@@ -5768,8 +5801,8 @@ andalso  p_the_right_priority_button = true
       <cpnbinder id="ID2210"
                  x="380"
                  y="90"
-                 width="1275"
-                 height="640">
+                 width="1560"
+                 height="802">
         <sheets>
           <cpnsheet id="ID2215"
                     panx="-100.000000"
@@ -5862,8 +5895,8 @@ andalso  p_the_right_priority_button = true
             </zorder>
           </cpnsheet>
           <cpnsheet id="ID2217"
-                    panx="-105.000000"
-                    pany="230.000000"
+                    panx="-409.000000"
+                    pany="96.000000"
                     zoom="1.000000"
                     instance="ID2151">
             <zorder>
@@ -5883,7 +5916,6 @@ andalso  p_the_right_priority_button = true
         <zorder>
           <position value="0"/>
           <position value="1"/>
-          <position value="10"/>
           <position value="9"/>
           <position value="8"/>
           <position value="2"/>
@@ -5893,6 +5925,7 @@ andalso  p_the_right_priority_button = true
           <position value="3"/>
           <position value="4"/>
           <position value="11"/>
+          <position value="10"/>
         </zorder>
       </cpnbinder>
     </binders>

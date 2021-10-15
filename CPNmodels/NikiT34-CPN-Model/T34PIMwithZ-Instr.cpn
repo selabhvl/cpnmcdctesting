@@ -4359,8 +4359,8 @@ SR=SR,VTBI=VTBI,HH=HH,MM=MM, IR=IR})</text>
                  h="40.000000"/>
         <token x="-10.000000"
                y="0.000000"/>
-        <marking x="-18.920000"
-                 y="-129.120000"
+        <marking x="-69.920000"
+                 y="-112.120000"
                  hidden="false">
           <snap snap_id="0"
                 anchor.horizontal="2"
@@ -5532,8 +5532,8 @@ SR=SR,VTBI=VTBI,HH=HH,MM=MM, IR=IR})</text>
                     bold="false"/>
         </bendpoint>
         <annot id="ID1422923595">
-          <posattr x="-565.000000"
-                   y="-164.000000"/>
+          <posattr x="-598.000000"
+                   y="-195.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5543,26 +5543,25 @@ SR=SR,VTBI=VTBI,HH=HH,MM=MM, IR=IR})</text>
           <textattr colour="Red"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">({BC=BC,KP=KP,PL=PL,TL=TL,
-BD=BD,SS=SS,
-VL=VL,PP=PP,SOK=SOK,BCPOK=BCPOK,
-SR=SR,VTBI=VTBI,HH=(if MM&lt;=58
+                version="4.0.1">({BC=BC,KP=KP,PL=PL,TL=TL,BD=BD,SS=SS, VL=VL,
+PP=PP,SOK=SOK,BCPOK=BCPOK,SR=SR,VTBI=VTBI,
+HH=(if EXPR(&quot;Arc11SetDur&quot; , AP(&quot;1&quot;,  MM&lt;=58))
 then
 HH
 else
-if (MM=59 andalso HH&lt;=23)
+if EXPR(&quot;Arc12SetDur&quot; , AND(AP(&quot;1&quot;, MM=59), AP(&quot;2&quot;,  HH&lt;=23)))
 then
 (HH+1 )
 else 
-if (HH=24)
+if EXPR(&quot;Arc13SetDur&quot; , AP(&quot;1&quot;,  HH=24))
 then 
 0
 else
 HH),
-MM=(if MM&lt;=58
+MM=(if EXPR(&quot;Arc14SetDur&quot; , AP(&quot;1&quot;,   MM&lt;=58))
 then MM+1
 else 
-if MM=59
+if EXPR(&quot;Arc15SetDur&quot; , AP(&quot;1&quot;,   MM=59))
 then 0
 else 0), IR=IR})</text>
         </annot>
@@ -5598,8 +5597,8 @@ else 0), IR=IR})</text>
                     bold="false"/>
         </bendpoint>
         <annot id="ID1423063322">
-          <posattr x="167.000000"
-                   y="-259.000000"/>
+          <posattr x="294.000000"
+                   y="-379.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -5610,26 +5609,25 @@ else 0), IR=IR})</text>
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">({BC=BC,KP=KP,PL=PL,TL=TL,
-BD=BD,SS=SS,
-VL=VL,PP=PP,SOK=SOK,BCPOK=BCPOK,
-SR=SR,VTBI=VTBI,HH=(if (MM=0 andalso HH=0)
+BD=BD,SS=SS, VL=VL,PP=PP,SOK=SOK,BCPOK=BCPOK,
+SR=SR,VTBI=VTBI,HH=(if (EXPR(&quot;Arc20SetDur&quot; , AND(AP(&quot;1&quot;, MM=0), AP(&quot;2&quot;, HH=0) )))
 then 0
 else
-if (MM&gt;=1)
+if EXPR(&quot;Arc21SetDur&quot; , AP(&quot;1&quot;,  MM&gt;=1))
 then
 HH
 else
-if (MM=0 andalso HH&gt;=1)
+if (EXPR(&quot;Arc22SetDur&quot; , AND(AP(&quot;1&quot;, MM=0), AP(&quot;2&quot;,  HH&gt;=1))))
 then 
 HH-1
 else
-HH),MM=(if (MM=0 andalso HH=0)
+HH),MM=(if EXPR(&quot;Arc23SetDur&quot; , AND(AP(&quot;1&quot;,  MM=0 ), AP(&quot;2&quot;,  HH=0)))
 then 0
 else
-if (MM&gt;=1)
+if (EXPR(&quot;Arc24SetDur&quot; , AP(&quot;1&quot;,  MM&gt;=1)))
 then MM-1
 else
-if (MM=0)
+if (EXPR(&quot;Arc25SetDur&quot; , AP(&quot;1&quot;,  MM=0)))
 then 59
 else
 MM), IR=IR})</text>
@@ -18548,8 +18546,8 @@ HH=24,MM=0,IR=0}</text>
             </zorder>
           </cpnsheet>
           <cpnsheet id="ID1423489249"
-                    panx="-23.000000"
-                    pany="-150.000000"
+                    panx="-17.000000"
+                    pany="-149.000000"
                     zoom="1.000000"
                     instance="ID1419705152">
             <zorder>
@@ -18711,26 +18709,26 @@ HH=24,MM=0,IR=0}</text>
           </cpnsheet>
         </sheets>
         <zorder>
-          <position value="16"/>
-          <position value="2"/>
-          <position value="17"/>
-          <position value="1"/>
-          <position value="4"/>
-          <position value="15"/>
-          <position value="3"/>
-          <position value="5"/>
-          <position value="7"/>
-          <position value="6"/>
-          <position value="8"/>
-          <position value="18"/>
-          <position value="13"/>
-          <position value="10"/>
-          <position value="12"/>
           <position value="0"/>
-          <position value="14"/>
-          <position value="19"/>
+          <position value="1"/>
+          <position value="2"/>
+          <position value="3"/>
+          <position value="4"/>
+          <position value="5"/>
+          <position value="6"/>
+          <position value="7"/>
+          <position value="8"/>
           <position value="9"/>
+          <position value="10"/>
           <position value="11"/>
+          <position value="12"/>
+          <position value="13"/>
+          <position value="14"/>
+          <position value="15"/>
+          <position value="16"/>
+          <position value="17"/>
+          <position value="18"/>
+          <position value="19"/>
         </zorder>
       </cpnbinder>
     </binders>

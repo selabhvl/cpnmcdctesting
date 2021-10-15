@@ -1742,7 +1742,7 @@
                 version="4.0.1"/>
         </time>
         <code id="ID1415178011">
-          <posattr x="342.500000"
+          <posattr x="420.500000"
                    y="143.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -1759,11 +1759,11 @@
                       the_coffee_machine_output, 
                        req);
    action
-      if rt=0 then (outfile := TextIO.openOut(OS.Path.concat 
+      if EXPR(&quot;Action1&quot; , AP(&quot;1&quot;,  rt=0)) then (outfile := TextIO.openOut(OS.Path.concat 
                         (Output.getSimOutputDir(), &quot;TC.csv&quot;)) ;
                      TextIO.output(!outfile,Head) )    else ();
-      if rt&gt;=0 then
-                      if req&lt;&gt; &quot;STOP&quot; then
+      if EXPR(&quot;Action2&quot; , AP(&quot;1&quot;, rt&gt;=0)) then
+                      if EXPR(&quot;Action3&quot; , AP(&quot;1&quot;, req&lt;&gt; &quot;STOP&quot; )) then
                                 TextIO.output(!outfile, 
                                 vector (rt,the_coffee_request_button, 
                                            the_coin_sensor, 
@@ -1933,6 +1933,37 @@ the_coffee_machine_output, req)</text>
         <label/>
         <text>(i=InputQty),
    (z=n)</text>
+      </Aux>
+      <Aux id="ID1590814495">
+        <posattr x="672.000000"
+                 y="252.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Purple"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Purple"
+                  bold="false"/>
+        <label/>
+        <text>input (i,rt,the_coffee_request_button, 
+               the_coin_sensor, 
+               the_system_mode, 
+                      the_coffee_machine_output, 
+                       req);
+   action
+      if rt=0 then (outfile := TextIO.openOut(OS.Path.concat 
+                        (Output.getSimOutputDir(), &quot;TC.csv&quot;)) ;
+                     TextIO.output(!outfile,Head) )    else ();
+      if rt&gt;=0 then
+                      if req&lt;&gt; &quot;STOP&quot; then
+                                TextIO.output(!outfile, 
+                                vector (rt,the_coffee_request_button, 
+                                           the_coin_sensor, 
+                                           the_system_mode, 
+                                                  the_coffee_machine_output, 
+                                                   req)  )  
+                     else ( TextIO.closeOut(!outfile) )   else ();</text>
       </Aux>
     </page>
     <page id="IDREQ001page">

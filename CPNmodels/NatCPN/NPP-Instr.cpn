@@ -1752,7 +1752,7 @@
                 version="4.0.1"/>
         </time>
         <code id="ID1415178011">
-          <posattr x="507.500000"
+          <posattr x="592.500000"
                    y="37.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -1771,11 +1771,11 @@
                       the_overridden_mode, 
                        req);
    action
-      if rt=0 then (outfile := TextIO.openOut(OS.Path.concat 
+      if EXPR(&quot;Action1&quot; , AP(&quot;1&quot;,  rt=0)) then (outfile := TextIO.openOut(OS.Path.concat 
                         (Output.getSimOutputDir(), &quot;TC.csv&quot;)) ;
                      TextIO.output(!outfile,Head) )    else ();
-      if rt&gt;=0 then
-                      if req&lt;&gt; &quot;STOP&quot; then
+      if EXPR(&quot;Action2&quot; , AP(&quot;1&quot;, rt&gt;=0)) then
+                      if EXPR(&quot;Action3&quot; , AP(&quot;1&quot;, req&lt;&gt; &quot;STOP&quot; )) then
                                 TextIO.output(!outfile, 
                                 vector (rt,the_blockage_button, 
                                            the_water_pressure, 
@@ -1948,6 +1948,41 @@
         <label/>
         <text>(i=InputQty),
    (z=n)</text>
+      </Aux>
+      <Aux id="ID1590815291">
+        <posattr x="871.000000"
+                 y="168.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Purple"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Purple"
+                  bold="false"/>
+        <label/>
+        <text>input (i,rt,the_blockage_button, 
+               the_water_pressure, 
+               the_reset_button, 
+               the_safety_injection_mode, 
+                      the_pressure_mode, 
+                      the_overridden_mode, 
+                       req);
+   action
+      if rt=0 then (outfile := TextIO.openOut(OS.Path.concat 
+                        (Output.getSimOutputDir(), &quot;TC.csv&quot;)) ;
+                     TextIO.output(!outfile,Head) )    else ();
+      if rt&gt;=0 then
+                      if req&lt;&gt; &quot;STOP&quot; then
+                                TextIO.output(!outfile, 
+                                vector (rt,the_blockage_button, 
+                                           the_water_pressure, 
+                                           the_reset_button, 
+                                           the_safety_injection_mode, 
+                                                  the_pressure_mode, 
+                                                  the_overridden_mode, 
+                                                   req)  )  
+                     else ( TextIO.closeOut(!outfile) )   else ();</text>
       </Aux>
     </page>
     <page id="IDREQ001page">
@@ -7361,8 +7396,8 @@ not(String.isSuffix &quot;REQ008&quot; trace) ]</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="IDREQ009cond">
-          <posattr x="-442.500000"
-                   y="335.000000"/>
+          <posattr x="-309.500000"
+                   y="339.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -8082,8 +8117,8 @@ not(String.isSuffix &quot;REQ009&quot; trace) ]</text>
         <binding x="7.200000"
                  y="-3.000000"/>
         <cond id="IDREQ010cond">
-          <posattr x="-435.500000"
-                   y="325.000000"/>
+          <posattr x="-289.500000"
+                   y="324.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -10311,8 +10346,8 @@ not(String.isSuffix &quot;REQ002&quot; trace) ]</text>
       <cpnbinder id="ID2210"
                  x="380"
                  y="90"
-                 width="1462"
-                 height="704">
+                 width="1519"
+                 height="709">
         <sheets>
           <cpnsheet id="ID2215"
                     panx="-150.000000"
@@ -10414,8 +10449,8 @@ not(String.isSuffix &quot;REQ002&quot; trace) ]</text>
             </zorder>
           </cpnsheet>
           <cpnsheet id="ID2217"
-                    panx="-415.000000"
-                    pany="164.000000"
+                    panx="-489.000000"
+                    pany="144.000000"
                     zoom="1.000000"
                     instance="ID2151">
             <zorder>
@@ -10460,9 +10495,10 @@ not(String.isSuffix &quot;REQ002&quot; trace) ]</text>
           </cpnsheet>
         </sheets>
         <zorder>
+          <position value="12"/>
+          <position value="0"/>
           <position value="1"/>
           <position value="2"/>
-          <position value="14"/>
           <position value="3"/>
           <position value="4"/>
           <position value="5"/>
@@ -10472,10 +10508,9 @@ not(String.isSuffix &quot;REQ002&quot; trace) ]</text>
           <position value="9"/>
           <position value="10"/>
           <position value="13"/>
-          <position value="11"/>
+          <position value="14"/>
           <position value="15"/>
-          <position value="0"/>
-          <position value="12"/>
+          <position value="11"/>
         </zorder>
       </cpnbinder>
     </binders>
@@ -10545,7 +10580,9 @@ not(String.isSuffix &quot;REQ002&quot; trace) ]</text>
           <IndexNode expanded="false"/>
         </IndexNode>
       </IndexNode>
-      <IndexNode expanded="false"/>
+      <IndexNode expanded="false">
+        <IndexNode expanded="false"/>
+      </IndexNode>
       <IndexNode expanded="true">
         <IndexNode expanded="false"/>
         <IndexNode expanded="true"/>

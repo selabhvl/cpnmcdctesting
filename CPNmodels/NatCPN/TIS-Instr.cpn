@@ -1830,7 +1830,7 @@ ModelTime.fromInt(9999),
                 version="4.0.1"/>
         </time>
         <code id="ID1415178011">
-          <posattr x="335.000000"
+          <posattr x="416.000000"
                    y="75.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -1848,11 +1848,11 @@ ModelTime.fromInt(9999),
                       the_flashing_mode, 
                        req);
    action
-      if rt=0 then (outfile := TextIO.openOut(OS.Path.concat 
+      if EXPR(&quot;Action1&quot; , AP(&quot;1&quot;,rt=0)) then (outfile := TextIO.openOut(OS.Path.concat 
                         (Output.getSimOutputDir(), &quot;TC.csv&quot;)) ;
                      TextIO.output(!outfile,Head) )    else ();
-      if rt&gt;=0 then
-                      if req&lt;&gt; &quot;STOP&quot; then
+      if EXPR(&quot;Action2&quot; , AP(&quot;1&quot;,rt&gt;=0)) then
+                      if EXPR(&quot;Action3&quot; , AP(&quot;1&quot;,req&lt;&gt; &quot;STOP&quot;)) then
                                 TextIO.output(!outfile, 
                                 vector (rt,the_emergency_flashing, 
                                            the_turn_indicator_lever, 
@@ -2023,6 +2023,39 @@ ModelTime.fromInt(9999),
         <label/>
         <text>(i=InputQty),
    (z=n)</text>
+      </Aux>
+      <Aux id="ID1590843075">
+        <posattr x="756.000000"
+                 y="276.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Purple"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Purple"
+                  bold="false"/>
+        <label/>
+        <text>input (i,rt,the_emergency_flashing, 
+               the_turn_indicator_lever, 
+               the_voltage, 
+               the_indication_lights, 
+                      the_flashing_mode, 
+                       req);
+   action
+      if rt=0 then (outfile := TextIO.openOut(OS.Path.concat 
+                        (Output.getSimOutputDir(), &quot;TC.csv&quot;)) ;
+                     TextIO.output(!outfile,Head) )    else ();
+      if rt&gt;=0 then
+                      if req&lt;&gt; &quot;STOP&quot; then
+                                TextIO.output(!outfile, 
+                                vector (rt,the_emergency_flashing, 
+                                           the_turn_indicator_lever, 
+                                           the_voltage, 
+                                           the_indication_lights, 
+                                                  the_flashing_mode, 
+                                                   req)  )  
+                     else ( TextIO.closeOut(!outfile) )   else ();</text>
       </Aux>
     </page>
     <page id="IDREQ001page">
@@ -14982,8 +15015,8 @@ andalso  the_turn_indicator_lever = 2  andalso   not (p_the_emergency_flashing =
           <position value="17"/>
           <position value="20"/>
           <position value="19"/>
-          <position value="14"/>
           <position value="18"/>
+          <position value="14"/>
         </zorder>
       </cpnbinder>
     </binders>

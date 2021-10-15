@@ -14982,8 +14982,8 @@ andalso  the_turn_indicator_lever = 2  andalso   not (p_the_emergency_flashing =
           <position value="17"/>
           <position value="20"/>
           <position value="19"/>
-          <position value="18"/>
           <position value="14"/>
+          <position value="18"/>
         </zorder>
       </cpnbinder>
     </binders>
@@ -15053,9 +15053,7 @@ andalso  the_turn_indicator_lever = 2  andalso   not (p_the_emergency_flashing =
           <IndexNode expanded="false"/>
         </IndexNode>
       </IndexNode>
-      <IndexNode expanded="false">
-        <IndexNode expanded="false"/>
-      </IndexNode>
+      <IndexNode expanded="false"/>
       <IndexNode expanded="false">
         <IndexNode expanded="true">
           <IndexNode expanded="true"/>

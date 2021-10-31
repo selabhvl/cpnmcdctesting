@@ -98,17 +98,25 @@
 import ply.lex as lex
 import ply.yacc as yacc
 
+# List of reserved names.
+reserved = {
+    'if': 'IF',
+    'then': 'THEN',
+    'else': 'ELSE',
+    'orelse': 'ORELSE',
+    'andalso': 'ANDALSO',
+    'not': 'NOT'
+}
+
 # List of token names.   This is always required
-tokens = (
+tokens = [
     'NAME', 'ASSIGN', 'NUMBER', 'BOOL',
     'PLUS', 'MINUS', 'TIMES', 'DIVIDE',
     'EQUALS', 'NEQ', 'LEQ', 'LESS', 'GEQ', 'GREATER',
-    'LPAREN', 'RPAREN',
-    'NOT', 'ORELSE', 'ANDALSO',
-)
+    'LPAREN', 'RPAREN'
+] + list(reserved.values())
 
 # Tokens
-
 t_PLUS = r'\+'
 t_MINUS = r'-'
 t_TIMES = r'\*'
@@ -122,13 +130,16 @@ t_GEQ = r'>='
 t_GREATER = r'>'
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
-t_ORELSE = r'orelse'
-t_ANDALSO = r'andalso'
-t_NOT = r'not'
-t_NAME = r'[a-zA-Z_][a-zA-Z0-9_]*'
+# t_NAME = r'[a-zA-Z_][a-zA-Z0-9_]*'
 
 
 # A regular expression rule with some action code
+def t_NAME(t):
+    r'[a-zA-Z_][a-zA-Z_0-9]*'
+    t.type = reserved.get(t.value, 'NAME')  # Check for reserved words
+    return t
+
+
 def t_NUMBER(t):
     r'\d+'
     try:
@@ -171,6 +182,8 @@ precedence = (
     ('nonassoc', 'LESS', 'GREATER'),  # Nonassociative operators
     ('nonassoc', 'LEQ', 'GEQ'),       # Nonassociative operators
     ('nonassoc', 'EQUALS', 'NEQ'),    # Nonassociative operators
+    ('right', 'IF'),
+    ('left', 'THEN', 'ELSE'),
     ('left', 'ORELSE', 'ANDALSO'),
     ('left', 'PLUS', 'MINUS'),
     ('left', 'TIMES', 'DIVIDE'),
@@ -181,6 +194,9 @@ precedence = (
 # dictionary of names
 names = {}
 
+# dictionary of atomic propositions
+ap = {}
+
 
 def p_statement_assign(t):
     'statement : NAME ASSIGN expression'
@@ -189,15 +205,23 @@ def p_statement_assign(t):
 
 def p_statement_expr(t):
     'statement : expression'
-    print(t[1])
+    t[0] = t[1]
 
 
-def p_expression_binop(t):
-    '''expression : expression PLUS expression
-                  | expression MINUS expression
-                  | expression TIMES expression
-                  | expression DIVIDE expression
-                  | expression EQUALS expression
+# if statement
+def p_statement_if(p):
+    '''statement : IF expression THEN statement %prec IF
+                 | IF expression THEN statement ELSE statement'''
+    if p[3]:
+        p[0] = p[5]
+    else:
+        if p[7] is not None:
+            p[0] = p[7]
+
+
+# comparison
+def p_comparison_binop(t):
+    '''expression : expression EQUALS expression
                   | expression NEQ expression
                   | expression LESS expression
                   | expression LEQ expression
@@ -206,45 +230,48 @@ def p_expression_binop(t):
                   | expression ORELSE expression
                   | expression ANDALSO expression'''
 
-    if t[2] == '+':
-        t[0] = t[1] + t[3]
-    elif t[2] == '-':
-        t[0] = t[1] - t[3]
-    elif t[2] == '*':
-        t[0] = t[1] * t[3]
-    elif t[2] == '/':
-        t[0] = t[1] / t[3]
-    elif t[2] == '=':
-        t[0] = t[1] = t[3]
-    elif t[2] == '<>':
-        t[0] = t[1] != t[3]
-    elif t[2] == '<':
-        t[0] = t[1] < t[3]
-    elif t[2] == '<=':
-        t[0] = t[1] <= t[3]
-    elif t[2] == '>':
-        t[0] = t[1] > t[3]
-    elif t[2] == '>=':
-        t[0] = t[1] >= t[3]
+    if t[2] in {'=', '<>', '<', '<=', '>', '>='}:
+        op = "{0} {1} {2}".format(t[1], t[2], t[3])
+        if op not in ap:
+            ap[op] = len(ap)
+        identifier = ap[op]
+        t[0] = "AP({0}, {1})".format(identifier, op)
     elif t[2] == 'orelse':
-        t[0] = t[1] | t[3]
+        t[0] = "OR({0}, {1})".format(t[1], t[3])
     elif t[2] == 'andalso':
-        t[0] = t[1] & t[3]
+        t[0] = "AND({0}, {1})".format(t[1], t[3])
 
 
-def p_expression_uminus(t):
-    'expression : MINUS expression %prec UMINUS'
-    t[0] = -t[2]
+# expression
+def p_expression_binop(t):
+    '''expression : expression PLUS expression
+                  | expression MINUS expression
+                  | expression TIMES expression
+                  | expression DIVIDE expression
+'''
 
-
-def p_expression_not(t):
-    'expression : NOT expression'
-    t[0] = t[2]  # TODO
+    op = "{0} {1} {2}".format(t[1], t[2], t[3])
+    if op not in ap:
+        ap[op] = len(ap)
+    identifier = ap[op]
+    t[0] = "AP({0}, {1})".format(identifier, op)
 
 
 def p_expression_group(t):
     'expression : LPAREN expression RPAREN'
-    t[0] = t[2]
+    t[0] = str(t[2])
+
+
+def p_expression_uminus(t):
+    'expression : MINUS expression %prec UMINUS'
+    # t[0] = "{0}".format(-t[2])
+    t[0] = str(-t[2])
+
+
+def p_expression_not(t):
+    'expression : NOT expression'
+    # t[0] = t[2]
+    t[0] = "NOT({0})".format(t[2])
 
 
 def p_expression_number(t):
@@ -254,16 +281,22 @@ def p_expression_number(t):
 
 def p_expression_bool(t):
     'expression : BOOL'
-    t[0] = t[1]
+    t[0] = str(t[1])
 
 
 def p_expression_name(t):
     'expression : NAME'
-    try:
-        t[0] = names[t[1]]
-    except LookupError:
-        print("Undefined name '%s'" % t[1])
-        t[0] = 0
+    t[0] = str(t[1])
+
+    # if t[1] not in names:
+    #     names[t[1]] = len(names)
+    # t[0] = names[t[1]]
+
+    # try:
+    #     t[0] = names[t[1]]
+    # except LookupError:
+    #     print("Undefined name '%s'" % t[1])
+    #     t[0] = 0
 
 
 def p_error(t):
@@ -279,9 +312,11 @@ parser = yacc.yacc()
 # permitted := true
 # (the_pressure_mode = permitted)  andalso   not (the_water_pressure  < 9)  andalso  (the_water_pressure  < 9)
 # not (the_water_pressure < 9)  andalso  (the_water_pressure  < 9)
+# not a < b
 while True:
     try:
         s = input('calc > ')  # Use raw_input on Python 2
     except EOFError:
         break
-    parser.parse(s)
+    res = parser.parse(s)
+    print(res)

@@ -1,100 +1,3 @@
-# (* boolean conditions *)
-#
-# datatype condition = AND of condition * condition
-# 		   | OR of condition * condition
-# 			 | ANDlr of condition * condition
-# 			 | ORlr of condition * condition
-# 		   | NOT of condition
-# 			 | ITE of condition * condition * condition
-# 			 | ITElr of condition * condition * condition
-# 		   | AP of string * bool;
-#
-# (* TODO: can be implementented more efficient
-#    - using accumulation and
-#    - tail recursion
-#
-# *)
-#
-# fun countQs (AP(_,_)) = [("?",NONE)]
-#   | countQs (AND(l,r)) = countQs l^^countQs r
-# 	| countQs (ANDlr(l,r)) = countQs l^^countQs r
-# 	| countQs (OR(l,r)) = countQs l^^countQs r
-# 	| countQs (ORlr(l,r)) = countQs l^^countQs r
-# 	| countQs (NOT(x)) = countQs x
-# 	| countQs (ITE(c,l,r)) = countQs c ^^ countQs l ^^ countQs r
-#   | countQs (ITElr(c,l,r)) = countQs c ^^ countQs l ^^ countQs r
-# 	;
-#
-# fun eval (AP (cond,v)) = ([(cond, SOME v)],v)
-#   | eval (OR (a,b)) =
-#     let
-# 	val (ares,a') = eval a;
-# 	val (bres,b') = eval b;
-#     in
-# 	(ares^^bres,a' orelse b')
-#     end
-# 	| eval (ORlr (a,b)) =
-# 	    let
-# 		val (ares,a') = eval a;
-# 	    in
-# 			if a' then (ares^^countQs b, a' (* true *) )
-# 			      else let val (bres,b') = eval b; in
-# 		             (ares^^bres,(* a' orelse *) b') end
-# 	    end
-#   | eval (AND (a,b)) =
-#     let
-# 	val (ares,a') = eval a;
-# 	val (bres,b') = eval b;
-#     in
-# 	(ares^^bres,a' andalso b')
-#     end
-# 	| eval (ANDlr (a,b)) =
-# 	    let
-# 		val (ares,a') = eval a
-# 	    in if a' then let val (bres,b') = eval b; in
-# 		                (ares^^bres,(* a' andalso *) b') end
-# 		           else (ares^^countQs b, a' (* false *))
-# 	    end
-#   | eval (NOT a) =
-#     let
-# 	val (ares,a') = eval a;
-#     in
-# 	(ares,not a')
-# 	  end
-#  | eval (ITE (c,l,r)) =
-#  	 let
-# 			val (cres,c') = eval c;
-# 			val (lres,l') = eval l;
-# 			val (rres,r') = eval r;
-# 	 in (cres^^lres^^rres, (c' andalso l') orelse r')
-# 	 end
-# 	| eval (ITElr (c,l,r)) =
-#   	let
-# 	 		val (cres,c') = eval c;
-# 		in if c' then let
-# 	 		    val (lres,l') = eval l;
-# 			    in (cres^^lres^^countQs r, l') end
-# 			 else let
-# 	 		    val (rres,r') = eval r;
-# 	 	      in (cres^^countQs l^^rres, r') end
-#     end;
-#
-#
-# fun resToString res =
-#   String.concat (
-#   List.map
-#       (fn (cond,v) => (case v of NONE => "?"
-# 				| SOME b => if b then "1" else "0"))
-#       res);
-#
-# fun EXPR (name,expr) =
-#   let
-#       val (res,expr') = eval expr;
-#       val _ = Logging.log (name^":"^resToString res^":"^(if expr' then "1" else "0"));
-#   in
-#       expr'
-#   end
-
 import ply.lex as lex
 import ply.yacc as yacc
 
@@ -113,7 +16,7 @@ tokens = [
     'NAME', 'ASSIGN', 'NUMBER', 'BOOL',
     'PLUS', 'MINUS', 'TIMES', 'DIVIDE',
     'EQUALS', 'NEQ', 'LEQ', 'LESS', 'GEQ', 'GREATER',
-    'LPAREN', 'RPAREN'
+    'LPAREN', 'RPAREN', 'COMA'
 ] + list(reserved.values())
 
 # Tokens
@@ -130,6 +33,7 @@ t_GEQ = r'>='
 t_GREATER = r'>'
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
+t_COMA = r'\,'
 # t_NAME = r'[a-zA-Z_][a-zA-Z0-9_]*'
 
 
@@ -162,6 +66,7 @@ def t_BOOL(t):
 
 # Ignored characters
 t_ignore = " \t"
+t_ignore_COMMENT = r"\(\*.*\*\)"          # Ignores the comments (* blabla *)
 
 
 def t_newline(t):
@@ -174,14 +79,12 @@ def t_error(t):
     t.lexer.skip(1)
 
 
-# Build the lexer
-lexer = lex.lex()
-
 # Parsing rules
 precedence = (
     ('nonassoc', 'LESS', 'GREATER'),  # Nonassociative operators
-    ('nonassoc', 'LEQ', 'GEQ'),       # Nonassociative operators
-    ('nonassoc', 'EQUALS', 'NEQ'),    # Nonassociative operators
+    ('nonassoc', 'LEQ', 'GEQ'),
+    ('nonassoc', 'EQUALS', 'NEQ'),
+    ('nonassoc', 'COMA'),
     ('right', 'IF'),
     ('left', 'THEN', 'ELSE'),
     ('left', 'ORELSE', 'ANDALSO'),
@@ -194,8 +97,19 @@ precedence = (
 # dictionary of names
 names = {}
 
+# dictionary of expressions
+ex = {}
+
 # dictionary of atomic propositions
 ap = {}
+
+
+def ap_identifier(op):
+    # type: (str) -> str
+    if op not in ap:
+        ap[op] = len(ap) + 1
+    identifier = ap[op]
+    return identifier
 
 
 def p_statement_assign(t):
@@ -205,7 +119,11 @@ def p_statement_assign(t):
 
 def p_statement_expr(t):
     'statement : expression'
-    t[0] = t[1]
+    if t[1] not in ex:
+        ex[t[1]] = "id{0}".format(len(ex) + 1)
+    identifier = ex[t[1]]
+
+    t[0] = "EXPR(\"{0}\", {1})".format(identifier, t[1])
 
 
 # if statement
@@ -232,14 +150,17 @@ def p_comparison_binop(t):
 
     if t[2] in {'=', '<>', '<', '<=', '>', '>='}:
         op = "{0} {1} {2}".format(t[1], t[2], t[3])
-        if op not in ap:
-            ap[op] = len(ap)
-        identifier = ap[op]
-        t[0] = "AP({0}, {1})".format(identifier, op)
+        identifier = ap_identifier(op)
+        t[0] = "AP(\"{0}\", {1})".format(identifier, op)
     elif t[2] == 'orelse':
         t[0] = "OR({0}, {1})".format(t[1], t[3])
     elif t[2] == 'andalso':
         t[0] = "AND({0}, {1})".format(t[1], t[3])
+
+
+def p_expression_list(t):
+    '''expression : expression COMA expression'''
+    t[0] = "AND({0}, {1})".format(t[1], t[3])
 
 
 # expression
@@ -251,10 +172,8 @@ def p_expression_binop(t):
 '''
 
     op = "{0} {1} {2}".format(t[1], t[2], t[3])
-    if op not in ap:
-        ap[op] = len(ap)
-    identifier = ap[op]
-    t[0] = "AP({0}, {1})".format(identifier, op)
+    identifier = ap_identifier(op)
+    t[0] = "AP(\"{0}\", {1})".format(identifier, op)
 
 
 def p_expression_group(t):
@@ -303,20 +222,20 @@ def p_error(t):
     print("Syntax error at '%s'" % t.value)
 
 
-# Build the parser
-parser = yacc.yacc()
+if __name__ == "__main__":
+    # Build the lexer
+    lexer = lex.lex()
 
-# Example:
-# the_pressure_mode := 0
-# the_water_pressure := 1
-# permitted := true
-# (the_pressure_mode = permitted)  andalso   not (the_water_pressure  < 9)  andalso  (the_water_pressure  < 9)
-# not (the_water_pressure < 9)  andalso  (the_water_pressure  < 9)
-# not a < b
-while True:
-    try:
-        s = input('calc > ')  # Use raw_input on Python 2
-    except EOFError:
-        break
-    res = parser.parse(s)
-    print(res)
+    # Build the parser
+    parser = yacc.yacc()
+
+    # Example:
+    # (a < 1) orelse (b > 10) andalso not (c > 20)
+
+    while True:
+        try:
+            s = input('calc > ')  # Use raw_input on Python 2
+        except EOFError:
+            break
+        res = parser.parse(s)
+        print(res)

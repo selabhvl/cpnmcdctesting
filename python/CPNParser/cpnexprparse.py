@@ -1,8 +1,8 @@
 import ply.yacc as yacc
-import cpnlex
+import cpnexprlex
 
 # List of token names.   This is always required
-tokens = cpnlex.tokens
+tokens = cpnexprlex.tokens
 
 # Parsing rules
 precedence = (

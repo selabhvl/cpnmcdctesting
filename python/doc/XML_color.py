@@ -1,7 +1,7 @@
 import sys
 import xml.etree.ElementTree as ET
-from xml.etree.ElementTree import Element
-import re
+from MCDC.MCDC_Table import MCDC_Table
+from MCDC.LogFile import LogFile
 from CPNParser.cpnxml import extract_elements_with_conditions, find_element_by_expr_name, set_color
 
 if __name__ == "__main__":

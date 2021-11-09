@@ -3,9 +3,6 @@ import xml.etree.ElementTree as ET
 from xml.etree.ElementTree import Element
 import re
 
-from MCDC.LogFile import LogFile
-from MCDC.MCDC_Table import MCDC_Table
-
 # pattern = r"\W*EXPR\W*(?P<cond_name>\w+)\b"
 pattern = r"[.\s]*(?<=EXPR)\W*(?P<cond_name>\w+)[.\s]*"
 cond_regex = re.compile(pattern)
@@ -19,18 +16,25 @@ cond_regex = re.compile(pattern)
 # res.group('cond_name')
 
 
-def main(file_name):
-    tree = ET.parse(file_name)
-    root = tree.getroot()
+def get_arcs(xml_tree):
+    root = xml_tree.getroot()
     for arc in root.iter('arc'):
         id = arc.get('id')
         name = arc.find('text').text
         print(id, name)
 
-    for trans in root.iter('trans'):
-        id = trans.get('id')
-        name = trans.find('text').text
+
+def get_trans(xml_tree):
+    root = xml_tree.getroot()
+    for arc in root.iter('trans'):
+        id = arc.get('id')
+        name = arc.find('text').text
         print(id, name)
+
+
+def main(file_name):
+    tree = ET.parse(file_name)
+    get_arcs(tree)
 
 
 def set_color(element, color):
@@ -50,6 +54,33 @@ def set_color(element, color):
 
     return element
 
+# <cond id="ID1421718565">
+#   <posattr x="1402.000000"
+# 		   y="-193.000000"/>
+#   <fillattr colour="White"
+# 			pattern="Solid"
+# 			filled="false"/>
+#   <lineattr colour="Black"
+# 			thick="0"
+# 			type="Solid"/>
+#   <textattr colour="Black"
+# 			bold="false"/>
+#   <text tool="CPN Tools"
+# 		version="4.0.1">EXPR("Cidle",ITE(AP("1", b2=true),AP("2", ob14 =ob25),AP("3", ob14&lt;&gt;ob25)))</text>
+# </cond>
+
+
+def get_cond(element):
+    # type: (Element) -> str
+    cond = element.find('cond')
+    return cond.attrib['text']
+
+
+def set_cond(element, c):
+    # type: (Element, str) -> None
+    cond = element.find('cond')
+    cond.attrib['text'] = c
+
 
 def extract_elements_with_conditions(xml_tree):
     # type: (ET) -> set
@@ -63,6 +94,7 @@ def extract_elements_with_annotations(xml_tree):
     # Arcs have annotations
     parent = {p for p in xml_tree.findall('.//annot/..')}
     return parent
+
 
 #TODO: Do we also process the "conditions" in the arcs? Right now, we only color transitions.
 def find_element_by_expr_name(elements_with_conditions, expr_name):

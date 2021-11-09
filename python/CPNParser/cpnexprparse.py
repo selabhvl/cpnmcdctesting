@@ -148,7 +148,7 @@ def p_error(t):
 
 
 # Build the parser
-cpnparser = yacc.yacc()
+cpnparser = yacc.yacc(debug=False, write_tables=False)
 
 
 def parse(data, debug=0):

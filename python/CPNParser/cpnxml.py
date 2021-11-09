@@ -73,7 +73,8 @@ def set_color(element, color):
 def get_cond(element):
     # type: (Element) -> str
     cond = element.find('cond')
-    return cond.attrib['text']
+    if cond.attrib['text'] is not None:
+        return cond.attrib['text']
 
 
 def set_cond(element, c):

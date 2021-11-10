@@ -66,15 +66,19 @@ def set_color(element, color):
 #   <textattr colour="Black"
 # 			bold="false"/>
 #   <text tool="CPN Tools"
-# 		version="4.0.1">EXPR("Cidle",ITE(AP("1", b2=true),AP("2", ob14 =ob25),AP("3", ob14&lt;&gt;ob25)))</text>
+# 		version="4.0.1">EXPR("Cidle",ITE(AP("1", b2=true),AP("2", ob14 =ob25),AP("3", ob14<>ob25)))</text>
 # </cond>
 
 
 def get_cond(element):
     # type: (Element) -> str
     cond = element.find('cond')
-    if cond.attrib['text'] is not None:
-        return cond.attrib['text']
+    text = cond.find('text')
+    if text.text is not None:
+        return text.text
+
+    # if 'text' in cond.attrib:
+    #     return cond.attrib['text']
 
 
 def set_cond(element, c):

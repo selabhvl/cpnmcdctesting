@@ -52,14 +52,16 @@ def p_statement_expr(t):
 
 
 # if statement
-def p_statement_if(p):
+def p_statement_if(t):
     '''statement : IF expression THEN statement %prec IF
                  | IF expression THEN statement ELSE statement'''
-    if p[3]:
-        p[0] = p[5]
+
+    t[0] = "ITE({0}, {1}".format(t[2], t[4])
+    # ELSE
+    if t[6] is not None:
+        t[0] = t[0] + ", {0})".format(t[6])
     else:
-        if p[7] is not None:
-            p[0] = p[7]
+        t[0] = t[0] + ", empty)"
 
 
 # comparison
@@ -84,9 +86,13 @@ def p_comparison_binop(t):
 
 
 def p_expression_list(t):
-    '''expression : expression COMA expression'''
-    t[0] = "AND({0}, {1})".format(t[1], t[3])
-
+    '''expression : expression COMA expression
+                  | expression expression
+    '''
+    if t[2] == ',':
+        t[0] = "AND({0}, {1})".format(t[1], t[3])
+    else:
+        t[0] = "{0} {1}".format(t[1], t[2])
 
 # expression
 def p_expression_binop(t):

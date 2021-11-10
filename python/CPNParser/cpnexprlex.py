@@ -43,7 +43,7 @@ t_ignore_COMMENT = r"\(\*.*\*\)"          # Ignores the comments (* blabla *)
 
 # A regular expression rule with some action code
 def t_NAME(t):
-    r'[a-zA-Z_][a-zA-Z_0-9]*'
+    r'[a-zA-Z_][a-zA-Z_0-9\']*'
     t.type = reserved.get(t.value, 'NAME')  # Check for reserved words
     return t
 

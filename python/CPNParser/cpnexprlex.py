@@ -13,10 +13,10 @@ reserved = {
 
 # List of token names.   This is always required
 tokens = [
-    'NAME', 'ASSIGN', 'NUMBER', 'BOOL',
+    'NAME', 'ASSIGN', 'STRING', 'NUMBER', 'BOOL',
     'PLUS', 'MINUS', 'TIMES', 'DIVIDE',
     'EQUALS', 'NEQ', 'LEQ', 'LESS', 'GEQ', 'GREATER',
-    'LPAREN', 'RPAREN', 'COMA'
+    'LPAREN', 'RPAREN', 'LBRACK', 'RBRACK', 'COMA'
 ] + list(reserved.values())
 
 # Tokens
@@ -33,7 +33,10 @@ t_GEQ = r'>='
 t_GREATER = r'>'
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
+t_LBRACK = r'\['
+t_RBRACK = r'\]'
 t_COMA = r'\,'
+t_STRING = r'\".*?\"'
 # t_NAME = r'[a-zA-Z_][a-zA-Z0-9_]*'
 
 
@@ -43,7 +46,7 @@ t_ignore_COMMENT = r"\(\*.*\*\)"          # Ignores the comments (* blabla *)
 
 # A regular expression rule with some action code
 def t_NAME(t):
-    r'[a-zA-Z_][a-zA-Z_0-9\']*'
+    r'[a-zA-Z_][a-zA-Z_0-9\'\.]*'
     t.type = reserved.get(t.value, 'NAME')  # Check for reserved words
     return t
 

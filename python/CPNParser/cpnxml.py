@@ -77,14 +77,11 @@ def get_cond(element):
     if text.text is not None:
         return text.text
 
-    # if 'text' in cond.attrib:
-    #     return cond.attrib['text']
-
-
 def set_cond(element, c):
     # type: (Element, str) -> None
     cond = element.find('cond')
-    cond.attrib['text'] = c
+    text = cond.find('text')
+    text.text = c
 
 
 def extract_elements_with_conditions(xml_tree):

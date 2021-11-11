@@ -14391,6 +14391,20 @@ andalso  the_turn_indicator_lever = 2  andalso   not (p_the_emergency_flashing =
         <label/>
         <text>use (cpnmcdclibpath^&quot;boot.sml&quot;);</text>
       </Aux>
+      <Aux id="ID1590844716">
+        <posattr x="-190.000000"
+                 y="-67.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <label/>
+        <text>use (cpnmcdclibpath^&quot;config/instrumentation.sml&quot;);</text>
+      </Aux>
     </page>
     <fusion id="ID1415390975"
             name="Inputs">
@@ -14577,7 +14591,7 @@ andalso  the_turn_indicator_lever = 2  andalso   not (p_the_emergency_flashing =
           <text>&lt;same as model&gt;</text>
         </value>
       </option>
-      <option name="extensions.10002.enable">
+      <option name="extensions.10007.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -14592,7 +14606,27 @@ andalso  the_turn_indicator_lever = 2  andalso   not (p_the_emergency_flashing =
           <boolean>true</boolean>
         </value>
       </option>
+      <option name="extensions.10004.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10008.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
       <option name="extensions.10006.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10011.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10002.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -14600,6 +14634,16 @@ andalso  the_turn_indicator_lever = 2  andalso   not (p_the_emergency_flashing =
       <option name="extensions.10001.enable">
         <value>
           <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10007.options.discover">
+        <value>
+          <boolean>false</boolean>
+        </value>
+      </option>
+      <option name="extensions.10011.options.disable">
+        <value>
+          <boolean>false</boolean>
         </value>
       </option>
       <option name="repavg">
@@ -14996,7 +15040,6 @@ andalso  the_turn_indicator_lever = 2  andalso   not (p_the_emergency_flashing =
           </cpnsheet>
         </sheets>
         <zorder>
-          <position value="0"/>
           <position value="15"/>
           <position value="1"/>
           <position value="11"/>
@@ -15015,8 +15058,9 @@ andalso  the_turn_indicator_lever = 2  andalso   not (p_the_emergency_flashing =
           <position value="17"/>
           <position value="20"/>
           <position value="19"/>
-          <position value="18"/>
           <position value="14"/>
+          <position value="0"/>
+          <position value="18"/>
         </zorder>
       </cpnbinder>
     </binders>
@@ -15084,10 +15128,20 @@ andalso  the_turn_indicator_lever = 2  andalso   not (p_the_emergency_flashing =
           <IndexNode expanded="false"/>
           <IndexNode expanded="false"/>
           <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+        </IndexNode>
+        <IndexNode expanded="false">
+          <IndexNode expanded="false"/>
+        </IndexNode>
+        <IndexNode expanded="false">
+          <IndexNode expanded="false"/>
         </IndexNode>
       </IndexNode>
       <IndexNode expanded="false"/>
-      <IndexNode expanded="false">
+      <IndexNode expanded="true">
         <IndexNode expanded="true">
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>

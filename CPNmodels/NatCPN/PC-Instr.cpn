@@ -5475,6 +5475,20 @@ andalso  p_the_right_priority_button = true
         <label/>
         <text>use (cpnmcdclibpath^&quot;boot.sml&quot;);</text>
       </Aux>
+      <Aux id="ID1590821008">
+        <posattr x="-210.000000"
+                 y="-42.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <label/>
+        <text>use (cpnmcdclibpath^&quot;config/instrumentation.sml&quot;);</text>
+      </Aux>
     </page>
     <fusion id="ID1415390975"
             name="Inputs">
@@ -5576,7 +5590,7 @@ andalso  p_the_right_priority_button = true
           <text>&lt;same as model&gt;</text>
         </value>
       </option>
-      <option name="extensions.10002.enable">
+      <option name="extensions.10007.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -5591,7 +5605,27 @@ andalso  p_the_right_priority_button = true
           <boolean>true</boolean>
         </value>
       </option>
+      <option name="extensions.10004.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10008.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
       <option name="extensions.10006.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10011.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10002.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -5599,6 +5633,16 @@ andalso  p_the_right_priority_button = true
       <option name="extensions.10001.enable">
         <value>
           <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10007.options.discover">
+        <value>
+          <boolean>false</boolean>
+        </value>
+      </option>
+      <option name="extensions.10011.options.disable">
+        <value>
+          <boolean>false</boolean>
         </value>
       </option>
       <option name="repavg">
@@ -5914,7 +5958,6 @@ andalso  p_the_right_priority_button = true
           </cpnsheet>
         </sheets>
         <zorder>
-          <position value="0"/>
           <position value="1"/>
           <position value="9"/>
           <position value="8"/>
@@ -5924,8 +5967,9 @@ andalso  p_the_right_priority_button = true
           <position value="6"/>
           <position value="3"/>
           <position value="4"/>
-          <position value="11"/>
           <position value="10"/>
+          <position value="0"/>
+          <position value="11"/>
         </zorder>
       </cpnbinder>
     </binders>
@@ -5992,6 +6036,16 @@ andalso  p_the_right_priority_button = true
           <IndexNode expanded="false"/>
           <IndexNode expanded="false"/>
           <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+        </IndexNode>
+        <IndexNode expanded="false">
+          <IndexNode expanded="false"/>
+        </IndexNode>
+        <IndexNode expanded="false">
           <IndexNode expanded="false"/>
         </IndexNode>
       </IndexNode>

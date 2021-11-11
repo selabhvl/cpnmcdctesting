@@ -5541,6 +5541,20 @@ p_the_coin_sensor, the_coin_sensor)</text>
         <label/>
         <text>use (cpnmcdclibpath^&quot;boot.sml&quot;);</text>
       </Aux>
+      <Aux id="ID1590815667">
+        <posattr x="-223.000000"
+                 y="-52.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <label/>
+        <text>use (cpnmcdclibpath^&quot;config/instrumentation.sml&quot;);</text>
+      </Aux>
     </page>
     <fusion id="ID1415390975"
             name="Inputs">
@@ -5643,7 +5657,7 @@ p_the_coin_sensor, the_coin_sensor)</text>
           <text>&lt;same as model&gt;</text>
         </value>
       </option>
-      <option name="extensions.10002.enable">
+      <option name="extensions.10007.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -5658,7 +5672,27 @@ p_the_coin_sensor, the_coin_sensor)</text>
           <boolean>true</boolean>
         </value>
       </option>
+      <option name="extensions.10004.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10008.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
       <option name="extensions.10006.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10011.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10002.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -5666,6 +5700,16 @@ p_the_coin_sensor, the_coin_sensor)</text>
       <option name="extensions.10001.enable">
         <value>
           <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10007.options.discover">
+        <value>
+          <boolean>false</boolean>
+        </value>
+      </option>
+      <option name="extensions.10011.options.disable">
+        <value>
+          <boolean>false</boolean>
         </value>
       </option>
       <option name="repavg">
@@ -5955,14 +5999,14 @@ p_the_coin_sensor, the_coin_sensor)</text>
         </sheets>
         <zorder>
           <position value="1"/>
-          <position value="0"/>
           <position value="2"/>
           <position value="3"/>
           <position value="4"/>
           <position value="5"/>
           <position value="6"/>
-          <position value="8"/>
           <position value="7"/>
+          <position value="0"/>
+          <position value="8"/>
         </zorder>
       </cpnbinder>
     </binders>
@@ -6029,6 +6073,16 @@ p_the_coin_sensor, the_coin_sensor)</text>
           <IndexNode expanded="false"/>
           <IndexNode expanded="false"/>
           <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+          <IndexNode expanded="false"/>
+        </IndexNode>
+        <IndexNode expanded="false">
+          <IndexNode expanded="false"/>
+        </IndexNode>
+        <IndexNode expanded="false">
           <IndexNode expanded="false"/>
         </IndexNode>
       </IndexNode>

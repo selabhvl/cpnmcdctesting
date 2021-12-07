@@ -26,6 +26,7 @@ precedence = (
     ('left', 'LESS', 'LEQ', 'EQUALS', 'NEQ', 'GREATER', 'GEQ'),  # Nonassociative operators
     ('left', 'PLUS', 'MINUS'),
     ('left', 'TIMES', 'DIVIDE'),
+    ('left', 'TICK'),
     ('right', 'TILDE'),
     ('right', 'NOT'),
     ('right', 'CONS'),
@@ -60,10 +61,10 @@ def p_statement_assign(t):
     'statement : NAME ASSIGN expression'
     names[t[1]] = t[3]
 
-# annotations = arithmetic expression (arcs)
-def p_statement_expr(t):
-    'statement : expression'
-    t[0] = t[1]
+#annotations = arithmetic expression (arcs)
+# def p_statement_expr(t):
+#     'statement : expression'
+#     t[0] = t[1]
 
 # condition = bool expression (transitions)
 def p_statement_guard(t):
@@ -73,18 +74,18 @@ def p_statement_guard(t):
 
 # if statement
 def p_statement_expression_if(t):
-    '''expression : IF condition THEN statement %prec IF
-                 | IF condition THEN statement ELSE statement'''
+    '''expression : IF condition THEN expression %prec IF
+                 | IF condition THEN expression ELSE expression'''
 
     identifier = ex_identifier(t[2])
     t[0] = "if EXPR(\"{0}\", {1}) then {2}".format(identifier, t[2], t[4])
     # ELSE
-    if t[6] is not None:
+    if len(t) == 7:
         t[0] = t[0] + " else {0}".format(t[6])
 
 def p_statement_condition_if(t):
-    '''condition : IF condition THEN statement %prec IF
-                 | IF condition THEN statement ELSE statement'''
+    '''condition : IF condition THEN condition %prec IF
+                 | IF condition THEN condition ELSE condition'''
 
     t[0] = "ITE({0}, {1}".format(t[2], t[4])
     # ELSE
@@ -116,8 +117,7 @@ def p_expression_list(t):
         assert False
 
 def p_condition_group(t):
-    '''guard : LBRACK condition_list RBRACK
-              | condition'''
+    '''guard : LBRACK condition_list RBRACK'''
     if len(t) == 4:
         t[0] = "[{0}]".format(t[2])
     elif len(t) == 2:
@@ -186,7 +186,6 @@ def p_comparison_binop(t):
                   | condition ANDALSO condition'''
 
     if t[2] in {'=', '<>', '<', '<=', '>', '>='}:
-        print("Volker")
         op = "{0} {1} {2}".format(t[1], t[2], t[3])
         identifier = ap_identifier(op)
         t[0] = "AP(\"{0}\", {1})".format(identifier, op)
@@ -219,6 +218,8 @@ def p_expression_tilde(t):
     # t[0] = "{0}".format(-t[2])
     t[0] = "{0} {1}".format(t[1], t[2])
 
+
+# TODO: remove, should be redundant b/c condition: expression
 def p_condition_item(t):
     'condition : item'
     t[0] = t[1]
@@ -249,16 +250,34 @@ def p_item_name(t):
 
 def p_error(t):
     print("Syntax error at '%s'" % t.value)
+    raise
 
 
 # Build the parser
-cpnparser = yacc.yacc(debug=False, write_tables=False)
-
+cpnparser = yacc.yacc(start='expression', debug='parser.out', write_tables=False)
+guardparser = yacc.yacc(start='guard', debug='guardparser.out', write_tables=False)
+condparser = yacc.yacc(start='condition', debug='condparser.out', write_tables=False)
 
 def parse(data, debug=0):
     cpnparser.error = 0
-    p = cpnparser.parse(data, debug=debug)
-    if cpnparser.error:
+    try:
+        p = cpnparser.parse(data, debug=debug)
+        if cpnparser.error:
+            # return None
+            return data
+        return p
+    except:
+        print(data)
+        raise
+
+def parse_guard(data, debug=0):
+    guardparser.error = 0
+    condparser.error = 0
+    try:
+        p = guardparser.parse(data, debug=debug)
+    except:
+        p = condparser.parse(data, debug=debug)
+    if guardparser.error:
         # return None
         return data
     return p

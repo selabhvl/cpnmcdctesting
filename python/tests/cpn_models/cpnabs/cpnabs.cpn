@@ -12757,7 +12757,7 @@ else (ob27=0 andalso p23=0))</text>
           <textattr colour="Fucia"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">pl8&lt;&gt;[0] andalso 
+                version="4.0.1">pl8 &lt;&gt; [0] andalso 
 p8=hd pl8</text>
         </cond>
         <time id="ID1421701180">
@@ -20589,7 +20589,7 @@ by incr
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">p2&lt;p1</text>
+                version="4.0.1">p2 &lt; p1</text>
         </cond>
         <time id="ID1421645825">
           <posattr x="548.500000"
@@ -20666,7 +20666,7 @@ by decr
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">p2&gt;1</text>
+                version="4.0.1">p2 &gt; 1</text>
         </cond>
         <time id="ID1421645831">
           <posattr x="700.500000"

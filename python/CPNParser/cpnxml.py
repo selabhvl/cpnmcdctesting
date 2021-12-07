@@ -91,6 +91,19 @@ def extract_elements_with_conditions(xml_tree):
     return parent
 
 
+def get_annot(element):
+    # type: (Element) -> str
+    cond = element.find('annot')
+    text = cond.find('text')
+    if text.text is not None:
+        return text.text
+
+def set_annot(element, c):
+    # type: (Element, str) -> None
+    cond = element.find('annot')
+    text = cond.find('text')
+    text.text = c
+
 def extract_elements_with_annotations(xml_tree):
     # type: (ET) -> set
     # Arcs have annotations
@@ -99,8 +112,8 @@ def extract_elements_with_annotations(xml_tree):
 
 
 #TODO: Do we also process the "conditions" in the arcs? Right now, we only color transitions.
-def find_element_by_expr_name(elements_with_conditions, expr_name):
-    # type: (set, str) -> Element
+def find_element_by_expr_name(elements_with_conditions, elements_with_annotations, expr_name):
+    # type: (set, set, str) -> Element
     sname = expr_name.strip()
     for element in elements_with_conditions:
         cond = element.find('cond')
@@ -116,6 +129,19 @@ def find_element_by_expr_name(elements_with_conditions, expr_name):
                     print(cond_name, cond.attrib, element.attrib)
                     return element
 
+    for element in elements_with_annotations:
+        cond = element.find('annot')
+        text = cond.find('text').text
+        if text is not None:
+            # res = cond_regex.match(text)
+            res = cond_regex.search(text)
+            # print(text)
+            # print(res)
+            if res is not None:
+                cond_name = res.group(1)
+                if cond_name == sname:
+                    print(cond_name, cond.attrib, element.attrib)
+                    return element
 
 def find_element_f(xml_tree, name):
     # type: (ET, str) -> Element

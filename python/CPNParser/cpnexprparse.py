@@ -15,19 +15,20 @@ tokens = cpnexprlex.tokens
 #     ('left', 'ORELSE', 'ANDALSO'),
 #     ('left', 'PLUS', 'MINUS'),
 #     ('left', 'TIMES', 'DIVIDE'),
-#     ('right', 'UMINUS'),
 #     ('right', 'NOT'),
 # )
 
 precedence = (
+    ('right', 'NAME'),
     ('right', 'IF'),
     ('right', 'THEN', 'ELSE'),
     ('left', 'ORELSE', 'ANDALSO'),
     ('left', 'LESS', 'LEQ', 'EQUALS', 'NEQ', 'GREATER', 'GEQ'),  # Nonassociative operators
     ('left', 'PLUS', 'MINUS'),
     ('left', 'TIMES', 'DIVIDE'),
-    ('right', 'UMINUS'),
+    ('right', 'TILDE'),
     ('right', 'NOT'),
+    ('right', 'CONS'),
 )
 
 # dictionary of names
@@ -47,25 +48,43 @@ def ap_identifier(op):
     identifier = ap[op]
     return identifier
 
+def ex_identifier(op):
+    # type: (str) -> str
+    if op not in ex:
+        ex[op] = "id{0}".format(len(ex) + 1)
+    identifier = ex[op]
+    return identifier
+
 
 def p_statement_assign(t):
     'statement : NAME ASSIGN expression'
     names[t[1]] = t[3]
 
-
+# annotations = arithmetic expression (arcs)
 def p_statement_expr(t):
     'statement : expression'
-    if t[1] not in ex:
-        ex[t[1]] = "id{0}".format(len(ex) + 1)
-    identifier = ex[t[1]]
+    t[0] = t[1]
 
+# condition = bool expression (transitions)
+def p_statement_guard(t):
+    'statement : guard'
+    identifier = ex_identifier(t[1])
     t[0] = "EXPR(\"{0}\", {1})".format(identifier, t[1])
 
-
 # if statement
-def p_statement_if(t):
-    '''expression : IF expression THEN statement %prec IF
-                 | IF expression THEN statement ELSE statement'''
+def p_statement_expression_if(t):
+    '''expression : IF condition THEN statement %prec IF
+                 | IF condition THEN statement ELSE statement'''
+
+    identifier = ex_identifier(t[2])
+    t[0] = "if EXPR(\"{0}\", {1}) then {2}".format(identifier, t[2], t[4])
+    # ELSE
+    if t[6] is not None:
+        t[0] = t[0] + " else {0}".format(t[6])
+
+def p_statement_condition_if(t):
+    '''condition : IF condition THEN statement %prec IF
+                 | IF condition THEN statement ELSE statement'''
 
     t[0] = "ITE({0}, {1}".format(t[2], t[4])
     # ELSE
@@ -74,42 +93,100 @@ def p_statement_if(t):
     else:
         t[0] = t[0] + ", empty)"
 
+
 # func call
-def p_statement_func(t):
-    '''expression : NAME LPAREN expression RPAREN'''
+def p_expression_func(t):
+    '''expression : expression LPAREN expression_list RPAREN
+                    | expression expression'''
 
-    t[0] = "{0} {1} {2} {3}".format(t[1], t[2], t[3], t[4])
-
-
-def p_expression_group(t):
-    '''expression : LPAREN expression RPAREN
-                | LBRACK expression RBRACK'''
-    t[0] = str(t[2])
-
+    if len(t) == 5:
+        t[0] = "{0} {1} {2} {3}".format(t[1], t[2], t[3], t[4])
+    else:
+        t[0] = "{0} {1}".format(t[1], t[2])
 
 def p_expression_list(t):
-    '''expression : expression COMA item
-                  | expression item
-                  | item'''
-    t[0] = "{0}".format(t[1])
+    '''expression_list : expression_list COMA expression
+                  | expression'''
+
     if len(t) == 4:
-        t[0] = t[0] + " , {0}".format(t[3])
-    elif len(t) == 3:
-        t[0] = t[0] + " {0}".format(t[2])
+        t[0] = "{0}, {1}".format(t[1], t[3])
+    elif len(t) == 2:
+        t[0] = "{0}".format(t[1])
+    else:
+        assert False
+
+def p_condition_group(t):
+    '''guard : LBRACK condition_list RBRACK
+              | condition'''
+    if len(t) == 4:
+        t[0] = "[{0}]".format(t[2])
+    elif len(t) == 2:
+        t[0] = "{0}".format(t[1])
+    else:
+        assert False
+
+def p_expression_nil(t):
+    '''expression : LBRACK RBRACK'''
+    t[0] = "[]"
 
 
-# comparison
+def p_expression_fn(t):
+    '''expression : FN NAME TO expression'''
+    t[0] = "{0} {1} {2} {3}".format(t[1], t[2], t[3], t[4])
+
+def p_expression_group(t):
+    '''expression : LPAREN expression RPAREN'''
+    t[0] = "({0})".format(t[2])
+
+def p_expression_tuple(t):
+    '''expression : LPAREN expression_list RPAREN'''
+    t[0] = "({0})".format(t[2])
+
+def p_expression_unit(t):
+    '''expression : LPAREN RPAREN'''
+    t[0] = "()"
+
+def p_condition_list(t):
+    '''condition_list : condition_list COMA condition
+                        | condition'''
+
+    if len(t) == 4:
+        t[0] = "AND({0}, {1})".format(t[1], t[3])
+    elif len(t) == 2:
+        t[0] = "{0}".format(t[1])
+    else:
+        assert False
+
+
+# Bool comparison
+def p_condition_not(t):
+    'condition : NOT condition'
+    # t[0] = t[2]
+    t[0] = "NOT({0})".format(t[2])
+
+def p_condition_paren(t):
+    'condition : LPAREN condition RPAREN'
+    # t[0] = t[2]
+    t[0] = "({0})".format(t[2])
+
+
+def p_condition_expr(t):
+    'condition : expression'
+    # t[0] = t[2]
+    t[0] = "{0}".format(t[1])
+
 def p_comparison_binop(t):
-    '''expression : expression EQUALS expression
+    '''condition : expression EQUALS expression
                   | expression NEQ expression
                   | expression LESS expression
                   | expression LEQ expression
                   | expression GREATER expression
                   | expression GEQ expression
-                  | expression ORELSE expression
-                  | expression ANDALSO expression'''
+                  | condition ORELSE condition
+                  | condition ANDALSO condition'''
 
     if t[2] in {'=', '<>', '<', '<=', '>', '>='}:
+        print("Volker")
         op = "{0} {1} {2}".format(t[1], t[2], t[3])
         identifier = ap_identifier(op)
         t[0] = "AP(\"{0}\", {1})".format(identifier, op)
@@ -118,6 +195,7 @@ def p_comparison_binop(t):
     elif t[2] == 'andalso':
         t[0] = "AND({0}, {1})".format(t[1], t[3])
     else:
+        assert False
         t[0] = "{0}".format(t[1])
 
 
@@ -126,41 +204,45 @@ def p_expression_binop(t):
     '''expression : expression PLUS expression
                   | expression MINUS expression
                   | expression TIMES expression
-                  | expression DIVIDE expression'''
+                  | expression DIVIDE expression
+                  | expression CONS expression
+                  | expression TICK expression'''
 
     op = "{0} {1} {2}".format(t[1], t[2], t[3])
-    identifier = ap_identifier(op)
-    t[0] = "AP(\"{0}\", {1})".format(identifier, op)
+    # identifier = ap_identifier(op)
+    # t[0] = "(\"{0}\", {1})".format(identifier, op)
+    t[0] = "{0}".format(op)
 
 
-def p_expression_uminus(t):
-    'expression : MINUS expression %prec UMINUS'
+def p_expression_tilde(t):
+    'expression : TILDE expression'
     # t[0] = "{0}".format(-t[2])
-    t[0] = str(-t[2])
+    t[0] = "{0} {1}".format(t[1], t[2])
 
-
-def p_expression_not(t):
-    'expression : NOT expression'
-    # t[0] = t[2]
-    t[0] = "NOT({0})".format(t[2])
-
-
-def p_expression_number(t):
-    'item : NUMBER'
+def p_condition_item(t):
+    'condition : item'
     t[0] = t[1]
 
+def p_expression_item(t):
+    'expression : item'
+    t[0] = t[1]
 
-def p_expression_bool(t):
+def p_item_number(t):
+    'item : NUMBER'
+    t[0] = str(t[1])
+
+
+def p_item_bool(t):
     'item : BOOL'
     t[0] = str(t[1])
 
 
-def p_expression_string(t):
+def p_item_string(t):
     'item : STRING'
     t[0] = str(t[1])
 
 
-def p_expression_name(t):
+def p_item_name(t):
     'item : NAME'
     t[0] = str(t[1])
 
@@ -177,5 +259,6 @@ def parse(data, debug=0):
     cpnparser.error = 0
     p = cpnparser.parse(data, debug=debug)
     if cpnparser.error:
-        return None
+        # return None
+        return data
     return p

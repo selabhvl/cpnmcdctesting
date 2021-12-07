@@ -8,15 +8,16 @@ reserved = {
     'else': 'ELSE',
     'orelse': 'ORELSE',
     'andalso': 'ANDALSO',
-    'not': 'NOT'
+    'not': 'NOT',
+    'fn': 'FN'
 }
 
 # List of token names.   This is always required
 tokens = [
     'NAME', 'ASSIGN', 'STRING', 'NUMBER', 'BOOL',
-    'PLUS', 'MINUS', 'TIMES', 'DIVIDE',
+    'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'CONS',
     'EQUALS', 'NEQ', 'LEQ', 'LESS', 'GEQ', 'GREATER',
-    'LPAREN', 'RPAREN', 'LBRACK', 'RBRACK', 'COMA'
+    'LPAREN', 'RPAREN', 'LBRACK', 'RBRACK', 'COMA', 'TICK', 'TILDE', 'TO'
 ] + list(reserved.values())
 
 # Tokens
@@ -37,11 +38,15 @@ t_LBRACK = r'\['
 t_RBRACK = r'\]'
 t_COMA = r'\,'
 t_STRING = r'\".*?\"'
+t_CONS = r'::'
+t_TICK = r'\`'
+t_TILDE = r'~'
+t_TO = r'=>'
 # t_NAME = r'[a-zA-Z_][a-zA-Z0-9_]*'
 
 
 # Ignored characters
-t_ignore = " \t"
+t_ignore = " \t\n"
 t_ignore_COMMENT = r"\(\*.*\*\)"          # Ignores the comments (* blabla *)
 
 # A regular expression rule with some action code

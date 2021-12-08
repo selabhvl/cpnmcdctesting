@@ -1,8 +1,10 @@
 import ply.yacc as yacc
 import cpnexprlex
+import tempfile
 
 # List of token names.   This is always required
 tokens = cpnexprlex.tokens
+start = 'statement'
 
 # Parsing rules
 # precedence = (
@@ -23,12 +25,13 @@ precedence = (
     ('right', 'IF'),
     ('right', 'THEN', 'ELSE'),
     ('left', 'ORELSE', 'ANDALSO'),
-    ('left', 'LESS', 'LEQ', 'EQUALS', 'NEQ', 'GREATER', 'GEQ'),  # Nonassociative operators
+    # ('left', 'LESS', 'LEQ', 'EQUALS', 'NEQ', 'GREATER', 'GEQ'),  # Nonassociative operators
     ('left', 'PLUS', 'MINUS'),
     ('left', 'TIMES', 'DIVIDE'),
     ('left', 'TICK'),
     ('right', 'TILDE'),
     ('right', 'NOT'),
+    ('right', 'NOT_2'),
     ('right', 'CONS'),
 )
 
@@ -72,10 +75,20 @@ def p_statement_guard(t):
     identifier = ex_identifier(t[1])
     t[0] = "EXPR(\"{0}\", {1})".format(identifier, t[1])
 
+def p_expression_harsh(t):
+    '''expression : CHAR NAME expression
+                    | CHAR NUMBER expression'''
+
+    t[0] = "{0}{1} {2}".format(t[1], t[2], t[3])
+
 # if statement
 def p_statement_expression_if(t):
     '''expression : IF condition THEN expression %prec IF
                  | IF condition THEN expression ELSE expression'''
+
+    # op = "{0}".format(t[2])
+    # identifier = ap_identifier(op)
+    # t_2 = "AP(\"{0}\", {1}))".format(identifier, op)
 
     identifier = ex_identifier(t[2])
     t[0] = "if EXPR(\"{0}\", {1}) then {2}".format(identifier, t[2], t[4])
@@ -118,8 +131,9 @@ def p_expression_list(t):
 
 def p_condition_group(t):
     '''guard : LBRACK condition_list RBRACK'''
+    identifier = ex_identifier(t[2])
     if len(t) == 4:
-        t[0] = "[{0}]".format(t[2])
+        t[0] = "[EXPR(\"{0}\", {1})]".format(identifier, t[2])
     elif len(t) == 2:
         t[0] = "{0}".format(t[1])
     else:
@@ -129,6 +143,9 @@ def p_expression_nil(t):
     '''expression : LBRACK RBRACK'''
     t[0] = "[]"
 
+def p_expression_list_brack(t):
+    '''expression : LBRACK expression_list RBRACK'''
+    t[0] = "{0} {1} {2}".format(t[1], t[2], t[3])
 
 def p_expression_fn(t):
     '''expression : FN NAME TO expression'''
@@ -151,16 +168,21 @@ def p_condition_list(t):
                         | condition'''
 
     if len(t) == 4:
-        t[0] = "AND({0}, {1})".format(t[1], t[3])
+        op = "{0}".format(t[3])
+        identifier = ap_identifier(op)
+        t[0] = "AND({0}, AP(\"{1}\", {2}))".format(t[1], identifier, op)
     elif len(t) == 2:
-        t[0] = "{0}".format(t[1])
+        op = "{0}".format(t[1])
+        identifier = ap_identifier(op)
+        t[0] = "AP(\"{0}\", {1})".format(identifier, op)
     else:
         assert False
 
 
 # Bool comparison
 def p_condition_not(t):
-    'condition : NOT condition'
+    '''condition : NOT condition
+                | NOT_2 condition'''
     # t[0] = t[2]
     t[0] = "NOT({0})".format(t[2])
 
@@ -173,7 +195,9 @@ def p_condition_paren(t):
 def p_condition_expr(t):
     'condition : expression'
     # t[0] = t[2]
-    t[0] = "{0}".format(t[1])
+    op = "{0}".format(t[1])
+    identifier = ap_identifier(op)
+    t[0] = "AP(\"{0}\", {1})".format(identifier, op)
 
 def p_comparison_binop(t):
     '''condition : expression EQUALS expression
@@ -204,7 +228,8 @@ def p_expression_binop(t):
                   | expression TIMES expression
                   | expression DIVIDE expression
                   | expression CONS expression
-                  | expression TICK expression'''
+                  | expression TICK expression
+                  | expression HAT expression'''
 
     op = "{0} {1} {2}".format(t[1], t[2], t[3])
     # identifier = ap_identifier(op)
@@ -218,10 +243,10 @@ def p_expression_tilde(t):
     t[0] = "{0} {1}".format(t[1], t[2])
 
 
-# TODO: remove, should be redundant b/c condition: expression
-def p_condition_item(t):
-    'condition : item'
-    t[0] = str(t[1])
+# # TODO: remove, should be redundant b/c condition: expression
+# def p_condition_item(t):
+#     'condition : item'
+#     t[0] = str(t[1])
 
 def p_expression_item(t):
     'expression : item'
@@ -248,49 +273,60 @@ def p_item_name(t):
 
 
 def p_error(t):
-    print("Syntax error at '%s'" % t.value)
+    # print("Syntax error at '%s'" % t.value)
+    # print("Syntax error at '{0}', returning {1}".format(t.value, t))
+    # t.error = 1
+    raise SyntaxError
 
 
 # Build the parser
-cpnparser = yacc.yacc(start='expression', debug='parser.out', write_tables=False)
-guardparser = yacc.yacc(start='guard', debug='guardparser.out', write_tables=False)
-condparser = yacc.yacc(start='condition', debug='condparser.out', write_tables=False)
-
-# def parse(data, debug=0):
-#     cpnparser.error = 0
-#     try:
-#         p = cpnparser.parse(data, debug=debug)
-#         if cpnparser.error:
-#             return data
-#         return p
-#     except:
-#         print(data)
-#         raise
-#
-# def parse_guard(data, debug=0):
-#     guardparser.error = 0
-#     condparser.error = 0
-#     try:
-#         p = guardparser.parse(data, debug=debug)
-#     except:
-#         p = condparser.parse(data, debug=debug)
-#     if guardparser.error:
-#         return data
-#     return p
+tmpdirname = "/temp/" #tempfile.TemporaryDirectory()
+cpnparser = yacc.yacc(start='expression', debug= tmpdirname + 'parser.out', write_tables=False)
+guardparser = yacc.yacc(start='guard', debug=tmpdirname + 'guardparser.out', write_tables=False)
+condparser = yacc.yacc(start='condition', debug=tmpdirname + 'condparser.out', write_tables=False)
 
 def parse(data, debug=0):
     cpnparser.error = 0
-    p = cpnparser.parse(data, debug=debug)
-    if cpnparser.error:
-        return data
-    return p
+    try:
+        p = cpnparser.parse(data, debug=debug)
+        if cpnparser.error:
+            return data
+        return p
+    except:
+        print(data)
+        raise
 
 def parse_guard(data, debug=0):
     guardparser.error = 0
-    p = guardparser.parse(data, debug=debug)
-    if guardparser.error:
-        condparser.error = 0
-        p = condparser.parse(data, debug=debug)
-        if condparser.error:
+    condparser.error = 0
+    try:
+        p = guardparser.parse(data, debug=debug)
+    except:
+        try:
+            p = condparser.parse(data, debug=debug)
+            identifier = ex_identifier(p)
+            p = "EXPR(\"{0}\", {1})".format(identifier, p)
+        except:
+            print(data)
             return data
     return p
+
+# def parse(data, debug=0):
+#     cpnparser.error = 0
+#     p = cpnparser.parse(data, debug=debug)
+#     if p.error:
+#         print("CPNPARSER")
+#         return data
+#     return p
+#
+# def parse_guard(data, debug=0):
+#     guardparser.error = 0
+#     p = guardparser.parse(data, debug=debug)
+#     if p.error:
+#         print("GUARDPARSER")
+#         condparser.error = 0
+#         p = condparser.parse(data, debug=debug)
+#         if condparser.error:
+#             print("CONDPARSER")
+#             return data
+#     return p

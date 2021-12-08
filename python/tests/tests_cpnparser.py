@@ -7,6 +7,8 @@ from CPNParser.cpnxml import extract_elements_with_conditions, extract_elements_
 from CPNParser.cpnexprparse import parse, parse_guard
 
 cpn_files = ["cpn_models/cpnabs/cpnabs.cpn", "cpn_models/discspcpn/discspcpn.cpn", "cpn_models/mqtt/mqtt.cpn", "cpn_models/paxos/paxos.cpn"]
+csv_cond_files = ["cpn_models/cpnabs/cpnabs_trans.csv", "cpn_models/discspcpn/discspcpn_trans.cpn", "cpn_models/mqtt/mqtt_trans.cpn", "cpn_models/paxos/paxos_trans.cpn"]
+csv_annot_files = ["cpn_models/cpnabs/cpnabs_arcs.csv", "cpn_models/discspcpn/discspcpn_arcs.cpn", "cpn_models/mqtt/mqtt_arcs.cpn", "cpn_models/paxos/paxos_arcs.cpn"]
 
 def add_file_to_load():
     # type: () -> list
@@ -28,6 +30,25 @@ def add_file_to_load_from_folder( folder):
     assert all(os.path.isfile(test) for test in test_txt)
 
     return test_txt
+
+@pytest.mark.parametrize("original_expected_annot", zip(cpn_files, csv_annot_files))
+def test_arc_transformation(original_expected_annot):
+    original, expected = original_expected_annot
+
+    transformation = [parse(t) for t in original]
+    for i, trans in enumerate(transformation):
+        if trans not in expected:
+            pytest.xfail('{} > {}'.format(original[i], trans))
+
+@pytest.mark.parametrize("original_expected_guard_cond", zip(cpn_files, csv_cond_files))
+def test_transition_transformation(original_expected_guard_cond):
+    original, expected = original_expected_guard_cond
+
+    transformation = [parse_guard(t) for t in original]
+    for i, trans in enumerate(transformation):
+        if trans not in expected:
+            pytest.xfail('{} > {}'.format(original[i], trans))
+
 
 def test_exp1():
     e = parse("hd foo = bar")

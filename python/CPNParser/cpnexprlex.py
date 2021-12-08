@@ -17,7 +17,7 @@ tokens = [
     'NAME', 'ASSIGN', 'STRING', 'NUMBER', 'BOOL',
     'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'CONS',
     'EQUALS', 'NEQ', 'LEQ', 'LESS', 'GEQ', 'GREATER',
-    'LPAREN', 'RPAREN', 'LBRACK', 'RBRACK', 'COMA', 'TICK', 'TILDE', 'TO'
+    'LPAREN', 'RPAREN', 'LBRACK', 'RBRACK', 'COMA', 'TICK', 'TILDE', 'TO', 'CHAR', 'HAT', 'NOT_2'
 ] + list(reserved.values())
 
 # Tokens
@@ -42,6 +42,9 @@ t_CONS = r'::'
 t_TICK = r'\`'
 t_TILDE = r'~'
 t_TO = r'=>'
+t_CHAR = r'\#'
+t_HAT = r'\^\^'
+t_NOT_2 = r'!'
 # t_NAME = r'[a-zA-Z_][a-zA-Z0-9_]*'
 
 

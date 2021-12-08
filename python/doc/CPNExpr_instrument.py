@@ -1,3 +1,4 @@
+import os
 import sys
 import csv
 import xml.etree.ElementTree as ET
@@ -12,7 +13,9 @@ if __name__ == "__main__":
     # in_filename = "../tests/cpn_models/cpnabs/cpnabs.cpn"
     # out_filename = "../tests/cpn_models/cpnabs/cpnabs_script_instr.cpn"
 
-    csvfile = open('./temp_trans.csv', 'w', newline='')
+    basename = os.path.splitext(in_filename)[0] # "/path/to/some/file.txt"
+
+    csvfile = open(basename + '_trans.csv', 'w', newline='')
     trace = csv.writer(csvfile, delimiter='|', quoting=csv.QUOTE_MINIMAL)
 
     print("Transitions")
@@ -24,9 +27,9 @@ if __name__ == "__main__":
             set_cond(t, inst_expr)
             trace.writerow([expr, inst_expr])
             print("{0} | {1}".format(expr, inst_expr))
-
     csvfile.close()
-    csvfile = open('./temp_arcs.csv', 'w', newline='')
+
+    csvfile = open(basename + '_arcs.csv', 'w', newline='')
     trace = csv.writer(csvfile, delimiter='|', quoting=csv.QUOTE_MINIMAL)
 
     print("Arcs")

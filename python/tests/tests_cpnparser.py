@@ -3,7 +3,31 @@ import pytest
 import sys
 import xml.etree.ElementTree as ET
 from CPNParser.cpnxml import extract_elements_with_conditions, extract_elements_with_annotations, find_element_by_expr_name, get_cond, set_cond, get_annot, set_annot
-from CPNParser.cpnexprparse import parse
+from CPNParser.cpnexprparse import parse, parse_guard
+
+cpn_files = ["cpn_models/cpnabs/cpnabs.cpn", "cpn_models/discspcpn/discspcpn.cpn", "cpn_models/mqtt/mqtt.cpn", "cpn_models/paxos/paxos.cpn"]
+instrumented_csv_files
+
+def add_file_to_load():
+    # type: () -> list
+    # local_dirs = [x[0] for x in os.walk('Oracle/OracleSTL')]
+    local_dirs = [x[0] for x in os.walk(self.this_dir)]
+    oraclestl_filenames = []
+    for local_dir in local_dirs:
+        oraclestl_filenames += self.add_file_to_load_from_folder(local_dir)
+    return oraclestl_filenames
+
+
+def add_file_to_load_from_folder( folder):
+    # type: (str) -> list
+    # test_dir = self.this_dir + folder
+    test_dir = folder
+    files_path = os.listdir(test_dir)
+    test_txt = [os.path.join(test_dir, x) for x in files_path if x.endswith('.txt')]
+
+    assert all(os.path.isfile(test) for test in test_txt)
+
+    return test_txt
 
 def test_something():
     f = tcasii.D3
@@ -142,33 +166,21 @@ def test_D15():
     assert len(counter['g']) == 6 # and all(map(lambda x: x == 2 or x == 3, counter['g'])) and sum(counter['g']) == 14
 
 
-@pytest.mark.parametrize("fn", product([UseFirst, Reuser, LongestPath], zip(tcasii.tcas, tcasii.tcas_num_cond)))
-def test_volker_has_nplus1(fn):
-    h, (f, n) = fn
-    _, plot_data, _ = run_experiment((20, 1), [h], [f], [n], run_one_pathsearch)
-    (i, rm) = plot_data[0]
-    (lowest, _count) = rm[f][0]
-    if lowest != len(f.inputs)+1:
-        pytest.xfail('{} > {}'.format(lowest, len(f.inputs)+1))
+@pytest.mark.parametrize("fn", zip(tcasii.tcas, tcasii.tcas_num_cond))
+def test_arc_transformation(fn):
+    original, expected = fn
 
+    transformation = [parse(t) for t in original]
+    for i, trans in enumerate(transformation):
+        if trans not in expected:
+            pytest.xfail('{} > {}'.format(original[i], trans))
 
-@pytest.mark.parametrize("f,n", zip(tcasii.tcas, tcasii.tcas_num_cond))
-#@pytest.mark.parametrize("f,n", zip([tcasii.D1, tcasii.D2], [3, 3]))
-#@pytest.mark.parametrize("f,n", zip([tcasii.D1], [3]))
-#@pytest.mark.parametrize("f,n", zip([tcasii.D10], [3]))
-def test_Dx(f, n):
-    print()  # LF for pytest
-    #src = Source(f.to_dot())
-    # src.render('/tmp/1', view=True)
-    test_case, _, _ = run_one_pathsearch(f, UseFirst, Random(42))  # Note: RNG unused.
-    assert tcasii.test_mcdc(f, test_case)
-    # return test_case, num_test_cases, uniq_test
-    # print(tcasii.test_mcdc(f, test_case), tcasii.test_mcdc(f, test_case))
+@pytest.mark.parametrize("fn", zip(tcasii.tcas, tcasii.tcas_num_cond))
+def test_transition_transformation(fn):
+    original, expected = fn
 
-@pytest.mark.parametrize("f,n", zip(tcasii.tcas, tcasii.tcas_num_cond))
-def test_better_size(f, n):
-    test_case, _, _ = run_one_pathsearch(f, UseFirst, Random(42))  # Note: RNG unused.
-    conds = list(test_case.keys())
-    # better_size(test_case, (p0, p1))
-    bs = better_size(test_case, test_case[conds[0]])
-    assert bs > 0
+    transformation = [parse_guard(t) for t in original]
+    for i, trans in enumerate(transformation):
+        if trans not in expected:
+            pytest.xfail('{} > {}'.format(original[i], trans))
+

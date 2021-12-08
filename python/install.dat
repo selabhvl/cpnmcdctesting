@@ -1,4 +1,4 @@
-pip3 install -r requirements.txt --user
+pip3 install -r requirements.txt
 #pip3 uninstall MCDC
 python3 setup_mcdc.py clean --all
 python3 setup_mcdc.py build

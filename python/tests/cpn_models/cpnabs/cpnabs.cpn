@@ -4838,8 +4838,8 @@ else not (p24=p9))</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">ob15=ob24 andalso
-p15=p19</text>
+                version="4.0.1">[ob15=ob24 andalso
+p15=p19]</text>
         </cond>
         <time id="ID1422553745">
           <posattr x="872.706061"
@@ -14741,8 +14741,8 @@ objects
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">ob15=ob24 andalso
-p15=p19</text>
+                version="4.0.1">[ob15=ob24 andalso
+p15=p19]</text>
         </cond>
         <time id="ID1421808610">
           <posattr x="2002.706061"

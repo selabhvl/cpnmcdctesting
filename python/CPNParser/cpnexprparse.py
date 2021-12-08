@@ -194,7 +194,6 @@ def p_comparison_binop(t):
     elif t[2] == 'andalso':
         t[0] = "AND({0}, {1})".format(t[1], t[3])
     else:
-        assert False
         t[0] = "{0}".format(t[1])
 
 
@@ -222,11 +221,11 @@ def p_expression_tilde(t):
 # TODO: remove, should be redundant b/c condition: expression
 def p_condition_item(t):
     'condition : item'
-    t[0] = t[1]
+    t[0] = str(t[1])
 
 def p_expression_item(t):
     'expression : item'
-    t[0] = t[1]
+    t[0] = str(t[1])
 
 def p_item_number(t):
     'item : NUMBER'
@@ -250,7 +249,6 @@ def p_item_name(t):
 
 def p_error(t):
     print("Syntax error at '%s'" % t.value)
-    raise
 
 
 # Build the parser
@@ -258,26 +256,41 @@ cpnparser = yacc.yacc(start='expression', debug='parser.out', write_tables=False
 guardparser = yacc.yacc(start='guard', debug='guardparser.out', write_tables=False)
 condparser = yacc.yacc(start='condition', debug='condparser.out', write_tables=False)
 
+# def parse(data, debug=0):
+#     cpnparser.error = 0
+#     try:
+#         p = cpnparser.parse(data, debug=debug)
+#         if cpnparser.error:
+#             return data
+#         return p
+#     except:
+#         print(data)
+#         raise
+#
+# def parse_guard(data, debug=0):
+#     guardparser.error = 0
+#     condparser.error = 0
+#     try:
+#         p = guardparser.parse(data, debug=debug)
+#     except:
+#         p = condparser.parse(data, debug=debug)
+#     if guardparser.error:
+#         return data
+#     return p
+
 def parse(data, debug=0):
     cpnparser.error = 0
-    try:
-        p = cpnparser.parse(data, debug=debug)
-        if cpnparser.error:
-            # return None
-            return data
-        return p
-    except:
-        print(data)
-        raise
+    p = cpnparser.parse(data, debug=debug)
+    if cpnparser.error:
+        return data
+    return p
 
 def parse_guard(data, debug=0):
     guardparser.error = 0
-    condparser.error = 0
-    try:
-        p = guardparser.parse(data, debug=debug)
-    except:
-        p = condparser.parse(data, debug=debug)
+    p = guardparser.parse(data, debug=debug)
     if guardparser.error:
-        # return None
-        return data
+        condparser.error = 0
+        p = condparser.parse(data, debug=debug)
+        if condparser.error:
+            return data
     return p

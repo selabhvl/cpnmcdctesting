@@ -88,7 +88,7 @@ def extract_elements_with_conditions(xml_tree):
     # type: (ET) -> set
     # Transitions have conditions
     parent = {p for p in xml_tree.findall('.//cond/..')}
-    return parent
+    return sorted(parent)
 
 
 def get_annot(element):
@@ -108,7 +108,7 @@ def extract_elements_with_annotations(xml_tree):
     # type: (ET) -> set
     # Arcs have annotations
     parent = {p for p in xml_tree.findall('.//annot/..')}
-    return parent
+    return sorted(parent)
 
 
 #TODO: Do we also process the "conditions" in the arcs? Right now, we only color transitions.

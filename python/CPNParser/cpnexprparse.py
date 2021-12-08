@@ -308,7 +308,7 @@ def parse_guard(data, debug=0):
             p = "EXPR(\"{0}\", {1})".format(identifier, p)
         except:
             print(data)
-            return data
+            raise
     return p
 
 # def parse(data, debug=0):

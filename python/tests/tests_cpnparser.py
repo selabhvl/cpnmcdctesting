@@ -10,6 +10,11 @@ cpn_files = ["cpn_models/cpnabs/cpnabs.cpn", "cpn_models/discspcpn/discspcpn.cpn
 csv_cond_files = ["cpn_models/cpnabs/cpnabs_trans.csv", "cpn_models/discspcpn/discspcpn_trans.cpn", "cpn_models/mqtt/mqtt_trans.cpn", "cpn_models/paxos/paxos_trans.cpn"]
 csv_annot_files = ["cpn_models/cpnabs/cpnabs_arcs.csv", "cpn_models/discspcpn/discspcpn_arcs.cpn", "cpn_models/mqtt/mqtt_arcs.cpn", "cpn_models/paxos/paxos_arcs.cpn"]
 
+error_cpnabs = ["p9=hd pl9 andalso (if (mem pl27 p9) then p24=p9 else not (p24=p9))"]
+error_mqtt = ['1`(id,tag)++1`(id,cval)']
+error_paxos = ["if (not b) andalso PrepareQFCond(cid,crnd',preparereplies') then 1`PrepareQFProm(cid,crnd',preparereplies') else empty"]
+error_discspcpn = ['1`(id,tag)++1`(id,cval)']
+
 def add_file_to_load():
     # type: () -> list
     # local_dirs = [x[0] for x in os.walk('Oracle/OracleSTL')]
@@ -54,3 +59,27 @@ def test_exp1():
     e = parse("hd foo = bar")
     print(e)
     assert re.match("EXPR.*",e) is not None
+
+def test_cpnabs(error_cpnabs):
+    for expr in error_cpnabs:
+        e = parse(expr)
+        print(e)
+        assert re.match("EXPR.*",e) is not None
+
+def test_mqtt(error_mqtt):
+    for expr in error_mqtt:
+        e = parse(expr)
+        print(e)
+        assert re.match("EXPR.*",e) is not None
+
+def test_paxos(error_paxos):
+    for expr in error_paxos:
+        e = parse(expr)
+        print(e)
+        assert re.match("EXPR.*",e) is not None
+
+def test_discspcpn(error_discspcpn):
+    for expr in error_discspcpn:
+        e = parse(expr)
+        print(e)
+        assert re.match("EXPR.*",e) is not None

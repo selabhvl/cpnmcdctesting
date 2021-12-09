@@ -147,10 +147,6 @@ def p_expression_fn(t):
     '''expression : FN NAME TO expression'''
     t[0] = "{0} {1} {2} {3}".format(t[1], t[2], t[3], t[4])
 
-def p_expression_group(t):
-    '''expression : LPAREN expression RPAREN'''
-    t[0] = "({0})".format(t[2])
-
 def p_expression_tuple(t):
     '''expression : LPAREN expression_list RPAREN'''
     t[0] = "({0})".format(t[2])

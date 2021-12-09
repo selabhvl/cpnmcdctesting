@@ -4,7 +4,7 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 from CPNParser.cpnxml import extract_elements_with_conditions, extract_elements_with_annotations, find_element_by_expr_name, get_cond, set_cond, get_annot, set_annot
-from CPNParser.cpnexprparse import parse, parse_guard
+from CPNParser.cpnexprparse import parse, parse_guard, condparser
 
 cpn_files = ["cpn_models/cpnabs/cpnabs.cpn", "cpn_models/discspcpn/discspcpn.cpn", "cpn_models/mqtt/mqtt.cpn", "cpn_models/paxos/paxos.cpn"]
 csv_cond_files = ["cpn_models/cpnabs/cpnabs_trans.csv", "cpn_models/discspcpn/discspcpn_trans.cpn", "cpn_models/mqtt/mqtt_trans.cpn", "cpn_models/paxos/paxos_trans.cpn"]
@@ -53,6 +53,17 @@ def test_transition_transformation(original_expected_guard_cond):
     for i, trans in enumerate(transformation):
         if trans not in expected:
             pytest.xfail('{} > {}'.format(original[i], trans))
+
+def test_cond1():
+    e = condparser.parse("hd foo = bar")
+    print(e)
+    assert re.match("^AP.*",e) is not None
+
+
+def test_cond2():
+    e = condparser.parse("if hd foo = bar the true else false")
+    print(e)
+    assert re.match("^AP.*",e) is not None
 
 
 def test_exp1():

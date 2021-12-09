@@ -74,7 +74,15 @@ def test_exp1():
 def test_exp2():
     e = parse("if hd fopl1=((ob14,u10,t9,pl11,cl11),0) then ((ob14,u10,t9,pl11,cl11),p5+1)::tl fopl1 else fopl1")
     print(e)
-    assert re.match("EXPR.*",e) is not None
+    assert re.match("if EXPR.*",e) is not None
+
+def test_exp3a():
+    e = parse("if bexp then x::tl fopl1")
+    print(e)
+
+def test_exp3b():
+    e = parse("if bexp then x::tl fopl1 else y")
+    print(e)
 
 def test_exp3():
     e = parse("1`(id,tag)++1`(id,cval)")

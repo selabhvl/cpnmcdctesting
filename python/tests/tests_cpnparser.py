@@ -76,15 +76,40 @@ def test_exp2():
     print(e)
     assert re.match("if EXPR.*",e) is not None
 
-def test_exp3a():
-    e = parse("if bexp then x::tl fopl1")
-    print(e)
-
 def test_exp3b():
     e = parse("if bexp then x::tl fopl1 else y")
     print(e)
 
-def test_exp3():
+def test_exp3bguard():
+    e = parse_guard("if bexp then x::tl fopl1 else y")
+    print(e)
+
+def test_exp3cguard():
+    e = parse_guard("if bexp then x::fopl1 else y")
+    print(e)
+
+def test_exp3dguard():
+    e = parse_guard("if bexp then tl fopl1 else y")
+    print(e)
+
+def test_exp3dexp():
+    e = parse("if bexp then tl fopl1 else y")
+    print(e)
+
+
+def test_exp_not1():
+    s = "not b1" # TODO: refactor pattern e == s
+    e = parse(s)
+    print(e)
+    assert e == s
+
+def test_cond_not1():
+    e = parse_guard("not b1")
+    print(e)
+    assert re.match("^EXPR",e) is not None
+
+    
+def test_exp4():
     s = "1`(id,tag)++1`(id,cval)"
     e = parse(s)
     # TODO: ick, find a better solution!

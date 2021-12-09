@@ -82,8 +82,7 @@ def p_expression_harsh(t):
 
 # if statement
 def p_statement_expression_if(t):
-    '''expression : IF condition THEN expression %prec IF
-                 | IF condition THEN expression ELSE expression'''
+    '''expression : IF condition THEN expression ELSE expression'''
 
     # op = "{0}".format(t[2])
     # identifier = ap_identifier(op)
@@ -96,8 +95,7 @@ def p_statement_expression_if(t):
         t[0] = t[0] + " else {0}".format(t[6])
 
 def p_statement_condition_if(t):
-    '''condition : IF condition THEN condition %prec IF
-                 | IF condition THEN condition ELSE condition'''
+    '''condition : IF condition THEN condition ELSE condition'''
 
     t[0] = "ITE({0}, {1}".format(t[2], t[4])
     # ELSE
@@ -109,8 +107,7 @@ def p_statement_condition_if(t):
 
 # func call
 def p_expression_func(t):
-    '''expression : expression LPAREN expression_list RPAREN
-                    | expression expression'''
+    '''expression : expression expression'''
 
     if len(t) == 5:
         t[0] = "{0} {1} {2} {3}".format(t[1], t[2], t[3], t[4])
@@ -184,6 +181,14 @@ def p_condition_not(t):
                 | NOT_2 condition'''
     # t[0] = t[2]
     t[0] = "NOT({0})".format(t[2])
+
+# Unclear TODO
+def p_statement_not(t):
+    '''expression : NOT expression
+                | NOT_2 expression'''
+    # t[0] = t[2]
+    t[0] = "{0} {1}".format(t[1], t[2])
+
 
 def p_condition_paren(t):
     'condition : LPAREN condition RPAREN'

@@ -76,6 +76,11 @@ def test_exp2():
     print(e)
     assert re.match("EXPR.*",e) is not None
 
+def test_exp3():
+    e = parse("1`(id,tag)++1`(id,cval)")
+    print(e)
+    assert re.match("EXPR.*",e) is not None
+
 @pytest.mark.parametrize("error_cpnabs", error_cpnabs)
 def test_cpnabs(error_cpnabs):
     for expr in error_cpnabs:

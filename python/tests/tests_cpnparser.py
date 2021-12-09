@@ -63,7 +63,7 @@ def test_cond1():
 def test_cond2():
     e = condparser.parse("if hd foo = bar then true else false")
     print(e)
-    assert re.match("^AP.*",e) is not None
+    assert re.match("^ITE.*",e) is not None
 
 
 def test_exp1():

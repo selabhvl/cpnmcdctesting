@@ -15,44 +15,44 @@ error_mqtt = ['1`(id,tag)++1`(id,cval)']
 error_paxos = ["if (not b) andalso PrepareQFCond(cid,crnd',preparereplies') then 1`PrepareQFProm(cid,crnd',preparereplies') else empty"]
 error_discspcpn = ['1`(id,tag)++1`(id,cval)']
 
-def add_file_to_load():
-    # type: () -> list
-    # local_dirs = [x[0] for x in os.walk('Oracle/OracleSTL')]
-    local_dirs = [x[0] for x in os.walk(self.this_dir)]
-    oraclestl_filenames = []
-    for local_dir in local_dirs:
-        oraclestl_filenames += self.add_file_to_load_from_folder(local_dir)
-    return oraclestl_filenames
-
-
-def add_file_to_load_from_folder( folder):
-    # type: (str) -> list
-    # test_dir = self.this_dir + folder
-    test_dir = folder
-    files_path = os.listdir(test_dir)
-    test_txt = [os.path.join(test_dir, x) for x in files_path if x.endswith('.txt')]
-
-    assert all(os.path.isfile(test) for test in test_txt)
-
-    return test_txt
-
-@pytest.mark.parametrize("original_expected_annot", zip(cpn_files, csv_annot_files))
-def test_arc_transformation(original_expected_annot):
-    original, expected = original_expected_annot
-
-    transformation = [parse(t) for t in original]
-    for i, trans in enumerate(transformation):
-        if trans not in expected:
-            pytest.xfail('{} > {}'.format(original[i], trans))
-
-@pytest.mark.parametrize("original_expected_guard_cond", zip(cpn_files, csv_cond_files))
-def test_transition_transformation(original_expected_guard_cond):
-    original, expected = original_expected_guard_cond
-
-    transformation = [parse_guard(t) for t in original]
-    for i, trans in enumerate(transformation):
-        if trans not in expected:
-            pytest.xfail('{} > {}'.format(original[i], trans))
+# def add_file_to_load():
+#     # type: () -> list
+#     # local_dirs = [x[0] for x in os.walk('Oracle/OracleSTL')]
+#     local_dirs = [x[0] for x in os.walk(self.this_dir)]
+#     oraclestl_filenames = []
+#     for local_dir in local_dirs:
+#         oraclestl_filenames += self.add_file_to_load_from_folder(local_dir)
+#     return oraclestl_filenames
+#
+#
+# def add_file_to_load_from_folder( folder):
+#     # type: (str) -> list
+#     # test_dir = self.this_dir + folder
+#     test_dir = folder
+#     files_path = os.listdir(test_dir)
+#     test_txt = [os.path.join(test_dir, x) for x in files_path if x.endswith('.txt')]
+#
+#     assert all(os.path.isfile(test) for test in test_txt)
+#
+#     return test_txt
+#
+# @pytest.mark.parametrize("original_expected_annot", zip(cpn_files, csv_annot_files))
+# def test_arc_transformation(original_expected_annot):
+#     original, expected = original_expected_annot
+#
+#     transformation = [parse(t) for t in original]
+#     for i, trans in enumerate(transformation):
+#         if trans not in expected:
+#             pytest.xfail('{} > {}'.format(original[i], trans))
+#
+# @pytest.mark.parametrize("original_expected_guard_cond", zip(cpn_files, csv_cond_files))
+# def test_transition_transformation(original_expected_guard_cond):
+#     original, expected = original_expected_guard_cond
+#
+#     transformation = [parse_guard(t) for t in original]
+#     for i, trans in enumerate(transformation):
+#         if trans not in expected:
+#             pytest.xfail('{} > {}'.format(original[i], trans))
 
 def test_cond1():
     e = condparser.parse("hd foo = bar")
@@ -71,6 +71,7 @@ def test_exp1():
     print(e)
     assert re.match("EXPR.*",e) is not None
 
+@pytest.mark.parametrize("error_cpnabs", error_cpnabs)
 def test_cpnabs(error_cpnabs):
     for expr in error_cpnabs:
         e = parse(expr)

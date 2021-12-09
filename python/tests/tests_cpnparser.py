@@ -60,11 +60,15 @@ def test_cond1():
     assert re.match("^AP.*",e) is not None
 
 
-def test_cond2():
-    e = condparser.parse("if hd foo = bar then true else false")
+def test_ite1_guard1():
+    e = parse_guard("if hd foo = bar then true else false")
     print(e)
-    assert re.match("^ITE.*",e) is not None
+    assert re.match(".*ITE.*",e) is not None
 
+def test_ite1_guard2():
+    e = parse_guard("[if hd foo = bar then true else false]")
+    print(e)
+    assert re.match(".*ITE.*",e) is not None
 
 def test_exp1():
     e = parse_guard("hd foo = bar")

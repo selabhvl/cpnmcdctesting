@@ -129,8 +129,9 @@ def p_condition_group(t):
     '''guard : LBRACK condition_list RBRACK'''
     identifier = ex_identifier(t[2])
     if len(t) == 4:
-        t[0] = "[EXPR(\"{0}\", {1})]".format(identifier, t[2])
+        t[0] = "EXPR(\"{0}\", {1})".format(identifier, t[2])
     elif len(t) == 2:
+        # TODO: probably wrong.
         t[0] = "{0}".format(t[1])
     else:
         assert False

@@ -177,8 +177,9 @@ def test_trans_model(in_filename):
             try:
                 trimmed_expr = expr.replace("\n", " ")
                 inst_expr = parse_guard(trimmed_expr)
+                assert re.match("^EXPR",inst_expr) is not None
             except:
-                transition_errors.append([trimmed_expr, inst_expr])
+                transition_errors.append([(trimmed_expr, inst_expr)])
                 continue
 
     assert len(transition_errors) == 0

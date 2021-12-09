@@ -10,17 +10,19 @@ reserved = {
     'andalso': 'ANDALSO',
     'not': 'NOT',
     'fn': 'FN'
+    , 'fun': 'FUN'
 }
 
 # List of token names.   This is always required
 tokens = [
     'NAME', 'ASSIGN', 'STRING', 'NUMBER', 'BOOL',
-    'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'CONS',
+    'APP', 'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'CONS',
     'EQUALS', 'NEQ', 'LEQ', 'LESS', 'GEQ', 'GREATER',
     'LPAREN', 'RPAREN', 'LBRACK', 'RBRACK', 'COMA', 'TICK', 'TILDE', 'TO', 'CHAR', 'HAT', 'NOT_2'
 ] + list(reserved.values())
 
 # Tokens
+t_APP = r'\+\+'
 t_PLUS = r'\+'
 t_MINUS = r'-'
 t_TIMES = r'\*'

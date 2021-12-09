@@ -22,8 +22,7 @@ start = 'statement'
 
 precedence = (
     ('right', 'NAME'),
-    ('right', 'IF'),
-    ('right', 'THEN', 'ELSE'),
+    ('right', 'IF', 'THEN', 'ELSE'), # VS not sure if ELSE should be strongest?
     ('left', 'ORELSE', 'ANDALSO'),
     # ('left', 'LESS', 'LEQ', 'EQUALS', 'NEQ', 'GREATER', 'GEQ'),  # Nonassociative operators
     ('left', 'PLUS', 'MINUS'),
@@ -32,7 +31,7 @@ precedence = (
     ('right', 'TILDE'),
     ('right', 'NOT'),
     ('right', 'NOT_2'),
-    ('right', 'CONS'),
+    ('left', 'CONS'),
 )
 
 # dictionary of names
@@ -229,6 +228,7 @@ def p_expression_binop(t):
                   | expression DIVIDE expression
                   | expression CONS expression
                   | expression TICK expression
+                  | expression APP expression
                   | expression HAT expression'''
 
     op = "{0} {1} {2}".format(t[1], t[2], t[3])

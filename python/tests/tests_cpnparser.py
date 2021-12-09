@@ -67,7 +67,7 @@ def test_cond2():
 
 
 def test_exp1():
-    e = parse("hd foo = bar")
+    e = parse_guard("hd foo = bar")
     print(e)
     assert re.match("EXPR.*",e) is not None
 
@@ -85,9 +85,10 @@ def test_exp3b():
     print(e)
 
 def test_exp3():
-    e = parse("1`(id,tag)++1`(id,cval)")
-    print(e)
-    assert re.match("EXPR.*",e) is not None
+    s = "1`(id,tag)++1`(id,cval)"
+    e = parse(s)
+    # TODO: ick, find a better solution!
+    assert e.replace(" ","") == s
 
 @pytest.mark.parametrize("error_cpnabs", error_cpnabs)
 def test_cpnabs(error_cpnabs):

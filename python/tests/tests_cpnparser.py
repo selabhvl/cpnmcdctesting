@@ -61,13 +61,18 @@ def test_cond1():
 
 
 def test_cond2():
-    e = condparser.parse("if hd foo = bar the true else false")
+    e = condparser.parse("if hd foo = bar then true else false")
     print(e)
     assert re.match("^AP.*",e) is not None
 
 
 def test_exp1():
     e = parse("hd foo = bar")
+    print(e)
+    assert re.match("EXPR.*",e) is not None
+
+def test_exp2():
+    e = parse("if hd fopl1=((ob14,u10,t9,pl11,cl11),0) then ((ob14,u10,t9,pl11,cl11),p5+1)::tl fopl1 else fopl1")
     print(e)
     assert re.match("EXPR.*",e) is not None
 

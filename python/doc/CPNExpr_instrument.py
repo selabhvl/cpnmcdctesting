@@ -23,10 +23,13 @@ if __name__ == "__main__":
     for t in transitions:
         expr = get_cond(t)
         if expr is not None:
-            inst_expr = parse_guard(expr)
-            set_cond(t, inst_expr)
-            trace.writerow([expr, inst_expr])
-            print("{0} | {1}".format(expr, inst_expr))
+            try:
+                inst_expr = parse_guard(expr.replace("\n", " "))
+                set_cond(t, inst_expr)
+                trace.writerow([expr, inst_expr])
+                # print("{0} | {1}".format(expr, inst_expr))
+            except:
+                continue
     csvfile.close()
 
     csvfile = open(basename + '_arcs.csv', 'w', newline='')
@@ -37,10 +40,13 @@ if __name__ == "__main__":
     for a in arcs:
         expr = get_annot(a)
         if expr is not None:
-            inst_expr = parse(expr)
-            set_annot(a, inst_expr)
-            trace.writerow([expr, inst_expr])
-            print("{0} | {1}".format(expr, inst_expr))
+            try:
+                inst_expr = parse(expr.replace("\n", " "))
+                set_annot(a, inst_expr)
+                trace.writerow([expr, inst_expr])
+                # print("{0} | {1}".format(expr, inst_expr))
+            except:
+                continue
 
     xml_tree.write(out_filename, xml_declaration=True)
     csvfile.close()

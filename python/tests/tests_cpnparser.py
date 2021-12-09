@@ -100,3 +100,42 @@ def test_discspcpn(error_discspcpn):
         e = parse(expr)
         print(e)
         assert re.match("EXPR.*",e) is not None
+
+@pytest.mark.parametrize("in_filename",
+                         ["./tests/cpn_models/cpnabs/cpnabs.cpn"])
+def test_arc_model(in_filename):
+    xml_tree = ET.parse(in_filename)
+    arc_errors = []
+    arcs = extract_elements_with_annotations(xml_tree)
+    inst_expr = ""
+    for a in arcs:
+        expr = get_annot(a)
+        if expr is not None:
+            try:
+                trimmed_expr = expr.replace("\n", " ")
+                inst_expr = parse(trimmed_expr)
+            except:
+                arc_errors.append([trimmed_expr, inst_expr])
+                continue
+
+    assert len(arc_errors) == 0
+
+@pytest.mark.parametrize("in_filename",
+                         ["./tests/cpn_models/cpnabs/cpnabs.cpn"])
+def test_trans_model(in_filename):
+    xml_tree = ET.parse(in_filename)
+    # in_filename = "../tests/cpn_models/cpnabs/cpnabs.cpn"
+    transition_errors = []
+    transitions = extract_elements_with_conditions(xml_tree)
+    inst_expr = ""
+    for t in transitions:
+        expr = get_cond(t)
+        if expr is not None:
+            try:
+                trimmed_expr = expr.replace("\n", " ")
+                inst_expr = parse_guard(trimmed_expr)
+            except:
+                transition_errors.append([trimmed_expr, inst_expr])
+                continue
+
+    assert len(transition_errors) == 0

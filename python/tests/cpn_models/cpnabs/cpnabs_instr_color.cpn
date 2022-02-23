@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='us-ascii'?>
 <workspaceElements>
   <generator tool="CPN Tools" version="4.0.1" format="6" />
   <cpnet>
@@ -7190,7 +7191,7 @@ objects
       </place>
       <trans id="ID1421701172" explicit="false">
         <posattr x="1974.000000" y="-60.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="Yellow" pattern="" filled="true" />
         <lineattr colour="Fucia" thick="4" type="solid" />
         <textattr colour="Fucia" bold="false" />
         <text>Suspend
@@ -7230,7 +7231,7 @@ AND(AP("5", (ob27=0)), AP("6", p23=0)) ) ))</text>
       </trans>
       <trans id="ID1421701178" explicit="false">
         <posattr x="1482.000000" y="-126.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="Yellow" pattern="" filled="true" />
         <lineattr colour="Fucia" thick="4" type="solid" />
         <textattr colour="Fucia" bold="false" />
         <text>Activate
@@ -7799,7 +7800,7 @@ objects
       </place>
       <trans id="ID1421807356" explicit="false">
         <posattr x="1287.000000" y="-42.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="Yellow" pattern="" filled="true" />
         <lineattr colour="Black" thick="4" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Return
@@ -8613,7 +8614,7 @@ Counter
       </place>
       <trans id="ID1421781648" explicit="false">
         <posattr x="525.593291" y="-443.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="Yellow" pattern="" filled="true" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Synch
@@ -9401,7 +9402,7 @@ objects
       </trans>
       <trans id="ID1421667998" explicit="false">
         <posattr x="420.000000" y="126.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="Yellow" pattern="" filled="true" />
         <lineattr colour="Black" thick="4" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Move from

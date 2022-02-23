@@ -125,8 +125,14 @@ if __name__ == "__main__":
     for expr_name in file:
         e = find_element_by_expr_name(elements, expr_name)
         if e is not None:
-            b, r = file[expr_name].is_mcdc_covered()
-            color = 'Green' if b else 'Red'
+            # b, r = file[expr_name].is_mcdc_covered()
+            # color = 'Green' if b else 'Red'
+            coverage_rate = file[expr_name].percentage_mcdc_covered()
+            color = 'Red'
+            if 0.25 <= coverage_rate < 1.0:
+                color = 'Yellow'
+            elif coverage_rate == 1.0:
+                color = 'Green'
             set_color(e, color)
 
     xml_tree.write(out_filename, xml_declaration=True)

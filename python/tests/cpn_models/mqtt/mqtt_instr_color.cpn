@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='us-ascii'?>
 <workspaceElements>
   <generator tool="CPN Tools" version="4.0.1" format="6" />
   <cpnet>
@@ -2334,7 +2335,7 @@ SUBSCRIBE</text>
       </place>
       <trans id="ID1534149629" explicit="false">
         <posattr x="103.000000" y="114.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="Yellow" pattern="" filled="true" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>processUnsubscribe</text>
@@ -4580,7 +4581,7 @@ subclspid = assignBPids (getSubscribed t clstates) clspid ]</text>
       </trans>
       <trans id="ID1549887302" explicit="false">
         <posattr x="-664.000000" y="272.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="Yellow" pattern="" filled="true" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>receivePUBREL
@@ -5405,7 +5406,7 @@ Clients</text>
       </place>
       <trans id="ID1534148815" explicit="false">
         <posattr x="23.000000" y="336.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="Yellow" pattern="" filled="true" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>process
@@ -8726,7 +8727,7 @@ listpidsxtopics^^[((#pid (#2 cs)),t)])</text>
       </place>
       <trans id="ID1592134811" explicit="false">
         <posattr x="-798.000000" y="336.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="Yellow" pattern="" filled="true" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Receive_QoS_2_Step2</text>
@@ -8765,7 +8766,7 @@ AP("2",(c = #1 cs))),
       </trans>
       <trans id="ID1592134817" explicit="false">
         <posattr x="-798.000000" y="588.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="Yellow" pattern="" filled="true" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Receive_QoS_2_Step1</text>
@@ -9228,7 +9229,7 @@ AP("2",(c = #1 cs))),
       </place>
       <trans id="ID1549428602" explicit="false">
         <posattr x="-504.000000" y="1050.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="Yellow" pattern="" filled="true" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>PUBLISH_QoS_2</text>
@@ -9307,7 +9308,7 @@ AP("3",(hasPUBREC (cs,inmsgs,(t,pid))))))]</text>
       </trans>
       <trans id="ID1549475276" explicit="false">
         <posattr x="-504.000000" y="474.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="Yellow" pattern="" filled="true" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>ReceivePUBCOMP</text>
@@ -10031,7 +10032,7 @@ Subscribe</text>
       </place>
       <trans id="ID1534062481" explicit="false">
         <posattr x="-138.000000" y="840.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="Yellow" pattern="" filled="true" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Send
@@ -10578,7 +10579,7 @@ SUBACK</text>
       </place>
       <trans id="ID1534068697" explicit="false">
         <posattr x="-19.000000" y="727.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="Yellow" pattern="" filled="true" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Send
@@ -11199,7 +11200,7 @@ AP("1", ((#1 cs) = c ))))]</text>
       </place>
       <trans id="ID1534056924" explicit="false">
         <posattr x="-691.000000" y="1050.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="Yellow" pattern="" filled="true" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Send
@@ -11238,7 +11239,7 @@ CONNECT</text>
       </trans>
       <trans id="ID1547296598" explicit="false">
         <posattr x="-691.000000" y="866.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="Yellow" pattern="" filled="true" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Receive

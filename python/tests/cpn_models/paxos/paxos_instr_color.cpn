@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='us-ascii'?>
 <workspaceElements>
   <generator tool="CPN Tools" version="4.0.1" format="6" />
   <cpnet>
@@ -5812,7 +5813,7 @@ Messages</text>
       </trans>
       <trans id="ID1413114870" explicit="false">
         <posattr x="-258.000000" y="74.000000" />
-        <fillattr colour="White" pattern="" filled="false" />
+        <fillattr colour="Red" pattern="" filled="true" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Apply
@@ -6331,7 +6332,7 @@ Accept</text>
       </trans>
       <trans id="ID1413324063" explicit="false">
         <posattr x="-258.000000" y="-152.000000" />
-        <fillattr colour="White" pattern="" filled="false" />
+        <fillattr colour="Red" pattern="" filled="true" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Apply
@@ -6847,7 +6848,7 @@ Value</text>
       </place>
       <trans id="ID1541504473" explicit="false">
         <posattr x="-630.000000" y="-42.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="Yellow" pattern="" filled="true" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Obtain

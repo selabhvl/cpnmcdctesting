@@ -1,4 +1,4 @@
-python3 XML_color.py ../tests/cpn_models/mqtt/mqtt.log ../tests/cpn_models/mqtt/mqtt_instr.cpn ../tests/cpn_models/mqtt/mqtt_instr_color.cpn
-python3 XML_color.py ../tests/cpn_models/paxos/paxos.log ../tests/cpn_models/paxos/paxos_instr.cpn ../tests/cpn_models/paxos/paxos_instr_color.cpn
-python3 XML_color.py ../tests/cpn_models/cpnabs/cpnabs.log ../tests/cpn_models/cpnabs/cpnabs_instr.cpn ../tests/cpn_models/cpnabs/cpnabs_instr_color.cpn
-python3 XML_color.py ../tests/cpn_models/discspcpn/discspcpn.log ../tests/cpn_models/discspcpn/discspcpn_instr.cpn ../tests/cpn_models/discspcpn/discspcpn_instr_color.cpn 
+python3 ../doc/XML_color.py ../tests/cpn_models/mqtt/mqtt.log ../tests/cpn_models/mqtt/mqtt_instr.cpn ../tests/cpn_models/mqtt/mqtt_instr_color.cpn
+python3 ../doc/XML_color.py ../tests/cpn_models/paxos/paxos.log ../tests/cpn_models/paxos/paxos_instr.cpn ../tests/cpn_models/paxos/paxos_instr_color.cpn
+python3 ../doc/XML_color.py ../tests/cpn_models/cpnabs/cpnabs.log ../tests/cpn_models/cpnabs/cpnabs_instr.cpn ../tests/cpn_models/cpnabs/cpnabs_instr_color.cpn
+python3 ../doc/XML_color.py ../tests/cpn_models/discspcpn/discspcpn.log ../tests/cpn_models/discspcpn/discspcpn_instr.cpn ../tests/cpn_models/discspcpn/discspcpn_instr_color.cpn

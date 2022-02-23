@@ -123,6 +123,10 @@ class MCDC_Table:
         num_conds_covered = sum(c != [] for c in conds.values())
         return num_conds_covered
 
+    def percentage_mcdc_covered(self):
+        # type: (MCDC_Table) -> float
+        return self.num_conds_mcdc_covered() / self.num_conditions()
+
     def is_mcdc_covered(self):
         # type: (MCDC_Table) -> (bool, dict)
         def flip(f, c):

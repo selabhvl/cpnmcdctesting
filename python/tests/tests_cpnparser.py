@@ -57,15 +57,28 @@ error_discspcpn = ['1`(id,tag)++1`(id,cval)']
 #             pytest.xfail('{} > {}'.format(original[i], trans))
 
 
-def traverse(t):
-    if t[0] == CPNParser.cpnexprparse.ASTNode.BINCOND:
-        return "AP({0},{1} {2} {3})".format(t[1], t[2], t[3], t[4])
+def traverse(in_cond, t):
+    if in_cond:
+        if t[0] == CPNParser.cpnexprparse.ASTNode.BINCOND:
+            return "AP({0},{1} {2} {3})".format(t[1], traverse(in_cond, t[2]), t[3], traverse(in_cond, t[4]))
+        if t[0] == CPNParser.cpnexprparse.ASTNode.CALL:
+            return "AP({0},{1} {2}".format("XXX", traverse(False, t[1]), traverse(False, t[2]))
+        else:
+            assert False, t
+    else:
+        if t[0] == CPNParser.cpnexprparse.ASTNode.ID:
+            return t[1]
+        else:
+            assert False, t
+    return None
 
 
 def test_cond1():
-    e = traverse(parse("hd foo = bar"))
+    e = parse("hd foo = bar")
     print(e)
-    assert re.match("^AP.*", e) is not None
+    assert e[0] == CPNParser.cpnexprparse.ASTNode.BINCOND  # check precedence
+    assert e[2] == CPNParser.cpnexprparse.ASTNode.CALL
+    assert re.match("^AP.*", traverse(True, e)) is not None
 
 
 def test_ite1_guard1():

@@ -63,6 +63,7 @@ from enum import Enum
 
 
 class ASTNode(Enum):
+    ID = 0
     EXPR = 1
     ITE = 2
     CALL = 3
@@ -122,7 +123,7 @@ def p_expression_func(t):
         t[0] = "{0} {1} {2} {3}".format(t[1], t[2], t[3], t[4])
         assert False  # unclear.
     else:
-        t[0] = (ASTNode.Call, t[1], t[2])
+        t[0] = (ASTNode.CALL, t[1], t[2])
 
 
 def p_expression_list(t):
@@ -271,7 +272,7 @@ def p_expression_tilde(t):
 
 def p_expression_item(t):
     'expression : item'
-    t[0] = str(t[1])
+    t[0] = (ASTNode.ID, str(t[1]))
 
 def p_item_number(t):
     'item : NUMBER'

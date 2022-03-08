@@ -64,7 +64,13 @@ def traverse(in_cond, t):
         if t[0] == CPNParser.cpnexprparse.ASTNode.CALL:
             return "AP({0},{1} {2}".format("XXX", traverse(False, t[1]), traverse(False, t[2]))
         if t[0] == CPNParser.cpnexprparse.ASTNode.ID:
-            return "{0}".format(t[0])
+            return "{0}".format(t[1])
+        if t[0] == CPNParser.cpnexprparse.ASTNode.ITE:
+            # EXPR(... andalso IF foo then bExp else bExp)
+            if t[3] is None:
+                assert False, "Not supported?!"
+            else:
+                return "ITE({0}, AP(XXXX,{1}), AP(YYY, {2}))".format(traverse(True, t[2]), traverse(True, t[3]), traverse(True, t[4]))
         else:
             assert False, t
     else:
@@ -95,7 +101,10 @@ def test_cond1():
 def test_ite1_guard1():
     e = parse_guard("if hd foo = bar then true else false")
     print(e)
+    assert e[0] == CPNParser.cpnexprparse.ASTNode.ITE
+    assert e[2][0] == CPNParser.cpnexprparse.ASTNode.BINCOND
     et = traverse(True, e)
+    print(et)
     assert re.match(".*ITE.*", et) is not None
 
 

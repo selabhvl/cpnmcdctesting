@@ -24,7 +24,7 @@ precedence = (
     ('right', 'NAME'),
     ('right', 'IF', 'THEN', 'ELSE'), # VS not sure if ELSE should be strongest?
     ('left', 'ORELSE', 'ANDALSO'),
-    # ('left', 'LESS', 'LEQ', 'EQUALS', 'NEQ', 'GREATER', 'GEQ'),  # Nonassociative operators
+    ('nonassoc', 'LESS', 'LEQ', 'EQUALS', 'NEQ', 'GREATER', 'GEQ'),  # Nonassociative operators
     ('left', 'PLUS', 'MINUS'),
     ('left', 'TIMES', 'DIVIDE'),
     ('left', 'TICK'),
@@ -32,6 +32,7 @@ precedence = (
     ('right', 'NOT'),
     ('right', 'NOT_2'),
     ('left', 'CONS'),
+    ('left', 'FCALL'),
 )
 
 # dictionary of names
@@ -117,7 +118,7 @@ def p_statement_expression_if(t):
 
 # func call
 def p_expression_func(t):
-    '''expression : expression expression'''
+    '''expression : expression expression %prec FCALL'''
 
     if len(t) == 5:  # TODO: unclear!
         t[0] = "{0} {1} {2} {3}".format(t[1], t[2], t[3], t[4])

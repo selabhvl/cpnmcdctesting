@@ -60,31 +60,44 @@ error_discspcpn = ['1`(id,tag)++1`(id,cval)']
 def traverse(in_cond, t):
     if in_cond:
         if t[0] == CPNParser.cpnexprparse.ASTNode.BINCOND:
-            return "AP({0},{1} {2} {3})".format(t[1], traverse(in_cond, t[2]), t[3], traverse(in_cond, t[4]))
+            return "AP({0},{1} {2} {3})".format(t[1], traverse(False, t[2]), t[3], traverse(False, t[4]))
         if t[0] == CPNParser.cpnexprparse.ASTNode.CALL:
             return "AP({0},{1} {2}".format("XXX", traverse(False, t[1]), traverse(False, t[2]))
+        if t[0] == CPNParser.cpnexprparse.ASTNode.ID:
+            return "{0}".format(t[0])
         else:
             assert False, t
     else:
+        if t[0] == CPNParser.cpnexprparse.ASTNode.CALL:
+            return "{0} {1}".format(traverse(False, t[1]), traverse(False, t[2]))
         if t[0] == CPNParser.cpnexprparse.ASTNode.ID:
             return t[1]
+        if t[0] == CPNParser.cpnexprparse.ASTNode.ITE:
+            if t[3] is None:
+                return "if EXPR({0},{1}) then {2}".format(t[1], traverse(True, t[2]), traverse(False, t[3]))
+            else:
+                return "if EXPR({0},{1}) then {2} else {3}".format(t[1], traverse(True, t[2]), traverse(False, t[3]), traverse(False, t[4]))
         else:
             assert False, t
-    return None
+    assert False
 
 
 def test_cond1():
     e = parse("hd foo = bar")
     print(e)
     assert e[0] == CPNParser.cpnexprparse.ASTNode.BINCOND  # check precedence
-    assert e[2] == CPNParser.cpnexprparse.ASTNode.CALL
-    assert re.match("^AP.*", traverse(True, e)) is not None
+    assert e[2][0] == CPNParser.cpnexprparse.ASTNode.CALL
+    et = traverse(True, e)
+    print(et)
+    assert re.match("^AP.*", et) is not None
 
 
 def test_ite1_guard1():
     e = parse_guard("if hd foo = bar then true else false")
     print(e)
-    assert re.match(".*ITE.*",e) is not None
+    et = traverse(True, e)
+    assert re.match(".*ITE.*", et) is not None
+
 
 def test_ite1_guard2():
     e = parse_guard("[if hd foo = bar then true else false]")

@@ -3,8 +3,10 @@ import pytest
 import re
 import sys
 import xml.etree.ElementTree as ET
+
+import CPNParser.cpnexprparse
 from CPNParser.cpnxml import extract_elements_with_conditions, extract_elements_with_annotations, find_element_by_expr_name, get_cond, set_cond, get_annot, set_annot
-from CPNParser.cpnexprparse import parse, parse_guard, condparser
+from CPNParser.cpnexprparse import parse, parse_guard
 
 cpn_files = ["cpn_models/cpnabs/cpnabs.cpn", "cpn_models/discspcpn/discspcpn.cpn", "cpn_models/mqtt/mqtt.cpn", "cpn_models/paxos/paxos.cpn"]
 csv_cond_files = ["cpn_models/cpnabs/cpnabs_trans.csv", "cpn_models/discspcpn/discspcpn_trans.cpn", "cpn_models/mqtt/mqtt_trans.cpn", "cpn_models/paxos/paxos_trans.cpn"]
@@ -54,10 +56,16 @@ error_discspcpn = ['1`(id,tag)++1`(id,cval)']
 #         if trans not in expected:
 #             pytest.xfail('{} > {}'.format(original[i], trans))
 
+
+def traverse(t):
+    if t[0] == CPNParser.cpnexprparse.ASTNode.BINCOND:
+        return "AP({0},{1} {2} {3})".format(t[1], t[2], t[3], t[4])
+
+
 def test_cond1():
-    e = condparser.parse("hd foo = bar")
+    e = traverse(parse("hd foo = bar"))
     print(e)
-    assert re.match("^AP.*",e) is not None
+    assert re.match("^AP.*", e) is not None
 
 
 def test_ite1_guard1():

@@ -59,6 +59,23 @@ def ex_identifier(op):
     return identifier
 
 
+from enum import Enum
+
+
+class ASTNode(Enum):
+    EXPR = 1
+    ITE = 2
+    CALL = 3
+    LIST = 4
+    NIL = 5
+    TILDE = 6
+    GUARDS = 7
+    BINCOND = 8
+    BINEXP = 9
+    FN = 10
+    TUPLE = 11
+
+
 def p_statement_assign(t):
     'statement : NAME ASSIGN expression'
     names[t[1]] = t[3]
@@ -72,7 +89,7 @@ def p_statement_assign(t):
 def p_statement_guard(t):
     'statement : guard'
     identifier = ex_identifier(t[1])
-    t[0] = "EXPR(\"{0}\", {1})".format(identifier, t[1])
+    t[0] = (ASTNode.EXPR, identifier, t[1])
 
 def p_expression_harsh(t):
     '''expression : CHAR NAME expression
@@ -82,102 +99,106 @@ def p_expression_harsh(t):
 
 # if statement
 def p_statement_expression_if(t):
-    '''expression : IF condition THEN expression ELSE expression'''
+    '''expression : IF expression THEN expression ELSE expression'''
 
     # op = "{0}".format(t[2])
     # identifier = ap_identifier(op)
     # t_2 = "AP(\"{0}\", {1}))".format(identifier, op)
 
     identifier = ex_identifier(t[2])
-    t[0] = "if EXPR(\"{0}\", {1}) then {2}".format(identifier, t[2], t[4])
+    # t[0] = "if EXPR(\"{0}\", {1}) then {2}".format(identifier, t[2], t[4])
     # ELSE
     if len(t) == 7:
-        t[0] = t[0] + " else {0}".format(t[6])
-
-def p_statement_condition_if(t):
-    '''condition : IF condition THEN condition ELSE condition'''
-
-    t[0] = "ITE({0}, {1}".format(t[2], t[4])
-    # ELSE
-    if t[6] is not None:
-        t[0] = t[0] + ", {0})".format(t[6])
+        t[0] = (ASTNode.ITE, identifier, t[2], t[4], t[6])
     else:
-        t[0] = t[0] + ", empty)"
+        t[0] = (ASTNode.ITE, identifier, t[2], t[4], None)
 
 
 # func call
 def p_expression_func(t):
     '''expression : expression expression'''
 
-    if len(t) == 5:
+    if len(t) == 5:  # TODO: unclear!
         t[0] = "{0} {1} {2} {3}".format(t[1], t[2], t[3], t[4])
+        assert False  # unclear.
     else:
-        t[0] = "{0} {1}".format(t[1], t[2])
+        t[0] = (ASTNode.Call, t[1], t[2])
+
 
 def p_expression_list(t):
     '''expression_list : expression_list COMA expression
                   | expression'''
 
+    # Using real lists here
     if len(t) == 4:
-        t[0] = "{0}, {1}".format(t[1], t[3])
+        # t[0] = "{0}, {1}".format(t[1], t[3])
+        t[0] = t[1] + [t[3]]
     elif len(t) == 2:
-        t[0] = "{0}".format(t[1])
+        # t[0] = "{0}".format(t[1])
+        t[0] = [t[1]]
     else:
         assert False
 
+
 def p_condition_group(t):
-    '''guard : LBRACK condition_list RBRACK'''
+    '''guard : LBRACK expression_list RBRACK'''
     identifier = ex_identifier(t[2])
     if len(t) == 4:
-        t[0] = "EXPR(\"{0}\", {1})".format(identifier, t[2])
+        # t[0] = "EXPR(\"{0}\", {1})".format(identifier, t[2])
+        t[0] = (ASTNode.GUARDS, t[2])
     elif len(t) == 2:
         # TODO: probably wrong.
         t[0] = "{0}".format(t[1])
+        assert False
     else:
         assert False
+
 
 def p_expression_nil(t):
     '''expression : LBRACK RBRACK'''
-    t[0] = "[]"
+    t[0] = (ASTNode.NIL)
 
 def p_expression_list_brack(t):
     '''expression : LBRACK expression_list RBRACK'''
-    t[0] = "{0} {1} {2}".format(t[1], t[2], t[3])
+    # t[0] = "{0} {1} {2}".format(t[1], t[2], t[3])
+    t[0] = (ASTNode.LIST, t[2])
 
 def p_expression_fn(t):
     '''expression : FN NAME TO expression'''
-    t[0] = "{0} {1} {2} {3}".format(t[1], t[2], t[3], t[4])
+    # t[0] = "{0} {1} {2} {3}".format(t[1], t[2], t[3], t[4])
+    t[0] = (ASTNode.FN, t[2], t[4])
 
 def p_expression_tuple(t):
     '''expression : LPAREN expression_list RPAREN'''
-    t[0] = "({0})".format(t[2])
+    # t[0] = "({0})".format(t[2])
+    t[0] = (ASTNode.TUPLE, t[2])
 
 def p_expression_unit(t):
     '''expression : LPAREN RPAREN'''
-    t[0] = "()"
+    t[0] = (ASTNode.TUPLE, None)
 
-def p_condition_list(t):
-    '''condition_list : condition_list COMA condition
-                        | condition'''
+# def p_condition_list(t):
+#     '''condition_list : condition_list COMA condition
+#                         | condition'''
+#
+#     if len(t) == 4:
+#         op = "{0}".format(t[3])
+#         identifier = ap_identifier(op)
+#         t[0] = "AND({0}, AP(\"{1}\", {2}))".format(t[1], identifier, op)
+#     elif len(t) == 2:
+#         op = "{0}".format(t[1])
+#         identifier = ap_identifier(op)
+#         t[0] = "AP(\"{0}\", {1})".format(identifier, op)
+#     else:
+#         assert False
 
-    if len(t) == 4:
-        op = "{0}".format(t[3])
-        identifier = ap_identifier(op)
-        t[0] = "AND({0}, AP(\"{1}\", {2}))".format(t[1], identifier, op)
-    elif len(t) == 2:
-        op = "{0}".format(t[1])
-        identifier = ap_identifier(op)
-        t[0] = "AP(\"{0}\", {1})".format(identifier, op)
-    else:
-        assert False
 
-
-# Bool comparison
-def p_condition_not(t):
-    '''condition : NOT condition
-                | NOT_2 condition'''
-    # t[0] = t[2]
-    t[0] = "NOT({0})".format(t[2])
+# # Bool comparison
+# def p_condition_not(t):
+#     '''condition : NOT condition
+#                 | NOT_2 condition'''
+#     # t[0] = t[2]
+#     t[0] = "NOT({0})".format(t[2])
 
 # Unclear TODO
 def p_statement_not(t):
@@ -185,41 +206,36 @@ def p_statement_not(t):
                 | NOT_2 expression'''
     # t[0] = t[2]
     t[0] = "{0} {1}".format(t[1], t[2])
+    assert False  # TODO: incomplete
 
 
-def p_condition_paren(t):
-    'condition : LPAREN condition RPAREN'
-    # t[0] = t[2]
-    t[0] = "({0})".format(t[2])
-
-
-def p_condition_expr(t):
-    'condition : expression'
-    # t[0] = t[2]
-    op = "{0}".format(t[1])
-    identifier = ap_identifier(op)
-    t[0] = "AP(\"{0}\", {1})".format(identifier, op)
+# def p_condition_paren(t):
+#     'condition : LPAREN condition RPAREN'
+#     # t[0] = t[2]
+#     t[0] = "({0})".format(t[2])
+#
+#
+# def p_condition_expr(t):
+#     'condition : expression'
+#     # t[0] = t[2]
+#     op = "{0}".format(t[1])
+#     identifier = ap_identifier(op)
+#     t[0] = "AP(\"{0}\", {1})".format(identifier, op)
 
 def p_comparison_binop(t):
-    '''condition : expression EQUALS expression
+    '''expression : expression EQUALS expression
                   | expression NEQ expression
                   | expression LESS expression
                   | expression LEQ expression
                   | expression GREATER expression
                   | expression GEQ expression
-                  | condition ORELSE condition
-                  | condition ANDALSO condition'''
+                  | expression ORELSE expression
+                  | expression ANDALSO expression'''
 
-    if t[2] in {'=', '<>', '<', '<=', '>', '>='}:
-        op = "{0} {1} {2}".format(t[1], t[2], t[3])
-        identifier = ap_identifier(op)
-        t[0] = "AP(\"{0}\", {1})".format(identifier, op)
-    elif t[2] == 'orelse':
-        t[0] = "OR({0}, {1})".format(t[1], t[3])
-    elif t[2] == 'andalso':
-        t[0] = "AND({0}, {1})".format(t[1], t[3])
-    else:
-        t[0] = "{0}".format(t[1])
+    op = "{0} {1} {2}".format(t[1], t[2], t[3])
+    identifier = ap_identifier(op)
+    # t[0] = "AP(\"{0}\", {1})".format(identifier, op)
+    t[0] = (ASTNode.BINCOND, identifier, t[1], t[2], t[3])  # infix as before!
 
 
 # expression
@@ -233,16 +249,19 @@ def p_expression_binop(t):
                   | expression APP expression
                   | expression HAT expression'''
 
+
     op = "{0} {1} {2}".format(t[1], t[2], t[3])
     # identifier = ap_identifier(op)
     # t[0] = "(\"{0}\", {1})".format(identifier, op)
-    t[0] = "{0}".format(op)
+    # t[0] = "{0}".format(op)
+    t[0] = (ASTNode.BINEXP, t[1], t[2], t[3])  # infix as before!
 
 
 def p_expression_tilde(t):
     'expression : TILDE expression'
     # t[0] = "{0}".format(-t[2])
-    t[0] = "{0} {1}".format(t[1], t[2])
+    # t[0] = "{0} {1}".format(t[1], t[2])
+    t[0] = (ASTNode.TILDE, t[2])
 
 
 # # TODO: remove, should be redundant b/c condition: expression
@@ -285,7 +304,6 @@ def p_error(t):
 tmpdirname = "/temp/" #tempfile.TemporaryDirectory()
 cpnparser = yacc.yacc(start='expression', debug= tmpdirname + 'parser.out', write_tables=False)
 guardparser = yacc.yacc(start='guard', debug=tmpdirname + 'guardparser.out', write_tables=False)
-condparser = yacc.yacc(start='condition', debug=tmpdirname + 'condparser.out', write_tables=False)
 
 def parse(data, debug=0):
     cpnparser.error = 0
@@ -300,14 +318,13 @@ def parse(data, debug=0):
 
 def parse_guard(data, debug=0):
     guardparser.error = 0
-    condparser.error = 0
     try:
         p = guardparser.parse(data, debug=debug)
     except:
         try:
-            p = condparser.parse(data, debug=debug)
+            p = cpnparser.parse(data, debug=debug)
             identifier = ex_identifier(p)
-            p = "EXPR(\"{0}\", {1})".format(identifier, p)
+            # p = "EXPR(\"{0}\", {1})".format(identifier, p)
         except:
             print(data)
             raise

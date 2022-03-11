@@ -9,9 +9,9 @@ reserved = {
     'orelse': 'ORELSE',
     'andalso': 'ANDALSO',
     'not': 'NOT',
-    'fn': 'FN'
-    , 'let': 'LET'
-    , 'fun': 'FUN'
+    'fn': 'FN',
+    'let': 'LET',
+    'fun': 'FUN'
 }
 
 # List of token names.   This is always required
@@ -20,7 +20,6 @@ tokens = [
     'APP', 'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'CONS',
     'EQUALS', 'NEQ', 'LEQ', 'LESS', 'GEQ', 'GREATER',
     'LPAREN', 'RPAREN', 'LBRACK', 'RBRACK', 'COMA', 'TICK', 'TILDE', 'TO', 'CHAR', 'HAT', 'NOT_2'
-    # , 'LET', 'FUN'
 ] + list(reserved.values())
 
 # Tokens

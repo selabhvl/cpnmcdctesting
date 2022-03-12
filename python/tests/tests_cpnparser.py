@@ -81,69 +81,95 @@ def test_ite1_guard1():
 def test_ite1_guard2():
     e = parse_annot("[if hd foo = bar then true else false]")
     print(e)
-    assert re.match("\[ITE\(.*\, .*\, .*\)\]", e) is not None
+    et = traverse(e)
+    print(et)
+    assert re.match("\[ITE\(.*\, .*\, .*\)\]", et) is not None
 
 def test_exp1():
     e = parse_annot("hd foo = bar")
     print(e)
-    assert re.match("EXPR.*",e) is not None
+    et = traverse(e)
+    print(et)
+    assert re.match("EXPR.*",et) is not None
 
 def test_exp2():
     e = parse_cond("if hd fopl1=((ob14,u10,t9,pl11,cl11),0) then ((ob14,u10,t9,pl11,cl11),p5+1)::tl fopl1 else fopl1")
     print(e)
-    assert re.match("if EXPR.*",e) is not None
+    et = traverse(e)
+    print(et)
+    assert re.match("if EXPR.*",et) is not None
 
 def test_exp3b():
     e = parse_cond("if bexp then x::tl fopl1 else y")
     print(e)
+    et = traverse(e)
+    print(et)
 
 def test_exp3bguard():
     e = parse_annot("if bexp then x::tl fopl1 else y")
     print(e)
+    et = traverse(e)
+    print(et)
 
 def test_exp3cguard():
     e = parse_annot("if bexp then x::fopl1 else y")
     print(e)
+    et = traverse(e)
+    print(et)
 
 def test_exp3dguard():
     e = parse_annot("if bexp then tl fopl1 else y")
     print(e)
+    et = traverse(e)
+    print(et)
 
 def test_exp3dexp():
     e = parse_cond("if bexp then tl fopl1 else y")
     print(e)
+    et = traverse(e)
+    print(et)
 
 
 def test_exp_not1():
     s = "not b1" # TODO: refactor pattern e == s
     e = parse_cond(s)
     print(e)
-    assert e == s
+    et = traverse(e)
+    print(et)
+    assert et == s
 
 def test_cond_not1():
     e = parse_annot("not b1")
     print(e)
+    et = traverse(e)
+    print(et)
     assert re.match("^EXPR",e) is not None
 
     
 def test_exp4():
     s = "1`(id,tag)++1`(id,cval)"
     e = parse_cond(s)
+    et = traverse(e)
+    print(et)
     # TODO: ick, find a better solution!
-    assert e.replace(" ","") == s
+    assert et.replace(" ","") == s
 
 @pytest.mark.parametrize("error_cpnabs", error_cpnabs)
 def test_cpnabs(error_cpnabs):
     for expr in error_cpnabs:
         e = parse_cond(expr)
         print(e)
-        assert re.match("EXPR.*",e) is not None
+        et = traverse(e)
+        print(et)
+        assert re.match("EXPR.*",et) is not None
 
 def test_mqtt(error_mqtt):
     for expr in error_mqtt:
         e = parse_cond(expr)
         print(e)
-        assert re.match("EXPR.*",e) is not None
+        et = traverse(e)
+        print(et)
+        assert re.match("EXPR.*",et) is not None
 
 def test_paxos(error_paxos):
     for expr in error_paxos:
@@ -155,7 +181,9 @@ def test_discspcpn(error_discspcpn):
     for expr in error_discspcpn:
         e = parse_cond(expr)
         print(e)
-        assert re.match("EXPR.*",e) is not None
+        et = traverse(e)
+        print(et)
+        assert re.match("EXPR.*",et) is not None
 
 @pytest.mark.parametrize("in_filename",
                          ["./tests/cpn_models/cpnabs/cpnabs.cpn"])

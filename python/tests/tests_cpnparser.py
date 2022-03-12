@@ -5,7 +5,7 @@ import sys
 import xml.etree.ElementTree as ET
 
 from CPNParser.cpnexprparse import parse_annot, parse_cond, ASTNode
-from CPNParser.cpnexprtransf import traverse_annot, traverse_cond
+from CPNParser.cpnexprtransf import traverse
 from CPNParser.cpnxml import extract_elements_with_conditions, extract_elements_with_annotations, find_element_by_expr_name, get_cond, set_cond, get_annot, set_annot
 
 
@@ -63,7 +63,7 @@ def test_cond1():
     print(e)
     assert e[0] == ASTNode.BINCOND  # check precedence
     assert e[2][0] == ASTNode.CALL
-    et = traverse_cond(e)
+    et = traverse(e)
     print(et)
     assert re.match("^AP.*", et) is not None
 
@@ -73,7 +73,7 @@ def test_ite1_guard1():
     print(e)
     assert e[0] == ASTNode.ITE
     assert e[2][0] == ASTNode.BINCOND
-    et = traverse_annot(e)
+    et = traverse(e)
     print(et)
     assert re.match("ITE\(.*\, .*\, .*\)", et) is not None
 
@@ -169,7 +169,8 @@ def test_arc_model(in_filename):
         if expr is not None:
             try:
                 trimmed_expr = expr.replace("\n", " ")
-                inst_expr = parse_annot(trimmed_expr)
+                ast = parse_annot(trimmed_expr)
+                inst_expr = traverse(ast)
             except:
                 arc_errors.append([trimmed_expr, inst_expr])
                 continue
@@ -180,7 +181,6 @@ def test_arc_model(in_filename):
                          ["./tests/cpn_models/cpnabs/cpnabs.cpn"])
 def test_trans_model(in_filename):
     xml_tree = ET.parse(in_filename)
-    # in_filename = "../tests/cpn_models/cpnabs/cpnabs.cpn"
     transition_errors = []
     transitions = extract_elements_with_conditions(xml_tree)
     inst_expr = ""
@@ -189,7 +189,8 @@ def test_trans_model(in_filename):
         if expr is not None:
             try:
                 trimmed_expr = expr.replace("\n", " ")
-                inst_expr = parse_cond(trimmed_expr)
+                ast = parse_cond(trimmed_expr)
+                inst_expr = traverse(ast)
                 assert re.match("^EXPR",inst_expr) is not None
             except:
                 transition_errors.append([(trimmed_expr, inst_expr)])

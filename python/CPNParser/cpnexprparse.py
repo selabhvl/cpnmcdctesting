@@ -168,15 +168,15 @@ def p_expression_fn(t):
     t[0] = (ASTNode.FN, t[2], t[4])
 
 
+def p_expression_unit(t):
+    '''expression : LPAREN RPAREN'''
+    t[0] = (ASTNode.TUPLE, None)
+
+
 def p_expression_tuple(t):
     '''expression : LPAREN expression_list RPAREN'''
     # t[0] = "({0})".format(t[2])
     t[0] = (ASTNode.TUPLE, t[2])
-
-
-def p_expression_unit(t):
-    '''expression : LPAREN RPAREN'''
-    t[0] = (ASTNode.TUPLE, None)
 
 
 # # Bool comparison
@@ -186,7 +186,7 @@ def p_statement_not(t):
                 | NOT_2 expression'''
     # t[0] = t[2]
     # t[0] = "{0} {1}".format(t[1], t[2])
-    t[0] = (ASTNode.NOT, t[2])
+    t[0] = (ASTNode.NOT, t[1], t[2])
     assert False  # TODO: incomplete
 
 
@@ -221,7 +221,7 @@ def p_expression_tilde(t):
     'expression : TILDE expression'
     # t[0] = "{0}".format(-t[2])
     # t[0] = "{0} {1}".format(t[1], t[2])
-    t[0] = (ASTNode.TILDE, t[2])
+    t[0] = (ASTNode.TILDE, t[1], t[2])
 
 
 def p_expression_item(t):

@@ -158,7 +158,7 @@ def test_arcannot():
     s = "((ob14,u10,t9,pl11,cl11),((ob25,u22,t19,ins pl22 (p12+1),ins cl21 c6),p12+1))::pfopl"
     e = parse_cond(s)
     et = traverse(e)
-    print("Traduccion: " + et)
+    print(et)
 
 @pytest.mark.parametrize("error_cpnabs", error_cpnabs)
 def test_cpnabs(error_cpnabs):

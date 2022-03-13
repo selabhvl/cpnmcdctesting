@@ -255,9 +255,9 @@ def p_item_name(t):
 
 
 def p_error(t):
-    print("Syntax error at '%s'" % t.value)
+    # print("Syntax error at '%s'" % t.value)
     print("Syntax error at '{0}', returning {1}".format(t.value, t))
-    t.error = 1
+    # t.error = 1
     raise SyntaxError
 
 
@@ -275,7 +275,7 @@ def parse_annot(data, debug=0):
             return data
         return p
     except:
-        print(data)
+        print("Exception: {0}".format(data))
         raise
 
 # Transitions in the CPN

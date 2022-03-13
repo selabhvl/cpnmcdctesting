@@ -62,8 +62,8 @@ def test_cond1():
     e = parse_cond("hd foo = bar")
     print(e)
     assert e[0] == ASTNode.BINCOND  # check precedence
-    assert e[2][0] == ASTNode.CALL
-    et = traverse(e)
+    assert e[1][0] == ASTNode.CALL
+    et = traverse(e, dec="1")
     print(et)
     assert re.match("^AP.*", et) is not None
 
@@ -83,7 +83,7 @@ def test_ite1_guard2():
     print(e)
     et = traverse(e)
     print(et)
-    assert re.match("\[ITE\(.*\, .*\, .*\)\]", et) is not None
+    assert re.match("\[EXPR\(.*\, ITE\(.*\, .*\, .*\)\)\]", et) is not None
 
 def test_exp1():
     e = parse_annot("hd foo = bar")
@@ -136,7 +136,7 @@ def test_exp_not1():
     print(e)
     et = traverse(e)
     print(et)
-    assert et == s
+    assert re.match("not.*b1.*", et) is not None
 
 def test_cond_not1():
     e = parse_annot("not b1")
@@ -154,6 +154,12 @@ def test_exp4():
     # TODO: ick, find a better solution!
     assert et.replace(" ","") == s
 
+def test_arcannot():
+    s = "((ob14,u10,t9,pl11,cl11),((ob25,u22,t19,ins pl22 (p12+1),ins cl21 c6),p12+1))::pfopl"
+    e = parse_cond(s)
+    et = traverse(e)
+    print("Traduccion: " + et)
+
 @pytest.mark.parametrize("error_cpnabs", error_cpnabs)
 def test_cpnabs(error_cpnabs):
     for expr in error_cpnabs:
@@ -163,27 +169,30 @@ def test_cpnabs(error_cpnabs):
         print(et)
         assert re.match("EXPR.*",et) is not None
 
-def test_mqtt(error_mqtt):
-    for expr in error_mqtt:
-        e = parse_cond(expr)
-        print(e)
-        et = traverse(e)
-        print(et)
-        assert re.match("EXPR.*",et) is not None
+# @pytest.mark.parametrize("error_mqtt", error_mqtt)
+# def test_mqtt(error_mqtt):
+#     for expr in error_mqtt:
+#         e = parse_cond(expr)
+#         print(e)
+#         et = traverse(e)
+#         print(et)
+#         assert et.replace(" ", "") == s
 
+@pytest.mark.parametrize("error_paxos", error_paxos)
 def test_paxos(error_paxos):
     for expr in error_paxos:
         e = parse_cond(expr)
         print(e)
         assert re.match("EXPR.*",e) is not None
 
-def test_discspcpn(error_discspcpn):
-    for expr in error_discspcpn:
-        e = parse_cond(expr)
-        print(e)
-        et = traverse(e)
-        print(et)
-        assert re.match("EXPR.*",et) is not None
+# @pytest.mark.parametrize("error_discspcpn", error_discspcpn)
+# def test_discspcpn(error_discspcpn):
+#     for expr in error_discspcpn:
+#         e = parse_cond(expr)
+#         print(e)
+#         et = traverse(e)
+#         print(et)
+#         assert et.replace(" ", "") == s
 
 @pytest.mark.parametrize("in_filename",
                          ["./tests/cpn_models/cpnabs/cpnabs.cpn"])

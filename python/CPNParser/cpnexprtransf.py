@@ -69,7 +69,7 @@ def translate_guard(t, dec):
     # (ASTNode.GUARDS, decision, expression_list)
     _, guard_dec, expr_list = t
     str_expr_list = ",".join(traverse(expr, guard_dec) for expr in expr_list)
-    return "EXPR(\"{0}\", {1})".format(guard_dec, str_expr_list)
+    return "[EXPR(\"{0}\", {1})]".format(guard_dec, str_expr_list)
     # return "[{0}]".format(traverse(expr_list, dec))
 
 
@@ -98,7 +98,7 @@ def translate_tuple(t, dec):
     # Warning! expression_list is None when empty list, i.e., LPAREN RPAREN
     _, expr_list = t
     str_expr_list = ",".join(traverse(expr, dec) for expr in expr_list) if expr_list is not None else ""
-    return str_expr_list
+    return "(" + str_expr_list + ")"
 
 
 def translate_not(t, dec):

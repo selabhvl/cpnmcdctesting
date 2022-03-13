@@ -107,8 +107,10 @@ def p_expression_harsh(t):
 def p_statement_expression_if(t):
     '''expression : IF expression THEN expression ELSE expression'''
 
-    identifier = ex_identifier(t[2])
-
+    # list not hashable (required for "ex" dictionary)
+    # identifier = ex_identifier(t[2])
+    id_list = id(t[2])
+    identifier = ex_identifier(str(id_list))
     if len(t) == 7:
         t[0] = (ASTNode.ITE, identifier, t[2], t[4], t[6])
     else:
@@ -141,7 +143,10 @@ def p_condition_group(t):
     '''guard : LBRACK expression_list RBRACK'''
     if len(t) == 4:
         # t[0] = "EXPR(\"{0}\", {1})".format(identifier, t[2])
-        identifier = ex_identifier(t[2])
+        # list not hashable (required for "ex" dictionary)
+        # identifier = ex_identifier(t[2])
+        id_list = id(t[2])
+        identifier = ex_identifier(str(id_list))
         t[0] = (ASTNode.GUARDS, identifier, t[2])
     elif len(t) == 2:
         # guard : LBRACK RBRACK
@@ -180,14 +185,14 @@ def p_expression_tuple(t):
 
 
 # # Bool comparison
-# Unclear TODO
+# Unclear TODO: incomplete
 def p_statement_not(t):
     '''expression : NOT expression
                 | NOT_2 expression'''
     # t[0] = t[2]
     # t[0] = "{0} {1}".format(t[1], t[2])
     t[0] = (ASTNode.NOT, t[1], t[2])
-    assert False  # TODO: incomplete
+    # assert False
 
 
 def p_comparison_binop(t):
@@ -250,16 +255,16 @@ def p_item_name(t):
 
 
 def p_error(t):
-    # print("Syntax error at '%s'" % t.value)
-    # print("Syntax error at '{0}', returning {1}".format(t.value, t))
-    # t.error = 1
+    print("Syntax error at '%s'" % t.value)
+    print("Syntax error at '{0}', returning {1}".format(t.value, t))
+    t.error = 1
     raise SyntaxError
 
 
 # Build the parser
 tmpdirname = "/temp/"  # tempfile.TemporaryDirectory()
-annot_parser = yacc.yacc(start='expression', debug=tmpdirname + 'parser.out', write_tables=False)
-cond_parser = yacc.yacc(start='guard', debug=tmpdirname + 'guardparser.out', write_tables=False)
+annot_parser = yacc.yacc(start='guard', debug=tmpdirname + 'parser.out', write_tables=False)
+cond_parser = yacc.yacc(start='expression', debug=tmpdirname + 'guardparser.out', write_tables=False)
 
 # Arcs in the CPN
 def parse_annot(data, debug=0):

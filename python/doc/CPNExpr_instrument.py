@@ -3,7 +3,8 @@ import sys
 import csv
 import xml.etree.ElementTree as ET
 from CPNParser.cpnxml import extract_elements_with_conditions, extract_elements_with_annotations, find_element_by_expr_name, get_cond, set_cond, get_annot, set_annot
-from CPNParser.cpnexprparse import parse, parse_guard
+from CPNParser.cpnexprparse import parse_cond, parse_annot
+from CPNParser.cpnexprtransf import traverse
 
 if __name__ == "__main__":
     in_filename = sys.argv[1]
@@ -24,7 +25,8 @@ if __name__ == "__main__":
         expr = get_cond(t)
         if expr is not None:
             try:
-                inst_expr = parse_guard(expr.replace("\n", " "))
+                ast = parse_cond(expr.replace("\n", " "))
+                inst_expr = traverse(ast)
                 set_cond(t, inst_expr)
                 trace.writerow([expr, inst_expr])
                 # print("{0} | {1}".format(expr, inst_expr))
@@ -41,7 +43,8 @@ if __name__ == "__main__":
         expr = get_annot(a)
         if expr is not None:
             try:
-                inst_expr = parse(expr.replace("\n", " "))
+                ast = parse_annot(expr.replace("\n", " "))
+                inst_expr = traverse(ast)
                 set_annot(a, inst_expr)
                 trace.writerow([expr, inst_expr])
                 # print("{0} | {1}".format(expr, inst_expr))

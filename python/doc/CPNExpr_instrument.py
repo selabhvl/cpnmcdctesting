@@ -16,12 +16,12 @@ if __name__ == "__main__":
 
     basename = os.path.splitext(in_filename)[0] # "/path/to/some/file.txt"
 
-    csvfile = open(basename + '_trans.csv', 'w', newline='')
+    csvfile = open(basename + '_arcs.csv', 'w', newline='')
     trace = csv.writer(csvfile, delimiter='|', quoting=csv.QUOTE_MINIMAL)
 
-    print("Transitions")
-    transitions = extract_elements_with_conditions(xml_tree)
-    for t in transitions:
+    print("Arcs")
+    arcs = extract_elements_with_conditions(xml_tree)
+    for t in arcs:
         expr = get_cond(t)
         if expr is not None:
             try:
@@ -34,12 +34,12 @@ if __name__ == "__main__":
                 continue
     csvfile.close()
 
-    csvfile = open(basename + '_arcs.csv', 'w', newline='')
+    csvfile = open(basename + '_trans.csv', 'w', newline='')
     trace = csv.writer(csvfile, delimiter='|', quoting=csv.QUOTE_MINIMAL)
 
-    print("Arcs")
-    arcs = extract_elements_with_annotations(xml_tree)
-    for a in arcs:
+    print("Transitions")
+    transitions = extract_elements_with_annotations(xml_tree)
+    for a in transitions:
         expr = get_annot(a)
         if expr is not None:
             try:

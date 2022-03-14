@@ -142,6 +142,7 @@ def test_guard_not1():
     print(e)
     et = traverse(e)
     print(et)
+    # TODO: `invalid escape sequence \[`?
     assert re.match("\[EXPR\(.*, not\(b1\)\)\]", et) is not None
 
     
@@ -166,7 +167,7 @@ def test_cpnabs(error_cpnabs):
         print(e)
         et = traverse(e)
         print(et)
-        assert re.match("EXPR.*",et) is not None
+        assert re.match("EXPR.*",et) is not None, et
 
 # @pytest.mark.parametrize("error_mqtt", error_mqtt)
 # def test_mqtt(error_mqtt):
@@ -182,7 +183,8 @@ def test_paxos(error_paxos):
     for expr in error_paxos:
         e = parse_cond(expr)
         print(e)
-        assert re.match("EXPR.*",e) is not None
+        et = traverse(e)
+        assert re.match("EXPR.*", e) is not None, et
 
 # @pytest.mark.parametrize("error_discspcpn", error_discspcpn)
 # def test_discspcpn(error_discspcpn):

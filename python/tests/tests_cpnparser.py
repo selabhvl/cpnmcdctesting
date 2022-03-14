@@ -172,7 +172,7 @@ def test_arcannot():
 
 @pytest.mark.parametrize("expr", error_cpnabs)
 def test_cpnabs(expr):
-    e = parse_cond(expr)
+    e = parse_annot(expr)
     # assert e[0] is ASTNode.BINCOND  # `andalso`
     print(e)
     et = traverse(e)

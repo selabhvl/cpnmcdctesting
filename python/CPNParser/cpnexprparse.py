@@ -127,7 +127,7 @@ def p_expression_func_brackets(t):
 
 def p_expression_func_id_one(t):
     '''expression : NAME expressions %prec FCALL'''
-    t[0] = (ASTNode.CALL, t[1], t[2])
+    t[0] = (ASTNode.CALL, (ASTNode.ID, t[1]), t[2])
 
 
 def p_expressions(t):

@@ -6,6 +6,7 @@ ap = {}
 
 def ap_identifier(dec, op):
     # type: (str, str) -> str
+    assert dec is not None
     if dec not in ap:
         ap[dec] = {}
     if op not in dec:
@@ -157,9 +158,12 @@ def translate_bincond(t, dec):
         op_str = "{0}{1}{2}".format(traverse(expr_1, dec),
                                     new_bin_op,
                                     traverse(expr_2, dec))
-        identifier = ap_identifier(dec, op_str)
-        return "AP(\"{0}\", {1})".format(identifier, op_str)
-
+        # TODO: I think something got lost in translation here
+        if dec is not None:
+            identifier = ap_identifier(dec, op_str)
+            return "AP(\"{0}\", {1})".format(identifier, op_str)
+        else:
+            return op_str
 
 def translate_tilde(t, dec):
     # TILDE expression

@@ -33,7 +33,7 @@ precedence = (
     ('right', 'NOT'),
     ('right', 'NOT_2'),
     ('left', 'CONS'),
-    ('left', 'FCALL'),
+    ('left', 'FCALL'),  # virtual!
 )
 
 # dictionary of names
@@ -119,10 +119,33 @@ def p_statement_expression_if(t):
 
 
 # func call
-def p_expression_func(t):
-    '''expression : expression expression %prec FCALL'''
+def p_expression_func_brackets(t):
+    # TODO: untested
+    '''expression : LPAREN expression RPAREN expressions %prec FCALL'''
+    t[0] = (ASTNode.CALL, t[2], t[4])
 
+
+def p_expression_func_id_one(t):
+    '''expression : NAME expressions %prec FCALL'''
     t[0] = (ASTNode.CALL, t[1], t[2])
+
+
+def p_expressions(t):
+    '''expressions : expressions NAME
+                    | expressions LPAREN expression RPAREN
+                    | LPAREN expression RPAREN
+                    | NAME'''
+    # TODO: We loose info about parens, so we can't pretty-print 1:1 later.
+    if len(t) == 2:
+        t[0] = [(ASTNode.ID, t[1])]
+    elif len(t) == 3:
+        t[0] = t[1] + [(ASTNode.ID, t[2])]
+    elif len(t) == 4:
+        t[0] = [t[2]]
+    elif len(t) == 5:
+        t[0] = t[1] + [t[2]]
+    else:
+        assert False, t
 
 
 def p_expression_list(t):

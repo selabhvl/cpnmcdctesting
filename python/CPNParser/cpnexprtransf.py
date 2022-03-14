@@ -59,8 +59,13 @@ def translate_ite(t, dec):
 def translate_call(t, dec):
     # expression expression %prec FCALL
     # (ASTNode.CALL, expression, expression)
-    _, expr_1, expr_2 = t
-    return "{0} {1}".format(traverse(expr_1), traverse(expr_2))
+    _, expr_1, exprs = t
+    # TODO: we loose input format here and print everything with nested parens.
+    str_expr_list = " ".join("({0})".format(traverse(expr, dec)) for expr in exprs)
+    if dec is not None:
+        return "AP({0} {1})".format(traverse(expr_1), str_expr_list)
+    else:
+        return "{0} {1}".format(traverse(expr_1), str_expr_list)
 
 
 def translate_single_guard(t, dec):

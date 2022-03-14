@@ -13,7 +13,8 @@ cpn_files = ["cpn_models/cpnabs/cpnabs.cpn", "cpn_models/discspcpn/discspcpn.cpn
 csv_cond_files = ["cpn_models/cpnabs/cpnabs_trans.csv", "cpn_models/discspcpn/discspcpn_trans.cpn", "cpn_models/mqtt/mqtt_trans.cpn", "cpn_models/paxos/paxos_trans.cpn"]
 csv_annot_files = ["cpn_models/cpnabs/cpnabs_arcs.csv", "cpn_models/discspcpn/discspcpn_arcs.cpn", "cpn_models/mqtt/mqtt_arcs.cpn", "cpn_models/paxos/paxos_arcs.cpn"]
 
-error_cpnabs = ["p9=hd pl9 andalso (if (mem pl27 p9) then p24=p9 else not (p24=p9))"]
+# error_cpnabs = ["p9=hd pl9 andalso (if (mem pl27 p9) then p24=p9 else not (p24=p9))"]
+error_cpnabs = ["p9=hd pl9"]
 error_mqtt = ['1`(id,tag)++1`(id,cval)']
 error_paxos = ["if (not b) andalso PrepareQFCond(cid,crnd',preparereplies') then 1`PrepareQFProm(cid,crnd',preparereplies') else empty"]
 error_discspcpn = ['1`(id,tag)++1`(id,cval)']
@@ -66,6 +67,14 @@ def test_cond1():
     et = traverse(e, dec="1")
     print(et)
     assert re.match("^AP.*", et) is not None
+
+
+def test_funcs():
+    e = parse_cond("f foo bar")
+    assert e[0] == ASTNode.CALL, e  # check precedence
+    assert len(e[2]) == 2, e
+    et = traverse(e, dec="1")
+    assert re.match("^AP.*", et) is not None, (e, et)
 
 
 def test_ite1_guard1():
@@ -164,11 +173,11 @@ def test_arcannot():
 @pytest.mark.parametrize("expr", error_cpnabs)
 def test_cpnabs(expr):
     e = parse_cond(expr)
-    assert e[0] is ASTNode.BINCOND  # `andalso`
+    # assert e[0] is ASTNode.BINCOND  # `andalso`
     print(e)
     et = traverse(e)
     print(et)
-    assert re.match("EXPR.*",et) is not None, (e, et)
+    assert re.match("EXPR.*", et) is not None, (e, et)
 
 # @pytest.mark.parametrize("error_mqtt", error_mqtt)
 # def test_mqtt(error_mqtt):

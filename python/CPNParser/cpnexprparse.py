@@ -64,6 +64,7 @@ class ASTNode(Enum):
     FN = 10
     TUPLE = 11
     NOT = 12
+    GUARD = 13
 
 
 # class BinOp(Enum):
@@ -138,6 +139,12 @@ def p_expression_list(t):
     else:
         assert False
 
+
+def p_condition_single(t):
+    '''guard : expression'''
+    id_list = id(t[1])
+    identifier = ex_identifier(str(id_list))
+    t[0] = (ASTNode.GUARD, identifier, t[1])
 
 def p_condition_group(t):
     '''guard : LBRACK expression_list RBRACK'''

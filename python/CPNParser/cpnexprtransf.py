@@ -63,10 +63,21 @@ def translate_call(t, dec):
     return "{0} {1}".format(traverse(expr_1), traverse(expr_2))
 
 
+def translate_single_guard(t, dec):
+    # expression
+    # (ASTNode.GUARDS, decision, expression)
+    assert t[0] == ASTNode.GUARD
+    _, guard_dec, expr = t
+    str_expr = traverse(expr, guard_dec)
+    return "EXPR(\"{0}\", {1})".format(guard_dec, str_expr)
+    # return "[{0}]".format(traverse(expr_list, dec))
+
+
 def translate_guard(t, dec):
     # decision = id(expression_list)
     # LBRACK expression_list RBRACK
     # (ASTNode.GUARDS, decision, expression_list)
+    assert t[0] == ASTNode.GUARDS
     _, guard_dec, expr_list = t
     str_expr_list = ",".join(traverse(expr, guard_dec) for expr in expr_list)
     return "[EXPR(\"{0}\", {1})]".format(guard_dec, str_expr_list)
@@ -162,7 +173,11 @@ def traverse(t, dec=None):
         return translate_ite(t, dec)
     elif t[0] == ASTNode.CALL:
         return translate_call(t, dec)
+    elif t[0] == ASTNode.GUARD:
+        # single!
+        return translate_single_guard(t, dec)
     elif t[0] == ASTNode.GUARDS:
+        # list!
         return translate_guard(t, dec)
     elif t[0] == ASTNode.NIL:
         return translate_nil(t, dec)

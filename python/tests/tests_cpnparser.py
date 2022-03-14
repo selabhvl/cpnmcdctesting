@@ -71,11 +71,11 @@ def test_cond1():
 def test_ite1_guard1():
     e = parse_annot("if hd foo = bar then true else false")
     print(e)
-    assert e[0] == ASTNode.ITE
-    assert e[2][0] == ASTNode.BINCOND
+    assert e[0] == ASTNode.GUARD
+    assert e[2][0] == ASTNode.ITE
     et = traverse(e)
     print(et)
-    assert re.match("ITE\(.*\, .*\, .*\)", et) is not None
+    assert re.match("EXPR.*ITE\(.*\, .*\, .*\)", et) is not None, et
 
 
 def test_ite1_guard2():
@@ -90,7 +90,7 @@ def test_exp1():
     print(e)
     et = traverse(e)
     print(et)
-    assert re.match("EXPR.*",et) is not None
+    assert re.match("EXPR.*",et) is not None, et
 
 def test_exp2():
     e = parse_cond("if hd fopl1=((ob14,u10,t9,pl11,cl11),0) then ((ob14,u10,t9,pl11,cl11),p5+1)::tl fopl1 else fopl1")

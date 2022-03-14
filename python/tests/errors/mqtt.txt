@@ -1,0 +1,180 @@
+Exception: ((c,DISCONNECT)::msgs)
+Exception: clstates
+Exception: msgs
+Exception: brokerDisconnectUpdate(clstates,c)
+Exception: bsendMsg (boutmsgs,(c,UNSUBACK(t,pid)))
+Exception: brokerUnsubscribeUpdate (clstates,(c,t))
+Exception: clstates
+Exception: ((c,UNSUBSCRIBE(t,pid))::msgs)
+Exception: msgs
+Exception: boutmsgs
+Exception: connectClient(clstates ,c)
+Exception: bsendMsg (boutmsgs,(c,CONNACK))
+Exception: ((c,CONNECT)::msgs)
+Exception: msgs
+Exception: clstates
+Exception: boutmsgs
+Exception: incPIDs (subclspid,clspid)
+Exception: clspid
+Exception: msgs
+Exception: ((c,PUBLISH(t,QoS(1),pid))::msgs)
+Exception: bsendMsgs (boutmsgs,brokerDispatchPublishQos1 (t,subclspid,c,pid))
+Exception: brokerCreateACKWaiting (t,clstates, listcxlptq,  subclspid)
+Exception: clstates
+Exception: listcxlptq
+Exception: msgs
+Exception: (c,PUBACK(t,pid))::msgs
+Exception: brokerUpdateACKWaiting(c,pid, listcxlptq)
+Exception: listcxlptq
+Exception: listcxlptq
+Exception: bsendMsgs (boutmsgs,   createPublishQoS1 listcxlptq)
+Exception: boutmsgs
+Exception: boutmsgs
+Exception: msgs
+Exception: clstates
+Exception: incPIDs (subclspid,clspid)
+Exception: bsendMsgs (boutmsgs,brokerDispatchPublishQos0 (t,subclspid))
+Exception: clspid
+Exception: ((c,PUBLISH(t,QoS(0),pid))::msgs)
+Exception: boutmsgs
+Exception: bsendMsg(boutmsgs,(c, PUBREC(t,pid)))
+Exception: msgs
+Exception: (c,PUBLISH(t,QoS(2),pid))::msgs
+Exception: bsendMsgs(boutmsgs,brokerDispatchPublishQos2 (t,subclspid,c,pid))
+Exception: (c,PUBREL(t,pid))::msgs
+Exception: (c,PUBREC(t,pid))::msgs
+Exception: msgs
+Exception: msgs
+Exception: bsendMsg (boutmsgs,(c,PUBREL(t,pid)))
+Exception: (c,PUBCOMP(t,pid))::msgs
+Exception: msgs
+Exception: (c, listpidsxtopics^^[(pid,t)])
+Exception: (c,listpidsxtopics)
+Exception: listcxlptq
+Exception: brokerUpdateACKWaiting(c,pid,listcxlptq)
+Exception: brokerAddACKSecondStep(c, pid, t, listcxlptq2)
+Exception: listcxlptq2
+Exception: brokerUpdateACKWaiting(c,pid,listcxlptq2)
+Exception: listcxlptq2
+Exception: (c,listpidsxtopics)
+Exception: (c, rm (pid,t) listpidsxtopics)
+Exception: clstates
+Exception: clstates
+Exception: brokerCreateACKWaiting2 (t,clstates, listcxlptq,  subclspid)
+Exception: listcxlptq
+Exception: clspid
+Exception: incPIDs (subclspid,clspid)
+Exception: boutmsgs
+Exception: boutmsgs
+Exception: boutmsgs
+Exception: clstates
+Exception: ((c,SUBSCRIBE(t,qos,pid))::msgs)
+Exception: msgs
+Exception: bsendMsg (boutmsgs,(c,SUBACK(t,qos,pid)))
+Exception: brokerSubscribeUpdate(clstates,(c,t,qos))
+Exception: boutmsgs
+Exception: 1`()
+Exception: initClients()
+Exception: increasePID(cs)
+Exception: cs
+Exception: (msgs^^[(#1 cs, PUBLISH(t,QoS(0), (#pid (#2 cs))))])
+Exception: msgs
+Exception: cs
+Exception: msgs
+Exception: increasePID(cs)
+Exception: (msgs^^[(#1 cs, PUBLISH(t,QoS(1), (#pid (#2 cs))))])
+Exception: (#1 cs,  listpidsxtopics^^[((#pid (#2 cs)),t)])
+Exception: (c, (pid,t)::listpidsxtopics)
+Exception: (msgs^^[(c, PUBLISH(t,QoS(1),pid))])
+Exception: msgs
+Exception: precvMsg (c,inmsgs)
+Exception: (c,listpidsxtopics)
+Exception: (c, listpidsxtopics)
+Exception: (c, rmPidT       (listpidsxtopics,      (pgetMsg (c,inmsgs))))
+Exception: (c,listpidsxtopics^^[(pid,t)])
+Exception: inmsgs
+Exception: msgs^^sendPUBACK (c, inmsgs)
+Exception: msgs
+Exception: recvMsg (cs,inmsgs)
+Exception: cs
+Exception: inmsgs
+Exception: inmsgs
+Exception: recvMsg (cs,inmsgs)
+Exception: cs
+Exception: (c,listpidsxtopics^^getPublish(c,inmsgs))
+Exception: (c,listpidsxtopics)
+Exception: (c,listpidsxtopics)
+Exception: msgs
+Exception: inmsgs
+Exception: recvMsg (cs,inmsgs)
+Exception: cs
+Exception: recvMsg (cs,inmsgs)
+Exception: msgs^^sendPUBCOMP(c,inmsgs)
+Exception: cs
+Exception: msgs
+Exception: msgs^^sendPUBREC(c,inmsgs)
+Exception: inmsgs
+Exception: (c, rm (getPUBREL (c,inmsgs)) listpidsxtopics)
+Exception: (msgs^^[(#1 cs, PUBLISH(t,QoS(2), (#pid (#2 cs))))])
+Exception: increasePID(cs)
+Exception: cs
+Exception: msgs
+Exception: inmsgs
+Exception: (#1 cs, listpidsxtopics^^[((#pid (#2 cs)),t)])
+Exception: (c, (pid,t)::listpidsxtopics)
+Exception: (msgs^^ [(c, PUBREL (t,pid))])
+Exception: msgs
+Exception: inmsgs
+Exception: (c, (pid,t)::listpidsxtopics)
+Exception: msgs
+Exception: (msgs^^[(c,PUBLISH(t,QoS(2),pid))])
+Exception: (c, listpidsxtopics'^^[(pid,t)])
+Exception: (c,listpidsxtopics)
+Exception: (c,listpidsxtopics)
+Exception: (c, rm (pid,t) listpidsxtopics)
+Exception: (c,listpidsxtopics')
+Exception: (c, rm (getPUBCOMP (c,inmsgs)) listpidsxtopics)
+Exception: (c,listpidsxtopics^^[(pid,t)])
+Exception: recvMsg (cs,inmsgs)
+Exception: cs
+Exception: cs
+Exception: recvMsg (cs,inmsgs)
+Exception: msgs
+Exception: inmsgs
+Exception: (c,listpids)
+Exception: (c,listpids^^[#pid (#2 cs)])
+Exception: (c,rmPid (listpids,     getMsg (cs,inmsgs)))
+Exception: (c,listpids)
+Exception: qos
+Exception: recvMsg (cs,inmsgs)
+Exception: 1`()
+Exception: iSubscribe ()
+Exception: clientSubTopic(cs,getMsg(cs,inmsgs),listpids)
+Exception: cs
+Exception: cs
+Exception: increasePID(cs)
+Exception: (msgs^^[(c, SUBSCRIBE(t,qos,(#pid (#2 cs))))])
+Exception: cs
+Exception: (msgs^^[(#1 cs, UNSUBSCRIBE(t,(#pid (#2 cs))))])
+Exception: msgs
+Exception: inmsgs
+Exception: clientUnsubscribe(cs,getMsg(cs,inmsgs),listpids )
+Exception: cs
+Exception: (c,listpids)
+Exception: (#1 cs, listpids^^[#pid (#2 cs)])
+Exception: increasePID(cs)
+Exception: (c,listpids)
+Exception: (c, rmPid(listpids,getMsg(cs,inmsgs)))
+Exception: recvMsg (cs,inmsgs)
+Exception: setClientState (cs,DISC)
+Exception: sendMsg outmsgs (cs,DISCONNECT)
+Exception: cs
+Exception: outmsgs
+Exception: sendMsg outmsgs (cs,CONNECT)
+Exception: setClientState (cs,WAIT)
+Exception: cs
+Exception: outmsgs
+Exception: inmsgs
+Exception: setClientState (cs,CON)
+Exception: cs
+Exception: recvMsg(cs,inmsgs)

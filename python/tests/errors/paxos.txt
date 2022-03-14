@@ -1,0 +1,121 @@
+Exception: (value',b)
+Exception: requestreplies
+Exception: ("",false)
+Exception: []
+Exception: if (List.length requestreplies') >= RequestQSize then (value,true) else ("",false)
+Exception: List.map (fn s => (s, value)) allIDs
+Exception: value
+Exception: (id,value)
+Exception: if (not b) andalso (List.length requestreplies') >= RequestQSize then 1` (value) else empty
+Exception: requestreplies
+Exception: requestreplies'
+Exception: if (crnd > rnd) then 1`(id,Promise                     (cid, crnd, (vrnd,vvalue))) else empty
+Exception: (id', rnd ,(vrnd,vvalue))
+Exception: if (crnd > rnd) then (id, crnd, (vrnd,vvalue)) else (id, rnd, (vrnd,vvalue))
+Exception: (id, Prepare(cid,crnd))
+Exception: if (crnd >=rnd) then 1`(id,Learn(cid, crnd, value)) else empty
+Exception: if (crnd >=rnd) then (id, crnd, (crnd,value)) else (id, rnd, (vrnd,vvalue))
+Exception: (id', rnd, (vrnd,vvalue))
+Exception: (id, Accept(cid, crnd,value))
+Exception: (id, Empty(cid))
+Exception: (id,Learn(cid,rnd,value))
+Exception: (id,value)
+Exception: 1`()
+Exception: 1`()
+Exception: 1`()
+Exception: List.map (fn s => (s, Prepare(cid, crnd))) allIDs
+Exception: Prepare(0, crnd)
+Exception: (cid,(Promise(cid,~1,(~1,"")),false))
+Exception: (cid,(Promise(prm),b))
+Exception: if PrepareQFCond(cid,crnd',preparereplies') then (cid,(PrepareQFProm(cid,crnd',preparereplies'),true)) else (cid,(Promise(cid, ~1,(~1,"")),false))
+Exception: (id,Promise(cid, crnd, (vrnd,vvalue)))
+Exception: (cid,crnd,[])
+Exception: (cid,crnd',preparereplies)
+Exception: (cid,crnd',preparereplies')
+Exception: if (not b) andalso PrepareQFCond(cid,crnd',preparereplies') then 1`PrepareQFProm(cid,crnd',preparereplies') else empty
+Exception: cid
+Exception: cid + 1
+Exception: List.map (fn s => (s, Accept(cid, rnd,value))) allIDs
+Exception: Accept(0,rnd,value)
+Exception: (cid,[])
+Exception: (cid,(Learn(cid, ~1,""),false))
+Exception: (cid,(Learn(lrn),b))
+Exception: if AcceptQFCond(acceptreplies') then (cid,(AcceptQFLearn(cid,acceptreplies),true)) else (cid,(Learn(cid, ~1,""),false))
+Exception: (cid,acceptreplies)
+Exception: (cid,acceptreplies')
+Exception: (id,Learn(cid, rnd,value))
+Exception: if (not b) andalso AcceptQFCond(acceptreplies') then 1`AcceptQFLearn(cid,acceptreplies') else empty
+Exception: cid
+Exception: cid+1
+Exception: (id, rnd, value)
+Exception: rnd + n
+Exception: (id', lid)
+Exception: (id, lid)
+Exception: lid
+Exception: lid'
+Exception: (id,rnd,value')
+Exception: (id',value)
+Exception: (id',rnd,value)
+Exception: value
+Exception: value'
+Exception: if id' = id then (id,rnd+n,value) else (id, rnd,value)
+Exception: 1`()
+Exception: 1`()
+Exception: crnd
+Exception: Prepare(0,crnd)
+Exception: Promise  (cid, crnd,(vrnd,vvalue))
+Exception: if success orelse (cnt = 0) then 1`(Promise(cid, crnd,(vrnd,vvalue))) else empty
+Exception: if success orelse (cnt = 0) then empty else 1`()
+Exception: cnt
+Exception: if success orelse cnt = 0 then cnt else cnt-1
+Exception: 1`()
+Exception: Learn(cid,rnd,value)
+Exception: if success orelse (cnt=0) then 1`(Learn(cid,rnd,value)) else empty
+Exception: if success orelse (cnt=0) then empty else 1`()
+Exception: Accept(0,rnd,value)
+Exception: rnd
+Exception: value
+Exception: cnt
+Exception: if success orelse cnt = 0 then cnt else cnt-1
+Exception: Promise(cid, crnd,(vrnd,vvalue))
+Exception: crnd
+Exception: Learn(0, rnd,value)
+Exception: (rnd,value)
+Exception: (rnd,value)
+Exception: Learn(cid, rnd,value)
+Exception: List.map (fn s => (s, Learn(cid, rnd,value))) allIDs
+Exception: (cid, (Empty(cid),false))
+Exception: (cid,(Empty(cmt),b))
+Exception: if (List.length commitreplies') >= CommitQSize then (cid, (Empty(cid),true)) else (cid, (Empty(cid),false))
+Exception: (cid,[])
+Exception: (id,Empty(cid))
+Exception: (cid,commitreplies')
+Exception: (cid,commitreplies)
+Exception: if (not b) andalso (List.length commitreplies') >= CommitQSize then 1` (Empty(cid)) else empty
+Exception: cid
+Exception: cid + 1
+Exception: Learn(0, rnd,value)
+Exception: (id,ids)
+Exception: lid
+Exception: if lid = 0 then (id,ids) else (id, List.drop(ids,1))
+Exception: (id, ids)
+Exception: (id,List.hd(ids))
+Exception: (id, (updateIDs (lid, ids)))
+Exception: (id,ids)
+Exception: (id,ids)
+Exception: (id,ids)
+Exception: ids'
+Exception: (id,ids')
+Exception: lid
+Exception: 0
+Exception: 1`()
+Exception: lid
+Exception: num+n
+Exception: num
+Exception: cnt
+Exception: cnt-1
+Exception: id'
+Exception: if cnt = 1 then 0 else id'
+Exception: id'
+Exception: lid
+Exception: lid'

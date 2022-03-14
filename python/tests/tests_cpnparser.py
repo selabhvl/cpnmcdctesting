@@ -86,11 +86,11 @@ def test_ite1_guard2():
     assert re.match("\[EXPR\(.*\, ITE\(.*\, .*\, .*\)\)\]", et) is not None
 
 def test_exp1():
-    e = parse_annot("hd foo = bar")
+    e = parse_cond("hd foo = bar")
     print(e)
-    et = traverse(e)
+    et = traverse(e, dec="1")
     print(et)
-    assert re.match("EXPR.*",et) is not None, et
+    assert re.match("AP\(.*\)",et) is not None, et
 
 def test_exp2():
     e = parse_cond("if hd fopl1=((ob14,u10,t9,pl11,cl11),0) then ((ob14,u10,t9,pl11,cl11),p5+1)::tl fopl1 else fopl1")
@@ -123,7 +123,7 @@ def test_exp3dguard():
     et = traverse(e)
     print(et)
 
-def test_exp3dexp():
+def test_exp3dcond():
     e = parse_cond("if bexp then tl fopl1 else y")
     print(e)
     et = traverse(e)
@@ -131,19 +131,18 @@ def test_exp3dexp():
 
 
 def test_exp_not1():
-    s = "not b1" # TODO: refactor pattern e == s
-    e = parse_cond(s)
+    e = parse_cond("not b1")
     print(e)
     et = traverse(e)
     print(et)
     assert re.match("not.*b1.*", et) is not None
 
-def test_cond_not1():
-    e = parse_annot("not b1")
+def test_guard_not1():
+    e = parse_annot("[not b1]")
     print(e)
     et = traverse(e)
     print(et)
-    assert re.match("^EXPR",e) is not None
+    assert re.match("\[EXPR\(.*, not\(b1\)\)\]", et) is not None
 
     
 def test_exp4():

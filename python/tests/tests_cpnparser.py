@@ -160,14 +160,15 @@ def test_arcannot():
     et = traverse(e)
     print(et)
 
-@pytest.mark.parametrize("error_cpnabs", error_cpnabs)
-def test_cpnabs(error_cpnabs):
-    for expr in error_cpnabs:
-        e = parse_cond(expr)
-        print(e)
-        et = traverse(e)
-        print(et)
-        assert re.match("EXPR.*",et) is not None, et
+
+@pytest.mark.parametrize("expr", error_cpnabs)
+def test_cpnabs(expr):
+    e = parse_cond(expr)
+    assert e[0] is ASTNode.BINCOND  # `andalso`
+    print(e)
+    et = traverse(e)
+    print(et)
+    assert re.match("EXPR.*",et) is not None, (e, et)
 
 # @pytest.mark.parametrize("error_mqtt", error_mqtt)
 # def test_mqtt(error_mqtt):
@@ -178,13 +179,13 @@ def test_cpnabs(error_cpnabs):
 #         print(et)
 #         assert et.replace(" ", "") == s
 
-@pytest.mark.parametrize("error_paxos", error_paxos)
-def test_paxos(error_paxos):
-    for expr in error_paxos:
-        e = parse_cond(expr)
-        print(e)
-        et = traverse(e)
-        assert re.match("EXPR.*", e) is not None, et
+
+@pytest.mark.parametrize("expr", error_paxos)
+def test_paxos(expr):
+    e = parse_cond(expr)
+    print(e)
+    et = traverse(e)
+    assert re.match("EXPR.*", e) is not None, (e, et)
 
 # @pytest.mark.parametrize("error_discspcpn", error_discspcpn)
 # def test_discspcpn(error_discspcpn):

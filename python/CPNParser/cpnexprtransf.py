@@ -49,12 +49,12 @@ def translate_ite(t, dec):
         if expr_3 is None:
             return "if EXPR(\"{0}\", {1}) then {2}".format(if_dec,
                                                            traverse(expr_1, if_dec),
-                                                           traverse(expr_2, if_dec))
+                                                           traverse(expr_2, dec=None))
         else:
             return "if EXPR(\"{0}\", {1}) then {2} else {3}".format(if_dec,
                                                                     traverse(expr_1, if_dec),
-                                                                    traverse(expr_2, if_dec),
-                                                                    traverse(expr_3, if_dec))
+                                                                    traverse(expr_2, dec=None),
+                                                                    traverse(expr_3, dec=None))
 
 
 def translate_call(t, dec):
@@ -132,13 +132,13 @@ def translate_binexp(t, dec):
     # (ASTNode.BINEXP, expression_1, BIN_OP, expression_2)
     _, expr_1, bin_op, expr_2 = t
     if dec is None:
-        return "{0}{1}{2}".format(traverse(expr_1, dec),
+        return "{0}{1}{2}".format(traverse(expr_1, dec=None),
                                   bin_op,
-                                  traverse(expr_2, dec))
+                                  traverse(expr_2, dec=None))
     else:
-        op_str = "{0}{1}{2}".format(traverse(expr_1, dec),
+        op_str = "{0}{1}{2}".format(traverse(expr_1, dec=None),
                                     bin_op,
-                                    traverse(expr_2, dec))
+                                    traverse(expr_2, dec=None))
         identifier = ap_identifier(dec, op_str)
         return "AP(\"{0}\", {1})".format(identifier, op_str)
 
@@ -158,21 +158,22 @@ def translate_bincond(t, dec):
 
     # identifier, op_str = binop_ap(dec, expr_1, bin_op, expr_2)
     # return "AP(\"{0}\", {1})".format(identifier, op_str)
-    new_bin_op = translate(bin_op)
-    if (new_bin_op == "AND") or (new_bin_op == "OR"):
-        return "{0}({1}, {2})".format(new_bin_op,
-                                      traverse(expr_1, dec),
-                                      traverse(expr_2, dec))
-    else:
-        op_str = "{0}{1}{2}".format(traverse(expr_1, dec),
-                                    new_bin_op,
+    if dec is None:
+        return "{0}{1}{2}".format(traverse(expr_1, dec),
+                                    bin_op,
                                     traverse(expr_2, dec))
-        # TODO: I think something got lost in translation here
-        if dec is not None:
+    else:
+        new_bin_op = translate(bin_op)
+        if (new_bin_op == "AND") or (new_bin_op == "OR"):
+            return "{0}({1}, {2})".format(new_bin_op,
+                                          traverse(expr_1, dec),
+                                          traverse(expr_2, dec))
+        else:
+            op_str = "{0}{1}{2}".format(traverse(expr_1, dec=None),
+                                        new_bin_op,
+                                        traverse(expr_2, dec=None))
             identifier = ap_identifier(dec, op_str)
             return "AP(\"{0}\", {1})".format(identifier, op_str)
-        else:
-            return op_str
 
 
 def translate_tilde(t, dec):

@@ -301,7 +301,7 @@ def test_paxos(expr):
     print(e)
     et = traverse(e)
     print(et)
-    # ssert re.match("if EXPR.*", e) is not None, (e, et)
+    # assert re.match("if EXPR.*", e) is not None, (e, et)
 
 # @pytest.mark.parametrize("error_discspcpn", error_discspcpn)
 # def test_discspcpn(error_discspcpn):
@@ -334,12 +334,12 @@ def test_arc_model(in_filename):
                 arc_errors.append([trimmed_expr, ast, inst_expr])
                 continue
 
-    # print("ERRORS")
-    # for [trimmed_expr, ast, inst_expr] in arc_errors:
-    #     print(trimmed_expr)
-    #     print(ast)
-    #     print(inst_expr)
-    #     print("\n")
+    print("ERRORS")
+    for [trimmed_expr, ast, inst_expr] in arc_errors:
+        print(trimmed_expr)
+        print(ast)
+        print(inst_expr)
+        print("\n")
 
     assert len(arc_errors) == 0
 
@@ -376,3 +376,55 @@ def test_trans_model(in_filename):
         print("\n")
 
     assert len(transition_errors) == 0
+
+def test_cpnabs_arc1():
+    s = "if b2=true then " \
+"((ob26,u23,t20,pl23,cl22),p12+1)::ins (rm ((ob25,u22,t19,pl22,cl21),p20) (tl fopl2)) ((ob25,u22,t19, ins pl22 (p12+1),ins cl21 c6),p20) " \
+        " else ins (rm ((ob25,u22,t19,pl22,cl21),p20) fopl2) ((ob25,u22,t19, ins pl22 (p12+1),ins cl21 c6),p20)"
+    e = parse_annot(s)
+    print(e)
+    et = traverse(e)
+    print(et)
+
+def test_cpnabs_arc2():
+    s = "if (mem obpl (ob11,p9)) then 1`p9 else empty"
+    e = parse_annot(s)
+    print(e)
+    et = traverse(e)
+    print(et)
+
+def test_cpnabs_arc3():
+    s = "if (mem pl27 p9 andalso i4>1) then ((ob11,ins (rm p9 pl27) (hd (tl pl9)), ins (rm (p9,i4) pll2) (hd (tl pl9),i4-1))) else (if  (mem pl27 p9 andalso i4<=1) then (ob11,rm p9 pl27,rm (p9,i4) pll2) else (ob11,pl27,pll2))",
+    e = parse_annot(s)
+    print(e)
+    et = traverse(e)
+    print(et)
+
+def test_cpnabs_arc4():
+    s = "rm ((ob24,u21,t18,pl21,cl20),p19) fopl"
+    e = parse_annot(s)
+    print(e)
+    et = traverse(e)
+    print(et)
+
+def test_cpnabs_arc5():
+    s = "if mem pl25 (hd pl19) then (ob3,ins (rm (hd pl19) pl25) (p17+1),ins (rm (p22,i2) pll) (p17+1,i2+1))  else (ob3,(p17+1)::pl25,(p17+1,1)::pll)"
+    e = parse_annot(s)
+    print(e)
+    et = traverse(e)
+    print(et)
+
+
+def test_cpnabs_arc6():
+    s = "(ob1+1,[],[])"
+    e = parse_annot(s)
+    print(e)
+    et = traverse(e)
+    print(et)
+
+error = ["if b2=true then ((ob26,u23,t20,pl23,cl22),p12+1)::ins (rm ((ob25,u22,t19,pl22,cl21),p20) (tl fopl2)) ((ob25,u22,t19, ins pl22 (p12+1),ins cl21 c6),p20) else ins (rm ((ob25,u22,t19,pl22,cl21),p20) fopl2) ((ob25,u22,t19, ins pl22 (p12+1),ins cl21 c6),p20)",
+ "if (mem obpl (ob11,p9)) then 1`p9 else empty",
+ "if (mem pl27 p9 andalso i4>1) then ((ob11,ins (rm p9 pl27) (hd (tl pl9)), ins (rm (p9,i4) pll2) (hd (tl pl9),i4-1))) else (if  (mem pl27 p9 andalso i4<=1) then (ob11,rm p9 pl27,rm (p9,i4) pll2) else (ob11,pl27,pll2))",
+ "rm ((ob24,u21,t18,pl21,cl20),p19) fopl",
+ "if mem pl25 (hd pl19) then (ob3,ins (rm (hd pl19) pl25) (p17+1),ins (rm (p22,i2) pll) (p17+1,i2+1))  else (ob3,(p17+1)::pl25,(p17+1,1)::pll)",
+ "(ob1+1,[],[])"]

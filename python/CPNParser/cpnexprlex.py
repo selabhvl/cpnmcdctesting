@@ -8,7 +8,7 @@ reserved = {
     'else': 'ELSE',
     'orelse': 'ORELSE',
     'andalso': 'ANDALSO',
-    'not': 'NOT',
+#    'not': 'NOT',  # TODO: review
     'fn': 'FN',
     'let': 'LET',
     'fun': 'FUN'

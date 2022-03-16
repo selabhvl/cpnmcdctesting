@@ -141,17 +141,33 @@ def test_exp3dcond():
 
 def test_exp_not1():
     e = parse_cond("not b1")
+    assert e[0] == ASTNode.CALL
+    assert e[1][0] == ASTNode.ID
+    assert e[1][1] == "not"
     print(e)
     et = traverse(e)
     print(et)
-    assert re.match(r'not.*b1.*', et) is not None
+    assert re.match(r'not.*b1.*', et) is not None, (e, et)
+
+
+def test_exp_not2():
+    e = parse_cond("(not b1)")
+    assert e[0] == ASTNode.CALL
+    assert e[1][0] == ASTNode.ID
+    assert e[1][1] == "not"
+    print(e)
+    et = traverse(e)
+    print(et)
+    assert re.match(r'not.*b1.*', et) is not None, (e, et)
+
 
 def test_guard_not1():
     e = parse_annot("[not b1]")
     print(e)
     et = traverse(e)
     print(et)
-    assert re.match(r'\[EXPR\(.*, not\(b1\)\)\]', et) is not None
+    # TODO: Should be AP("id", not...)
+    assert re.match(r'\[EXPR\(.*, not\(b1\)\)\]', et) is not None, (e, et)
 
     
 def test_exp4():
@@ -202,8 +218,37 @@ def test_paxos_err1():
     et = traverse(e)
     print(et)
 
+def test_constructor1():
+    s = "Foo"
+    e = parse_cond(s)
+    assert e[0] == ASTNode.ID
+
+
+def test_constructor2():
+    s = "Foo 42"
+    e = parse_cond(s)
+    assert e[0] == ASTNode.CALL
+    assert e[1][0] == ASTNode.ID
+
+
+def test_constructor3():
+    s = "Foo(42)"
+    e = parse_cond(s)
+    assert e[0] == ASTNode.CALL
+    assert e[1][0] == ASTNode.ID
+
+
+def test_constructor4():
+    s1 = "Foo(42)"
+    s2 = "Foo 42"
+    e1 = parse_cond(s1)
+    e2 = parse_cond(s2)
+    assert e1 == e2
+
+
 def test_paxos_err2():
     s = "if PrepareQFCond(cid,crnd',preparereplies') then true else empty"
+    s = "PrepareQFCond(cid,crnd',preparereplies')"
     e = parse_cond(s)
     print(e)
     et = traverse(e)

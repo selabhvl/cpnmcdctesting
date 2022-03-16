@@ -30,7 +30,7 @@ precedence = (
     ('left', 'TIMES', 'DIVIDE'),
     ('left', 'TICK'),
     ('right', 'TILDE'),
-    ('right', 'NOT'),
+#    ('right', 'NOT'),
     ('right', 'NOT_2'),
     ('left', 'CONS'),
     ('left', 'FCALL'),  # virtual!
@@ -63,8 +63,9 @@ class ASTNode(Enum):
     BINEXP = 9
     FN = 10
     TUPLE = 11
-    NOT = 12
+    NOT = 12  # TODO: only "~"?
     GUARD = 13
+    CONSTRUCTOR = 14
 
 
 # class BinOp(Enum):
@@ -130,11 +131,16 @@ def p_expression_func_id_one(t):
     t[0] = (ASTNode.CALL, (ASTNode.ID, t[1]), t[2])
 
 
-def p_expressions(t):
+def p_expression_constructor(t):
+    '''expression : NAME LPAREN expression_list RPAREN'''
+    t[0] = (ASTNode.CONSTRUCTOR, (ASTNode.ID, t[1]), t[3])
+
+
+def p_expressions(t):  # never empty.
     '''expressions : expressions NAME
                     | expressions LPAREN expression RPAREN
                     | LPAREN expression RPAREN
-                    | NAME'''
+                    | item'''  # TODO XXX: No longer IDs below!
     # TODO: We loose info about parens, so we can't pretty-print 1:1 later.
     if len(t) == 2:
         t[0] = [(ASTNode.ID, t[1])]
@@ -208,21 +214,26 @@ def p_expression_unit(t):
     t[0] = (ASTNode.TUPLE, None)
 
 
+def p_expression_singleton(t):
+    '''expression : LPAREN expression RPAREN'''
+    t[0] = t[2]  # Losing formatting here.
+
+
 def p_expression_tuple(t):
     '''expression : LPAREN expression_list RPAREN'''
     # t[0] = "({0})".format(t[2])
+    # TODO: `(x)` is not a "1-tuple", I think!
     t[0] = (ASTNode.TUPLE, t[2])
 
 
 # # Bool comparison
 # Unclear TODO: incomplete
 def p_statement_not(t):
-    '''expression : NOT expression
-                | NOT_2 expression'''
+    '''expression : NOT_2 expression'''
     # t[0] = t[2]
     # t[0] = "{0} {1}".format(t[1], t[2])
     t[0] = (ASTNode.NOT, t[1], t[2])
-    # assert False
+    assert False
 
 
 def p_comparison_binop(t):

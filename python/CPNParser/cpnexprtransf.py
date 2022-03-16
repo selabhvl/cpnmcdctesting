@@ -165,6 +165,7 @@ def translate_bincond(t, dec):
         else:
             return op_str
 
+
 def translate_tilde(t, dec):
     # TILDE expression
     # (ASTNode.TILDE, tilde, expression)
@@ -175,6 +176,14 @@ def translate_tilde(t, dec):
 
 def translate_id(t, dec):
     return "{0}".format(t[1])
+
+
+def translate_constructor(t, dec):
+    # NAME LPAREN expression_list RPAREN
+    # (ASTNode.CONSTRUCTOR, (ASTNode.ID, name), expression_list)
+    _, (_, name), expr_list = t
+    str_expr_list = ",".join(traverse(expr, dec) for expr in expr_list) if expr_list is not None else ""
+    return "{0}({1})".format(name, str_expr_list)
 
 
 def traverse(t, dec=None):
@@ -206,6 +215,8 @@ def traverse(t, dec=None):
         return translate_tilde(t, dec)
     elif t[0] == ASTNode.ID:
         return translate_id(t, dec)
+    elif t[0] == ASTNode.CONSTRUCTOR:
+        return translate_constructor(t, dec)
     elif type(t[0]) == str:
         # TODO: What happens when the AST arrives to a terminal node (e.g., expression = NUMBER)?
         return t[0]

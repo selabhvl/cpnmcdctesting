@@ -247,7 +247,6 @@ def test_constructor4():
 
 
 def test_paxos_err2():
-    s = "if PrepareQFCond(cid,crnd',preparereplies') then true else empty"
     s = "PrepareQFCond(cid,crnd',preparereplies')"
     e = parse_cond(s)
     print(e)
@@ -256,6 +255,13 @@ def test_paxos_err2():
 
 def test_paxos_err3():
     s = "if true then 1`PrepareQFProm(cid,crnd',preparereplies') else empty"
+    e = parse_cond(s)
+    print(e)
+    et = traverse(e)
+    print(et)
+
+def test_paxos_err4():
+    s = "if PrepareQFCond(cid,crnd',preparereplies') then true else empty"
     e = parse_cond(s)
     print(e)
     et = traverse(e)

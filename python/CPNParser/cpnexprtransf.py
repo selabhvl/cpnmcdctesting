@@ -1,4 +1,4 @@
-from CPNParser.cpnexprparse import parse_cond, parse_annot, ASTNode
+from CPNParser.cpnexprparse import parse_cond, parse_annot, ASTNode, ex_identifier
 
 # dictionary of atomic propositions
 ap = {}
@@ -72,7 +72,7 @@ def translate_call(t, dec):
 
 def translate_single_guard(t, dec):
     # expression
-    # (ASTNode.GUARDS, decision, expression)
+    # (ASTNode.GUARD, decision, expression)
     assert t[0] == ASTNode.GUARD
     _, guard_dec, expr = t
     str_expr = traverse(expr, guard_dec)
@@ -147,6 +147,14 @@ def translate_bincond(t, dec):
     # expression_1 BIN_OP expression_2
     # (ASTNode.BINCOND, expression_1, BIN_OP, expression_2)
     _, expr_1, bin_op, expr_2 = t
+
+    # The following code should not be necessary.
+    # If the binary condition is on top of the expression, then we are in a guard
+    # and guards have associated the 'dec' identifier.
+    # if dec is None:
+    #     # Binary condicion is on the top, so we are opening a new decision
+    #     id_list = id(t)
+    #     dec = ex_identifier(str(id_list))
 
     # identifier, op_str = binop_ap(dec, expr_1, bin_op, expr_2)
     # return "AP(\"{0}\", {1})".format(identifier, op_str)

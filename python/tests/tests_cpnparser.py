@@ -59,8 +59,8 @@ error_discspcpn = ['1`(id,tag)++1`(id,cval)']
 #             pytest.xfail('{} > {}'.format(original[i], trans))
 
 
-def test_cond1():
-    e = parse_cond("hd foo = bar")
+def test_dec1():
+    e = parse_annot("hd foo = bar")
     print(e)
     assert e[0] == ASTNode.BINCOND  # check precedence
     assert e[1][0] == ASTNode.CALL
@@ -70,7 +70,7 @@ def test_cond1():
 
 
 def test_funcs():
-    e = parse_cond("f foo bar")
+    e = parse_annot("f foo bar")
     assert e[0] == ASTNode.CALL, e  # check precedence
     assert len(e[2]) == 2, e
     et = traverse(e, dec="1")
@@ -78,7 +78,7 @@ def test_funcs():
 
 
 def test_ite1_guard1():
-    e = parse_annot("if hd foo = bar then true else false")
+    e = parse_cond("if hd foo = bar then true else false")
     print(e)
     assert e[0] == ASTNode.GUARD
     assert e[2][0] == ASTNode.ITE
@@ -88,59 +88,59 @@ def test_ite1_guard1():
 
 
 def test_ite1_guard2():
-    e = parse_annot("[if hd foo = bar then true else false]")
+    e = parse_cond("[if hd foo = bar then true else false]")
     print(e)
     et = traverse(e)
     print(et)
     assert re.match(r'\[EXPR\(.*\, ITE\(.*\, .*\, .*\)\)\]', et) is not None
 
 def test_exp1():
-    e = parse_cond("hd foo = bar")
+    e = parse_annot("hd foo = bar")
     print(e)
     et = traverse(e, dec="1")
     print(et)
     assert re.match(r'AP\(.*\)',et) is not None, et
 
 def test_exp2():
-    e = parse_cond("if hd fopl1=((ob14,u10,t9,pl11,cl11),0) then ((ob14,u10,t9,pl11,cl11),p5+1)::tl fopl1 else fopl1")
+    e = parse_annot("if hd fopl1=((ob14,u10,t9,pl11,cl11),0) then ((ob14,u10,t9,pl11,cl11),p5+1)::tl fopl1 else fopl1")
     print(e)
     et = traverse(e)
     print(et)
     assert re.match(r'if EXPR.*',et) is not None
 
 def test_exp3b():
-    e = parse_cond("if bexp then x::tl fopl1 else y")
-    print(e)
-    et = traverse(e)
-    print(et)
-
-def test_exp3bguard():
     e = parse_annot("if bexp then x::tl fopl1 else y")
     print(e)
     et = traverse(e)
     print(et)
 
+def test_exp3bguard():
+    e = parse_cond("if bexp then x::tl fopl1 else y")
+    print(e)
+    et = traverse(e)
+    print(et)
+
 def test_exp3cguard():
-    e = parse_annot("if bexp then x::fopl1 else y")
+    e = parse_cond("if bexp then x::fopl1 else y")
     print(e)
     et = traverse(e)
     print(et)
 
 def test_exp3dguard():
-    e = parse_annot("if bexp then tl fopl1 else y")
+    e = parse_cond("if bexp then tl fopl1 else y")
     print(e)
     et = traverse(e)
     print(et)
 
 def test_exp3dcond():
-    e = parse_cond("if bexp then tl fopl1 else y")
+    e = parse_annot("if bexp then tl fopl1 else y")
     print(e)
     et = traverse(e)
     print(et)
 
 
 def test_exp_not1():
-    e = parse_cond("not b1")
+    e = parse_annot("not b1")
     assert e[0] == ASTNode.CALL
     assert e[1][0] == ASTNode.ID
     assert e[1][1] == "not"
@@ -151,7 +151,7 @@ def test_exp_not1():
 
 
 def test_exp_not2():
-    e = parse_cond("(not b1)")
+    e = parse_annot("(not b1)")
     assert e[0] == ASTNode.CALL
     assert e[1][0] == ASTNode.ID
     assert e[1][1] == "not"
@@ -162,7 +162,7 @@ def test_exp_not2():
 
 
 def test_guard_not1():
-    e = parse_annot("[not b1]")
+    e = parse_cond("[not b1]")
     print(e)
     et = traverse(e)
     print(et)
@@ -172,7 +172,7 @@ def test_guard_not1():
     
 def test_exp4():
     s = "1`(id,tag)++1`(id,cval)"
-    e = parse_cond(s)
+    e = parse_annot(s)
     et = traverse(e)
     print(et)
     # TODO: ick, find a better solution!
@@ -180,14 +180,14 @@ def test_exp4():
 
 def test_arcannot():
     s = "((ob14,u10,t9,pl11,cl11),((ob25,u22,t19,ins pl22 (p12+1),ins cl21 c6),p12+1))::pfopl"
-    e = parse_cond(s)
+    e = parse_annot(s)
     et = traverse(e)
     print(et)
 
 
 @pytest.mark.parametrize("expr", error_cpnabs)
 def test_cpnabs(expr):
-    e = parse_annot(expr)
+    e = parse_cond(expr)
     # assert e[0] is ASTNode.BINCOND  # `andalso`
     print(e)
     et = traverse(e)
@@ -213,27 +213,27 @@ def test_paxos_ok():
 
 def test_paxos_err1():
     s = "if (not b) then true else empty"
-    e = parse_cond(s)
+    e = parse_annot(s)
     print(e)
     et = traverse(e)
     print(et)
 
 def test_constructor1():
     s = "Foo"
-    e = parse_cond(s)
+    e = parse_annot(s)
     assert e[0] == ASTNode.ID
 
 
 def test_constructor2():
     s = "Foo 42"
-    e = parse_cond(s)
+    e = parse_annot(s)
     assert e[0] == ASTNode.CALL
     assert e[1][0] == ASTNode.ID
 
 
 def test_constructor3():
     s = "Foo(42)"
-    e = parse_cond(s)
+    e = parse_annot(s)
     assert e[0] == ASTNode.CALL
     assert e[1][0] == ASTNode.ID
 
@@ -241,35 +241,35 @@ def test_constructor3():
 def test_constructor4():
     s1 = "Foo(42)"
     s2 = "Foo 42"
-    e1 = parse_cond(s1)
-    e2 = parse_cond(s2)
+    e1 = parse_annot(s1)
+    e2 = parse_annot(s2)
     assert e1 == e2
 
 
 def test_paxos_err2():
     s = "PrepareQFCond(cid,crnd',preparereplies')"
-    e = parse_cond(s)
+    e = parse_annot(s)
     print(e)
     et = traverse(e)
     print(et)
 
 def test_paxos_err3():
     s = "if true then 1`PrepareQFProm(cid,crnd',preparereplies') else empty"
-    e = parse_cond(s)
+    e = parse_annot(s)
     print(e)
     et = traverse(e)
     print(et)
 
 def test_paxos_err4():
     s = "if PrepareQFCond(cid,crnd',preparereplies') then true else empty"
-    e = parse_cond(s)
+    e = parse_annot(s)
     print(e)
     et = traverse(e)
     print(et)
 
 @pytest.mark.parametrize("expr", error_paxos)
 def test_paxos(expr):
-    e = parse_cond(expr)
+    e = parse_annot(expr)
     print(e)
     et = traverse(e)
     print(et)
@@ -290,17 +290,28 @@ def test_arc_model(in_filename):
     xml_tree = ET.parse(in_filename)
     arc_errors = []
     arcs = extract_elements_with_annotations(xml_tree)
-    inst_expr = ""
     for a in arcs:
         expr = get_annot(a)
         if expr is not None:
+            inst_expr = ""
             try:
+                print("\n")
                 trimmed_expr = expr.replace("\n", " ")
+                print(trimmed_expr)
                 ast = parse_annot(trimmed_expr)
+                print(ast)
                 inst_expr = traverse(ast)
+                print(inst_expr)
             except:
-                arc_errors.append([trimmed_expr, inst_expr])
+                arc_errors.append([trimmed_expr, ast, inst_expr])
                 continue
+
+    # print("ERRORS")
+    # for [trimmed_expr, ast, inst_expr] in arc_errors:
+    #     print(trimmed_expr)
+    #     print(ast)
+    #     print(inst_expr)
+    #     print("\n")
 
     assert len(arc_errors) == 0
 
@@ -310,17 +321,30 @@ def test_trans_model(in_filename):
     xml_tree = ET.parse(in_filename)
     transition_errors = []
     transitions = extract_elements_with_conditions(xml_tree)
-    inst_expr = ""
     for t in transitions:
         expr = get_cond(t)
         if expr is not None:
+            inst_expr = ""
             try:
                 trimmed_expr = expr.replace("\n", " ")
+                # print(trimmed_expr)
                 ast = parse_cond(trimmed_expr)
+                # print(ast)
                 inst_expr = traverse(ast)
-                assert re.match(r'^EXPR',inst_expr) is not None
+                # print(inst_expr)
+                # print("\n")
+                # assert re.match(r'^EXPR', inst_expr) is not None
+                # inst_expr = EXPR(....) | [EXPR(....)]
+                assert re.match(r'(\[)*EXPR', inst_expr) is not None
             except:
-                transition_errors.append([(trimmed_expr, inst_expr)])
+                transition_errors.append([trimmed_expr, ast, inst_expr])
                 continue
+
+    print("ERRORS")
+    for [trimmed_expr, ast, inst_expr] in transition_errors:
+        print(trimmed_expr)
+        print(ast)
+        print(inst_expr)
+        print("\n")
 
     assert len(transition_errors) == 0

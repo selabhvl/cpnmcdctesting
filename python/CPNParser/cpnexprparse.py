@@ -304,8 +304,8 @@ def p_error(t):
 
 # Build the parser
 tmpdirname = "/temp/"  # tempfile.TemporaryDirectory()
-annot_parser = yacc.yacc(start='guard', debug=tmpdirname + 'parser.out', write_tables=False)
-cond_parser = yacc.yacc(start='expression', debug=tmpdirname + 'guardparser.out', write_tables=False)
+annot_parser = yacc.yacc(start='expression', debug=tmpdirname + 'parser.out', write_tables=False)
+cond_parser = yacc.yacc(start='guard', debug=tmpdirname + 'guardparser.out', write_tables=False)
 
 # Arcs in the CPN
 def parse_annot(data, debug=0):
@@ -328,5 +328,5 @@ def parse_cond(data, debug=0):
             return data
         return p
     except:
-        print(data)
+        print("Exception: {0}".format(data))
         raise

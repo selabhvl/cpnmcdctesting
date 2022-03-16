@@ -144,6 +144,9 @@ def test_exp_not1():
     assert e[0] == ASTNode.CALL
     assert e[1][0] == ASTNode.ID
     assert e[1][1] == "not"
+    assert len(e[2]) == 1
+    assert e[2][0][0] == ASTNode.ID, e[2][0]
+    assert e[2][0][1] == "b1"
     print(e)
     et = traverse(e)
     print(et)
@@ -236,6 +239,23 @@ def test_constructor3():
     e = parse_annot(s)
     assert e[0] == ASTNode.CALL
     assert e[1][0] == ASTNode.ID
+
+
+def test_cons1():
+    s = "(42::x)"
+    e = parse_annot(s)
+    assert e[0] == ASTNode.BINEXP
+    assert e[1][0] == ASTNode.ID
+    assert e[3][0] == ASTNode.ID
+
+
+def test_call_exp1():
+    s = "f x (y+1)"
+    e = parse_annot(s)
+    assert e[0] == ASTNode.CALL
+    assert e[1][1] == "f"
+    assert e[2][0][0] == ASTNode.ID
+    assert e[2][1][0] is ASTNode.BINEXP
 
 
 def test_constructor4():

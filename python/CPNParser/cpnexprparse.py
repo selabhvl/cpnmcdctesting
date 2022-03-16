@@ -63,7 +63,7 @@ class ASTNode(Enum):
     BINEXP = 9
     FN = 10
     TUPLE = 11
-    NOT = 12  # TODO: only "~"?
+    NOT = 12  # TODO: only "!"?
     GUARD = 13
     CONSTRUCTOR = 14
 
@@ -137,19 +137,19 @@ def p_expression_constructor(t):
 
 
 def p_expressions(t):  # never empty.
-    '''expressions : expressions NAME
+    '''expressions : expressions item
                     | expressions LPAREN expression RPAREN
                     | LPAREN expression RPAREN
                     | item'''  # TODO XXX: No longer IDs below!
     # TODO: We loose info about parens, so we can't pretty-print 1:1 later.
     if len(t) == 2:
-        t[0] = [(ASTNode.ID, t[1])]
+        t[0] = [t[1]]
     elif len(t) == 3:
-        t[0] = t[1] + [(ASTNode.ID, t[2])]
+        t[0] = t[1] + [t[2]]
     elif len(t) == 4:
         t[0] = [t[2]]
     elif len(t) == 5:
-        t[0] = t[1] + [t[2]]
+        t[0] = t[1] + [t[3]]
     else:
         assert False, t
 
@@ -272,27 +272,28 @@ def p_expression_tilde(t):
 
 def p_expression_item(t):
     'expression : item'
-    t[0] = (ASTNode.ID, str(t[1]))
+    t[0] = t[1]
 
 
+# TODO XXX `ID` should better be called `item`...
 def p_item_number(t):
     'item : NUMBER'
-    t[0] = str(t[1])
+    t[0] = ASTNode.ID, str(t[1])
 
 
 def p_item_bool(t):
     'item : BOOL'
-    t[0] = str(t[1])
+    t[0] = ASTNode.ID, str(t[1])
 
 
 def p_item_string(t):
     'item : STRING'
-    t[0] = str(t[1])
+    t[0] = ASTNode.ID, str(t[1])
 
 
 def p_item_name(t):
     'item : NAME'
-    t[0] = str(t[1])
+    t[0] = ASTNode.ID, str(t[1])
 
 
 def p_error(t):

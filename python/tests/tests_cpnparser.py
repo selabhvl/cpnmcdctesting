@@ -394,7 +394,9 @@ def test_cpnabs_arc2():
     print(et)
 
 def test_cpnabs_arc3():
-    s = "if (mem pl27 p9 andalso i4>1) then ((ob11,ins (rm p9 pl27) (hd (tl pl9)), ins (rm (p9,i4) pll2) (hd (tl pl9),i4-1))) else (if  (mem pl27 p9 andalso i4<=1) then (ob11,rm p9 pl27,rm (p9,i4) pll2) else (ob11,pl27,pll2))",
+    s = "if (mem pl27 p9 andalso i4>1) " \
+        "then ((ob11,ins (rm p9 pl27) (hd (tl pl9)), ins (rm (p9,i4) pll2) (hd (tl pl9),i4-1))) " \
+        "else (if  (mem pl27 p9 andalso i4<=1) then (ob11,rm p9 pl27,rm (p9,i4) pll2) else (ob11,pl27,pll2))"
     e = parse_annot(s)
     print(e)
     et = traverse(e)
@@ -417,6 +419,13 @@ def test_cpnabs_arc5():
 
 def test_cpnabs_arc6():
     s = "(ob1+1,[],[])"
+    e = parse_annot(s)
+    print(e)
+    et = traverse(e)
+    print(et)
+
+def test_cpnabs_arc7():
+    s = "[]"
     e = parse_annot(s)
     print(e)
     et = traverse(e)

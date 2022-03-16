@@ -195,6 +195,13 @@ def translate_constructor(t, dec):
     str_expr_list = ",".join(traverse(expr, dec) for expr in expr_list) if expr_list is not None else ""
     return "{0}({1})".format(name, str_expr_list)
 
+def translate_hash(t, dec):
+    # CHAR NAME expression
+    #| CHAR NUMBER expression
+    # (ASTNode.HASH, t[2], t[3])
+    _, name, expr = t
+    return "# {0} {1}".format(name, traverse(expr, dec=None))
+
 
 def traverse(t, dec=None):
     if t[0] == ASTNode.ITE:
@@ -227,6 +234,8 @@ def traverse(t, dec=None):
         return translate_id(t, dec)
     elif t[0] == ASTNode.CONSTRUCTOR:
         return translate_constructor(t, dec)
+    elif t[0] == ASTNode.HASH:
+        return translate_hash(t, dec)
     elif type(t[0]) == str:
         # TODO: What happens when the AST arrives to a terminal node (e.g., expression = NUMBER)?
         return t[0]

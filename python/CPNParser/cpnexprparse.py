@@ -66,6 +66,7 @@ class ASTNode(Enum):
     NOT = 12  # TODO: only "!"?
     GUARD = 13
     CONSTRUCTOR = 14
+    HASH = 15
 
 
 # class BinOp(Enum):
@@ -102,7 +103,8 @@ def p_expression_harsh(t):
     '''expression : CHAR NAME expression
                     | CHAR NUMBER expression'''
 
-    t[0] = "{0}{1} {2}".format(t[1], t[2], t[3])
+    # t[0] = "{0}{1} {2}".format(t[1], t[2], t[3])
+    t[0] = (ASTNode.HASH, t[2], t[3])
 
 
 # if statement
@@ -199,7 +201,7 @@ def p_condition_group(t):
 
 def p_expression_nil(t):
     '''expression : LBRACK RBRACK'''
-    t[0] = (ASTNode.NIL)
+    t[0] = (ASTNode.NIL, )
 
 
 def p_expression_list_brack(t):

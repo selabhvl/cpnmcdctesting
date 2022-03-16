@@ -166,8 +166,8 @@ def test_guard_not1():
     print(e)
     et = traverse(e)
     print(et)
-    # TODO: Should be AP("id", not...)
-    assert re.match(r'\[EXPR\(.*, not\(b1\)\)\]', et) is not None, (e, et)
+    # [EXPR("id1", AP("1", not (b1)))]
+    assert re.match(r'\[EXPR\(.*, AP\(.*, not \(b1\)\)\)\]', et) is not None, (e, et)
 
     
 def test_exp4():

@@ -64,7 +64,8 @@ def translate_call(t, dec):
     # TODO: we loose input format here and print everything with nested parens.
     str_expr_list = " ".join("({0})".format(traverse(expr, dec)) for expr in exprs)
     if dec is not None:
-        return "AP({0} {1})".format(traverse(expr_1), str_expr_list)
+        identifier = ap_identifier(dec, str_expr_list)
+        return "AP(\"{0}\", {1} {2})".format(identifier, traverse(expr_1), str_expr_list)
     else:
         return "{0} {1}".format(traverse(expr_1), str_expr_list)
 

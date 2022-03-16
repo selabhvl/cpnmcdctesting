@@ -136,11 +136,16 @@ def p_expression_constructor(t):
     t[0] = (ASTNode.CONSTRUCTOR, (ASTNode.ID, t[1]), t[3])
 
 
+def p_item_or_tuple(t):
+    '''iOt : item
+           | tuple'''
+    t[0] = t[1]
+
 def p_expressions(t):  # never empty.
-    '''expressions : expressions item
+    '''expressions : expressions iOt
                     | expressions LPAREN expression RPAREN
                     | LPAREN expression RPAREN
-                    | item'''  # TODO XXX: No longer IDs below!
+                    | iOt'''  # TODO XXX: No longer IDs below!
     # TODO: We loose info about parens, so we can't pretty-print 1:1 later.
     if len(t) == 2:
         t[0] = [t[1]]
@@ -219,8 +224,12 @@ def p_expression_singleton(t):
     t[0] = t[2]  # Losing formatting here.
 
 
+def p_expression_is_a_tuple(t):
+    '''expression : tuple'''
+    t[0] = t[1]
+
 def p_expression_tuple(t):
-    '''expression : LPAREN expression_list RPAREN'''
+    '''tuple : LPAREN expression_list RPAREN'''
     # t[0] = "({0})".format(t[2])
     # TODO: `(x)` is not a "1-tuple", I think!
     t[0] = (ASTNode.TUPLE, t[2])

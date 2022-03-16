@@ -266,6 +266,14 @@ def test_constructor4():
     assert e1 == e2
 
 
+def test_call_tuples1():
+    s = "rm (x,p20) x"
+    e = parse_annot(s)
+    assert e[0] == ASTNode.CALL
+    assert len(e[2]) == 2
+    assert e[2][0][0] == ASTNode.TUPLE, e[2][0]
+
+
 def test_paxos_err2():
     s = "PrepareQFCond(cid,crnd',preparereplies')"
     e = parse_annot(s)

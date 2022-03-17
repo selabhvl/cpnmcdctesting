@@ -5,7 +5,7 @@ import sys
 import xml.etree.ElementTree as ET
 
 from CPNParser.cpnexprparse import parse_annot, parse_cond, parse_fdecls, ASTNode
-from CPNParser.cpnexprtransf import traverse
+from CPNParser.cpnexprtransf import traverse, traverse_decls
 from CPNParser.cpnxml import extract_elements_with_conditions, extract_elements_with_annotations, find_element_by_expr_name, get_cond, set_cond, get_annot, set_annot
 
 
@@ -96,15 +96,19 @@ def test_mqtt_ml1():
     s = "fun iSubscribe () = List.map (fn qos => QoS(qos)) (!allowSubscribe);"
     e = parse_fdecls(s)
     print(e)
-    et = traverse(e)
+    et = traverse_decls(e)
     print(et)
+    assert len(e) == len(et)
+
 
 def test_mqtt_ml2():
     s = "val cpnmcdclibpath =  '../../../';"
-    e = parse_annot(s)
+    e = parse_fdecls(s)
     print(e)
-    et = traverse(e)
+    et = traverse_decls(e)
     print(et)
+    assert len(e) == len(et)
+
 
 def test_ite1_guard1():
     e = parse_cond("if hd foo = bar then true else false")

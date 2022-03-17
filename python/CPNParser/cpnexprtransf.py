@@ -200,14 +200,25 @@ def translate_hash(t, dec):
     _, name, expr = t
     return "# {0} {1}".format(name, traverse(expr, dec=None))
 
+
 def translate_fun(t, dec):
     # FUN NAME expressions EQUALS expression SEMI
     # (ASTNode.FUN, t[2], t[3], t[5])
+    assert t[0] == ASTNode.FUN
     _, name, expr_list, expr = t
     str_expr_list = ",".join(traverse(expr, dec=None) for expr in expr_list) if expr_list is not None else ""
-    return "fun {0} {1}".format(name,
+    return "fun {0} {1} = {2};".format(name,
                                 str_expr_list,
                                 traverse(expr, dec=None))
+
+
+def translate_val(t, dec):
+    # VAL NAME EQUALS expression SEMI
+    # (ASTNode.VAL, t[2], t[4])
+    assert t[0] == ASTNode.VAL
+    _, name, expr = t
+    return "val {0} = {1};".format(name, traverse(expr, dec=None))
+
 
 def traverse(t, dec=None):
     if t[0] == ASTNode.ITE:
@@ -243,9 +254,23 @@ def traverse(t, dec=None):
     elif t[0] == ASTNode.HASH:
         return translate_hash(t, dec)
     elif t[0] == ASTNode.FUN:
+        assert False, "Unreached."
         return translate_fun(t, dec)
     elif type(t[0]) == str:
         # TODO: What happens when the AST arrives to a terminal node (e.g., expression = NUMBER)?
         return t[0]
     else:
         assert False, t
+
+
+def traverse_decl(t):
+    if t[0] == ASTNode.FUN:
+        return translate_fun(t, dec=None)
+    elif t[0] == ASTNode.VAL:
+        return translate_val(t, dec=None)
+    else:
+        assert False
+
+
+def traverse_decls(t):
+    return list(map(traverse_decl, t))

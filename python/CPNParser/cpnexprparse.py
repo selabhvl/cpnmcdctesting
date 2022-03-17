@@ -66,7 +66,8 @@ class ASTNode(Enum):
     GUARD = 13
     CONSTRUCTOR = 14
     HASH = 15
-    FUN = 16
+    FUN = 16,
+    VAL = 17
 
 
 def p_statement_assign(t):
@@ -213,6 +214,11 @@ def p_fun_decls(t):
         t[0] = t[1] + [t[2]]
 
 
+def p_val_decls(t):
+    'fdecl : VAL NAME EQUALS expression SEMI'
+    t[0] = (ASTNode.VAL, t[2], t[4])
+
+
 def p_expression_unit(t):
     '''item : LPAREN RPAREN'''
     t[0] = (ASTNode.TUPLE, None)
@@ -295,8 +301,15 @@ def p_item_string(t):
 
 
 def p_item_name(t):
-    'item : NAME'
-    t[0] = ASTNode.ID, str(t[1])
+    '''item : NAME
+          | item DOT NAME'''
+    if len(t) == 2:
+        t[0] = ASTNode.ID, str(t[1])
+    else:
+        assert len(t) == 4
+        assert t[1][0] == ASTNode.ID  # otherwise not valid SML
+        i = t[1][1]  # extract actual string
+        t[0] = ASTNode.ID, str(i) + "." + str(t[3])
 
 
 def p_error(t):

@@ -170,10 +170,9 @@ def test_exp_not1():
 
 def test_exp_not2():
     e = parse_annot("(not b1)")
-    assert e[0] == ASTNode.REF
-    # assert e[1][0] == ASTNode.ID
-    #assert e[1][1] == "not"
-    print(e)
+    assert e[0] == ASTNode.CALL
+    assert e[1][0] == ASTNode.ID
+    assert e[1][1] == "not"
     et = traverse(e)
     print(et)
     assert re.match(r'not.*b1.*', et) is not None, (e, et)

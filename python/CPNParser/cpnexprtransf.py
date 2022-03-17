@@ -121,10 +121,9 @@ def translate_tuple(t, dec):
 
 def translate_ref(t, dec):
     # REF expression
-    # (ASTNode.REF, ref, expression)
-    _, ref, expr = t
-    return "{0}{1}".format(ref,
-                           traverse(expr, dec))
+    # (ASTNode.REF, expression)
+    _, expr = t
+    return "!{0}".format(traverse(expr, dec=None))
 
 
 def translate_binexp(t, dec):

@@ -271,7 +271,7 @@ def p_expression_ref(t):
     'expression : REF expression'
     # t[0] = t[2]
     # t[0] = "{0} {1}".format(t[1], t[2])
-    t[0] = (ASTNode.REF, t[1], t[2])
+    t[0] = (ASTNode.REF, t[2])
 
 def p_expression_item(t):
     'expression : item'

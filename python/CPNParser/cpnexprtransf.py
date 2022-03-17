@@ -119,12 +119,12 @@ def translate_tuple(t, dec):
     return "(" + str_expr_list + ")"
 
 
-def translate_not(t, dec):
-    # NOT expression |
-    # NOT_2 expression
-    # (ASTNode.NOT, t[1], t[2])
-    _, op, expr = t
-    return "{0}({1})".format(op, traverse(expr))
+def translate_ref(t, dec):
+    # REF expression
+    # (ASTNode.REF, ref, expression)
+    _, ref, expr = t
+    return "{0}{1}".format(ref,
+                           traverse(expr, dec))
 
 
 def translate_binexp(t, dec):
@@ -183,13 +183,6 @@ def translate_tilde(t, dec):
     return "{0}{1}".format(tilde,
                            traverse(expr, dec))
 
-def translate_ref(t, dec):
-    # REF expression
-    # (ASTNode.REF, ref, expression)
-    _, ref, expr = t
-    return "{0}{1}".format(ref,
-                           traverse(expr, dec))
-
 def translate_id(t, dec):
     return "{0}".format(t[1])
 
@@ -228,8 +221,8 @@ def traverse(t, dec=None):
         translate_fn(t, dec)
     elif t[0] == ASTNode.TUPLE:
         return translate_tuple(t, dec)
-    elif t[0] == ASTNode.NOT:
-        return translate_not(t, dec)
+    elif t[0] == ASTNode.REF:
+        return translate_ref(t, dec)
     elif t[0] == ASTNode.BINEXP:
         return translate_binexp(t, dec)
     elif t[0] == ASTNode.BINCOND:
@@ -242,8 +235,6 @@ def traverse(t, dec=None):
         return translate_constructor(t, dec)
     elif t[0] == ASTNode.HASH:
         return translate_hash(t, dec)
-    elif t[0] == ASTNode.REF:
-        return translate_ref(t, dec)
     elif type(t[0]) == str:
         # TODO: What happens when the AST arrives to a terminal node (e.g., expression = NUMBER)?
         return t[0]

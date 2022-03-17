@@ -62,12 +62,11 @@ class ASTNode(Enum):
     BINEXP = 9
     FN = 10
     TUPLE = 11
-    NOT = 12  # TODO: only "!"?
+    REF = 12
     GUARD = 13
     CONSTRUCTOR = 14
     HASH = 15
-    REF = 16
-    FUN = 17
+    FUN = 16
 
 
 def p_statement_assign(t):
@@ -235,13 +234,6 @@ def p_expression_tuple(t):
     t[0] = (ASTNode.TUPLE, t[2])
 
 # # Bool comparison
-# def p_statement_not(t):
-#     '''expression : NOT expression'''
-#     # t[0] = t[2]
-#     # t[0] = "{0} {1}".format(t[1], t[2])
-#     t[0] = (ASTNode.NOT, t[1], t[2])
-
-
 def p_comparison_binop(t):
     '''expression : expression EQUALS expression
                   | expression NEQ expression

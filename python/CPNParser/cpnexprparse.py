@@ -217,7 +217,7 @@ def p_expression_fn(t):
 
 
 def p_expression_unit(t):
-    '''expression : LPAREN RPAREN'''
+    '''item : LPAREN RPAREN'''
     t[0] = (ASTNode.TUPLE, None)
 
 

@@ -77,6 +77,15 @@ def test_funcs():
     assert re.match(r'^AP.*', et) is not None, (e, et)
 
 
+def test_func():
+    e = parse_annot("f()")
+    assert e[0] == ASTNode.CALL, e  # check precedence
+    assert e[1][0] == ASTNode.ID
+    assert e[1][1] == "f"
+    assert e[2][0][0] == ASTNode.TUPLE
+    assert e[2][0][1] == None
+
+
 def test_ite1_guard1():
     e = parse_cond("if hd foo = bar then true else false")
     print(e)
@@ -155,6 +164,17 @@ def test_exp_not1():
 
 def test_exp_not2():
     e = parse_annot("(not b1)")
+    assert e[0] == ASTNode.CALL
+    assert e[1][0] == ASTNode.ID
+    assert e[1][1] == "not"
+    print(e)
+    et = traverse(e)
+    print(et)
+    assert re.match(r'not.*b1.*', et) is not None, (e, et)
+
+
+def test_exp_not3():
+    e = parse_annot("! b1")
     assert e[0] == ASTNode.CALL
     assert e[1][0] == ASTNode.ID
     assert e[1][1] == "not"

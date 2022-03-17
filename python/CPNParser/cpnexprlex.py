@@ -8,7 +8,6 @@ reserved = {
     'else': 'ELSE',
     'orelse': 'ORELSE',
     'andalso': 'ANDALSO',
-#    'not': 'NOT',  # TODO: review
     'fn': 'FN',
     'let': 'LET',
     'fun': 'FUN'
@@ -47,7 +46,7 @@ t_TILDE = r'~'
 t_TO = r'=>'
 t_CHAR = r'\#'
 t_HAT = r'\^\^'
-t_NOT_2 = r'!'
+t_NOT_2 = r'!'  # TODO: should be `ref`, but doesn't matter
 # t_NAME = r'[a-zA-Z_][a-zA-Z0-9_]*'
 
 

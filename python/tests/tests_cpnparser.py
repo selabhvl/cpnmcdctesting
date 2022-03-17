@@ -92,6 +92,20 @@ def test_fun_decl():
     assert e[0][0] == ASTNode.FUN, e
 
 
+def test_mqtt_ml1():
+    s = "fun iSubscribe () = List.map (fn qos => QoS(qos)) (!allowSubscribe);"
+    e = parse_fdecls(s)
+    print(e)
+    et = traverse(e)
+    print(et)
+
+def test_mqtt_ml2():
+    s = "val cpnmcdclibpath =  '../../../';"
+    e = parse_annot(s)
+    print(e)
+    et = traverse(e)
+    print(et)
+
 def test_ite1_guard1():
     e = parse_cond("if hd foo = bar then true else false")
     print(e)
@@ -348,13 +362,12 @@ def test_arc_model(in_filename):
         if expr is not None:
             inst_expr = ""
             try:
-                print("\n")
                 trimmed_expr = expr.replace("\n", " ")
-                print(trimmed_expr)
+                # print(trimmed_expr)
                 ast = parse_annot(trimmed_expr)
-                print(ast)
+                # print(ast)
                 inst_expr = traverse(ast)
-                print(inst_expr)
+                # print(inst_expr)
             except:
                 arc_errors.append([trimmed_expr, ast, inst_expr])
                 continue
@@ -455,4 +468,3 @@ def test_cpnabs_arc7():
     print(e)
     et = traverse(e)
     print(et)
-

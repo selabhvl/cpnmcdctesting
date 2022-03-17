@@ -2,8 +2,8 @@ import os
 import sys
 import csv
 import xml.etree.ElementTree as ET
-from CPNParser.cpnxml import extract_elements_with_conditions, extract_elements_with_annotations, find_element_by_expr_name, get_cond, set_cond, get_annot, set_annot
-from CPNParser.cpnexprparse import parse_cond, parse_annot
+from CPNParser.cpnxml import extract_elements_with_conditions, extract_elements_with_annotations, extract_elements_with_ml, find_element_by_expr_name, get_cond, set_cond, get_annot, set_annot, get_ml, set_ml
+from CPNParser.cpnexprparse import parse_cond, parse_annot, parse_fdecls
 from CPNParser.cpnexprtransf import traverse
 
 if __name__ == "__main__":
@@ -46,6 +46,26 @@ if __name__ == "__main__":
                 ast = parse_annot(expr.replace("\n", " "))
                 inst_expr = traverse(ast)
                 set_annot(a, inst_expr)
+                trace.writerow([expr, inst_expr])
+                # print("{0} | {1}".format(expr, inst_expr))
+            except:
+                continue
+
+    xml_tree.write(out_filename, xml_declaration=True)
+    csvfile.close()
+
+    csvfile = open(basename + '_ml.csv', 'w', newline='')
+    trace = csv.writer(csvfile, delimiter='|', quoting=csv.QUOTE_MINIMAL)
+
+    print("ML")
+    ml_declarations = extract_elements_with_ml(xml_tree)
+    for a in ml_declarations:
+        expr = get_ml(a)
+        if expr is not None:
+            try:
+                ast = parse_fdecls(expr.replace("\n", " "))
+                inst_expr = traverse(ast)
+                set_ml(a, inst_expr)
                 trace.writerow([expr, inst_expr])
                 # print("{0} | {1}".format(expr, inst_expr))
             except:

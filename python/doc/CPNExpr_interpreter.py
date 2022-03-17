@@ -1,5 +1,5 @@
 import CPNParser.cpnexprlex
-from CPNParser.cpnexprparse import parse
+from CPNParser.cpnexprparse import parse_cond
 
 if __name__ == "__main__":
 
@@ -10,5 +10,5 @@ if __name__ == "__main__":
             s = input('calc > ')  # Use raw_input on Python 2
         except EOFError:
             break
-        res = parse(s)
+        res = parse_cond(s)
         print(res)

@@ -30,8 +30,8 @@ precedence = (
     ('left', 'TIMES', 'DIVIDE'),
     ('left', 'TICK'),
     ('right', 'TILDE'),
-#    ('right', 'NOT'),
-    ('right', 'NOT_2'),
+    ('right', 'NOT'),
+    ('right', 'REF'),
     ('left', 'CONS'),
     ('left', 'FCALL'),  # virtual!
 )
@@ -63,28 +63,11 @@ class ASTNode(Enum):
     BINEXP = 9
     FN = 10
     TUPLE = 11
-    NOT = 12  # TODO: only "!"?
+    NOT = 12
     GUARD = 13
     CONSTRUCTOR = 14
     HASH = 15
-
-
-# class BinOp(Enum):
-#     EQUALS = 1
-#     NEQ = 2
-#     LESS = 3
-#     LEQ = 4
-#     GREATER = 5
-#     GEQ = 6
-#     ORELSE = 7
-#     ANDALSO = 8
-#
-#     @staticmethod
-#     def from_string(cpn_bin_op):
-#         # type: (str) -> str
-#         # Receives a binary operation from a non-instrumented CPNTool file
-#         # and returns the type of operation. E.g: BinOp.from_string("andalso") --> AND
-#         return ""
+    REF = 16
 
 
 def p_statement_assign(t):
@@ -236,15 +219,12 @@ def p_expression_tuple(t):
     # TODO: `(x)` is not a "1-tuple", I think!
     t[0] = (ASTNode.TUPLE, t[2])
 
-
 # # Bool comparison
-# Unclear TODO: incomplete
 def p_statement_not(t):
-    '''expression : NOT_2 expression'''
+    '''expression : NOT expression'''
     # t[0] = t[2]
     # t[0] = "{0} {1}".format(t[1], t[2])
     t[0] = (ASTNode.NOT, t[1], t[2])
-    assert False
 
 
 def p_comparison_binop(t):
@@ -280,11 +260,15 @@ def p_expression_tilde(t):
     # t[0] = "{0} {1}".format(t[1], t[2])
     t[0] = (ASTNode.TILDE, t[1], t[2])
 
+def p_expression_ref(t):
+    'expression : REF expression'
+    # t[0] = t[2]
+    # t[0] = "{0} {1}".format(t[1], t[2])
+    t[0] = (ASTNode.REF, t[1], t[2])
 
 def p_expression_item(t):
     'expression : item'
     t[0] = t[1]
-
 
 # TODO XXX `ID` should better be called `item`...
 def p_item_number(t):

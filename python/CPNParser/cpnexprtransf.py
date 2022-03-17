@@ -183,6 +183,12 @@ def translate_tilde(t, dec):
     return "{0}{1}".format(tilde,
                            traverse(expr, dec))
 
+def translate_ref(t, dec):
+    # REF expression
+    # (ASTNode.REF, ref, expression)
+    _, ref, expr = t
+    return "{0}{1}".format(ref,
+                           traverse(expr, dec))
 
 def translate_id(t, dec):
     return "{0}".format(t[1])
@@ -197,7 +203,7 @@ def translate_constructor(t, dec):
 
 def translate_hash(t, dec):
     # CHAR NAME expression
-    #| CHAR NUMBER expression
+    # | CHAR NUMBER expression
     # (ASTNode.HASH, t[2], t[3])
     _, name, expr = t
     return "# {0} {1}".format(name, traverse(expr, dec=None))
@@ -236,6 +242,8 @@ def traverse(t, dec=None):
         return translate_constructor(t, dec)
     elif t[0] == ASTNode.HASH:
         return translate_hash(t, dec)
+    elif t[0] == ASTNode.REF:
+        return translate_ref(t, dec)
     elif type(t[0]) == str:
         # TODO: What happens when the AST arrives to a terminal node (e.g., expression = NUMBER)?
         return t[0]

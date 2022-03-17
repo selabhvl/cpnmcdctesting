@@ -8,7 +8,6 @@ reserved = {
     'else': 'ELSE',
     'orelse': 'ORELSE',
     'andalso': 'ANDALSO',
-    'not': 'NOT',
     'fn': 'FN',
     'let': 'LET',
     'fun': 'FUN'
@@ -19,7 +18,7 @@ tokens = [
     'NAME', 'ASSIGN', 'STRING', 'NUMBER', 'BOOL',
     'APP', 'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'CONS',
     'EQUALS', 'NEQ', 'LEQ', 'LESS', 'GEQ', 'GREATER',
-    'LPAREN', 'RPAREN', 'LBRACK', 'RBRACK', 'COMA', 'TICK', 'TILDE', 'TO', 'CHAR', 'HAT', 'REF'
+    'LPAREN', 'RPAREN', 'LBRACK', 'RBRACK', 'COMA', 'SEMI', 'TICK', 'TILDE', 'TO', 'CHAR', 'HAT', 'REF'
 ] + list(reserved.values())
 
 # Tokens
@@ -40,6 +39,7 @@ t_RPAREN = r'\)'
 t_LBRACK = r'\['
 t_RBRACK = r'\]'
 t_COMA = r'\,'
+t_SEMI = r';'
 t_STRING = r'\".*?\"'
 t_CONS = r'::'
 t_TICK = r'\`'

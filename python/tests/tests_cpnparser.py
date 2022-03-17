@@ -4,7 +4,7 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 
-from CPNParser.cpnexprparse import parse_annot, parse_cond, ASTNode
+from CPNParser.cpnexprparse import parse_annot, parse_cond, parse_fdecls, ASTNode
 from CPNParser.cpnexprtransf import traverse
 from CPNParser.cpnxml import extract_elements_with_conditions, extract_elements_with_annotations, find_element_by_expr_name, get_cond, set_cond, get_annot, set_annot
 
@@ -79,11 +79,17 @@ def test_funcs():
 
 def test_func():
     e = parse_annot("f()")
-    assert e[0] == ASTNode.CALL, e  # check precedence
+    assert e[0] == ASTNode.CALL, e
     assert e[1][0] == ASTNode.ID
     assert e[1][1] == "f"
     assert e[2][0][0] == ASTNode.TUPLE
     assert e[2][0][1] == None
+
+
+def test_fun_decl():
+    e = parse_fdecls("fun f () = 42;")
+    assert len(e) == 1
+    assert e[0][0] == ASTNode.FUN, e
 
 
 def test_ite1_guard1():
@@ -173,11 +179,11 @@ def test_exp_not2():
     assert re.match(r'not.*b1.*', et) is not None, (e, et)
 
 
-def test_exp_not3():
+def test_exp_ref():
     e = parse_annot("! b1")
-    assert e[0] == ASTNode.CALL
+    assert e[0] == ASTNode.REF
     assert e[1][0] == ASTNode.ID
-    assert e[1][1] == "not"
+    assert e[1][1] == "b1"
     print(e)
     et = traverse(e)
     print(et)

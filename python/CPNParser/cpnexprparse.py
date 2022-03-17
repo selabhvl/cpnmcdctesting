@@ -30,7 +30,6 @@ precedence = (
     ('left', 'TIMES', 'DIVIDE'),
     ('left', 'TICK'),
     ('right', 'TILDE'),
-    ('right', 'NOT'),
     ('right', 'REF'),
     ('left', 'CONS'),
     ('left', 'FCALL'),  # virtual!
@@ -63,11 +62,12 @@ class ASTNode(Enum):
     BINEXP = 9
     FN = 10
     TUPLE = 11
-    NOT = 12
+    NOT = 12  # TODO: only "!"?
     GUARD = 13
     CONSTRUCTOR = 14
     HASH = 15
     REF = 16
+    FUN = 17
 
 
 def p_statement_assign(t):
@@ -199,6 +199,21 @@ def p_expression_fn(t):
     t[0] = (ASTNode.FN, t[2], t[4])
 
 
+def p_fun_decl(t):
+    '''fdecl : FUN NAME expressions EQUALS expression SEMI'''
+    t[0] = (ASTNode.FUN, t[2], t[3], t[5])
+
+
+def p_fun_decls(t):
+    '''fdecls : fdecls fdecl
+              | fdecl'''
+    if len(t) == 2:
+        t[0] = [t[1]]
+    else:
+        assert len(t) == 3
+        t[0] = t[1] + [t[2]]
+
+
 def p_expression_unit(t):
     '''item : LPAREN RPAREN'''
     t[0] = (ASTNode.TUPLE, None)
@@ -220,11 +235,11 @@ def p_expression_tuple(t):
     t[0] = (ASTNode.TUPLE, t[2])
 
 # # Bool comparison
-def p_statement_not(t):
-    '''expression : NOT expression'''
-    # t[0] = t[2]
-    # t[0] = "{0} {1}".format(t[1], t[2])
-    t[0] = (ASTNode.NOT, t[1], t[2])
+# def p_statement_not(t):
+#     '''expression : NOT expression'''
+#     # t[0] = t[2]
+#     # t[0] = "{0} {1}".format(t[1], t[2])
+#     t[0] = (ASTNode.NOT, t[1], t[2])
 
 
 def p_comparison_binop(t):
@@ -270,6 +285,7 @@ def p_expression_item(t):
     'expression : item'
     t[0] = t[1]
 
+
 # TODO XXX `ID` should better be called `item`...
 def p_item_number(t):
     'item : NUMBER'
@@ -302,6 +318,8 @@ def p_error(t):
 tmpdirname = "/temp/"  # tempfile.TemporaryDirectory()
 annot_parser = yacc.yacc(start='expression', debug=tmpdirname + 'parser.out', write_tables=False)
 cond_parser = yacc.yacc(start='guard', debug=tmpdirname + 'guardparser.out', write_tables=False)
+fdecls_parser = yacc.yacc(start='fdecls', debug=tmpdirname + 'fdeclsparser.out', write_tables=False)
+
 
 # Arcs in the CPN
 def parse_annot(data, debug=0):
@@ -315,12 +333,27 @@ def parse_annot(data, debug=0):
         print("Exception: {0}".format(data))
         raise
 
+
 # Transitions in the CPN
 def parse_cond(data, debug=0):
     cond_parser.error = 0
     try:
         p = cond_parser.parse(data, debug=debug)
         if cond_parser.error:
+            return data
+        return p
+    except:
+        print("Exception: {0}".format(data))
+        raise
+
+
+# Declarations in <ml>-tags:
+def parse_fdecls(data, debug=0):
+    # TODO: refactor all 3 parsers.
+    fdecls_parser.error = 0
+    try:
+        p = fdecls_parser.parse(data, debug=debug)
+        if fdecls_parser.error:
             return data
         return p
     except:

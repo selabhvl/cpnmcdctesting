@@ -72,7 +72,8 @@ def test_dec1():
 def test_funcs():
     e = parse_annot("f foo bar")
     assert e[0] == ASTNode.CALL, e  # check precedence
-    assert len(e[2]) == 2, e
+    # No longer true with partial application
+    # assert len(e[2]) == 2, e
     et = traverse(e, dec="1")
     assert re.match(r'^AP.*', et) is not None, (e, et)
 
@@ -82,8 +83,8 @@ def test_func():
     assert e[0] == ASTNode.CALL, e
     assert e[1][0] == ASTNode.ID
     assert e[1][1] == "f"
-    assert e[2][0][0] == ASTNode.TUPLE
-    assert e[2][0][1] == None
+    assert e[2][0] == ASTNode.TUPLE
+    assert e[2][1] == None
 
 
 def test_fun_decl():
@@ -177,9 +178,8 @@ def test_exp_not1():
     assert e[0] == ASTNode.CALL
     assert e[1][0] == ASTNode.ID
     assert e[1][1] == "not"
-    assert len(e[2]) == 1
-    assert e[2][0][0] == ASTNode.ID, e[2][0]
-    assert e[2][0][1] == "b1"
+    assert e[2][0] == ASTNode.ID, e[2][0]
+    assert e[2][1] == "b1"
     print(e)
     et = traverse(e)
     print(et)
@@ -213,7 +213,7 @@ def test_guard_not1():
     et = traverse(e)
     print(et)
     # [EXPR("id1", AP("1", not (b1)))]
-    assert re.match(r'\[EXPR\(.*, AP\(.*, not \(b1\)\)\)\]', et) is not None, (e, et)
+    assert re.match(r'\[EXPR\(.*, AP\(.*, not b1\)\)\]', et) is not None, (e, et)
 
     
 def test_exp4():
@@ -296,9 +296,9 @@ def test_call_exp1():
     s = "f x (y+1)"
     e = parse_annot(s)
     assert e[0] == ASTNode.CALL
-    assert e[1][1] == "f"
-    assert e[2][0][0] == ASTNode.ID
-    assert e[2][1][0] is ASTNode.BINEXP
+    assert e[1][0] == ASTNode.CALL
+    assert e[1][1][1] == "f"
+    assert e[2][0] == ASTNode.BINEXP
 
 
 def test_constructor4():
@@ -313,8 +313,8 @@ def test_call_tuples1():
     s = "rm (x,p20) x"
     e = parse_annot(s)
     assert e[0] == ASTNode.CALL
-    assert len(e[2]) == 2
-    assert e[2][0][0] == ASTNode.TUPLE, e[2][0]
+    assert e[1][0] == ASTNode.CALL
+    assert e[1][2][0] == ASTNode.TUPLE, e[2][0]
 
 
 def test_paxos_err2():

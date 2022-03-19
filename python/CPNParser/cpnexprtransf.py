@@ -76,6 +76,7 @@ def translate_single_guard(t, dec):
     # (ASTNode.GUARD, decision, expression)
     assert t[0] == ASTNode.GUARD
     _, guard_dec, expr = t
+    assert guard_dec is not None
     str_expr = traverse(expr, guard_dec)
     return "EXPR(\"{0}\", {1})".format(guard_dec, str_expr)
     # return "[{0}]".format(traverse(expr_list, dec))
@@ -87,8 +88,9 @@ def translate_guard(t):
     # (ASTNode.GUARDS, decision, expression_list)
     assert t[0] == ASTNode.GUARDS
     _, guard_dec, expr_list = t
+    assert guard_dec is not None
     if len(expr_list) == 1:
-        str_expr_list = traverse(expr_list[0])
+        str_expr_list = traverse(expr_list[0], dec=guard_dec)
     else:
         assert len(expr_list) > 1
         def ts(e0, es):

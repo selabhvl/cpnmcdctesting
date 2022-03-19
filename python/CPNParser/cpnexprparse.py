@@ -5,7 +5,7 @@ from enum import Enum
 
 # List of token names.   This is always required
 tokens = cpnexprlex.tokens
-start = 'statement'
+start = 'fdecls'
 
 # Parsing rules
 # precedence = (
@@ -66,13 +66,14 @@ class ASTNode(Enum):
     GUARD = 13
     CONSTRUCTOR = 14
     HASH = 15
-    FUN = 16,
+    FUN = 16
     VAL = 17
+    ASSIGN = 18
 
 
 def p_statement_assign(t):
-    'statement : NAME ASSIGN expression'
-    names[t[1]] = t[3]
+    'expression : NAME ASSIGN expression'
+    t[0] = (ASTNode.ASSIGN, t[1], t[3])
 
 
 # condition = bool expression (transitions)

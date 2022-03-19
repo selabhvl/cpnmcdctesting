@@ -93,6 +93,15 @@ def test_fun_decl():
     assert e[0][0] == ASTNode.FUN, e
 
 
+def test_fun_decl2():
+    e = parse_fdecls("fun f () = timeout := 42;")
+    assert len(e) == 1
+    assert e[0][0] == ASTNode.FUN, e[0]
+    assert e[0][3][0] == ASTNode.ASSIGN, e[0][2]
+    et = traverse_decls(e)
+    print(et)
+
+
 def test_mqtt_ml1():
     s = "fun iSubscribe () = List.map (fn qos => QoS(qos)) (!allowSubscribe);"
     e = parse_fdecls(s)
@@ -231,6 +240,14 @@ def test_arcannot():
     print(et)
 
 
+def test_arc_assign1():
+    s = "x = 42"
+    e = parse_annot(s)
+    assert e[0] == ASTNode.ASSIGN
+    et = traverse(e)
+    print(et)
+
+
 @pytest.mark.parametrize("expr", error_cpnabs)
 def test_cpnabs(expr):
     e = parse_cond(expr)
@@ -331,6 +348,7 @@ def test_paxos_err3():
     et = traverse(e)
     print(et)
 
+
 def test_paxos_err4():
     s = "if PrepareQFCond(cid,crnd',preparereplies') then true else empty"
     e = parse_annot(s)
@@ -349,7 +367,15 @@ def test_guards2():
 
 
 def test_guards3():
-    s = "[a = b, c <= 42, f 42]"
+    s = "[a = b, c <= 42, ((f 42) - 3) >= 42]"
+    e = parse_cond(s)
+    print(e)
+    et = traverse(e)
+    print(et)
+
+
+def test_guards_faustin():
+    s = "[the_system_mode=preparing_strong_coffee,(time() - the_request_timer) <= 50 andalso (time() - the_request_timer) >= 30, not(String.isSuffix \"REQ005\" trace) ]"
     e = parse_cond(s)
     print(e)
     et = traverse(e)

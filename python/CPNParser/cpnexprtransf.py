@@ -230,6 +230,10 @@ def translate_val(t, dec):
     return "val {0} = {1};".format(name, traverse(expr, dec=None))
 
 
+def translate_assign(t, dec):
+    return "{0} := {1}".format(t[1], traverse(t[2], dec=None))
+
+
 def traverse(t, dec=None):
     if t[0] == ASTNode.ITE:
         return translate_ite(t, dec)
@@ -264,6 +268,8 @@ def traverse(t, dec=None):
         return translate_constructor(t, dec)
     elif t[0] == ASTNode.HASH:
         return translate_hash(t, dec)
+    elif t[0] == ASTNode.ASSIGN:
+        return translate_assign(t, dec)
     elif t[0] == ASTNode.FUN:
         assert False, "Unreached."
         return translate_fun(t, dec)

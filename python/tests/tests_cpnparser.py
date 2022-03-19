@@ -5,7 +5,7 @@ import sys
 import xml.etree.ElementTree as ET
 
 from CPNParser.cpnexprparse import parse_annot, parse_cond, parse_fdecls, ASTNode
-from CPNParser.cpnexprtransf import traverse, traverse_decls
+from CPNParser.cpnexprtransf import traverse, traverse_decls, translate_guard
 from CPNParser.cpnxml import extract_elements_with_conditions, extract_elements_with_annotations, find_element_by_expr_name, get_cond, set_cond, get_annot, set_annot
 
 
@@ -337,6 +337,24 @@ def test_paxos_err4():
     print(e)
     et = traverse(e)
     print(et)
+
+
+def test_guards2():
+    s = "[a = b, c <= 42]"
+    e = parse_cond(s)
+    print(e)
+    et = traverse(e)
+    print(et)
+    assert et == "[EXPR(\"id1\", AND(AP(\"1\", a=b), AP(\"2\", c<=42)))]"
+
+
+def test_guards3():
+    s = "[a = b, c <= 42, f 42]"
+    e = parse_cond(s)
+    print(e)
+    et = traverse(e)
+    print(et)
+
 
 @pytest.mark.parametrize("expr", error_paxos)
 def test_paxos(expr):

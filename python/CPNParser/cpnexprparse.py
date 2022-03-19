@@ -69,6 +69,7 @@ class ASTNode(Enum):
     FUN = 16
     VAL = 17
     ASSIGN = 18
+    LET = 19
 
 
 def p_statement_assign(t):
@@ -218,6 +219,31 @@ def p_fun_decls(t):
 def p_val_decls(t):
     'fdecl : VAL NAME EQUALS expression SEMI'
     t[0] = (ASTNode.VAL, t[2], t[4])
+
+
+def p_expression_let(t):
+    'expression : LET valOrFuns IN expression END SEMI'
+    t[0] = (ASTNode.LET, t[2], t[4])
+
+
+def p_valOrFuns(t):
+    '''valOrFuns : valOrFuns SEMI valOrFun
+                 | valOrFun'''
+    if len(t) == 2:
+        t[0] = [t[1]]
+    else:
+        t[0] = t[1] + [t[3]]
+
+
+def p_valOrFun_val(t):
+    'valOrFun : VAL expression EQUALS expression'
+    t[0] = (ASTNode.VAL, t[2], t[4])
+
+
+def p_valOrFun_val(t):
+    'valOrFun : FUN NAME expressions EQUALS expression'
+    # TODO: overlap with `fdecl`
+    t[0] = (ASTNode.FUN, t[2], t[3], t[5])
 
 
 def p_expression_unit(t):

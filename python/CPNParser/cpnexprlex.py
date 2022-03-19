@@ -12,6 +12,8 @@ reserved = {
     'let': 'LET',
     'fun': 'FUN',
     'val': 'VAL',
+    'in': 'IN',
+    'end': 'END',
 }
 
 # List of token names.   This is always required

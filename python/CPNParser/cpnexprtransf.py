@@ -273,6 +273,8 @@ def traverse(t, dec=None):
         return translate_hash(t, dec)
     elif t[0] == ASTNode.ASSIGN:
         return translate_assign(t, dec)
+    elif t[0] == ASTNode.TYPED:
+        return traverse(t[1], dec)+" : "+t[2]
     elif t[0] == ASTNode.FUN:
         assert False, "Unreached."
         return translate_fun(t, dec)

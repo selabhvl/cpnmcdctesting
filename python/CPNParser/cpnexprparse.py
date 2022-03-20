@@ -70,6 +70,7 @@ class ASTNode(Enum):
     VAL = 17
     ASSIGN = 18
     LET = 19
+    TYPED = 20
 
 
 def p_statement_assign(t):
@@ -306,6 +307,12 @@ def p_expression_ref(t):
     # t[0] = t[2]
     # t[0] = "{0} {1}".format(t[1], t[2])
     t[0] = (ASTNode.REF, t[2])
+
+
+def p_expression_typed(t):
+    'expression : expression COLON NAME'
+    t[0] = (ASTNode.TYPED, t[1], t[3])
+
 
 def p_expression_item(t):
     'expression : item'

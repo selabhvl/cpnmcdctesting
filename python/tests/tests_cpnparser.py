@@ -382,6 +382,14 @@ def test_let1():
     print(et)
 
 
+def test_typed1():
+    s = "42 : int"
+    e = parse_annot(s)
+    print(e)
+    et = traverse(e)
+    print(et)
+
+
 def test_guards_faustin():
     s = "[the_system_mode=preparing_strong_coffee,(time() - the_request_timer) <= 50 andalso (time() - the_request_timer) >= 30, not(String.isSuffix \"REQ005\" trace) ]"
     e = parse_cond(s)

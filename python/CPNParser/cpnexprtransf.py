@@ -215,12 +215,18 @@ def translate_hash(t, dec):
 
 
 def translate_fun(t, dec):
+    assert t[0] == ASTNode.FUNDECL
+    _ , dlist = t
+    return "fun {0};".format("|".join(translate_fun_body(d, dec=None) for d in dlist))
+
+
+def translate_fun_body(t, dec):
     # FUN NAME expressions EQUALS expression SEMI
     # (ASTNode.FUN, t[2], t[3], t[5])
     assert t[0] == ASTNode.FUN
     _, name, expr_list, expr = t
     str_expr_list = ",".join(traverse(expr, dec=None) for expr in expr_list) if expr_list is not None else ""
-    return "fun {0} {1} = {2};".format(name,
+    return "{0} {1} = {2}".format(name,
                                 str_expr_list,
                                 traverse(expr, dec=None))
 
@@ -286,7 +292,7 @@ def traverse(t, dec=None):
 
 
 def traverse_decl(t):
-    if t[0] == ASTNode.FUN:
+    if t[0] == ASTNode.FUNDECL:
         return translate_fun(t, dec=None)
     elif t[0] == ASTNode.VAL:
         return translate_val(t, dec=None)

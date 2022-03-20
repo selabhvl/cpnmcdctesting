@@ -71,6 +71,7 @@ class ASTNode(Enum):
     ASSIGN = 18
     LET = 19
     TYPED = 20
+    FUNDECL = 21
 
 
 def p_statement_assign(t):
@@ -203,8 +204,16 @@ def p_expression_fn(t):
 
 
 def p_fun_decl(t):
-    '''fdecl : FUN NAME expressions EQUALS expression SEMI'''
-    t[0] = (ASTNode.FUN, t[2], t[3], t[5])
+    '''fdecl : FUN frhs SEMI'''
+    t[0] = (ASTNode.FUNDECL, t[2])
+
+def p_fun_frhs(t):
+    '''frhs : frhs PIPE NAME expressions EQUALS expression
+            |           NAME expressions EQUALS expression'''
+    if len(t) == 5:
+        t[0] = [(ASTNode.FUN, t[1], t[2], t[4])]
+    else:
+        t[0] = t[1] + [(ASTNode.FUN, t[3], t[4], t[6])]
 
 
 def p_fun_decls(t):
@@ -242,9 +251,9 @@ def p_valOrFun_val(t):
 
 
 def p_valOrFun_val(t):
-    'valOrFun : FUN NAME expressions EQUALS expression'
+    'valOrFun : FUN frhs'
     # TODO: overlap with `fdecl`
-    t[0] = (ASTNode.FUN, t[2], t[3], t[5])
+    t[0] = (ASTNode.FUNDECL, t[2])
 
 
 def p_expression_unit(t):

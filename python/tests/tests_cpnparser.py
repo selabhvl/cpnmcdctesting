@@ -90,14 +90,23 @@ def test_func():
 def test_fun_decl():
     e = parse_fdecls("fun f () = 42;")
     assert len(e) == 1
-    assert e[0][0] == ASTNode.FUN, e
+    assert e[0][0] == ASTNode.FUNDECL, e
+    assert e[0][1][0][0] == ASTNode.FUN, e
 
 
 def test_fun_decl2():
     e = parse_fdecls("fun f () = timeout := 42;")
     assert len(e) == 1
-    assert e[0][0] == ASTNode.FUN, e[0]
-    assert e[0][3][0] == ASTNode.ASSIGN, e[0][2]
+    assert e[0][0] == ASTNode.FUNDECL, e[0]
+    assert e[0][1][0][3][0] == ASTNode.ASSIGN, e[0][2]
+    et = traverse_decls(e)
+    print(et)
+
+
+def test_fun_decl3():
+    e = parse_fdecls("fun f true = 42 | f false = 7;")
+    assert len(e) == 1
+    assert e[0][0] == ASTNode.FUNDECL, e[0]
     et = traverse_decls(e)
     print(et)
 

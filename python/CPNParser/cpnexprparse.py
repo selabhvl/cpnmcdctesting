@@ -252,10 +252,14 @@ def p_expression_let(t):
 
 def p_valOrFuns(t):
     '''valOrFuns : valOrFuns SEMI valOrFun
+                 | valOrFuns valOrFun
                  | valOrFun'''
     if len(t) == 2:
         t[0] = [t[1]]
+    elif len(t) == 3:
+        t[0] = t[1] = [t[2]]
     else:
+        assert len(t) == 4
         t[0] = t[1] + [t[3]]
 
 

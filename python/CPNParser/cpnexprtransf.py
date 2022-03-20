@@ -214,6 +214,19 @@ def translate_hash(t, dec):
     return "# {0} {1}".format(name, traverse(expr, dec=None))
 
 
+def translate_fn(t, dec):
+    assert t[0] == ASTNode.FNDECL
+    _ , dlist = t
+    return "fn {0}".format("|".join(translate_fn_body(d, dec=None) for d in dlist))
+
+
+def translate_fn_body(t, dec):
+    # (FN) NAME TO expression
+    assert t[0] == ASTNode.FN
+    _, name, expr = t
+    return "{0} => {1}".format(name, traverse(expr, dec=None))
+
+
 def translate_fun(t, dec):
     assert t[0] == ASTNode.FUNDECL
     _ , dlist = t
@@ -281,6 +294,8 @@ def traverse(t, dec=None):
         return translate_assign(t, dec)
     elif t[0] == ASTNode.TYPED:
         return traverse(t[1], dec)+" : "+t[2]
+    elif t[0] == ASTNode.FNDECL:
+        return translate_fn(t, dec=None)
     elif t[0] == ASTNode.FUN:
         assert False, "Unreached."
         return translate_fun(t, dec)

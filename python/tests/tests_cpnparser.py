@@ -115,6 +115,8 @@ def test_mqtt_ml1():
     s = "fun iSubscribe () = List.map (fn qos => QoS(qos)) (!allowSubscribe);"
     e = parse_fdecls(s)
     print(e)
+    assert e[0][0] == ASTNode.FUNDECL
+    assert e[0][1][0][0] == ASTNode.FUN
     et = traverse_decls(e)
     print(et)
     assert len(e) == len(et)
@@ -384,11 +386,27 @@ def test_guards3():
 
 
 def test_let1():
-    s = "let val x = 42 in f x end;"
+    s = "let val x = 42 in f x end"
     e = parse_cond(s)
     print(e)
     et = traverse(e)
     print(et)
+
+
+def test_case1():
+    s = "case x of 42 => true | _ => false"
+    e = parse_annot(s)
+
+
+def test_fn_decls1():
+    # s = "List.map (fn c => (c,  {topics=[],state=case (!configstate) of cyclic => DISC | _ => READY, pid = 0, roles = getRoles(c)})) (Client.all())"
+    s = " fn x => A | _ => B"
+    e = parse_annot(s)
+
+
+def test_fn_decls2():
+    s = "List.map (fn c => (c,  {topics=[],state=case (!configstate) of cyclic => DISC | _ => READY, pid = 0, roles = getRoles(c)})) (Client.all())"
+    e = parse_annot(s)
 
 
 def test_typed1():

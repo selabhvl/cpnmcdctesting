@@ -72,6 +72,9 @@ class ASTNode(Enum):
     LET = 19
     TYPED = 20
     FUNDECL = 21
+    FNDECL = 22
+    CASE = 23
+    CASEEXP = 24
 
 
 def p_statement_assign(t):
@@ -198,9 +201,21 @@ def p_expression_list_brack(t):
 
 
 def p_expression_fn(t):
-    '''expression : FN NAME TO expression'''
+    '''expression : FN fnrhs'''
     # t[0] = "{0} {1} {2} {3}".format(t[1], t[2], t[3], t[4])
-    t[0] = (ASTNode.FN, t[2], t[4])
+    t[0] = (ASTNode.FNDECL, t[2])
+
+
+def p_expression_fnrhs(t):
+    '''fnrhs : fnrhs PIPE NAME TO expression
+                  | NAME TO expression'''
+    # t[0] = "{0} {1} {2} {3}".format(t[1], t[2], t[3], t[4])
+    # TODO: only `NAME`?
+    if len(t) == 4:
+        t[0] = [(ASTNode.FN, t[1], t[3])]
+    else:
+        assert len(t) == 6
+        t[0] = t[1] + [(ASTNode.FN, t[3], t[5])]
 
 
 def p_fun_decl(t):
@@ -232,7 +247,7 @@ def p_val_decls(t):
 
 
 def p_expression_let(t):
-    'expression : LET valOrFuns IN expression END SEMI'
+    'expression : LET valOrFuns IN expression END'
     t[0] = (ASTNode.LET, t[2], t[4])
 
 
@@ -250,10 +265,25 @@ def p_valOrFun_val(t):
     t[0] = (ASTNode.VAL, t[2], t[4])
 
 
-def p_valOrFun_val(t):
+def p_valOrFun_fun(t):
     'valOrFun : FUN frhs'
     # TODO: overlap with `fdecl`
     t[0] = (ASTNode.FUNDECL, t[2])
+
+
+def p_expression_case(t):
+    'expression : CASE expression OF caserhs'
+    t[0] = (ASTNode.CASE, t[2], t[4])
+
+
+def p_caserhs(t):
+    '''caserhs : caserhs PIPE expression TO expression
+               | expression TO expression'''
+    if len(t) == 4:
+        t[0] = [(ASTNode.CASEEXP, t[1], t[3])]
+    else:
+        assert len(t) == 6
+        t[0] = t[1] + [(ASTNode.CASEEXP, t[3], t[5])]
 
 
 def p_expression_unit(t):

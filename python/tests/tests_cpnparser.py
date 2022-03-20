@@ -133,10 +133,10 @@ def test_silly():
 
 
 def test_fun_decl5():
-    # e = parse_fdecls("fun AcceptQFLearn (cid,acceptreplies) = let val (crnd,vval) = findHighest (acceptreplies) in rhs end;")
-    e = parse_annot("let val x = f x in rhs end")
+    e = parse_fdecls("fun AcceptQFLearn (cid,acceptreplies) = let val (crnd,vval) = findHighest (acceptreplies) in rhs end;")
     assert len(e) == 1
     assert e[0][0] == ASTNode.FUNDECL, e[0]
+    print(e)
     et = traverse_decls(e)
     print(et)
 

@@ -250,15 +250,17 @@ def translate_val(t, dec):
     # (ASTNode.VAL, t[2], t[4])
     assert t[0] == ASTNode.VAL
     _, name, expr = t
-    return "val {0} = {1};".format(name, traverse(expr, dec=None))
+    return "val {0} = {1};".format(traverse(name, dec=None),
+                                   traverse(expr, dec=None))
 
 
 def translate_let(t, dec):
     # LET valOrFuns IN expression END
     # (ASTNode.LET, t[2], t[4])
     assert t[0] == ASTNode.LET
-    _, val, expr = t
-    return "let {0} in {1} end".format(traverse(val, dec=None),
+    _, valorfun_list, expr = t
+    str_val_list = ",".join(traverse(val, dec=None) for val in valorfun_list) if valorfun_list is not None else ""
+    return "let {0} in {1} end".format(str_val_list,
                                        traverse(expr, dec=None))
 
 

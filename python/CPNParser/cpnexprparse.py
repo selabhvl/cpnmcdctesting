@@ -207,7 +207,7 @@ def p_expression_fn(t):
 
 
 def p_expression_fnrhs(t):
-    '''fnrhs : fnrhs PIPE expression TO expression
+    '''fnrhs : fnrhs PIPE expressions TO expression
                   | expressions TO expression'''
     # t[0] = "{0} {1} {2} {3}".format(t[1], t[2], t[3], t[4])
     if len(t) == 4:
@@ -264,7 +264,7 @@ def p_valOrFuns(t):
 
 
 def p_valOrFun_val(t):
-    'valOrFun : VAL expression EQUALS expression'
+    'valOrFun : VAL iOt EQUALS expression'
     t[0] = (ASTNode.VAL, t[2], t[4])
 
 
@@ -403,8 +403,8 @@ def p_error(t):
 
 
 # Build the parser
-tmpdirname = "/temp/"  # tempfile.TemporaryDirectory()
-annot_parser = yacc.yacc(start='expression', debug=tmpdirname + 'parser.out', write_tables=False)
+tmpdirname = "/tmp/"
+annot_parser = yacc.yacc(start='expression', debugfile=tmpdirname + 'parser.out', write_tables=True)
 cond_parser = yacc.yacc(start='guard', debug=tmpdirname + 'guardparser.out', write_tables=False)
 fdecls_parser = yacc.yacc(start='fdecls', debug=tmpdirname + 'fdeclsparser.out', write_tables=False)
 

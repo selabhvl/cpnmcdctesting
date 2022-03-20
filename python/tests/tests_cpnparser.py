@@ -127,7 +127,7 @@ def test_silly():
 
 def test_fun_decl5():
     # e = parse_fdecls("fun AcceptQFLearn (cid,acceptreplies) = let val (crnd,vval) = findHighest (acceptreplies) in rhs end;")
-    e = parse_annot("let val y = findHighest (acceptreplies) in rhs end")
+    e = parse_annot("let val x = f x in rhs end")
     assert len(e) == 1
     assert e[0][0] == ASTNode.FUNDECL, e[0]
     et = traverse_decls(e)
@@ -410,7 +410,7 @@ def test_guards3():
 
 def test_let1():
     s = "let val x = 42 in f x end"
-    e = parse_cond(s)
+    e = parse_annot(s)
     print(e)
     et = traverse(e)
     print(et)

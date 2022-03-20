@@ -87,8 +87,15 @@ def test_func():
     assert e[2][1] == None
 
 
-def test_fun_decl():
+def test_fun_decl1a():
     e = parse_fdecls("fun f () = 42;")
+    assert len(e) == 1
+    assert e[0][0] == ASTNode.FUNDECL, e
+    assert e[0][1][0][0] == ASTNode.FUN, e
+
+
+def test_fun_decl1b():
+    e = parse_fdecls("fun f () [] = 42;")
     assert len(e) == 1
     assert e[0][0] == ASTNode.FUNDECL, e
     assert e[0][1][0][0] == ASTNode.FUN, e
@@ -414,6 +421,11 @@ def test_let1():
     print(e)
     et = traverse(e)
     print(et)
+
+
+def test_let2():
+    s = "let val x = 42; in f x end"
+    e = parse_annot(s)
 
 
 def test_case1():

@@ -130,7 +130,10 @@ def p_expression_constructor(t):
 
 def p_item_or_tuple(t):
     '''iOt : item
-           | tuple'''
+           | item COLON NAME
+           | tuple
+           | tuple COLON NAME'''
+    # FIXME: we gobble type annotations!
     t[0] = t[1]
 
 def p_expressions(t):  # never empty.
@@ -190,12 +193,12 @@ def p_condition_group(t):
 
 
 def p_expression_nil(t):
-    '''expression : LBRACK RBRACK'''
+    '''item : LBRACK RBRACK'''
     t[0] = (ASTNode.NIL, )
 
 
 def p_expression_list_brack(t):
-    '''expression : LBRACK expression_list RBRACK'''
+    '''item : LBRACK expression_list RBRACK'''
     # t[0] = "{0} {1} {2}".format(t[1], t[2], t[3])
     t[0] = (ASTNode.LIST, t[2])
 
@@ -218,7 +221,8 @@ def p_expression_fnrhs(t):
 
 
 def p_fun_decl(t):
-    '''fdecl : FUN frhs SEMI'''
+    '''fdecl : FUN frhs
+             | FUN frhs SEMI'''
     t[0] = (ASTNode.FUNDECL, t[2])
 
 def p_fun_frhs(t):
@@ -241,7 +245,8 @@ def p_fun_decls(t):
 
 
 def p_val_decls(t):
-    'fdecl : VAL NAME EQUALS expression SEMI'
+    '''fdecl : VAL NAME EQUALS expression
+             | VAL NAME EQUALS expression SEMI'''
     t[0] = (ASTNode.VAL, t[2], t[4])
 
 
@@ -251,8 +256,7 @@ def p_expression_let(t):
 
 
 def p_valOrFuns(t):
-    '''valOrFuns : valOrFuns SEMI valOrFun
-                 | valOrFuns valOrFun
+    '''valOrFuns : valOrFuns valOrFun
                  | valOrFun'''
     if len(t) == 2:
         t[0] = [t[1]]
@@ -264,7 +268,8 @@ def p_valOrFuns(t):
 
 
 def p_valOrFun_val(t):
-    'valOrFun : VAL iOt EQUALS expression'
+    '''valOrFun : VAL iOt EQUALS expression
+                | VAL iOt EQUALS expression SEMI'''
     t[0] = (ASTNode.VAL, t[2], t[4])
 
 

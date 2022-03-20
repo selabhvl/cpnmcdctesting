@@ -207,10 +207,9 @@ def p_expression_fn(t):
 
 
 def p_expression_fnrhs(t):
-    '''fnrhs : fnrhs PIPE NAME TO expression
-                  | NAME TO expression'''
+    '''fnrhs : fnrhs PIPE expression TO expression
+                  | expressions TO expression'''
     # t[0] = "{0} {1} {2} {3}".format(t[1], t[2], t[3], t[4])
-    # TODO: only `NAME`?
     if len(t) == 4:
         t[0] = [(ASTNode.FN, t[1], t[3])]
     else:

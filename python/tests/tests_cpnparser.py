@@ -111,6 +111,14 @@ def test_fun_decl3():
     print(et)
 
 
+def test_fun_decl4():
+    e = parse_fdecls("fun cLR msgs = (List.foldr (fn ((c,omsgs),ln) => ln + (List.length omsgs)) 0 msgs) <= (!boutmsgsbound);")
+    assert len(e) == 1
+    assert e[0][0] == ASTNode.FUNDECL, e[0]
+    et = traverse_decls(e)
+    print(et)
+
+
 def test_mqtt_ml1():
     s = "fun iSubscribe () = List.map (fn qos => QoS(qos)) (!allowSubscribe);"
     e = parse_fdecls(s)

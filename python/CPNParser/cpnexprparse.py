@@ -245,8 +245,9 @@ def p_fun_decls(t):
 
 
 def p_val_decls(t):
-    '''fdecl : VAL NAME EQUALS expression
-             | VAL NAME EQUALS expression SEMI'''
+    '''fdecl : VAL iOt EQUALS expression
+             | VAL iOt EQUALS expression SEMI'''
+    # iOt so that we can parse type annos
     t[0] = (ASTNode.VAL, t[2], t[4])
 
 

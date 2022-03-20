@@ -141,6 +141,32 @@ def test_fun_decl5():
     print(et)
 
 
+def test_discspcpn1():
+    s = "val dpos:POS = (~10, ~10);"
+    e =parse_fdecls(s);
+
+
+def test_discspcpn2():
+    s = '''fun
+    GetOrderedAgents(aview: AVIEW) = let
+    fun
+    cmp(x as (a1, _, p1), y as (a2, _, p2)) =        p1 < p2
+    orelse(p1=p2
+    andalso
+    a1 > a2);
+    in result
+    end;'''
+    s = '''fun
+    GetOrderedAgents(aview: AVIEW) = let
+    fun
+    cmp(x as (a1, _, p1), y as (a2, _, p2)) =        p1 < p2
+    orelse(p1=p2
+    andalso
+    a1 > a2); in result
+    end;'''
+    e = parse_fdecls(s);
+
+
 def test_mqtt_ml1():
     s = "fun iSubscribe () = List.map (fn qos => QoS(qos)) (!allowSubscribe);"
     e = parse_fdecls(s)

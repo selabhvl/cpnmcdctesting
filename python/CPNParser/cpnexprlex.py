@@ -14,8 +14,8 @@ reserved = {
     'val': 'VAL',
     'in': 'IN',
     'end': 'END',
-    'case' : 'CASE',
-    'of' : 'OF',
+    'case': 'CASE',
+    'of': 'OF',
 }
 
 # List of token names.   This is always required

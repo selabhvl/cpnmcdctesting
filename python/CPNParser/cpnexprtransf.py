@@ -25,13 +25,6 @@ def translate(bin_op):
         return bin_op
 
 
-# def binop_ap(dec, expr_1, bin_op, expr_2):
-#     # type: (str, str, str, str) -> (str, str)
-#     new_bin_op = translate(bin_op)
-#     op_str = "{0} {1} {2}".format(traverse_cond(expr_1), new_bin_op, traverse_cond(expr_2))
-#     identifier = ap_identifier(dec, op_str)
-#     return identifier, op_str
-
 def translate_ite(t, dec):
     # decision = id(expression_1)
     # IF expression_1 THEN expression_2 ELSE expression_3
@@ -62,7 +55,7 @@ def translate_call(t, dec):
     # (ASTNode.CALL, expression, expression)
     _, expr_1, exprs = t
     # TODO: we loose input format here and print everything with nested parens.
-    #str_expr_list = " ".join("({0})".format(traverse(expr, dec)) for expr in exprs)
+    # str_expr_list = " ".join("({0})".format(traverse(expr, dec)) for expr in exprs)
     str_expr_list = traverse(exprs, dec)
     if dec is not None:
         identifier = ap_identifier(dec, str_expr_list)
@@ -93,11 +86,13 @@ def translate_guard(t):
         str_expr_list = traverse(expr_list[0], dec=guard_dec)
     else:
         assert len(expr_list) > 1
+
         def ts(e0, es):
             if len(es) == 0:
                 return traverse(e0, guard_dec)
             else:
                 return "AND({0}, {1})".format(traverse(e0, guard_dec), ts(es[0], es[1:]))
+
         str_expr_list = ts(expr_list[0], expr_list[1:])
     return "[EXPR(\"{0}\", {1})]".format(guard_dec, str_expr_list)
     # return "[{0}]".format(traverse(expr_list, dec))
@@ -172,8 +167,8 @@ def translate_bincond(t, dec):
     # return "AP(\"{0}\", {1})".format(identifier, op_str)
     if dec is None:
         return "{0}{1}{2}".format(traverse(expr_1, dec),
-                                    bin_op,
-                                    traverse(expr_2, dec))
+                                  bin_op,
+                                  traverse(expr_2, dec))
     else:
         new_bin_op = translate(bin_op)
         if (new_bin_op == "AND") or (new_bin_op == "OR"):
@@ -195,6 +190,7 @@ def translate_tilde(t, dec):
     return "{0}{1}".format(tilde,
                            traverse(expr, dec))
 
+
 def translate_id(t, dec):
     return "{0}".format(t[1])
 
@@ -206,6 +202,7 @@ def translate_constructor(t, dec):
     str_expr_list = ",".join(traverse(expr, dec) for expr in expr_list) if expr_list is not None else ""
     return "{0}({1})".format(name, str_expr_list)
 
+
 def translate_hash(t, dec):
     # CHAR NAME expression
     # | CHAR NUMBER expression
@@ -214,9 +211,13 @@ def translate_hash(t, dec):
     return "# {0} {1}".format(name, traverse(expr, dec=None))
 
 
-def translate_fn(t, dec):
+def translate_assign(t, dec):
+    return "{0} := {1}".format(t[1], traverse(t[2], dec=None))
+
+
+def translate_fn_decl(t, dec):
     assert t[0] == ASTNode.FNDECL
-    _ , dlist = t
+    _, dlist = t
     return "fn {0}".format("|".join(translate_fn_body(d, dec=None) for d in dlist))
 
 
@@ -229,7 +230,7 @@ def translate_fn_body(t, dec):
 
 def translate_fun(t, dec):
     assert t[0] == ASTNode.FUNDECL
-    _ , dlist = t
+    _, dlist = t
     return "fun {0};".format("|".join(translate_fun_body(d, dec=None) for d in dlist))
 
 
@@ -240,8 +241,8 @@ def translate_fun_body(t, dec):
     _, name, expr_list, expr = t
     str_expr_list = ",".join(traverse(expr, dec=None) for expr in expr_list) if expr_list is not None else ""
     return "{0} {1} = {2}".format(name,
-                                str_expr_list,
-                                traverse(expr, dec=None))
+                                  str_expr_list,
+                                  traverse(expr, dec=None))
 
 
 def translate_val(t, dec):
@@ -252,8 +253,47 @@ def translate_val(t, dec):
     return "val {0} = {1};".format(name, traverse(expr, dec=None))
 
 
-def translate_assign(t, dec):
-    return "{0} := {1}".format(t[1], traverse(t[2], dec=None))
+def translate_let(t, dec):
+    # LET valOrFuns IN expression END
+    # (ASTNode.LET, t[2], t[4])
+    assert t[0] == ASTNode.LET
+    _, val, expr = t
+    return "let {0} in {1} end".format(traverse(val, dec=None),
+                                       traverse(expr, dec=None))
+
+
+def translate_case(t, dec):
+    # CASE expression OF caserhs'
+    # (ASTNode.CASE, t[2], t[4])
+    assert t[0] == ASTNode.CASE
+    _, expr, caserhs = t
+    str_caserhs_list = "".format("|".join(translate_caserhs(crhs) for crhs in caserhs))
+    return "case {0} of {1}".format(traverse(expr, dec=None),
+                                    str_caserhs_list)
+
+
+def translate_caserhs(t):
+    # caserhs PIPE expression TO expression
+    #   [(ASTNode.CASEEXP, t[1], t[3])]
+    #
+    # expression TO expression
+    #   t[1] + [(ASTNode.CASEEXP, t[3], t[5])]
+    assert t[0] == ASTNode.CASEEXP
+    _, expr1, expr2 = t
+    return "{0} => {1}".format(traverse(expr1), traverse(expr2))
+
+
+def traverse_decl(t):
+    if t[0] == ASTNode.FUNDECL:
+        return translate_fun(t, dec=None)
+    elif t[0] == ASTNode.VAL:
+        return translate_val(t, dec=None)
+    else:
+        assert False
+
+
+def traverse_decls(t):
+    return list(map(traverse_decl, t))
 
 
 def traverse(t, dec=None):
@@ -293,27 +333,20 @@ def traverse(t, dec=None):
     elif t[0] == ASTNode.ASSIGN:
         return translate_assign(t, dec)
     elif t[0] == ASTNode.TYPED:
-        return traverse(t[1], dec)+" : "+t[2]
+        return traverse(t[1], dec) + " : " + t[2]
     elif t[0] == ASTNode.FNDECL:
-        return translate_fn(t, dec=None)
+        return translate_fn_decl(t, dec=None)
     elif t[0] == ASTNode.FUN:
         assert False, "Unreached."
         return translate_fun(t, dec)
+    elif t[0] == ASTNode.VAL:
+        return translate_val(t, dec)
+    elif t[0] == ASTNode.LET:
+        return translate_let(t, dec)
+    elif t[0] == ASTNode.CASE:
+        return translate_case(t, dec)
     elif type(t[0]) == str:
         # TODO: What happens when the AST arrives to a terminal node (e.g., expression = NUMBER)?
         return t[0]
     else:
         assert False, t
-
-
-def traverse_decl(t):
-    if t[0] == ASTNode.FUNDECL:
-        return translate_fun(t, dec=None)
-    elif t[0] == ASTNode.VAL:
-        return translate_val(t, dec=None)
-    else:
-        assert False
-
-
-def traverse_decls(t):
-    return list(map(traverse_decl, t))

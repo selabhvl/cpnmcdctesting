@@ -22,7 +22,7 @@ tokens = [
     'APP', 'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'CONS',
     'EQUALS', 'NEQ', 'LEQ', 'LESS', 'GEQ', 'GREATER',
     'LPAREN', 'RPAREN', 'LBRACK', 'RBRACK', 'COMA', 'SEMI', 'DOT', 'TICK', 'TILDE', 'TO', 'CHAR',
-    'HAT', 'SHAT', 'REF', 'PIPE', 'LCURL', 'RCURL', 'COLON',
+    'HAT', 'SHAT', 'REF', 'PIPE', 'LCURL', 'RCURL', 'COLON', 'DOTS'
 ] + list(reserved.values())
 
 # Tokens
@@ -45,6 +45,7 @@ t_RBRACK = r'\]'
 t_COMA = r'\,'
 t_SEMI = r';'
 t_DOT = r'\.'
+t_DOTS = r'\.\.\.'
 t_STRING = r'(\"|\').*?(\"|\')'
 t_CONS = r'::'
 t_TICK = r'\`'

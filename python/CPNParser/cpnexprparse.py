@@ -291,6 +291,7 @@ def p_expression_binop(t):
                   | expression CONS expression
                   | expression TICK expression
                   | expression APP expression
+                  | expression SHAT expression
                   | expression HAT expression'''
 
     t[0] = (ASTNode.BINEXP, t[1], t[2], t[3])  # infix as before!
@@ -345,6 +346,11 @@ def p_item_name(t):
         assert t[1][0] == ASTNode.ID  # otherwise not valid SML
         i = t[1][1]  # extract actual string
         t[0] = ASTNode.ID, str(i) + "." + str(t[3])
+
+
+def p_item_dots(t):
+    'item : DOTS'
+    t[0] = ASTNode.ID, str(t[1])
 
 
 def p_error(t):

@@ -248,7 +248,7 @@ def p_valOrFun_val(t):
 
 def p_expression_unit(t):
     '''item : LPAREN RPAREN'''
-    t[0] = (ASTNode.TUPLE, None)
+    t[0] = (ASTNode.TUPLE, None, t[1], t[2])
 
 
 def p_expression_singleton(t):
@@ -261,10 +261,11 @@ def p_expression_is_a_tuple(t):
     t[0] = t[1]
 
 def p_expression_tuple(t):
-    '''tuple : LPAREN expression_list RPAREN'''
+    '''tuple : LPAREN expression_list RPAREN
+             | LCURL expression_list RCURL'''
     # t[0] = "({0})".format(t[2])
-    # TODO: `(x)` is not a "1-tuple", I think!
-    t[0] = (ASTNode.TUPLE, t[2])
+    # We're generalising it a bit and carry the type of parens around
+    t[0] = (ASTNode.TUPLE, t[2], t[1], t[3])
 
 # # Bool comparison
 def p_comparison_binop(t):

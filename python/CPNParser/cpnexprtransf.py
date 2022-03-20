@@ -124,11 +124,12 @@ def translate_fn(t, dec):
 
 def translate_tuple(t, dec):
     # LPAREN expression_list RPAREN
-    # (ASTNode.TUPLE, expression_list)
+    # LCURL expression_list RCURL
+    # (ASTNode.TUPLE, expression_list, l, r)
     # Warning! expression_list is None when empty list, i.e., LPAREN RPAREN
-    _, expr_list = t
+    _, expr_list, l, r = t
     str_expr_list = ",".join(traverse(expr, dec) for expr in expr_list) if expr_list is not None else ""
-    return "(" + str_expr_list + ")"
+    return l + str_expr_list + r
 
 
 def translate_ref(t, dec):

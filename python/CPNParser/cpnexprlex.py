@@ -21,7 +21,8 @@ tokens = [
     'NAME', 'ASSIGN', 'STRING', 'NUMBER', 'BOOL',
     'APP', 'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'CONS',
     'EQUALS', 'NEQ', 'LEQ', 'LESS', 'GEQ', 'GREATER',
-    'LPAREN', 'RPAREN', 'LBRACK', 'RBRACK', 'COMA', 'SEMI', 'DOT', 'TICK', 'TILDE', 'TO', 'CHAR', 'HAT', 'REF'
+    'LPAREN', 'RPAREN', 'LBRACK', 'RBRACK', 'COMA', 'SEMI', 'DOT', 'TICK', 'TILDE', 'TO', 'CHAR',
+    'HAT', 'SHAT', 'REF', 'PIPE', 'LCURL', 'RCURL', 'COLON',
 ] + list(reserved.values())
 
 # Tokens
@@ -51,7 +52,13 @@ t_TILDE = r'~'
 t_TO = r'=>'
 t_CHAR = r'\#'
 t_HAT = r'\^\^'
+t_SHAT = r'\^'
 t_REF = r'!'
+t_PIPE = r'\|'
+t_LCURL = r'{'
+t_RCURL = r'}'
+t_COLON = ':'
+
 # t_NAME = r'[a-zA-Z_][a-zA-Z0-9_]*'
 
 

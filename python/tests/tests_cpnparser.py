@@ -646,7 +646,7 @@ def test_discspcpn_guard1():
     assert g[0] == ASTNode.BINCOND, g
     et = traverse(e)
     print(et)
-    assert re.match(r'AND', et) is not None, (e, et)
+    assert re.match(r'.*AND.*', et) is not None, (e, et)
 
 
 def test_discspcpn_guard2():

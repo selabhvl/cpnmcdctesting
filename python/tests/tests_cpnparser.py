@@ -259,7 +259,7 @@ def test_exp_not1():
     print(e)
     et = traverse(e)
     print(et)
-    assert re.match(r'\(not\).*\(b1\).*', et) is not None, (e, et)
+    assert re.match(r'not.*\(b1\).*', et) is not None, (e, et)
 
 
 def test_exp_not2():
@@ -269,7 +269,7 @@ def test_exp_not2():
     assert e[1][1] == "not"
     et = traverse(e)
     print(et)
-    assert re.match(r'\(not\).*\(b1\).*', et) is not None, (e, et)
+    assert re.match(r'not.*\(b1\).*', et) is not None, (e, et)
 
 
 def test_exp_ref():
@@ -289,7 +289,7 @@ def test_guard_not1():
     et = traverse(e)
     print(et)
     # [EXPR("id1", AP("1", not (b1)))]
-    assert re.match(r'\[EXPR\(.*, AP\(.*, \(not\) \(b1\)\)\)\]', et) is not None, (e, et)
+    assert re.match(r'\[EXPR\(.*, AP\(.*, not \(b1\)\)\)\]', et) is not None, (e, et)
 
     
 def test_exp4():
@@ -635,7 +635,7 @@ then 1`(Promise(cid, crnd,(vrnd,vvalue))) else empty'''
     print(e)
     et = traverse(e)
     print(et)
-    assert re.match(r'if EXPR.*OR\(AP', et) is not None, et
+    assert re.match(r'if EXPR.*OR\(AP.*1`Promise', et) is not None, et
 
 
 def test_discspcpn_guard1():

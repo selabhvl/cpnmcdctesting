@@ -31,6 +31,8 @@ if __name__ == "__main__":
                 trace.writerow([expr, inst_expr])
                 # print("{0} | {1}".format(expr, inst_expr))
             except:
+                # Keep the original SML code if error while instrumenting
+                set_cond(t, expr)
                 continue
     csvfile.close()
 
@@ -49,6 +51,8 @@ if __name__ == "__main__":
                 trace.writerow([expr, inst_expr])
                 # print("{0} | {1}".format(expr, inst_expr))
             except:
+                # Keep the original SML code if error while instrumenting
+                set_annot(a, expr)
                 continue
 
     xml_tree.write(out_filename, xml_declaration=True)
@@ -69,6 +73,8 @@ if __name__ == "__main__":
                 trace.writerow([expr, inst_expr])
                 # print("{0} | {1}".format(expr, inst_expr))
             except:
+                # Keep the original SML code if error while instrumenting
+                set_ml(a, expr)
                 continue
 
     xml_tree.write(out_filename, xml_declaration=True)

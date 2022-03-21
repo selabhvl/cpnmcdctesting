@@ -351,4 +351,5 @@ def traverse(t, dec=None):
         # TODO: What happens when the AST arrives to a terminal node (e.g., expression = NUMBER)?
         return t[0]
     else:
+        raise ValueError("Cannot parse AST {0}".format(t))
         assert False, t

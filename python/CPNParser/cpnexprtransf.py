@@ -9,7 +9,7 @@ def ap_identifier(dec, op):
     assert dec is not None
     if dec not in ap:
         ap[dec] = {}
-    if op not in dec:
+    if op not in ap[dec]:
         ap[dec][op] = len(ap[dec]) + 1
     identifier = ap[dec][op]
     return identifier

@@ -59,7 +59,7 @@ def translate_call(t, dec):
     str_expr_list = traverse(exprs, dec=None)
     lhs_needs_parens = expr_1[0] not in [ASTNode.ID]
     if lhs_needs_parens:
-        lhs = "("+traverse(expr_1, dec=None)+")"
+        lhs = "(" + traverse(expr_1, dec=None) + ")"
     else:
         lhs = traverse(expr_1, dec=None)
     # TODO: Check if we actually need parens...
@@ -229,6 +229,10 @@ def translate_assign(t, dec):
     return "{0} := {1}".format(t[1], traverse(t[2], dec=None))
 
 
+def translate_bind(t):
+    return "{0} = {1}".format(t[1], t[2])
+
+
 def translate_fn_decl(t, dec):
     assert t[0] == ASTNode.FNDECL
     _, dlist = t
@@ -300,7 +304,22 @@ def translate_caserhs(t):
 
 
 def traverse_annot(t):
-    result = traverse(t)
+    def replace(t):
+        # Replace:
+        #   (ASTNode.BINCOND, expr_1, bin_op, expr_2)
+        # by:
+        #   (ASTNode.ASSIGN, expr_1, expr_2)
+        # If bin_op is '='
+        op, operands = t
+        if op == ASTNode.BINCOND:
+            expr_1, bin_op, expr_2 = operands
+            if bin_op == '=':
+                return ASTNode.BIND, expr_1, expr_2
+        return t
+
+    new_t = replace(t)
+    result = traverse(new_t)
+    # Parsing the translated AST guarantees it is valid SML
     assert parse_annot(result) is not None, result
     return result
 
@@ -383,6 +402,8 @@ def traverse(t, dec=None):
         return translate_let(t, dec)
     elif t[0] == ASTNode.CASE:
         return translate_case(t, dec)
+    elif t[0] == ASTNode.BINDE:
+        return translate_bind(t, dec)
     elif type(t[0]) == str:
         # TODO: What happens when the AST arrives to a terminal node (e.g., expression = NUMBER)?
         return t[0]

@@ -143,7 +143,7 @@ def test_fun_decl5():
 
 def test_discspcpn1():
     s = "val dpos:POS = (~10, ~10);"
-    e =parse_fdecls(s);
+    e = parse_fdecls(s)
 
 
 def test_discspcpn2():
@@ -164,7 +164,7 @@ def test_discspcpn2():
     andalso
     a1 > a2); in result
     end;'''
-    e = parse_fdecls(s);
+    e = parse_fdecls(s)
 
 
 def test_mqtt_ml1():

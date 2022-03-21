@@ -202,7 +202,7 @@ def test_ite1_guard2():
     print(e)
     et = traverse(e)
     print(et)
-    assert re.match(r'\[EXPR\(.*\, ITE\(.*\, .*\, .*\)\)\]', et) is not None
+    assert re.match(r'\[EXPR\(.*\, ITE\(.*\, .*\, .*\)\)\]', et) is not None, et
 
 def test_exp1():
     e = parse_annot("hd foo = bar")
@@ -430,7 +430,7 @@ def test_guards2():
     print(e)
     et = traverse(e)
     print(et)
-    assert re.match(r"\[EXPR\(\"id.*\", AND\(AP\(\"1\", a=b\), AP\(\"2\", c<=42\)\)\)\]", et) is not None
+    assert re.match(r"\[EXPR\(\"id.*\", AND\(AP\(\"1\", a=b\), AP\(\"2\", c<=42\)\)\)\]", et) is not None, et
 
 
 def test_guards3():
@@ -666,5 +666,5 @@ def test_discspcpn_guard2():
     print(et)
     assert e[0] == ASTNode.GUARDS
     g1 = e[2][0]
-    assert g1[0] == ASTNode.BINCOND, e[1]
-    assert re.match(r'^rid=#', et) is not None, et
+    assert g1[0] == ASTNode.TLGUARD, e[1]
+    assert re.match(r'^\[rid=#', et) is not None, et

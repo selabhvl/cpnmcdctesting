@@ -87,20 +87,24 @@ def translate_guard(t):
     # (ASTNode.GUARDS, decision, expression_list)
     assert t[0] == ASTNode.GUARDS
     _, guard_dec, expr_list = t
+    assert len(expr_list) >= 1
     assert guard_dec is not None
-    if len(expr_list) == 1:
-        str_expr_list = traverse(expr_list[0], dec=guard_dec)
+    assigns = []
+    guards = []
+    for i in expr_list:
+        assigns.append(i) if i[0] == ASTNode.TLGUARD else guards.append(i)
+    # Let's hope there's no r/w deps between assignments and guards...
+
+    def ts(e0, es):
+        if len(es) == 0:
+            return traverse(e0, guard_dec)
+        else:
+            return "AND({0}, {1})".format(traverse(e0, guard_dec), ts(es[0], es[1:]))
+    if len(guards) == 0:
+        str_expr_list = ""
     else:
-        assert len(expr_list) > 1
-
-        def ts(e0, es):
-            if len(es) == 0:
-                return traverse(e0, guard_dec)
-            else:
-                return "AND({0}, {1})".format(traverse(e0, guard_dec), ts(es[0], es[1:]))
-
-        str_expr_list = ts(expr_list[0], expr_list[1:])
-    return "[EXPR(\"{0}\", {1})]".format(guard_dec, str_expr_list)
+        str_expr_list = "EXPR(\"{0}\", {1})".format(guard_dec, ts(guards[0], guards[1:] if len(guards)>1 else []))
+    return "[{1}{2}{0}]".format(str_expr_list, ", ".join(traverse(i, dec=None) for i in assigns), ", " if len(assigns)>0 and len(guards)>0 else "")
     # return "[{0}]".format(traverse(expr_list, dec))
 
 
@@ -302,6 +306,7 @@ def traverse_annot(t):
 
 
 def traverse_cond(t):
+    assert t[0] in [ASTNode.GUARD, ASTNode.GUARDS]  # TODO: streamline?
     result = traverse(t)
     assert parse_cond(result) is not None, result
     return result
@@ -331,6 +336,9 @@ def traverse(t, dec=None):
         return translate_ite(t, dec)
     elif t[0] == ASTNode.CALL:
         return translate_call(t, dec)
+    elif t[0] == ASTNode.TLGUARD:
+        assert t[1][0] == ASTNode.ID
+        return traverse(t[1], dec=None) + "=" + traverse(t[2], dec=None)
     elif t[0] == ASTNode.GUARD:
         # single!
         return translate_single_guard(t, dec)

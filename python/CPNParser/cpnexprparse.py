@@ -75,6 +75,7 @@ class ASTNode(Enum):
     FNDECL = 22
     CASE = 23
     CASEEXP = 24
+    TLGUARD = 25
 
     def __str__(self):
         return self.name
@@ -173,11 +174,17 @@ def p_expression_list(t):
         assert False
 
 
+def mogrify_guard(t):
+    if t[0] == ASTNode.BINCOND and t[2] == "=" and t[1][0] == ASTNode.ID:
+        return (ASTNode.TLGUARD, t[1], t[3])
+    else:
+        return t
+
 def p_condition_single(t):
     '''guard : expression'''
     id_list = id(t[1])
     identifier = ex_identifier(str(id_list))
-    t[0] = (ASTNode.GUARD, identifier, t[1])
+    t[0] = (ASTNode.GUARD, identifier, mogrify_guard(t[1]))
 
 def p_condition_group(t):
     '''guard : LBRACK expression_list RBRACK'''
@@ -187,7 +194,7 @@ def p_condition_group(t):
         # identifier = ex_identifier(t[2])
         id_list = id(t[2])
         identifier = ex_identifier(str(id_list))
-        t[0] = (ASTNode.GUARDS, identifier, t[2])
+        t[0] = (ASTNode.GUARDS, identifier, map(mogrify_guard,t[2]))
     elif len(t) == 2:
         # guard : LBRACK RBRACK
         # TODO: probably wrong.

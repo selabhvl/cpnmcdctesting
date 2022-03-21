@@ -56,19 +56,14 @@ def translate_call(t, dec):
     _, expr_1, exprs = t
     # TODO: we loose input format here and print everything with nested parens.
     # str_expr_list = " ".join("({0})".format(traverse(expr, dec)) for expr in exprs)
-    is_not = expr_1[0] == ASTNode.ID and expr_1[1] == "not"  # HACK
-    if is_not:
-        # Little bit on the fence here. What about `not (if ..)`?
-        str_expr_list = traverse(exprs, dec=None)
-    else:
-        str_expr_list = traverse(exprs, dec)
+    str_expr_list = traverse(exprs, dec=None)
 
     # TODO: Check if we actually need parens...
     if dec is not None:
         identifier = ap_identifier(dec, str_expr_list)
-        return "AP(\"{0}\", ({1}) ({2}))".format(identifier, traverse(expr_1), str_expr_list)
+        return "AP(\"{0}\", ({1}) ({2}))".format(identifier, traverse(expr_1, dec=None), str_expr_list)
     else:
-        return "({0}) ({1})".format(traverse(expr_1), str_expr_list)
+        return "({0}) ({1})".format(traverse(expr_1, dec=None), str_expr_list)
 
 
 def translate_single_guard(t, dec):

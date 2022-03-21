@@ -655,7 +655,6 @@ def test_discspcpn_guard2():
     # [EXPR("id1", AP("1", rid=# rid msg))]
     s = "[false andalso guardStop (id,p,aview,l'sng,l'rng)]"
     s2 = "[rid = (#rid msg)]"
-    assert False, "This is an example of the mysterious assignment?"
     e = parse_cond(s)
     e2 = parse_cond(s2)
     print(e)
@@ -664,3 +663,4 @@ def test_discspcpn_guard2():
     et2 = traverse(e2)
     print(et)
     print(et2)
+    assert False, "This is an example of the mysterious assignment?"

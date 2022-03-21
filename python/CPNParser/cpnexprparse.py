@@ -122,12 +122,12 @@ def p_statement_expression_if(t):
 
 
 def p_expression_func_id_one(t):
-    '''expression : expression expression %prec FCALL'''
+    '''item : item item %prec FCALL'''
     t[0] = (ASTNode.CALL, t[1], t[2])
 
 
 def p_expression_constructor(t):
-    '''expression : NAME LPAREN expression_list RPAREN'''
+    '''item : NAME LPAREN expression_list RPAREN'''
     t[0] = (ASTNode.CONSTRUCTOR, (ASTNode.ID, t[1]), t[3])
 
 
@@ -141,8 +141,6 @@ def p_item_or_tuple(t):
 
 def p_expressions(t):  # never empty.
     '''expressions : expressions iOt
-                    | expressions LPAREN expression RPAREN
-                    | LPAREN expression RPAREN
                     | iOt'''  # TODO XXX: No longer IDs below!
     # TODO: We loose info about parens, so we can't pretty-print 1:1 later.
     if len(t) == 2:
@@ -304,12 +302,12 @@ def p_expression_unit(t):
 
 
 def p_expression_singleton(t):
-    '''expression : LPAREN expression RPAREN'''
+    '''item : LPAREN expression RPAREN'''
     t[0] = t[2]  # Losing formatting here.
 
 
 def p_expression_is_a_tuple(t):
-    '''expression : tuple'''
+    '''item : tuple'''
     t[0] = t[1]
 
 def p_expression_tuple(t):

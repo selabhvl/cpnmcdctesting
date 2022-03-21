@@ -259,7 +259,7 @@ def test_exp_not1():
     print(e)
     et = traverse(e)
     print(et)
-    assert re.match(r'not.*b1.*', et) is not None, (e, et)
+    assert re.match(r'\(not\).*\(b1\).*', et) is not None, (e, et)
 
 
 def test_exp_not2():
@@ -269,7 +269,7 @@ def test_exp_not2():
     assert e[1][1] == "not"
     et = traverse(e)
     print(et)
-    assert re.match(r'not.*b1.*', et) is not None, (e, et)
+    assert re.match(r'\(not\).*\(b1\).*', et) is not None, (e, et)
 
 
 def test_exp_ref():
@@ -289,7 +289,7 @@ def test_guard_not1():
     et = traverse(e)
     print(et)
     # [EXPR("id1", AP("1", not (b1)))]
-    assert re.match(r'\[EXPR\(.*, AP\(.*, not b1\)\)\]', et) is not None, (e, et)
+    assert re.match(r'\[EXPR\(.*, AP\(.*, \(not\) \(b1\)\)\)\]', et) is not None, (e, et)
 
     
 def test_exp4():
@@ -380,7 +380,7 @@ def test_call_exp1():
     s = "f x (y+1)"
     e = parse_annot(s)
     assert e[0] == ASTNode.CALL
-    assert e[1][0] == ASTNode.CALL
+    assert e[1][0] == ASTNode.CALL, e[1]
     assert e[1][1][1] == "f"
     assert e[2][0] == ASTNode.BINEXP
 

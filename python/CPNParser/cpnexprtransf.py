@@ -63,11 +63,12 @@ def translate_call(t, dec):
     else:
         str_expr_list = traverse(exprs, dec)
 
+    # TODO: Check if we actually need parens...
     if dec is not None:
         identifier = ap_identifier(dec, str_expr_list)
-        return "AP(\"{0}\", {1} {2})".format(identifier, traverse(expr_1), str_expr_list)
+        return "AP(\"{0}\", ({1}) ({2}))".format(identifier, traverse(expr_1), str_expr_list)
     else:
-        return "{0} {1}".format(traverse(expr_1), str_expr_list)
+        return "({0}) ({1})".format(traverse(expr_1), str_expr_list)
 
 
 def translate_single_guard(t, dec):

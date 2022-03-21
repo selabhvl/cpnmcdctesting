@@ -620,3 +620,29 @@ def test_cpnabs_arc7():
     print(e)
     et = traverse(e)
     print(et)
+
+def test_discspcpn_guard1():
+    # "andalso" inside AP is not transformed
+    # [false andalso guardStop (id,p,aview,l'sng,l'rng)]
+    # [EXPR("id1", AP("2", false andalso guardStop (id,p,aview,l'sng,l'rng)))]
+    s = "[false andalso guardStop (id,p,aview,l'sng,l'rng)]"
+    e = parse_cond(s)
+    print(e)
+    et = traverse(e)
+    print(et)
+
+
+def test_discspcpn_guard2():
+    # Same "id1" for different expressions.
+    # [EXPR("id1", AP("2", false andalso guardStop (id,p,aview,l'sng,l'rng)))]
+    # [EXPR("id1", AP("1", rid=# rid msg))]
+    s = "[false andalso guardStop (id,p,aview,l'sng,l'rng)]"
+    s2 = "[rid = (#rid msg)]"
+    e = parse_cond(s)
+    e2 = parse_cond(s2)
+    print(e)
+    print(e)
+    et = traverse(e)
+    et2 = traverse(e2)
+    print(et)
+    print(et2)

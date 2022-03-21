@@ -1,4 +1,4 @@
-from CPNParser.cpnexprparse import parse_cond, parse_annot, ASTNode, ex_identifier, parse_fdecls
+from CPNParser.cpnexprparse import parse_cond, parse_annot, parse_fdecls, ASTNode, ex_identifier
 
 # dictionary of atomic propositions
 ap = {}
@@ -166,9 +166,9 @@ def translate_bincond(t, dec):
     # identifier, op_str = binop_ap(dec, expr_1, bin_op, expr_2)
     # return "AP(\"{0}\", {1})".format(identifier, op_str)
     if dec is None:
-        return "{0}{1}{2}".format(traverse(expr_1, dec),
-                                  bin_op,
-                                  traverse(expr_2, dec))
+        return "{0} {1} {2}".format(traverse(expr_1, dec),
+                                    bin_op,
+                                    traverse(expr_2, dec))
     else:
         new_bin_op = translate(bin_op)
         if (new_bin_op == "AND") or (new_bin_op == "OR"):
@@ -283,6 +283,18 @@ def translate_caserhs(t):
     assert t[0] == ASTNode.CASEEXP
     _, expr1, expr2 = t
     return "{0} => {1}".format(traverse(expr1), traverse(expr2))
+
+
+def traverse_annot(t):
+    result = traverse(t)
+    assert parse_annot(result) is not None, result
+    return result
+
+
+def traverse_cond(t):
+    result = traverse(t)
+    assert parse_cond(result) is not None, result
+    return result
 
 
 def traverse_decl(t):

@@ -16,7 +16,7 @@ reserved = {
     'end': 'END',
     'case': 'CASE',
     'of': 'OF',
-    'as': 'AS',
+#    'as': 'AS',  # Hack, treat as NAME for now since we don't need it.
 }
 
 # List of token names.   This is always required

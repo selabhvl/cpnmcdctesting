@@ -1,4 +1,4 @@
-from CPNParser.cpnexprparse import parse_cond, parse_annot, ASTNode, ex_identifier
+from CPNParser.cpnexprparse import parse_cond, parse_annot, ASTNode, ex_identifier, parse_fdecls
 
 # dictionary of atomic propositions
 ap = {}
@@ -222,10 +222,10 @@ def translate_fn_decl(t, dec):
 
 
 def translate_fn_body(t, dec):
-    # (FN) NAME TO expression
+    # (FN) expressions TO expression
     assert t[0] == ASTNode.FN
-    _, name, expr = t
-    return "{0} => {1}".format(name, traverse(expr, dec=None))
+    _, lhs, expr = t
+    return "{0} => {1}".format(" ".join(traverse(l, dec=None) for l in lhs), traverse(expr, dec=None))
 
 
 def translate_fun(t, dec):
@@ -286,6 +286,12 @@ def translate_caserhs(t):
 
 
 def traverse_decl(t):
+    result = traverse_decl_old(t)
+    assert parse_fdecls(result) is not None, result
+    return result
+
+
+def traverse_decl_old(t):
     if t[0] == ASTNode.FUNDECL:
         return translate_fun(t, dec=None)
     elif t[0] == ASTNode.VAL:

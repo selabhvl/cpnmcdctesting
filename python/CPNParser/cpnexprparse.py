@@ -279,7 +279,8 @@ def p_valOrFun_val(t):
 
 
 def p_valOrFun_fun(t):
-    'valOrFun : FUN frhs'
+    '''valOrFun : FUN frhs
+                | FUN frhs SEMI'''
     # TODO: overlap with `fdecl`
     t[0] = (ASTNode.FUNDECL, t[2])
 

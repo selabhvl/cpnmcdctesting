@@ -454,6 +454,12 @@ def test_let2():
     e = parse_annot(s)
 
 
+def test_let3():
+    s = "let val x = 42; fun g y = 7; in f x end"
+    e = parse_annot(s)
+
+
+
 def test_case1():
     s = "case x of 42 => true | _ => false"
     e = parse_annot(s)

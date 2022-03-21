@@ -659,14 +659,12 @@ def test_discspcpn_guard2():
     # Same "id1" for different expressions.
     # [EXPR("id1", AP("2", false andalso guardStop (id,p,aview,l'sng,l'rng)))]
     # [EXPR("id1", AP("1", rid=# rid msg))]
-    s = "[false andalso guardStop (id,p,aview,l'sng,l'rng)]"
-    s2 = "[rid = (#rid msg)]"
+    s = "[rid = (#rid msg)]"
     e = parse_cond(s)
-    e2 = parse_cond(s2)
-    print(e)
     print(e)
     et = traverse(e)
-    et2 = traverse(e2)
     print(et)
-    print(et2)
-    assert False, "This is an example of the mysterious assignment?"
+    assert e[0] == ASTNode.GUARDS
+    g1 = e[2][0]
+    assert g1[0] == ASTNode.BINCOND, e[1]
+    assert re.match(r'^rid=#', et) is not None, et

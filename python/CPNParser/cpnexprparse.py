@@ -76,6 +76,9 @@ class ASTNode(Enum):
     CASE = 23
     CASEEXP = 24
 
+    def __str__(self):
+        return self.name
+
 
 def p_statement_assign(t):
     'expression : NAME ASSIGN expression'

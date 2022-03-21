@@ -621,6 +621,17 @@ def test_cpnabs_arc7():
     et = traverse(e)
     print(et)
 
+
+def test_paxos_arc1():
+    s = '''if success orelse (cnt = 0)
+then 1`(Promise(cid, crnd,(vrnd,vvalue))) else empty'''
+    e = parse_annot(s)
+    print(e)
+    et = traverse(e)
+    print(et)
+    assert re.match(r'if EXPR.*OR\(AP', et) is not None, et
+
+
 def test_discspcpn_guard1():
     # "andalso" inside AP is not transformed
     # [false andalso guardStop (id,p,aview,l'sng,l'rng)]
@@ -628,8 +639,14 @@ def test_discspcpn_guard1():
     s = "[false andalso guardStop (id,p,aview,l'sng,l'rng)]"
     e = parse_cond(s)
     print(e)
+    assert e[0] == ASTNode.GUARDS
+    gs = e[2]
+    assert len(gs) == 1
+    g = gs[0]
+    assert g[0] == ASTNode.BINCOND, g
     et = traverse(e)
     print(et)
+    assert re.match(r'AND', et) is not None, (e, et)
 
 
 def test_discspcpn_guard2():
@@ -638,6 +655,7 @@ def test_discspcpn_guard2():
     # [EXPR("id1", AP("1", rid=# rid msg))]
     s = "[false andalso guardStop (id,p,aview,l'sng,l'rng)]"
     s2 = "[rid = (#rid msg)]"
+    assert False, "This is an example of the mysterious assignment?"
     e = parse_cond(s)
     e2 = parse_cond(s2)
     print(e)

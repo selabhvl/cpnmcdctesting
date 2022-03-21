@@ -56,7 +56,13 @@ def translate_call(t, dec):
     _, expr_1, exprs = t
     # TODO: we loose input format here and print everything with nested parens.
     # str_expr_list = " ".join("({0})".format(traverse(expr, dec)) for expr in exprs)
-    str_expr_list = traverse(exprs, dec)
+    is_not = expr_1[0] == ASTNode.ID and expr_1[1] == "not"  # HACK
+    if is_not:
+        # Little bit on the fence here. What about `not (if ..)`?
+        str_expr_list = traverse(exprs, dec=None)
+    else:
+        str_expr_list = traverse(exprs, dec)
+
     if dec is not None:
         identifier = ap_identifier(dec, str_expr_list)
         return "AP(\"{0}\", {1} {2})".format(identifier, traverse(expr_1), str_expr_list)
@@ -192,7 +198,11 @@ def translate_tilde(t, dec):
 
 
 def translate_id(t, dec):
-    return "{0}".format(t[1])
+    if dec is None:
+        return "{0}".format(t[1])
+    else:
+        identifier = ap_identifier(dec, str(t[1]))
+        return "AP(\"{0}\", {1})".format(identifier, t[1])
 
 
 def translate_constructor(t, dec):
@@ -208,7 +218,7 @@ def translate_hash(t, dec):
     # | CHAR NUMBER expression
     # (ASTNode.HASH, t[2], t[3])
     _, name, expr = t
-    return "# {0} {1}".format(name, traverse(expr, dec=None))
+    return "#{0} {1}".format(name, traverse(expr, dec=None))
 
 
 def translate_assign(t, dec):

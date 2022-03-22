@@ -371,8 +371,18 @@ def p_expression_ref(t):
 
 
 def p_expression_typed(t):
-    'expression : expression COLON NAME'
+    'expression : expression COLON names'
     t[0] = (ASTNode.TYPED, t[1], t[3])
+
+
+def p_names(t):
+    '''names : names NAME
+             | NAME'''
+    if len(t) == 2:
+        t[0] = [t[1]]
+    else:
+        assert len(t) == 3
+        t[0] = t[1] + [t[2]]
 
 
 def p_expression_item(t):

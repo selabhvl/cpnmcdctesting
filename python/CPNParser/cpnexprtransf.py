@@ -395,7 +395,7 @@ def traverse(t, dec=None):
     elif t[0] == ASTNode.ASSIGN:
         return translate_assign(t, dec)
     elif t[0] == ASTNode.TYPED:
-        return traverse(t[1], dec) + " : " + t[2]
+        return traverse(t[1], dec) + " : " + " ".join(traverse(i, dec=None) for i in t[2])
     elif t[0] == ASTNode.FNDECL:
         return translate_fn_decl(t, dec=None)
     elif t[0] == ASTNode.FUN:
@@ -407,8 +407,8 @@ def traverse(t, dec=None):
         return translate_let(t, dec)
     elif t[0] == ASTNode.CASE:
         return translate_case(t, dec)
-    elif t[0] == ASTNode.BINDE:
-        return translate_bind(t, dec)
+#    elif t[0] == ASTNode.BINDE:
+#        return translate_bind(t, dec)
     elif type(t[0]) == str:
         # TODO: What happens when the AST arrives to a terminal node (e.g., expression = NUMBER)?
         return t[0]

@@ -147,6 +147,22 @@ def test_ref1():
     assert re.match(r'.*AP.*', et) is not None, et
 
 
+def test_float1():
+    e = parse_cond("0.0")
+    et = traverse(e)
+    assert re.match(r'.*AP.*', et) is not None, et
+
+
+def test_string_tick1():
+    e = parse_annot("A'b : C x")
+    assert e[0] == ASTNode.TYPED, e
+    assert e[1][1] == "A'b"
+    et = traverse(e)
+    assert e[2][0] == "C"
+    assert e[2][1] == "x"
+    assert et == "A'b : C x", et
+
+
 def test_discspcpn1():
     s = "val dpos:POS = (~10, ~10);"
     e = parse_fdecls(s)

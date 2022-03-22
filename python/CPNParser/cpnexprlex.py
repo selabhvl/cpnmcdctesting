@@ -78,9 +78,9 @@ def t_NAME(t):
 
 
 def t_NUMBER(t):
-    r'\d+'
+    r'\d*\.?\d+'
     try:
-        t.value = int(t.value)
+        x = float(t.value) # just a check. TODO: exception still needed?
     except ValueError:
         print("Integer value too large %d", t.value)
         t.value = 0

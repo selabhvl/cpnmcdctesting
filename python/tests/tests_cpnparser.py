@@ -141,6 +141,12 @@ def test_fun_decl5():
     print(et)
 
 
+def test_ref1():
+    e = parse_cond("!timeout")
+    et = traverse(e)
+    assert re.match(r'.*AP.*', et) is not None, et
+
+
 def test_discspcpn1():
     s = "val dpos:POS = (~10, ~10);"
     e = parse_fdecls(s)

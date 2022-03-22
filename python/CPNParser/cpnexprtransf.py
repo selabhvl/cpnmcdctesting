@@ -62,6 +62,7 @@ def translate_call(t, dec):
         lhs = "(" + traverse(expr_1, dec=None) + ")"
     else:
         lhs = traverse(expr_1, dec=None)
+
     # TODO: Check if we actually need parens...
     if dec is not None:
         identifier = ap_identifier(dec, str_expr_list)
@@ -141,7 +142,11 @@ def translate_ref(t, dec):
     # REF expression
     # (ASTNode.REF, expression)
     _, expr = t
-    return "!{0}".format(traverse(expr, dec=None))
+    if dec is None:
+        return "!{0}".format(traverse(expr, dec=None))
+    else:
+        identifier = ap_identifier(dec, expr)
+        return "AP(\"{1}\", !{0})".format(traverse(expr, dec=None), identifier)
 
 
 def translate_binexp(t, dec):

@@ -430,7 +430,7 @@ def test_guards2():
     print(e)
     et = traverse(e)
     print(et)
-    assert re.match(r"\[EXPR\(\"id.*\", AND\(AP\(\"1\", a=b\), AP\(\"2\", c<=42\)\)\)\]", et) is not None, et
+    assert re.match(r"\[a=b, EXPR\(\"id.*\", AP\(\"1\", c<=42\)\)\]", et) is not None, et
 
 
 def test_guards3():

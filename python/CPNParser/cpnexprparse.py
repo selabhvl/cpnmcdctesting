@@ -76,6 +76,7 @@ class ASTNode(Enum):
     CASE = 23
     CASEEXP = 24
     TLGUARD = 25
+    HASH_STR = 26
 
     def __str__(self):
         return self.name
@@ -96,12 +97,18 @@ def p_statement_assign(t):
 #     t[0] = (ASTNode.EXPR, identifier, t[1])
 
 
-def p_expression_harsh(t):
+def p_expression_hash(t):
     '''expression : CHAR NAME expression
                     | CHAR NUMBER expression'''
 
     # t[0] = "{0}{1} {2}".format(t[1], t[2], t[3])
     t[0] = (ASTNode.HASH, t[2], t[3])
+
+
+def p_expression_hash_char(t):
+    '''expression : CHAR STRING'''
+    # t[0] = "{0}{1} {2}".format(t[1], t[2], t[3])
+    t[0] = (ASTNode.HASH_STR, t[2])
 
 
 # if statement

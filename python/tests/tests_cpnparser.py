@@ -690,3 +690,13 @@ def test_discspcpn_guard2():
     g1 = e[2][0]
     assert g1[0] == ASTNode.TLGUARD, e[1]
     assert re.match(r'^\[rid=#', et) is not None, et
+
+
+def test_char1():
+    s = "x = #\"[\""
+    e = parse_annot(s)
+    assert e[0] == ASTNode.BINCOND
+    assert e[3][0] == ASTNode.HASH_STR
+    assert e[3][1] == "\"[\""
+    et = traverse(e)
+    print(et)

@@ -409,6 +409,8 @@ def traverse(t, dec=None):
         return translate_case(t, dec)
 #    elif t[0] == ASTNode.BINDE:
 #        return translate_bind(t, dec)
+    elif t[0] == ASTNode.HASH_STR:
+        return "#" + t[1]
     elif type(t[0]) == str:
         # TODO: What happens when the AST arrives to a terminal node (e.g., expression = NUMBER)?
         return t[0]

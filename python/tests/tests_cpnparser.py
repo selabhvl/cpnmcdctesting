@@ -718,3 +718,10 @@ def test_nums2():
     et = traverse(e)
     print(et)
     assert et == "42.0"
+
+
+def test_curly1():
+    s = "{l = r,a = b}"
+    e = parse_annot(s)
+    et = traverse(e)
+    assert et == s, et

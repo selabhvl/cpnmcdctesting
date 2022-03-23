@@ -700,3 +700,21 @@ def test_char1():
     assert e[3][1] == "\"[\""
     et = traverse(e)
     print(et)
+
+
+def test_nums1():
+    s = "42"
+    e = parse_annot(s)
+    assert e[0] == ASTNode.ID
+    et = traverse(e)
+    print(et)
+    assert et == "42"
+
+
+def test_nums2():
+    s = "42.0"
+    e = parse_annot(s)
+    assert e[0] == ASTNode.ID
+    et = traverse(e)
+    print(et)
+    assert et == "42.0"

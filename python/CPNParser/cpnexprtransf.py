@@ -80,8 +80,10 @@ def translate_single_guard(t, dec):
     _, guard_dec, expr = t
     assert guard_dec is not None
     str_expr = traverse(expr, guard_dec)
-    return "EXPR(\"{0}\", {1})".format(guard_dec, str_expr)
-    # return "[{0}]".format(traverse(expr_list, dec))
+    if expr[0] == ASTNode.TLGUARD:
+        return str_expr
+    else:
+        return "EXPR(\"{0}\", {1})".format(guard_dec, str_expr)
 
 
 def translate_guard(t):

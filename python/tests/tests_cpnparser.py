@@ -337,6 +337,15 @@ def test_arc_assign1():
     print(et)
 
 
+def test_guard_list1():
+    s = "x <> [0]"
+    e = parse_annot(s)
+    assert e[0] == ASTNode.BINCOND
+    et = traverse(e)
+    print(et)
+    assert re.match(r'.*\[0\]', et) is not None, et
+
+
 @pytest.mark.parametrize("expr", error_cpnabs)
 def test_cpnabs(expr):
     e = parse_cond(expr)

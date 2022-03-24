@@ -122,7 +122,7 @@ def translate_list(t, dec):
     # (ASTNode.LIST, expression_list)
     _, expr_list = t
     str_expr_list = ",".join(traverse(expr, dec) for expr in expr_list)
-    return "{0}".format(str_expr_list)
+    return "[{0}]".format(str_expr_list)
 
 
 def translate_fn(t, dec):
@@ -367,7 +367,7 @@ def traverse(t, dec=None):
         return translate_call(t, dec)
     elif t[0] == ASTNode.TLGUARD:
         assert t[1][0] == ASTNode.ID
-        return traverse(t[1], dec=None) + "=" + traverse(t[2], dec=None)
+        return traverse(t[1], dec=None) + "= " + traverse(t[2], dec=None)
     elif t[0] == ASTNode.GUARD:
         # single!
         return translate_single_guard(t, dec)

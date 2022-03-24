@@ -344,7 +344,7 @@ def test_cpnabs(expr):
     print(e)
     et = traverse(e)
     print(et)
-    assert re.match(r'EXPR.*', et) is not None, (e, et)
+    assert re.match(r'^p9=hd \(pl9\)', et) is not None, (e, et)
 
 # @pytest.mark.parametrize("error_mqtt", error_mqtt)
 # def test_mqtt(error_mqtt):
@@ -452,7 +452,7 @@ def test_guards2():
     print(e)
     et = traverse(e)
     print(et)
-    assert re.match(r"\[a=b, EXPR\(\"id.*\", AP\(\"1\", c<=42\)\)\]", et) is not None, et
+    assert re.match(r"\[a=b, EXPR\(\"id.*\", AP\(\"1\", c <= 42\)\)\]", et) is not None, et
 
 
 def test_guards3():
@@ -689,7 +689,7 @@ def test_discspcpn_guard2():
     assert e[0] == ASTNode.GUARDS
     g1 = e[2][0]
     assert g1[0] == ASTNode.TLGUARD, e[1]
-    assert re.match(r'^\[rid=#', et) is not None, et
+    assert re.match(r'^\[rid= \(#', et) is not None, et
 
 def test_discspcpn_arc1():
     s = "if cval = (~1) then (id, []) else (id, [cval])"

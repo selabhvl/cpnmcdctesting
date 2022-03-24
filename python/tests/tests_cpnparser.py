@@ -698,6 +698,14 @@ def test_discspcpn_arc1():
     et = traverse(e)
     print(et)
 
+def test_cpnabs_arc5():
+    s = "ob4=ob7"
+    e = parse_cond(s)
+    print(e)
+    et = traverse(e)
+    print(et)
+    assert re.match(r'^EXPR', et) is None, et
+
 
 def test_char1():
     s = "x = #\"[\""

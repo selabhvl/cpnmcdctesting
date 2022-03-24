@@ -6,18 +6,23 @@ import xml.etree.ElementTree as ET
 
 from CPNParser.cpnexprparse import parse_annot, parse_cond, parse_fdecls, ASTNode
 from CPNParser.cpnexprtransf import traverse, traverse_decls, translate_guard
-from CPNParser.cpnxml import extract_elements_with_conditions, extract_elements_with_annotations, find_element_by_expr_name, get_cond, set_cond, get_annot, set_annot
+from CPNParser.cpnxml import extract_elements_with_conditions, extract_elements_with_annotations, \
+    find_element_by_expr_name, get_cond, set_cond, get_annot, set_annot
 
-
-cpn_files = ["cpn_models/cpnabs/cpnabs.cpn", "cpn_models/discspcpn/discspcpn.cpn", "cpn_models/mqtt/mqtt.cpn", "cpn_models/paxos/paxos.cpn"]
-csv_cond_files = ["cpn_models/cpnabs/cpnabs_trans.csv", "cpn_models/discspcpn/discspcpn_trans.cpn", "cpn_models/mqtt/mqtt_trans.cpn", "cpn_models/paxos/paxos_trans.cpn"]
-csv_annot_files = ["cpn_models/cpnabs/cpnabs_arcs.csv", "cpn_models/discspcpn/discspcpn_arcs.cpn", "cpn_models/mqtt/mqtt_arcs.cpn", "cpn_models/paxos/paxos_arcs.cpn"]
+cpn_files = ["cpn_models/cpnabs/cpnabs.cpn", "cpn_models/discspcpn/discspcpn.cpn", "cpn_models/mqtt/mqtt.cpn",
+             "cpn_models/paxos/paxos.cpn"]
+csv_cond_files = ["cpn_models/cpnabs/cpnabs_trans.csv", "cpn_models/discspcpn/discspcpn_trans.cpn",
+                  "cpn_models/mqtt/mqtt_trans.cpn", "cpn_models/paxos/paxos_trans.cpn"]
+csv_annot_files = ["cpn_models/cpnabs/cpnabs_arcs.csv", "cpn_models/discspcpn/discspcpn_arcs.cpn",
+                   "cpn_models/mqtt/mqtt_arcs.cpn", "cpn_models/paxos/paxos_arcs.cpn"]
 
 # error_cpnabs = ["p9=hd pl9 andalso (if (mem pl27 p9) then p24=p9 else not (p24=p9))"]
 error_cpnabs = ["p9=hd pl9"]
 error_mqtt = ['1`(id,tag)++1`(id,cval)']
-error_paxos = ["if (not b) andalso PrepareQFCond(cid,crnd',preparereplies') then 1`PrepareQFProm(cid,crnd',preparereplies') else empty"]
+error_paxos = [
+    "if (not b) andalso PrepareQFCond(cid,crnd',preparereplies') then 1`PrepareQFProm(cid,crnd',preparereplies') else empty"]
 error_discspcpn = ['1`(id,tag)++1`(id,cval)']
+
 
 # def add_file_to_load():
 #     # type: () -> list
@@ -119,7 +124,8 @@ def test_fun_decl3():
 
 
 def test_fun_decl4():
-    e = parse_fdecls("fun cLR msgs = (List.foldr (fn ((c,omsgs),ln) => ln + (List.length omsgs)) 0 msgs) <= (!boutmsgsbound);")
+    e = parse_fdecls(
+        "fun cLR msgs = (List.foldr (fn ((c,omsgs),ln) => ln + (List.length omsgs)) 0 msgs) <= (!boutmsgsbound);")
     assert len(e) == 1
     assert e[0][0] == ASTNode.FUNDECL, e[0]
     et = traverse_decls(e)
@@ -133,7 +139,8 @@ def test_silly():
 
 
 def test_fun_decl5():
-    e = parse_fdecls("fun AcceptQFLearn (cid,acceptreplies) = let val (crnd,vval) = findHighest (acceptreplies) in rhs end;")
+    e = parse_fdecls(
+        "fun AcceptQFLearn (cid,acceptreplies) = let val (crnd,vval) = findHighest (acceptreplies) in rhs end;")
     assert len(e) == 1
     assert e[0][0] == ASTNode.FUNDECL, e[0]
     print(e)
@@ -226,19 +233,22 @@ def test_ite1_guard2():
     print(et)
     assert re.match(r'\[EXPR\(.*\, ITE\(.*\, .*\, .*\)\)\]', et) is not None, et
 
+
 def test_exp1():
     e = parse_annot("hd foo = bar")
     print(e)
     et = traverse(e, dec="1")
     print(et)
-    assert re.match(r'AP\(.*\)',et) is not None, et
+    assert re.match(r'AP\(.*\)', et) is not None, et
+
 
 def test_exp2():
     e = parse_annot("if hd fopl1=((ob14,u10,t9,pl11,cl11),0) then ((ob14,u10,t9,pl11,cl11),p5+1)::tl fopl1 else fopl1")
     print(e)
     et = traverse(e)
     print(et)
-    assert re.match(r'if EXPR.*',et) is not None
+    assert re.match(r'if EXPR.*', et) is not None
+
 
 def test_exp3b():
     e = parse_annot("if bexp then x::tl fopl1 else y")
@@ -246,11 +256,13 @@ def test_exp3b():
     et = traverse(e)
     print(et)
 
+
 def test_exp3bguard():
     e = parse_cond("if bexp then x::tl fopl1 else y")
     print(e)
     et = traverse(e)
     print(et)
+
 
 def test_exp3cguard():
     e = parse_cond("if bexp then x::fopl1 else y")
@@ -258,11 +270,13 @@ def test_exp3cguard():
     et = traverse(e)
     print(et)
 
+
 def test_exp3dguard():
     e = parse_cond("if bexp then tl fopl1 else y")
     print(e)
     et = traverse(e)
     print(et)
+
 
 def test_exp3dcond():
     e = parse_annot("if bexp then tl fopl1 else y")
@@ -313,14 +327,15 @@ def test_guard_not1():
     # [EXPR("id1", AP("1", not (b1)))]
     assert re.match(r'\[EXPR\(.*, AP\(.*, not \(b1\)\)\)\]', et) is not None, (e, et)
 
-    
+
 def test_exp4():
     s = "1`(id,tag)++1`(id,cval)"
     e = parse_annot(s)
     et = traverse(e)
     print(et)
     # TODO: ick, find a better solution!
-    assert et.replace(" ","") == s
+    assert et.replace(" ", "") == s
+
 
 def test_arcannot():
     s = "((ob14,u10,t9,pl11,cl11),((ob25,u22,t19,ins pl22 (p12+1),ins cl21 c6),p12+1))::pfopl"
@@ -355,6 +370,7 @@ def test_cpnabs(expr):
     print(et)
     assert re.match(r'^p9=hd \(pl9\)', et) is not None, (e, et)
 
+
 # @pytest.mark.parametrize("error_mqtt", error_mqtt)
 # def test_mqtt(error_mqtt):
 #     for expr in error_mqtt:
@@ -372,12 +388,14 @@ def test_paxos_ok():
     et = traverse(e)
     print(et)
 
+
 def test_paxos_err1():
     s = "if (not b) then true else empty"
     e = parse_annot(s)
     print(e)
     et = traverse(e)
     print(et)
+
 
 def test_constructor1():
     s = "Foo"
@@ -439,6 +457,7 @@ def test_paxos_err2():
     et = traverse(e)
     print(et)
 
+
 def test_paxos_err3():
     s = "if true then 1`PrepareQFProm(cid,crnd',preparereplies') else empty"
     e = parse_annot(s)
@@ -490,7 +509,6 @@ def test_let3():
     e = parse_annot(s)
 
 
-
 def test_case1():
     s = "case x of 42 => true | _ => false"
     e = parse_annot(s)
@@ -531,6 +549,7 @@ def test_paxos(expr):
     print(et)
     # assert re.match("if EXPR.*", e) is not None, (e, et)
 
+
 # @pytest.mark.parametrize("error_discspcpn", error_discspcpn)
 # def test_discspcpn(error_discspcpn):
 #     for expr in error_discspcpn:
@@ -570,6 +589,7 @@ def test_arc_model(in_filename):
 
     assert len(arc_errors) == 0
 
+
 @pytest.mark.parametrize("in_filename",
                          ["./tests/cpn_models/cpnabs/cpnabs.cpn"])
 def test_trans_model(in_filename):
@@ -604,6 +624,7 @@ def test_trans_model(in_filename):
 
     assert len(transition_errors) == 0
 
+
 def test_cpnabs_arc1():
     s = "if b2=true then " \
         "((ob26,u23,t20,pl23,cl22),p12+1)::ins (rm ((ob25,u22,t19,pl22,cl21),p20) (tl fopl2)) ((ob25,u22,t19, ins pl22 (p12+1),ins cl21 c6),p20) " \
@@ -613,12 +634,14 @@ def test_cpnabs_arc1():
     et = traverse(e)
     print(et)
 
+
 def test_cpnabs_arc2():
     s = "if (mem obpl (ob11,p9)) then 1`p9 else empty"
     e = parse_annot(s)
     print(e)
     et = traverse(e)
     print(et)
+
 
 def test_cpnabs_arc3():
     s = "if (mem pl27 p9 andalso i4>1) " \
@@ -629,12 +652,14 @@ def test_cpnabs_arc3():
     et = traverse(e)
     print(et)
 
+
 def test_cpnabs_arc4():
     s = "rm ((ob24,u21,t18,pl21,cl20),p19) fopl"
     e = parse_annot(s)
     print(e)
     et = traverse(e)
     print(et)
+
 
 def test_cpnabs_arc5():
     s = "if mem pl25 (hd pl19) then (ob3,ins (rm (hd pl19) pl25) (p17+1),ins (rm (p22,i2) pll) (p17+1,i2+1))  else (ob3,(p17+1)::pl25,(p17+1,1)::pll)"
@@ -651,12 +676,22 @@ def test_cpnabs_arc6():
     et = traverse(e)
     print(et)
 
+
 def test_cpnabs_arc7():
     s = "[]"
     e = parse_annot(s)
     print(e)
     et = traverse(e)
     print(et)
+
+
+def test_cpnabs_arc8():
+    s = "ob4=ob7"
+    e = parse_cond(s)
+    print(e)
+    et = traverse(e)
+    print(et)
+    assert re.match(r'^EXPR', et) is None, et
 
 
 def test_paxos_arc1():
@@ -700,20 +735,13 @@ def test_discspcpn_guard2():
     assert g1[0] == ASTNode.TLGUARD, e[1]
     assert re.match(r'^\[rid= \(#', et) is not None, et
 
+
 def test_discspcpn_arc1():
     s = "if cval = (~1) then (id, []) else (id, [cval])"
     e = parse_annot(s)
     print(e)
     et = traverse(e)
     print(et)
-
-def test_cpnabs_arc5():
-    s = "ob4=ob7"
-    e = parse_cond(s)
-    print(e)
-    et = traverse(e)
-    print(et)
-    assert re.match(r'^EXPR', et) is None, et
 
 
 def test_char1():

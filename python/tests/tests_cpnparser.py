@@ -691,6 +691,13 @@ def test_discspcpn_guard2():
     assert g1[0] == ASTNode.TLGUARD, e[1]
     assert re.match(r'^\[rid=#', et) is not None, et
 
+def test_discspcpn_arc1():
+    s = "if cval = (~1) then (id, []) else (id, [cval])"
+    e = parse_annot(s)
+    print(e)
+    et = traverse(e)
+    print(et)
+
 
 def test_char1():
     s = "x = #\"[\""

@@ -7,3 +7,6 @@ python3 setup_mcdc.py install --force --user
 python3 setup_cpnparser.py clean --all
 python3 setup_cpnparser.py build
 python3 setup_cpnparser.py install --force --user
+#run tests
+cd tests
+./instrument.sh

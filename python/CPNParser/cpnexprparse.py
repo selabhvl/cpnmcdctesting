@@ -144,9 +144,7 @@ def p_expression_constructor(t):
 
 def p_item_or_tuple(t):
     '''iOt : item
-           | item COLON NAME
-           | tuple
-           | tuple COLON NAME'''
+           | item COLON NAME'''
     # FIXME: we gobble type annotations!
     t[0] = t[1]
 

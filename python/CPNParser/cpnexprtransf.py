@@ -49,6 +49,8 @@ def translate_ite(t, dec):
                                                                     traverse(expr_2, dec=None),
                                                                     traverse(expr_3, dec=None))
 
+def needs_parens(t):
+    return t not in [ASTNode.ID, ASTNode.TUPLE]
 
 def translate_call(t, dec):
     # expression expression %prec FCALL
@@ -57,7 +59,7 @@ def translate_call(t, dec):
     # TODO: we loose input format here and print everything with nested parens.
     # str_expr_list = " ".join("({0})".format(traverse(expr, dec)) for expr in exprs)
     str_expr_list = traverse(exprs, dec=None)
-    lhs_needs_parens = expr_1[0] not in [ASTNode.ID]
+    lhs_needs_parens = needs_parens(expr_1[0])
     if lhs_needs_parens:
         lhs = "(" + traverse(expr_1, dec=None) + ")"
     else:
@@ -191,7 +193,7 @@ def translate_bincond(t, dec):
                                           traverse(expr_1, dec),
                                           traverse(expr_2, dec))
         else:
-            op_str = "{0}{1}{2}".format(traverse(expr_1, dec=None),
+            op_str = "{0} {1} {2}".format(traverse(expr_1, dec=None),
                                         new_bin_op,
                                         traverse(expr_2, dec=None))
             identifier = ap_identifier(dec, op_str)
@@ -227,7 +229,7 @@ def translate_hash(t, dec):
     # | CHAR NUMBER expression
     # (ASTNode.HASH, t[2], t[3])
     _, name, expr = t
-    return "#{0} {1}".format(name, traverse(expr, dec=None))
+    return " #{0} {1}".format(name, traverse(expr, dec=None))
 
 
 def translate_assign(t, dec):
@@ -319,6 +321,7 @@ def traverse_annot(t):
         if op == ASTNode.BINCOND:
             expr_1, bin_op, expr_2 = operands
             if bin_op == '=':
+                assert False, "Unreached."
                 return ASTNode.BIND, expr_1, expr_2
         return t
 

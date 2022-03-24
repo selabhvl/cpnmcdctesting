@@ -709,6 +709,13 @@ def test_char1():
     print(et)
 
 
+def test_char2():
+    # not valid SML:
+    s = "[x =#\"[\"]"
+    e = parse_annot(s)
+    assert e is None
+
+
 def test_nums1():
     s = "42"
     e = parse_annot(s)

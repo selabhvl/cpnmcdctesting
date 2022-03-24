@@ -3,6 +3,8 @@ import cpnexprlex
 import tempfile
 from enum import Enum
 
+# This grammar is a coarse approximation of https://smlfamily.github.io/sml97-defn.pdf
+#   that does the job for our models.
 # List of token names.   This is always required
 tokens = cpnexprlex.tokens
 start = 'fdecls'

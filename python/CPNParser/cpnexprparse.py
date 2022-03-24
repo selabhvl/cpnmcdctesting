@@ -182,10 +182,15 @@ def p_expression_list(t):
 
 
 def mogrify_guard(t):
+    # TODO: it seems we need an analysis of incoming edges to get this right.
+    #    So disable for now, shouldn't make a difference.
+    return t
+    assert False  # NOT REACHED, disabled for the moment
     if t[0] == ASTNode.BINCOND and t[2] == "=" and t[1][0] == ASTNode.ID:
         return (ASTNode.TLGUARD, t[1], t[3])
     else:
         return t
+
 
 def p_condition_single(t):
     '''guard : expression'''

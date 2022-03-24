@@ -2,6 +2,9 @@ import ply.lex as lex
 
 
 # List of reserved names.
+# Note that for our purposes it doesn't have to be complete:
+#   we're e.g. not interested in type declaration at all and will
+#   just copy the input into the output when transforming.
 reserved = {
     'if': 'IF',
     'then': 'THEN',
@@ -16,7 +19,10 @@ reserved = {
     'end': 'END',
     'case': 'CASE',
     'of': 'OF',
-#    'as': 'AS',  # Hack, treat as NAME for now since we don't need it.
+    #    'as': 'AS',  # Hack, treat as NAME for now since we don't need it.
+    'rec': 'REC',
+    'handle': 'HANDLE',
+    'and': 'AND',
 }
 
 # List of token names.   This is always required

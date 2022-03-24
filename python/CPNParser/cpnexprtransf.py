@@ -229,7 +229,7 @@ def translate_hash(t, dec):
     # | CHAR NUMBER expression
     # (ASTNode.HASH, t[2], t[3])
     _, name, expr = t
-    return " #{0} {1}".format(name, traverse(expr, dec=None))
+    return " (#{0} {1})".format(name, traverse(expr, dec=None))
 
 
 def translate_assign(t, dec):

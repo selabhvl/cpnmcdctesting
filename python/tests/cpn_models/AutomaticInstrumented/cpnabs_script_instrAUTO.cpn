@@ -3,23 +3,6 @@
   <generator tool="CPN Tools" version="4.0.1" format="6" />
   <cpnet>
     <globbox>
-      <block id="ID1519728049">
-        <id>MBT</id>
-        <ml id="ID1519728277">val cpnmcdclibpath =  "../../";
-          <layout>val cpnmcdclibpath =  "../../";</layout>
-        </ml>
-        <ml id="ID1519728206">val fmodelpath = cpnmcdclibpath^"/examples/tpc/";
-          <layout>val fmodelpath = cpnmcdclibpath^"/examples/tpc/";</layout>
-        </ml>
-        <use id="ID1519728147">
-          <ml>(cpnmcdclibpath^"config/logging.sml")</ml>
-          <layout>use (cpnmcdclibpath^"config/logging.sml");</layout>
-        </use>
-        <use id="ID1519728100">
-          <ml>(cpnmcdclibpath^"config/instrumentation.sml")</ml>
-          <layout>use (cpnmcdclibpath^"config/instrumentation.sml");</layout>
-        </use>
-      </block>
       <block id="ID1412310166">
         <id>Standard priorities</id>
         <ml id="ID1412310255">val P_HIGH = 100;
@@ -1878,8 +1861,7 @@ Objects
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P12
-(p12)</text>
+        <text>p12</text>
         <ellipse w="60.000000" h="54.894546" />
         <token x="-109.296978" y="61.564126" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -1901,7 +1883,7 @@ Objects
         </initmark>
       </place>
       <place id="ID1418796411">
-        <posattr x="309.000000" y="-546.000000" />
+        <posattr x="291.000000" y="-527.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
@@ -1914,14 +1896,14 @@ Objects
           <snap snap_id="0" anchor.horizontal="0" anchor.vertical="0" />
         </marking>
         <type id="ID1418796412">
-          <posattr x="212.000000" y="-579.000000" />
+          <posattr x="194.000000" y="-560.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1">FULLOBJPROC</text>
         </type>
         <initmark id="ID1418796413">
-          <posattr x="409.000000" y="-506.000000" />
+          <posattr x="391.000000" y="-487.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -1933,8 +1915,7 @@ Objects
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P13
-(p13)</text>
+        <text>p13</text>
         <ellipse w="60.000000" h="40.000000" />
         <token x="-88.444612" y="35.746912" />
         <marking x="30.782063" y="74.472733" hidden="false">
@@ -1960,8 +1941,7 @@ Objects
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P14
-(p14)</text>
+        <text>p14</text>
         <ellipse w="60.000000" h="89.648489" />
         <token x="-128.163403" y="-21.845335" />
         <marking x="0.992970" y="88.374309" hidden="false">
@@ -2493,7 +2473,9 @@ Objects
       <vguideline id="ID1412505661" x="279.000000" />
       <vguideline id="ID1412506892" x="474.000000" />
       <vguideline id="ID1412991350" x="2492.901577" />
-      <vguideline id="ID1413001146" x="291.535727" />
+      <vguideline id="ID1413001146" x="291.535727">
+        <guideline_elm idref="ID1418796411" />
+      </vguideline>
       <vguideline id="ID1413001549" x="2681.000000" />
       <vguideline id="ID1413130332" x="868.796123" />
       <vguideline id="ID1414206458" x="2231.000000" />
@@ -2550,7 +2532,7 @@ List
           <snap snap_id="0" anchor.horizontal="0" anchor.vertical="0" />
         </marking>
         <type id="ID1422553693">
-          <posattr x="688.000000" y="-426.000000" />
+          <posattr x="745.500000" y="-354.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -2578,7 +2560,7 @@ callees
           <snap snap_id="0" anchor.horizontal="0" anchor.vertical="0" />
         </marking>
         <type id="ID1422553696">
-          <posattr x="748.500000" y="-315.000000" />
+          <posattr x="738.500000" y="-352.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -2597,8 +2579,7 @@ callees
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P22
-(p22)</text>
+        <text>p22</text>
         <ellipse w="60.000000" h="40.000000" />
         <token x="-10.000000" y="0.000000" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -2624,8 +2605,7 @@ callees
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P18
-(p18)</text>
+        <text>p18</text>
         <ellipse w="104.683640" h="40.000000" />
         <token x="-10.000000" y="0.000000" />
         <marking x="-14.000000" y="13.000000" hidden="false">
@@ -2679,8 +2659,7 @@ Pairs
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P25
-(p25)</text>
+        <text>p25</text>
         <ellipse w="60.000000" h="61.845335" />
         <token x="-10.000000" y="0.000000" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -2706,8 +2685,7 @@ Pairs
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P19
-(p19)</text>
+        <text>p19</text>
         <ellipse w="60.000000" h="40.000000" />
         <token x="-49.000000" y="9.000000" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -2733,8 +2711,7 @@ Pairs
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P27
-(p27)</text>
+        <text>p27</text>
         <ellipse w="60.000000" h="40.000000" />
         <token x="-10.000000" y="0.000000" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -2820,8 +2797,7 @@ Pairs
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P14
-(p14)</text>
+        <text>p14</text>
         <ellipse w="60.000000" h="89.648489" />
         <token x="-128.163403" y="-21.845335" />
         <marking x="0.992970" y="88.374309" hidden="false">
@@ -2955,8 +2931,7 @@ Objects
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P12
-(p12)</text>
+        <text>p12</text>
         <ellipse w="104.683640" h="77.500000" />
         <token x="-109.296978" y="61.564126" />
         <marking x="-14.000000" y="-13.000000" hidden="false">
@@ -3022,8 +2997,7 @@ Objects
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P13
-(p13)</text>
+        <text>p13</text>
         <ellipse w="60.000000" h="40.000000" />
         <token x="-88.444612" y="35.746912" />
         <marking x="30.782063" y="74.472733" hidden="false">
@@ -3237,11 +3211,11 @@ Process
         </subst>
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1422553738">
-          <posattr x="234.000000" y="-486.000000" />
+          <posattr x="346.500000" y="-489.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("SUPReturna19", AND(AP("1", p9=hd pl9), ITE(AP("2", (mem pl27 p9)),AP("3", p24=p9),AP("4", not (p24=p9)) ) ))</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1422553739">
           <posattr x="575.387516" y="-367.147634" />
@@ -3283,11 +3257,11 @@ Process
         </subst>
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1422553744">
-          <posattr x="1065.000000" y="-352.000000" />
+          <posattr x="925.706061" y="-367.070303" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("SUPReadFa25", AND(AP("1", ob15=ob24), AP("2",p15=p19)))</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AP("1", ob15 = ob24), AP("2", p15 = p19))]</text>
         </cond>
         <time id="ID1422553745">
           <posattr x="872.706061" y="-374.070303" />
@@ -3330,13 +3304,11 @@ self-call
         </subst>
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1422553750">
-          <posattr x="-109.000000" y="23.000000" />
+          <posattr x="-55.000000" y="-245.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("SUPSsca16", AND(AP("1", ob20=ob3),
-ITE(AP("2", mem pl25 (hd pl19)),AND(AP("3", ob28=ob3), AP("4", p22=hd pl19)),
-AND(AP("5", ob28=0), AP("6",p22=0)) ) ) )</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1422553751">
           <posattr x="-104.500000" y="203.718788" />
@@ -3506,13 +3478,7 @@ AND(AP("5", ob28=0), AP("6",p22=0)) ) ) )</text>
         <arrowattr headsize="1.200000" currentcyckle="2" />
         <transend idref="ID1422553719" />
         <placeend idref="ID1422553695" />
-        <bendpoint id="ID1519750867" serial="1">
-          <posattr x="714.000000" y="180.000000" />
-          <fillattr colour="White" pattern="Solid" filled="false" />
-          <lineattr colour="Black" thick="0" type="Solid" />
-          <textattr colour="Black" bold="false" />
-        </bendpoint>
-        <bendpoint id="ID1423036977" serial="2">
+        <bendpoint id="ID1423036977" serial="1">
           <posattr x="672.000000" y="42.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
@@ -4395,8 +4361,7 @@ AND(AP("5", ob28=0), AP("6",p22=0)) ) ) )</text>
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P27
-(p27)</text>
+        <text>p27</text>
         <ellipse w="60.000000" h="80.000000" />
         <token x="-10.000000" y="0.000000" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -4428,8 +4393,7 @@ AND(AP("5", ob28=0), AP("6",p22=0)) ) ) )</text>
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P22
-(p22)</text>
+        <text>p22</text>
         <ellipse w="60.000000" h="40.000000" />
         <token x="-10.000000" y="0.000000" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -4457,7 +4421,7 @@ AND(AP("5", ob28=0), AP("6",p22=0)) ) ) )</text>
         </port>
       </place>
       <place id="ID1421718592">
-        <posattr x="2250.000000" y="-35.000000" />
+        <posattr x="2250.000000" y="-20.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
@@ -4471,21 +4435,21 @@ List
           <snap snap_id="0" anchor.horizontal="0" anchor.vertical="0" />
         </marking>
         <type id="ID1421718593">
-          <posattr x="2348.500000" y="-70.000000" />
+          <posattr x="2348.500000" y="-55.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1">FULLOBJPROCLIST</text>
         </type>
         <initmark id="ID1421718594">
-          <posattr x="2489.000000" y="5.000000" />
+          <posattr x="2350.000000" y="15.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1">[((0,0,0,[0],[0]),0)]</text>
         </initmark>
         <port id="ID1421718930" type="I/O">
-          <posattr x="2208.000000" y="-64.000000" />
+          <posattr x="2208.000000" y="-49.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -4732,8 +4696,7 @@ objects
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P25
-(p25)</text>
+        <text>p25</text>
         <ellipse w="60.000000" h="61.845335" />
         <token x="-10.000000" y="0.000000" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -4799,8 +4762,7 @@ callees
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P12
-(p12)</text>
+        <text>p12</text>
         <ellipse w="60.000000" h="99.578186" />
         <token x="-109.296978" y="61.564126" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -4832,8 +4794,7 @@ callees
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P19
-(p19)</text>
+        <text>p19</text>
         <ellipse w="60.000000" h="40.000000" />
         <token x="-49.000000" y="9.000000" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -4862,7 +4823,7 @@ callees
       </place>
       <trans id="ID1421718564" explicit="false">
         <posattr x="1386.000000" y="138.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="4" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>The Callee
@@ -4871,11 +4832,11 @@ is Idle
         <box w="205.760972" h="45.943758" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1421718565">
-          <posattr x="1402.000000" y="-193.000000" />
+          <posattr x="2533.000000" y="204.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("Cidle",ITE(AP("1", b2=true),AP("2", ob14 =ob25),AP("3", ob14&lt;&gt;ob25)))</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1421718566">
           <posattr x="1503.380486" y="171.971879" />
@@ -4901,7 +4862,7 @@ is Idle
       </trans>
       <trans id="ID1421718570" explicit="false">
         <posattr x="1705.000000" y="336.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="4" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>The Callee
@@ -4910,11 +4871,11 @@ is Busy
         <box w="223.465703" h="127.381340" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1421718571">
-          <posattr x="1884.000000" y="-175.000000" />
+          <posattr x="2502.000000" y="580.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("CBua22", ITE(AP("1", b2=true),AP("2", ob14 =ob25),AP("3", ob14&lt;&gt;ob25)))</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1421718572">
           <posattr x="1831.232851" y="410.690670" />
@@ -4940,7 +4901,7 @@ is Busy
       </trans>
       <trans id="ID1421718576" explicit="false">
         <posattr x="2199.000000" y="407.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="4" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>The Callee
@@ -4949,12 +4910,11 @@ is Blocked
         <box w="315.114191" h="85.676610" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1421718577">
-          <posattr x="2441.500000" y="-158.000000" />
+          <posattr x="2707.000000" y="-226.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("CBloa23", AND(AND(AP("1", ob10=ob25), AP("2", ob14&lt;&gt;ob10)), 
-ITE(AP("3", b2=true),AP("4", ob26=ob14),AP("5", ob26&lt;&gt;ob14))))</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1421718578">
           <posattr x="2371.057095" y="460.838305" />
@@ -4997,7 +4957,7 @@ ITE(AP("3", b2=true),AP("4", ob26=ob14),AP("5", ob26&lt;&gt;ob14))))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">((ob14,u10,t9,pl11,cl11),((ob25,u22,t19,ins pl22 (p12+1),ins cl21 c6),p12+1))::pfopl</text>
+          <text tool="CPN Tools" version="4.0.1">((ob14, u10, t9, pl11, cl11), ((ob25, u22, t19, ins pl22 (p12 + 1), ins cl21 c6), p12 + 1)) :: pfopl</text>
         </annot>
       </arc>
       <arc id="ID1421718590" orientation="TtoP" order="1">
@@ -5043,11 +5003,11 @@ ITE(AP("3", b2=true),AP("4", ob26=ob14),AP("5", ob26&lt;&gt;ob14))))</text>
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1421718596">
-          <posattr x="2845.000000" y="369.000000" />
+          <posattr x="2739.000000" y="368.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc4callee", AP("1", hd fopl1=((ob14,u10,t9,pl11,cl11),0))) then ((ob14,u10,t9,pl11,cl11),p5+1)::tl fopl1 else fopl1</text>
+          <text tool="CPN Tools" version="4.0.1">fopl1</text>
         </annot>
       </arc>
       <arc id="ID1421718600" orientation="TtoP" order="1">
@@ -5069,7 +5029,7 @@ ITE(AP("3", b2=true),AP("4", ob26=ob14),AP("5", ob26&lt;&gt;ob14))))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">((ob14,u10,t9,pl11,cl11),((ob8,u5,t5,ins pl5 (p5+1),ins cl5 c5),p5+1))</text>
+          <text tool="CPN Tools" version="4.0.1">((ob14, u10, t9, pl11, cl11), ((ob8, u5, t5, ins pl5 (p5 + 1), ins cl5 c5), p5 + 1))</text>
         </annot>
       </arc>
       <arc id="ID1421718605" orientation="BOTHDIR" order="1">
@@ -5119,7 +5079,7 @@ ITE(AP("3", b2=true),AP("4", ob26=ob14),AP("5", ob26&lt;&gt;ob14))))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">((ob25,u22,t19,pl22,cl21),p20)</text>
+          <text tool="CPN Tools" version="4.0.1">((ob25, u22, t19, pl22, cl21), p20)</text>
         </annot>
       </arc>
       <arc id="ID1421718612" orientation="PtoT" order="1">
@@ -5141,7 +5101,7 @@ ITE(AP("3", b2=true),AP("4", ob26=ob14),AP("5", ob26&lt;&gt;ob14))))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">((ob25,u22,t19,pl22,cl21),p20)</text>
+          <text tool="CPN Tools" version="4.0.1">((ob25, u22, t19, pl22, cl21), p20)</text>
         </annot>
       </arc>
       <arc id="ID1421718617" orientation="TtoP" order="1">
@@ -5159,11 +5119,11 @@ ITE(AP("3", b2=true),AP("4", ob26=ob14),AP("5", ob26&lt;&gt;ob14))))</text>
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1421718618">
-          <posattr x="2818.500000" y="111.000000" />
+          <posattr x="2726.000000" y="111.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc6callee", AP("1", pl5=[0])) then (ob8,u5,t5,[p5+1],[c5]) else (ob8,u5,t5,ins pl5 (p5+1),ins cl5 c5)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob8, u5, t5, ins pl5 (p5 + 1), ins cl5 c5)</text>
         </annot>
       </arc>
       <arc id="ID1421718622" orientation="PtoT" order="1">
@@ -5213,7 +5173,7 @@ ITE(AP("3", b2=true),AP("4", ob26=ob14),AP("5", ob26&lt;&gt;ob14))))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob14,u10,t9,pl11,cl11)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob14, u10, t9, pl11, cl11)</text>
         </annot>
       </arc>
       <arc id="ID1421718632" orientation="PtoT" order="1">
@@ -5235,7 +5195,7 @@ ITE(AP("3", b2=true),AP("4", ob26=ob14),AP("5", ob26&lt;&gt;ob14))))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob9,u5,t5,pl5,cl5)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob9, u5, t5, pl5, cl5)</text>
         </annot>
       </arc>
       <arc id="ID1421718637" orientation="BOTHDIR" order="1">
@@ -5279,7 +5239,7 @@ ITE(AP("3", b2=true),AP("4", ob26=ob14),AP("5", ob26&lt;&gt;ob14))))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob8,u5,t5,pl5,cl5)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob8, u5, t5, pl5, cl5)</text>
         </annot>
       </arc>
       <arc id="ID1421718641" orientation="BOTHDIR" order="1">
@@ -5345,7 +5305,7 @@ ITE(AP("3", b2=true),AP("4", ob26=ob14),AP("5", ob26&lt;&gt;ob14))))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob9,p5+1)::obpl</text>
+          <text tool="CPN Tools" version="4.0.1">(ob9, p5 + 1) :: obpl</text>
         </annot>
       </arc>
       <arc id="ID1421718650" orientation="PtoT" order="1">
@@ -5435,12 +5395,11 @@ ITE(AP("3", b2=true),AP("4", ob26=ob14),AP("5", ob26&lt;&gt;ob14))))</text>
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1421718657">
-          <posattr x="2705.000000" y="261.000000" />
+          <posattr x="2589.000000" y="266.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc5callee", AP("1", b2=true)) 
-then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id1", AP("3", b2 = true)) then ((ob25, u22, t19, pl22, cl21), p5 + 1) else ((ob25, u22, t19, pl22, cl21), p20)</text>
         </annot>
       </arc>
       <arc id="ID1421718658" orientation="TtoP" order="1">
@@ -5468,7 +5427,7 @@ then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">((ob25,u22,t19,ins pl22 (p12+1),ins cl21 c6), p20)</text>
+          <text tool="CPN Tools" version="4.0.1">((ob25, u22, t19, ins pl22 (p12 + 1), ins cl21 c6), p20)</text>
         </annot>
       </arc>
       <arc id="ID1421718660" orientation="TtoP" order="1">
@@ -5490,7 +5449,7 @@ then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">((ob14,u10,t9,pl11,cl11),((ob25,u22,t19,ins pl22 (p12+1),ins cl21 c6),p12+1))</text>
+          <text tool="CPN Tools" version="4.0.1">((ob14, u10, t9, pl11, cl11), ((ob25, u22, t19, ins pl22 (p12 + 1), ins cl21 c6), p12 + 1))</text>
         </annot>
       </arc>
       <arc id="ID1421718665" orientation="BOTHDIR" order="1">
@@ -5534,7 +5493,7 @@ then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob14,u10,t9,pl11,cl11)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob14, u10, t9, pl11, cl11)</text>
         </annot>
       </arc>
       <arc id="ID1421718669" orientation="TtoP" order="1">
@@ -5562,7 +5521,7 @@ then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc2callee", AP("1", b2=true)) then ((ob26,u23,t20,pl23,cl22),p12+1) else ((ob26,u23,t20,pl23,cl22),p21)</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id1", AP("3", b2 = true)) then ((ob26, u23, t20, pl23, cl22), p12 + 1) else ((ob26, u23, t20, pl23, cl22), p21)</text>
         </annot>
       </arc>
       <arc id="ID1421718671" orientation="TtoP" order="1">
@@ -5586,11 +5545,11 @@ then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1421718672">
-          <posattr x="2715.000000" y="723.000000" />
+          <posattr x="2642.000000" y="724.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc1callee" , AP("1", hd fopl1=((ob14,u10,t9,pl11,cl11),0))) then ((ob14,u10,t9,pl11,cl11),p5+1)::tl fopl1 else fopl1</text>
+          <text tool="CPN Tools" version="4.0.1">fopl1</text>
         </annot>
       </arc>
       <arc id="ID1421718673" orientation="TtoP" order="1">
@@ -5612,7 +5571,7 @@ then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">((ob14,u10,t9,pl11,cl11),((ob9,u5,t5,ins pl5 (p5+1),ins cl5 c5),p5+1))</text>
+          <text tool="CPN Tools" version="4.0.1">((ob14, u10, t9, pl11, cl11), ((ob9, u5, t5, ins pl5 (p5 + 1), ins cl5 c5), p5 + 1))</text>
         </annot>
       </arc>
       <arc id="ID1421718675" orientation="PtoT" order="1">
@@ -5722,7 +5681,7 @@ then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob10,p12+1)::obpl</text>
+          <text tool="CPN Tools" version="4.0.1">(ob10, p12 + 1) :: obpl</text>
         </annot>
       </arc>
       <arc id="ID1421718688" orientation="BOTHDIR" order="1">
@@ -5772,7 +5731,7 @@ then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">p12+1</text>
+          <text tool="CPN Tools" version="4.0.1">p12 + 1</text>
         </annot>
       </arc>
       <arc id="ID1421718692" orientation="TtoP" order="1">
@@ -5794,7 +5753,7 @@ then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">p5+1</text>
+          <text tool="CPN Tools" version="4.0.1">p5 + 1</text>
         </annot>
       </arc>
       <arc id="ID1421718694" orientation="PtoT" order="1">
@@ -5860,9 +5819,7 @@ then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if b2=true then
-((ob25,u22,t19,pl22,cl21),p5+1) else
-((ob25,u22,t19,pl22,cl21),p20)</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id1", AP("3", b2 = true)) then ((ob25, u22, t19, pl22, cl21), p5 + 1) else ((ob25, u22, t19, pl22, cl21), p20)</text>
         </annot>
       </arc>
       <arc id="ID1421718700" orientation="TtoP" order="1">
@@ -5884,7 +5841,7 @@ then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob8,p5+1)::obpl</text>
+          <text tool="CPN Tools" version="4.0.1">(ob8, p5 + 1) :: obpl</text>
         </annot>
       </arc>
       <arc id="ID1421718702" orientation="PtoT" order="2">
@@ -5922,7 +5879,7 @@ then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">((ob14,u10,t9,pl11,cl11),((ob9,u5,t5,ins pl5 (p5+1),ins cl5 c5),p5+1))::pfopl</text>
+          <text tool="CPN Tools" version="4.0.1">((ob14, u10, t9, pl11, cl11), ((ob9, u5, t5, ins pl5 (p5 + 1), ins cl5 c5), p5 + 1)) :: pfopl</text>
         </annot>
       </arc>
       <arc id="ID1421718706" orientation="BOTHDIR" order="1">
@@ -5994,7 +5951,7 @@ then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">((ob25,u22,t19,pl22,cl21),p20)</text>
+          <text tool="CPN Tools" version="4.0.1">((ob25, u22, t19, pl22, cl21), p20)</text>
         </annot>
       </arc>
       <arc id="ID1421718712" orientation="PtoT" order="1">
@@ -6038,7 +5995,7 @@ then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob9,u5,t5,ins pl5 (p5+1),ins cl5 c5)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob9, u5, t5, ins pl5 (p5 + 1), ins cl5 c5)</text>
         </annot>
       </arc>
       <arc id="ID1421718716" orientation="TtoP" order="1">
@@ -6132,7 +6089,7 @@ then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">((ob26,u23,t20,pl23,cl22),p21)</text>
+          <text tool="CPN Tools" version="4.0.1">((ob26, u23, t20, pl23, cl22), p21)</text>
         </annot>
       </arc>
       <arc id="ID1421718724" orientation="TtoP" order="1">
@@ -6154,7 +6111,7 @@ then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc3callee", AP("1", b2=true)) then ((ob26,u23,t20,pl23,cl22),p12+1)::ins (rm ((ob25,u22,t19,pl22,cl21),p20) (tl fopl2)) ((ob25,u22,t19, ins pl22 (p12+1),ins cl21 c6),p20) else ins (rm ((ob25,u22,t19,pl22,cl21),p20) fopl2) ((ob25,u22,t19, ins pl22 (p12+1),ins cl21 c6),p20)</text>
+          <text tool="CPN Tools" version="4.0.1">ins (rm ( (ob25, u22, t19, pl22, cl21), p20 ) fopl2) ( (ob25, u22, t19, ins pl22 (p12 + 1), ins cl21 c6), p20 )</text>
         </annot>
       </arc>
       <arc id="ID1421718726" orientation="PtoT" order="1">
@@ -6176,7 +6133,7 @@ then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob14,u10,t9,pl11,cl11)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob14, u10, t9, pl11, cl11)</text>
         </annot>
       </arc>
       <arc id="ID1421718728" orientation="BOTHDIR" order="1">
@@ -6226,7 +6183,7 @@ then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">((ob14,u10,t9,pl11,cl11),((ob8,u5,t5,ins pl5 (p5+1),ins cl5 c5),p5+1))::pfopl</text>
+          <text tool="CPN Tools" version="4.0.1">((ob14, u10, t9, pl11, cl11), ((ob8, u5, t5, ins pl5 (p5 + 1), ins cl5 c5), p5 + 1)) :: pfopl</text>
         </annot>
       </arc>
       <arc id="ID1421718732" orientation="TtoP" order="1">
@@ -6254,7 +6211,7 @@ then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">p5+1</text>
+          <text tool="CPN Tools" version="4.0.1">p5 + 1</text>
         </annot>
       </arc>
       <arc id="ID1421718734" orientation="BOTHDIR" order="1">
@@ -6307,7 +6264,7 @@ then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
         <guideline_elm idref="ID1421718629" />
         <guideline_elm idref="ID1421718607" />
       </hguideline>
-      <hguideline id="ID1432513218" y="35.000000">
+      <hguideline id="ID1432513218" y="20.000000">
         <guideline_elm idref="ID1421718592" />
       </hguideline>
       <hguideline id="ID1432520426" y="-32.000000">
@@ -6325,12 +6282,11 @@ then ((ob25,u22,t19,pl22,cl21),p5+1) else ((ob25,u22,t19,pl22,cl21),p20)</text>
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="4" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P20
-(p20)</text>
+        <text>p20</text>
         <ellipse w="60.000000" h="40.000000" />
         <token x="-78.000000" y="0.000000" />
-        <marking x="63.929698" y="3.971879" hidden="false">
-          <snap snap_id="0" anchor.horizontal="1" anchor.vertical="3" />
+        <marking x="7.929698" y="12.971879" hidden="false">
+          <snap snap_id="0" anchor.horizontal="1" anchor.vertical="2" />
         </marking>
         <type id="ID1421737609">
           <posattr x="1259.500000" y="-411.000000" />
@@ -6421,8 +6377,7 @@ List
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P25
-(p25)</text>
+        <text>p25</text>
         <ellipse w="54.000000" h="37.845335" />
         <token x="-10.000000" y="0.000000" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -6521,8 +6476,7 @@ Objects
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P19
-(p19)</text>
+        <text>p19</text>
         <ellipse w="60.000000" h="40.000000" />
         <token x="-49.000000" y="9.000000" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -6554,8 +6508,7 @@ Objects
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P12
-(p12)</text>
+        <text>p12</text>
         <ellipse w="50.000000" h="37.578186" />
         <token x="16.703022" y="7.564126" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -6587,8 +6540,7 @@ Objects
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P22
-(p22)</text>
+        <text>p22</text>
         <ellipse w="58.000000" h="40.000000" />
         <token x="-32.000000" y="30.000000" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -6617,7 +6569,7 @@ Objects
       </place>
       <trans id="ID1421737611" explicit="false">
         <posattr x="1344.000000" y="-252.000000" />
-        <fillattr colour="Green" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="4" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Caller
@@ -6625,11 +6577,11 @@ Objects
         <box w="184.000000" h="52.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1421737612">
-          <posattr x="1318.000000" y="-298.000000" />
+          <posattr x="1296.500000" y="-296.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("Callera20", AP("1",ob4=ob7))</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1421737613">
           <posattr x="1450.500000" y="-215.000000" />
@@ -6720,7 +6672,7 @@ Objects
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">not b1</text>
+          <text tool="CPN Tools" version="4.0.1">b1</text>
         </annot>
       </arc>
       <arc id="ID1421737627" orientation="PtoT" order="2">
@@ -6754,11 +6706,11 @@ Objects
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1421737633">
-          <posattr x="1010.000000" y="-184.000000" />
+          <posattr x="1119.000000" y="-218.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc9caller", AP("1", b1=false)) then 1`(ob4,u2,t4,pl3,cl3) else empty</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id5", AP("7", b1 = false)) then 1 ` (ob4, u2, t4, pl3, cl3) else empty</text>
         </annot>
       </arc>
       <arc id="ID1421737637" orientation="PtoT" order="2">
@@ -6820,11 +6772,11 @@ Objects
         <transend idref="ID1421737611" />
         <placeend idref="ID1421737644" />
         <annot id="ID1421737648">
-          <posattr x="1557.500000" y="-343.000000" />
+          <posattr x="1462.500000" y="-315.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob7,u2,t4,pl3,cl3)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob7, u2, t4, pl3, cl3)</text>
         </annot>
       </arc>
       <arc id="ID1421737652" orientation="TtoP" order="1">
@@ -6846,7 +6798,7 @@ Objects
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc11caller", AP("1", b1=true)) then 1`((ob4,u2,t4,pl3,cl3),0) else empty</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id7", AP("8", b1 = true)) then 1 ` ((ob4, u2, t4, pl3, cl3), 0) else empty</text>
         </annot>
       </arc>
       <arc id="ID1421737657" orientation="TtoP" order="1">
@@ -6902,11 +6854,11 @@ Objects
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1421737665">
-          <posattr x="1081.000000" y="-298.000000" />
+          <posattr x="1096.000000" y="-299.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob4,u2,t4,pl3,cl3)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob4, u2, t4, pl3, cl3)</text>
         </annot>
       </arc>
       <arc id="ID1421737669" orientation="PtoT" order="1">
@@ -6956,11 +6908,11 @@ Objects
         <transend idref="ID1421737611" />
         <placeend idref="ID1421737634" />
         <annot id="ID1421737674">
-          <posattr x="1828.000000" y="-231.000000" />
+          <posattr x="1736.000000" y="-231.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc10caller", AP("1", b1=true)) then ((ob4,u2,t4,pl3,cl3),0)::fopl2 else fopl2</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id7", AP("8", b1 = true)) then ((ob4, u2, t4, pl3, cl3), 0) :: fopl2 else fopl2</text>
         </annot>
       </arc>
       <constraints />
@@ -7061,8 +7013,7 @@ Objects
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P13
-(p13)</text>
+        <text>p13</text>
         <ellipse w="60.000000" h="60.000000" />
         <token x="-88.444612" y="35.746912" />
         <marking x="30.782063" y="74.472733" hidden="false">
@@ -7094,12 +7045,11 @@ Objects
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P12
-(p12)</text>
+        <text>p12</text>
         <ellipse w="60.000000" h="69.578186" />
-        <token x="-20.000000" y="28.000000" />
-        <marking x="0.000000" y="0.000000" hidden="false">
-          <snap snap_id="0" anchor.horizontal="0" anchor.vertical="0" />
+        <token x="-34.000000" y="26.000000" />
+        <marking x="37.000000" y="-13.000000" hidden="false">
+          <snap snap_id="0" anchor.horizontal="1" anchor.vertical="1" />
         </marking>
         <type id="ID1421701200">
           <posattr x="1715.500000" y="-160.000000" />
@@ -7161,8 +7111,7 @@ objects
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P14
-(p14)</text>
+        <text>p14</text>
         <ellipse w="60.000000" h="89.648489" />
         <token x="-128.163403" y="-21.845335" />
         <marking x="0.992970" y="88.374309" hidden="false">
@@ -7191,7 +7140,7 @@ objects
       </place>
       <trans id="ID1421701172" explicit="false">
         <posattr x="1974.000000" y="-60.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Fucia" thick="4" type="solid" />
         <textattr colour="Fucia" bold="false" />
         <text>Suspend
@@ -7199,13 +7148,11 @@ objects
         <box w="50.070302" h="40.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1421701173">
-          <posattr x="2251.000000" y="-52.000000" />
+          <posattr x="2133.500000" y="-52.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Fucia" thick="0" type="Solid" />
           <textattr colour="Fucia" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("Suspa17", AND(AP("1", p7=hd pl7),
- ITE(AP("2", (mem pl26 p7)),AND(AP("3", (ob27=ob19)), AP("4",p23=p7)),
-AND(AP("5", (ob27=0)), AP("6", p23=0)) ) ))</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1421701174">
           <posattr x="2013.535151" y="-29.000000" />
@@ -7231,7 +7178,7 @@ AND(AP("5", (ob27=0)), AP("6", p23=0)) ) ))</text>
       </trans>
       <trans id="ID1421701178" explicit="false">
         <posattr x="1482.000000" y="-126.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Fucia" thick="4" type="solid" />
         <textattr colour="Fucia" bold="false" />
         <text>Activate
@@ -7239,11 +7186,11 @@ AND(AP("5", (ob27=0)), AP("6", p23=0)) ) ))</text>
         <box w="60.000000" h="40.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1421701179">
-          <posattr x="1380.000000" y="-67.000000" />
+          <posattr x="1448.000000" y="-88.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Fucia" thick="0" type="Solid" />
           <textattr colour="Fucia" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("Acta18", AND(AP("1", pl8&lt;&gt;[0]), AP("2", p8=hd pl8)))</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1421701180">
           <posattr x="1526.500000" y="-95.000000" />
@@ -7302,7 +7249,7 @@ AND(AP("5", (ob27=0)), AP("6", p23=0)) ) ))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob18,u7,t6,pl8,cl8)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob18, u7, t6, pl8, cl8)</text>
         </annot>
       </arc>
       <arc id="ID1421701197" orientation="BOTHDIR" order="1">
@@ -7318,7 +7265,7 @@ AND(AP("5", (ob27=0)), AP("6", p23=0)) ) ))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob19,pl26,pll1)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob19, pl26, pll1)</text>
         </annot>
       </arc>
       <arc id="ID1421701202" orientation="BOTHDIR" order="1">
@@ -7356,7 +7303,7 @@ AND(AP("5", (ob27=0)), AP("6", p23=0)) ) ))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob18,u7,t6,pl8,cl8)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob18, u7, t6, pl8, cl8)</text>
         </annot>
       </arc>
       <arc id="ID1421701212" orientation="BOTHDIR" order="1">
@@ -7372,7 +7319,7 @@ AND(AP("5", (ob27=0)), AP("6", p23=0)) ) ))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob27,p23,i3)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob27, p23, i3)</text>
         </annot>
       </arc>
       <arc id="ID1421701214" orientation="BOTHDIR" order="1">
@@ -7416,7 +7363,7 @@ AND(AP("5", (ob27=0)), AP("6", p23=0)) ) ))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Purple" thick="0" type="Solid" />
           <textattr colour="Purple" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob19,u6,t4,union (List.drop(pl7,i3+1)) (List.take(pl7,i3+1)),union (List.drop(cl7,i3+1)) (List.take(cl7,i3+1)))</text>
+          <text tool="CPN Tools" version="4.0.1">(ob19, u6, t4, union (List.drop ( pl7, i3 + 1 )) (List.take ( pl7, i3 + 1 )), union (List.drop ( cl7, i3 + 1 )) (List.take ( cl7, i3 + 1 )))</text>
         </annot>
       </arc>
       <arc id="ID1421701218" orientation="BOTHDIR" order="1">
@@ -7454,7 +7401,7 @@ AND(AP("5", (ob27=0)), AP("6", p23=0)) ) ))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob19,u6,t4,pl7,cl7)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob19, u6, t4, pl7, cl7)</text>
         </annot>
       </arc>
       <constraints />
@@ -7503,8 +7450,7 @@ Objects
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P13
-(p13)</text>
+        <text>p13</text>
         <ellipse w="60.000000" h="54.000000" />
         <token x="-88.444612" y="35.746912" />
         <marking x="10.782063" y="-3.527267" hidden="false">
@@ -7569,8 +7515,7 @@ Objects
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P22
-(p22)</text>
+        <text>p22</text>
         <ellipse w="60.000000" h="52.000000" />
         <token x="-73.000000" y="43.000000" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -7602,8 +7547,7 @@ Objects
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P18
-(p18)</text>
+        <text>p18</text>
         <ellipse w="60.000000" h="56.000000" />
         <token x="-87.000000" y="57.000000" />
         <marking x="-1.000000" y="0.000000" hidden="false">
@@ -7669,8 +7613,7 @@ Process
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P14
-(p14)</text>
+        <text>p14</text>
         <ellipse w="62.000000" h="55.648489" />
         <token x="-85.163403" y="56.154665" />
         <marking x="10.992970" y="-0.625691" hidden="false">
@@ -7736,8 +7679,7 @@ callees
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P12
-(p12)</text>
+        <text>p12</text>
         <ellipse w="74.000000" h="57.578186" />
         <token x="-109.296978" y="61.564126" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -7800,7 +7742,7 @@ objects
       </place>
       <trans id="ID1421807356" explicit="false">
         <posattr x="1287.000000" y="-42.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="4" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Return
@@ -7808,11 +7750,11 @@ objects
         <box w="91.775033" h="81.704731" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1421807357">
-          <posattr x="1467.000000" y="-115.000000" />
+          <posattr x="1118.500000" y="-112.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("Returna19", AND(AP("1", p9=hd pl9), ITE(AP("2", (mem pl27 p9)),AP("3", p24=p9),AP("4", not (p24=p9)) ) ))</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1421807358">
           <posattr x="1347.387516" y="9.852365" />
@@ -7845,11 +7787,11 @@ objects
         <transend idref="ID1421807356" />
         <placeend idref="ID1421807362" />
         <annot id="ID1421807366">
-          <posattr x="1730.000000" y="11.000000" />
+          <posattr x="1451.000000" y="-11.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc12return", AP("1", pl9=[p9] ))then (ob11,u8,t7,[0],[0]) else (ob11,u8,t7,(tl pl9), (tl cl9))</text>
+          <text tool="CPN Tools" version="4.0.1">(ob11, u8, t7, (tl pl9), (tl cl9))</text>
         </annot>
       </arc>
       <arc id="ID1421807370" orientation="PtoT" order="2">
@@ -7865,7 +7807,7 @@ objects
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob11,pl27,pll2)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob11, pl27, pll2)</text>
         </annot>
       </arc>
       <arc id="ID1421807375" orientation="TtoP" order="1">
@@ -7877,11 +7819,11 @@ objects
         <transend idref="ID1421807356" />
         <placeend idref="ID1421807372" />
         <annot id="ID1421807376">
-          <posattr x="1328.000000" y="-193.000000" />
+          <posattr x="1423.000000" y="-193.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc12return", AP("1", (mem obpl (ob11,p9)))) then 1`p9 else empty</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id6", (mem obpl ( ob11, p9 ))) then 1 ` p9 else empty</text>
         </annot>
       </arc>
       <arc id="ID1421807380" orientation="BOTHDIR" order="1">
@@ -7913,7 +7855,7 @@ objects
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">p9::pl20</text>
+          <text tool="CPN Tools" version="4.0.1">p9 :: pl20</text>
         </annot>
       </arc>
       <arc id="ID1421807390" orientation="BOTHDIR" order="1">
@@ -7945,7 +7887,7 @@ objects
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob11,p24,i4)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob11, p24, i4)</text>
         </annot>
       </arc>
       <arc id="ID1421807400" orientation="BOTHDIR" order="1">
@@ -7977,8 +7919,7 @@ objects
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if (mem pl27 p9 andalso i4&gt;1) then 1`(ob11,hd (tl pl9),i4-1) else (if 
-(mem pl27 p9 andalso i4&lt;=1) then empty else 1`(ob11,p24,i4))</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id3", (AND(mem pl27 p9, AP("4", i4 &gt; 1)))) then 1 ` (ob11, hd (tl pl9), i4 - 1) else (if EXPR("id2", (AND(mem pl27 p9, AP("5", i4 &lt;= 1)))) then empty else 1 ` (ob11, p24, i4))</text>
         </annot>
       </arc>
       <arc id="ID1421807407" orientation="BOTHDIR" order="1">
@@ -8006,11 +7947,11 @@ objects
         <transend idref="ID1421807356" />
         <placeend idref="ID1421807409" />
         <annot id="ID1421807413">
-          <posattr x="1038.000000" y="-31.000000" />
+          <posattr x="966.000000" y="-16.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob11,u8,t7,pl9,cl9)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob11, u8, t7, pl9, cl9)</text>
         </annot>
       </arc>
       <arc id="ID1421807414" orientation="TtoP" order="1">
@@ -8022,12 +7963,11 @@ objects
         <transend idref="ID1421807356" />
         <placeend idref="ID1421807367" />
         <annot id="ID1421807415">
-          <posattr x="1000.000000" y="-250.000000" />
+          <posattr x="1225.000000" y="-258.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc14return", AND(AP("1", (mem pl27 p9)), AP("2", i4&gt;1) )) then ((ob11,ins (rm p9 pl27) (hd (tl pl9)), ins (rm (p9,i4) pll2) (hd (tl pl9),i4-1))) 
-else (if EXPR("Arc15return", AND(AP("1", (mem pl27 p9 )), AP("2", (i4&lt;=1)))) then (ob11,rm p9 pl27,rm (p9,i4) pll2) else (ob11,pl27,pll2))</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id3", (AND(mem pl27 p9, AP("4", i4 &gt; 1)))) then ((ob11, ins (rm p9 pl27) (hd (tl pl9)), ins (rm ( p9, i4 ) pll2) ( hd (tl pl9), i4 - 1 ))) else (if EXPR("id2", (AND(mem pl27 p9, AP("5", i4 &lt;= 1)))) then (ob11, rm p9 pl27, rm ( p9, i4 ) pll2) else (ob11, pl27, pll2))</text>
         </annot>
       </arc>
       <arc id="ID1421807416" orientation="PtoT" order="2">
@@ -8239,7 +8179,7 @@ objects
       </place>
       <trans id="ID1421808608" explicit="false">
         <posattr x="1952.000000" y="-420.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="4" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Read-Fut
@@ -8247,11 +8187,11 @@ objects
         <box w="72.412122" h="67.859395" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1421808609">
-          <posattr x="1710.293939" y="-375.070303" />
+          <posattr x="1848.293939" y="-368.070303" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("ReadFa25", AND(AP("1", ob15=ob24), AP("2",p15=p19)))</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AP("1", ob15 = ob24), AP("2", p15 = p19))]</text>
         </cond>
         <time id="ID1421808610">
           <posattr x="2002.706061" y="-375.070303" />
@@ -8288,7 +8228,7 @@ objects
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">((ob15,u15,t14,pl16,cl16),(o3,p15))</text>
+          <text tool="CPN Tools" version="4.0.1">((ob15, u15, t14, pl16, cl16), (o3, p15))</text>
         </annot>
       </arc>
       <arc id="ID1421808622" orientation="PtoT" order="1">
@@ -8304,7 +8244,7 @@ objects
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">((ob24,u21,t18,pl21,cl20),p19)</text>
+          <text tool="CPN Tools" version="4.0.1">((ob24, u21, t18, pl21, cl20), p19)</text>
         </annot>
       </arc>
       <arc id="ID1421808627" orientation="TtoP" order="1">
@@ -8326,7 +8266,7 @@ objects
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">rm ((ob24,u21,t18,pl21,cl20),p19) fopl</text>
+          <text tool="CPN Tools" version="4.0.1">rm ( (ob24, u21, t18, pl21, cl20), p19 ) fopl</text>
         </annot>
       </arc>
       <arc id="ID1421808629" orientation="PtoT" order="1">
@@ -8370,7 +8310,7 @@ objects
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob24,u21,t18,pl21,cl20)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob24, u21, t18, pl21, cl20)</text>
         </annot>
       </arc>
       <arc id="ID1421808639" orientation="PtoT" order="1">
@@ -8417,8 +8357,7 @@ objects
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P14
-(p14)</text>
+        <text>p14</text>
         <ellipse w="60.000000" h="89.648489" />
         <token x="-128.163403" y="-21.845335" />
         <marking x="0.992970" y="88.374309" hidden="false">
@@ -8450,8 +8389,7 @@ objects
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P13
-(p13)</text>
+        <text>p13</text>
         <ellipse w="60.000000" h="40.000000" />
         <token x="-88.444612" y="35.746912" />
         <marking x="30.782063" y="74.472733" hidden="false">
@@ -8479,7 +8417,7 @@ objects
         </port>
       </place>
       <place id="ID1421781664">
-        <posattr x="924.000000" y="-443.000000" />
+        <posattr x="798.000000" y="-443.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
@@ -8492,21 +8430,21 @@ objects
           <snap snap_id="0" anchor.horizontal="0" anchor.vertical="0" />
         </marking>
         <type id="ID1421781665">
-          <posattr x="975.500000" y="-488.000000" />
+          <posattr x="849.500000" y="-488.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1">FULLOBJ</text>
         </type>
         <initmark id="ID1421781666">
-          <posattr x="981.000000" y="-397.000000" />
+          <posattr x="855.000000" y="-397.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </initmark>
         <port id="ID1421781755" type="I/O">
-          <posattr x="898.000000" y="-481.000000" />
+          <posattr x="772.000000" y="-481.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -8584,8 +8522,7 @@ Counter
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P12
-(p12)</text>
+        <text>p12</text>
         <ellipse w="60.000000" h="99.578186" />
         <token x="-109.296978" y="61.564126" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -8614,7 +8551,7 @@ Counter
       </place>
       <trans id="ID1421781648" explicit="false">
         <posattr x="525.593291" y="-443.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Synch
@@ -8623,13 +8560,11 @@ self-call
         <box w="60.000000" h="119.437576" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1421781649">
-          <posattr x="851.000000" y="-329.000000" />
+          <posattr x="890.500000" y="-329.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("Ssca16", AND(AP("1", ob20=ob3),
-ITE(AP("2", mem pl25 (hd pl19)),AND(AP("3", ob28=ob3), AP("4", p22=hd pl19)),
-AND(AP("5", ob28=0), AP("6",p22=0)) ) ) )</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1421781650">
           <posattr x="570.093291" y="-372.281212" />
@@ -8668,11 +8603,11 @@ AND(AP("5", ob28=0), AP("6",p22=0)) ) ) )</text>
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1421781658">
-          <posattr x="960.500000" y="-561.000000" />
+          <posattr x="705.000000" y="-561.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc7Synch", AP("1", (mem pl25 (hd pl19)))) then 1`(ob3,(p17+1),(i2+1)) else 1`(ob28,p22,i2)++1`(ob3,(p17+1),1)</text>
+          <text tool="CPN Tools" version="4.0.1">1 ` (ob3, (p17 + 1), 1)</text>
         </annot>
       </arc>
       <arc id="ID1421781662" orientation="TtoP" order="1">
@@ -8694,8 +8629,7 @@ AND(AP("5", ob28=0), AP("6",p22=0)) ) ) )</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc8Synch", AP("1", mem pl25 (hd pl19))) then (ob3,ins (rm (hd pl19) pl25) (p17+1),ins (rm (p22,i2) pll) (p17+1,i2+1)) 
-else (ob3,(p17+1)::pl25,(p17+1,1)::pll)</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id8", mem pl25 (hd pl19)) then (ob3, ins (rm (hd pl19) pl25) (p17 + 1), ins (rm ( p22, i2 ) pll) ( p17 + 1, i2 + 1 )) else (ob3, (p17 + 1) :: pl25, (p17 + 1, 1) :: pll)</text>
         </annot>
       </arc>
       <arc id="ID1421781667" orientation="PtoT" order="1">
@@ -8713,11 +8647,11 @@ else (ob3,(p17+1)::pl25,(p17+1,1)::pll)</text>
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1421781668">
-          <posattr x="671.000000" y="-419.000000" />
+          <posattr x="606.000000" y="-417.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob3,u20,t17,pl19,cl19)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob3, u20, t17, pl19, cl19)</text>
         </annot>
       </arc>
       <arc id="ID1421781672" orientation="PtoT" order="1">
@@ -8761,7 +8695,7 @@ else (ob3,(p17+1)::pl25,(p17+1,1)::pll)</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">p17+1</text>
+          <text tool="CPN Tools" version="4.0.1">p17 + 1</text>
         </annot>
       </arc>
       <arc id="ID1421781676" orientation="TtoP" order="1">
@@ -8773,11 +8707,11 @@ else (ob3,(p17+1)::pl25,(p17+1,1)::pll)</text>
         <transend idref="ID1421781648" />
         <placeend idref="ID1421781664" />
         <annot id="ID1421781677">
-          <posattr x="766.000000" y="-454.000000" />
+          <posattr x="687.000000" y="-454.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob3,u20,t17,(p17+1)::pl19,c7::cl19)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob3, u20, t17, (p17 + 1) :: pl19, c7 :: cl19)</text>
         </annot>
       </arc>
       <arc id="ID1421781681" orientation="BOTHDIR" order="1">
@@ -8815,7 +8749,7 @@ else (ob3,(p17+1)::pl25,(p17+1,1)::pll)</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob28,p22,i2)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob28, p22, i2)</text>
         </annot>
       </arc>
       <arc id="ID1421781688" orientation="BOTHDIR" order="1">
@@ -8853,7 +8787,7 @@ else (ob3,(p17+1)::pl25,(p17+1,1)::pll)</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob3,pl25,pll)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob3, pl25, pll)</text>
         </annot>
       </arc>
       <constraints />
@@ -8899,8 +8833,7 @@ else (ob3,(p17+1)::pl25,(p17+1,1)::pll)</text>
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P12
-(p12)</text>
+        <text>p12</text>
         <ellipse w="60.000000" h="54.894546" />
         <token x="-109.296978" y="61.564126" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -9176,7 +9109,7 @@ objects
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P8(p8)</text>
+        <text>p8</text>
         <ellipse w="60.000000" h="40.000000" />
         <token x="-43.084363" y="38.929698" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -9198,7 +9131,7 @@ objects
         </initmark>
       </place>
       <place id="ID1421667989">
-        <posattr x="736.000000" y="126.000000" />
+        <posattr x="736.000000" y="127.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="4" type="Solid" />
         <textattr colour="Black" bold="false" />
@@ -9211,14 +9144,14 @@ to move
           <snap snap_id="0" anchor.horizontal="0" anchor.vertical="0" />
         </marking>
         <type id="ID1421667990">
-          <posattr x="709.500000" y="100.000000" />
+          <posattr x="709.500000" y="101.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1">FULLOBJ</text>
         </type>
         <initmark id="ID1421667991">
-          <posattr x="792.000000" y="146.000000" />
+          <posattr x="792.000000" y="147.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -9266,8 +9199,7 @@ DC
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P12
-(p12)</text>
+        <text>p12</text>
         <ellipse w="60.000000" h="99.578186" />
         <token x="-109.296978" y="61.564126" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -9364,7 +9296,7 @@ objects
       </place>
       <trans id="ID1421667992" explicit="false">
         <posattr x="714.000000" y="-168.000000" />
-        <fillattr colour="Green" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="4" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Move to
@@ -9372,11 +9304,11 @@ objects
         <box w="112.070302" h="58.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1421667993">
-          <posattr x="738.000000" y="-222.000000" />
+          <posattr x="582.964849" y="-207.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("Mta13", OR(AP("1", t3=0), AP("2", not (mem l3 t3))))</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1421667994">
           <posattr x="784.535151" y="-128.000000" />
@@ -9402,7 +9334,7 @@ objects
       </trans>
       <trans id="ID1421667998" explicit="false">
         <posattr x="420.000000" y="126.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="4" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Move from
@@ -9410,11 +9342,11 @@ objects
         <box w="101.831275" h="52.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1421667999">
-          <posattr x="181.584363" y="77.000000" />
+          <posattr x="278.584363" y="77.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("Mfa10", AND(AP("1", (mem l2 t2 )), AP("2", ob6=ob17)))</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1421668000">
           <posattr x="485.415638" y="163.000000" />
@@ -9453,11 +9385,11 @@ objects
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1421668005">
-          <posattr x="797.500000" y="7.000000" />
+          <posattr x="827.500000" y="-131.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob17,u,t2,pl2,cl2)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob17, u, t2, pl2, cl2)</text>
         </annot>
       </arc>
       <arc id="ID1421668006" orientation="TtoP" order="1">
@@ -9501,11 +9433,11 @@ objects
         <transend idref="ID1421667998" />
         <placeend idref="ID1421667989" />
         <annot id="ID1421668011">
-          <posattr x="576.000000" y="137.000000" />
+          <posattr x="668.500000" y="139.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob17,u,t2,pl2,cl2)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob17, u, t2, pl2, cl2)</text>
         </annot>
       </arc>
       <arc id="ID1421668015" orientation="PtoT" order="1">
@@ -9539,7 +9471,7 @@ objects
         <transend idref="ID1421667998" />
         <placeend idref="ID1421668017" />
         <annot id="ID1421668021">
-          <posattr x="469.000000" y="58.000000" />
+          <posattr x="450.000000" y="59.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -9559,7 +9491,7 @@ objects
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob17,u,t3,pl2,cl2)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob17, u, t3, pl2, cl2)</text>
         </annot>
       </arc>
       <arc id="ID1421668027" orientation="PtoT" order="1">
@@ -9609,7 +9541,7 @@ objects
         <transend idref="ID1421667998" />
         <placeend idref="ID1421668029" />
         <annot id="ID1421668035">
-          <posattr x="504.500000" y="36.000000" />
+          <posattr x="485.500000" y="53.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -9653,11 +9585,11 @@ objects
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1421668039">
-          <posattr x="339.500000" y="23.000000" />
+          <posattr x="481.500000" y="65.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob17,u,t2,pl2,cl2)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob17, u, t2, pl2, cl2)</text>
         </annot>
       </arc>
       <arc id="ID1421668040" orientation="TtoP" order="1">
@@ -9675,7 +9607,7 @@ objects
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1421668041">
-          <posattr x="811.000000" y="-62.000000" />
+          <posattr x="811.000000" y="-178.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -9684,7 +9616,9 @@ objects
       </arc>
       <constraints />
       <hguideline id="ID1425890656" y="-296.000000" />
-      <hguideline id="ID1425894178" y="-127.000000" />
+      <hguideline id="ID1425894178" y="-127.000000">
+        <guideline_elm idref="ID1421667989" />
+      </hguideline>
       <hguideline id="ID1425897703" y="20.000000" />
       <hguideline id="ID1425901259" y="166.000000" />
       <vguideline id="ID1425904804" x="414.000000">
@@ -9703,8 +9637,8 @@ objects
  selector
 (p7)</text>
         <ellipse w="60.000000" h="40.000000" />
-        <token x="-85.175756" y="17.718791" />
-        <marking x="63.000000" y="-4.000000" hidden="false">
+        <token x="-78.000000" y="0.000000" />
+        <marking x="51.000000" y="1.000000" hidden="false">
           <snap snap_id="0" anchor.horizontal="1" anchor.vertical="3" />
         </marking>
         <type id="ID1421619518">
@@ -9730,7 +9664,7 @@ objects
       </place>
       <trans id="ID1421619505" explicit="false">
         <posattr x="279.000000" y="-196.000000" />
-        <fillattr colour="Green" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>find dc by decr
@@ -9738,11 +9672,11 @@ objects
         <box w="108.000000" h="28.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1421619506">
-          <posattr x="134.000000" y="-171.000000" />
+          <posattr x="210.000000" y="-171.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("fdda9", AP("1", t&gt;0))</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1421619507">
           <posattr x="347.500000" y="-171.000000" />
@@ -9813,11 +9747,11 @@ objects
         <transend idref="ID1421619511" />
         <placeend idref="ID1421619517" />
         <annot id="ID1421619521">
-          <posattr x="257.000000" y="-57.000000" />
+          <posattr x="279.000000" y="-55.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">t+1</text>
+          <text tool="CPN Tools" version="4.0.1">t + 1</text>
         </annot>
       </arc>
       <arc id="ID1421619522" orientation="TtoP" order="1">
@@ -9829,11 +9763,11 @@ objects
         <transend idref="ID1421619505" />
         <placeend idref="ID1421619517" />
         <annot id="ID1421619523">
-          <posattr x="299.000000" y="-152.000000" />
+          <posattr x="292.000000" y="-152.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">t-1</text>
+          <text tool="CPN Tools" version="4.0.1">t - 1</text>
         </annot>
       </arc>
       <arc id="ID1421619524" orientation="PtoT" order="2">
@@ -9845,7 +9779,7 @@ objects
         <transend idref="ID1421619511" />
         <placeend idref="ID1421619517" />
         <annot id="ID1421619525">
-          <posattr x="311.500000" y="-57.000000" />
+          <posattr x="279.500000" y="-59.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -9906,8 +9840,7 @@ counter
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P29
-(p29)</text>
+        <text>p29</text>
         <ellipse w="60.000000" h="54.894547" />
         <token x="-75.000000" y="45.000000" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -9995,8 +9928,7 @@ Counter
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P14
-(p14)</text>
+        <text>p14</text>
         <ellipse w="60.000000" h="89.648489" />
         <token x="-128.163403" y="-21.845335" />
         <marking x="0.992970" y="88.374309" hidden="false">
@@ -10199,8 +10131,7 @@ Process
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P12
-(p12)</text>
+        <text>p12</text>
         <ellipse w="60.000000" h="54.894546" />
         <token x="-109.296978" y="61.564126" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -10232,8 +10163,7 @@ Process
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P13
-(p13)</text>
+        <text>p13</text>
         <ellipse w="60.000000" h="40.000000" />
         <token x="-88.444612" y="35.746912" />
         <marking x="30.782063" y="74.472733" hidden="false">
@@ -10772,8 +10702,7 @@ Lists Initiaton
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P29
-(p29)</text>
+        <text>p29</text>
         <ellipse w="60.000000" h="40.000000" />
         <token x="-10.000000" y="0.000000" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -10836,7 +10765,7 @@ Counter
       </place>
       <trans id="ID1421603668" explicit="false">
         <posattr x="-546.000000" y="-141.000000" />
-        <fillattr colour="Green" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>define
@@ -10846,11 +10775,11 @@ by decr
         <box w="60.000000" h="59.859395" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1421603669">
-          <posattr x="-671.000000" y="-100.070303" />
+          <posattr x="-600.000000" y="-100.070303" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("dca5", AP("1",c1&gt;=1))</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1421603670">
           <posattr x="-501.500000" y="-100.070303" />
@@ -10988,7 +10917,7 @@ creator
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">([p1+1],[c1])</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </annot>
       </arc>
       <arc id="ID1421603696" orientation="BOTHDIR" order="1">
@@ -11026,7 +10955,7 @@ creator
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">c1+1</text>
+          <text tool="CPN Tools" version="4.0.1">c1 + 1</text>
         </annot>
       </arc>
       <arc id="ID1421603703" orientation="PtoT" order="1">
@@ -11086,7 +11015,7 @@ creator
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">p1+1</text>
+          <text tool="CPN Tools" version="4.0.1">p1 + 1</text>
         </annot>
       </arc>
       <arc id="ID1421603712" orientation="TtoP" order="2">
@@ -11102,7 +11031,7 @@ creator
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">c1-1</text>
+          <text tool="CPN Tools" version="4.0.1">c1 - 1</text>
         </annot>
       </arc>
       <arc id="ID1421603714" orientation="PtoT" order="1">
@@ -11201,7 +11130,7 @@ Counter
       </place>
       <trans id="ID1421645823" explicit="false">
         <posattr x="504.000000" y="336.000000" />
-        <fillattr colour="Green" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>select
@@ -11211,11 +11140,11 @@ by incr
         <box w="60.000000" h="55.887516" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1421645824">
-          <posattr x="374.000000" y="374.943758" />
+          <posattr x="449.500000" y="374.943758" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("spa11", AP("1",p2&lt;p1))</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1421645825">
           <posattr x="548.500000" y="374.943758" />
@@ -11241,7 +11170,7 @@ by incr
       </trans>
       <trans id="ID1421645829" explicit="false">
         <posattr x="656.000000" y="232.721452" />
-        <fillattr colour="Green" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>select
@@ -11251,11 +11180,11 @@ by decr
         <box w="60.000000" h="49.929698" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1421645830">
-          <posattr x="782.000000" y="268.686301" />
+          <posattr x="706.500000" y="268.686301" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("spa12", AP("1",p2&gt;1))</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1421645831">
           <posattr x="700.500000" y="268.686301" />
@@ -11292,7 +11221,7 @@ by decr
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">p2-1</text>
+          <text tool="CPN Tools" version="4.0.1">p2 - 1</text>
         </annot>
       </arc>
       <arc id="ID1421645840" orientation="PtoT" order="2">
@@ -11310,7 +11239,7 @@ by decr
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1421645841">
-          <posattr x="600.000000" y="222.000000" />
+          <posattr x="619.000000" y="222.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -11326,11 +11255,11 @@ by decr
         <transend idref="ID1421645823" />
         <placeend idref="ID1421645835" />
         <annot id="ID1421645843">
-          <posattr x="456.500000" y="281.000000" />
+          <posattr x="484.000000" y="278.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">p2+1</text>
+          <text tool="CPN Tools" version="4.0.1">p2 + 1</text>
         </annot>
       </arc>
       <arc id="ID1421645847" orientation="BOTHDIR" order="1">
@@ -11505,8 +11434,7 @@ DC
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P29
-(p29)</text>
+        <text>p29</text>
         <ellipse w="60.000000" h="40.000000" />
         <token x="-10.000000" y="0.000000" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -11572,8 +11500,7 @@ DC
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P14
-(p14)</text>
+        <text>p14</text>
         <ellipse w="60.000000" h="89.648489" />
         <token x="-128.163403" y="-21.845335" />
         <marking x="0.992970" y="88.374309" hidden="false">
@@ -11640,8 +11567,7 @@ counter
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P13
-(p13)</text>
+        <text>p13</text>
         <ellipse w="60.000000" h="40.000000" />
         <token x="-88.444612" y="35.746912" />
         <marking x="30.782063" y="74.472733" hidden="false">
@@ -11686,11 +11612,11 @@ counter
         </subst>
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1421855232">
-          <posattr x="-249.500000" y="-30.000000" />
+          <posattr x="-73.500000" y="-16.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("NOuppera7", AND(AP("1",u1&gt;0), OR(AP("2", z=0 ), AP("3", not (mem l' z)))))</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1421855233">
           <posattr x="165.500000" y="-43.000000" />
@@ -11962,8 +11888,7 @@ Creation</text>
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P13
-(p13)</text>
+        <text>p13</text>
         <ellipse w="60.000000" h="50.000000" />
         <token x="-88.444612" y="35.746912" />
         <marking x="30.782063" y="74.472733" hidden="false">
@@ -12134,8 +12059,7 @@ Lists Initiaton
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P14
-(p14)</text>
+        <text>p14</text>
         <ellipse w="60.000000" h="89.648489" />
         <token x="-128.163403" y="-21.845335" />
         <marking x="0.992970" y="88.374309" hidden="false">
@@ -12201,8 +12125,7 @@ Lists Initiaton
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P29
-(p29)</text>
+        <text>p29</text>
         <ellipse w="60.000000" h="40.000000" />
         <token x="-86.000000" y="50.000000" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -12231,7 +12154,7 @@ Lists Initiaton
       </place>
       <trans id="ID1421771086" explicit="false">
         <posattr x="84.000000" y="-84.000000" />
-        <fillattr colour="Green" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>New Object
@@ -12239,11 +12162,11 @@ Lists Initiaton
         <box w="134.000000" h="60.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1421771087">
-          <posattr x="-386.000000" y="-25.000000" />
+          <posattr x="-73.500000" y="-16.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("NOa7", AND(AP("1",u1&gt;0), OR(AP("2", z=0 ), AP("3", not (mem l' z)))))</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1421771088">
           <posattr x="165.500000" y="-43.000000" />
@@ -12308,7 +12231,7 @@ Lists Initiaton
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob1+1,[],[])</text>
+          <text tool="CPN Tools" version="4.0.1">(ob1 + 1, [], [])</text>
         </annot>
       </arc>
       <arc id="ID1421771105" orientation="TtoP" order="1">
@@ -12330,7 +12253,7 @@ Lists Initiaton
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">ob1+1</text>
+          <text tool="CPN Tools" version="4.0.1">ob1 + 1</text>
         </annot>
       </arc>
       <arc id="ID1421771110" orientation="TtoP" order="1">
@@ -12346,7 +12269,7 @@ Lists Initiaton
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">z::l'</text>
+          <text tool="CPN Tools" version="4.0.1">z :: l'</text>
         </annot>
       </arc>
       <arc id="ID1421771115" orientation="TtoP" order="1">
@@ -12368,7 +12291,7 @@ Lists Initiaton
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob1+1,u1,z,pl1,cl1)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob1 + 1, u1, z, pl1, cl1)</text>
         </annot>
       </arc>
       <arc id="ID1421771117" orientation="PtoT" order="1">
@@ -12406,7 +12329,7 @@ Lists Initiaton
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(pl1,cl1)</text>
+          <text tool="CPN Tools" version="4.0.1">(pl1, cl1)</text>
         </annot>
       </arc>
       <arc id="ID1421771127" orientation="TtoP" order="1">
@@ -12428,7 +12351,7 @@ Lists Initiaton
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(ob1+1,0,0)</text>
+          <text tool="CPN Tools" version="4.0.1">(ob1 + 1, 0, 0)</text>
         </annot>
       </arc>
       <arc id="ID1421771129" orientation="PtoT" order="2">
@@ -12597,7 +12520,7 @@ Identifier
       </trans>
       <trans id="ID1421577978" explicit="false">
         <posattr x="66.000000" y="420.000000" />
-        <fillattr colour="Green" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>find class
@@ -12606,11 +12529,11 @@ by incrementing
         <box w="104.000000" h="43.915637" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1421577979">
-          <posattr x="60.000000" y="368.000000" />
+          <posattr x="134.000000" y="420.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("fcia2", AP("1", u&lt;s))</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1421577980">
           <posattr x="132.500000" y="452.957818" />
@@ -12636,7 +12559,7 @@ by incrementing
       </trans>
       <trans id="ID1421581422" explicit="false">
         <posattr x="450.000000" y="420.000000" />
-        <fillattr colour="Green" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>find class
@@ -12645,11 +12568,11 @@ by decrementing
         <box w="116.000000" h="43.915637" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1421581423">
-          <posattr x="481.000000" y="369.000000" />
+          <posattr x="424.500000" y="383.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("fcda3", AP("1", u&gt;1))</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1421581424">
           <posattr x="522.500000" y="452.957818" />
@@ -12682,7 +12605,7 @@ by decrementing
         <transend idref="ID1421577972" />
         <placeend idref="ID1421577969" />
         <annot id="ID1421577985">
-          <posattr x="-218.000000" y="402.000000" />
+          <posattr x="-195.000000" y="424.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -12714,11 +12637,11 @@ by decrementing
         <transend idref="ID1421577972" />
         <placeend idref="ID1421577969" />
         <annot id="ID1421577989">
-          <posattr x="-209.000000" y="438.000000" />
+          <posattr x="-198.000000" y="416.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">s+1</text>
+          <text tool="CPN Tools" version="4.0.1">s + 1</text>
         </annot>
       </arc>
       <arc id="ID1421577993" orientation="PtoT" order="1">
@@ -12730,7 +12653,7 @@ by decrementing
         <transend idref="ID1421577978" />
         <placeend idref="ID1421577990" />
         <annot id="ID1421577994">
-          <posattr x="166.000000" y="402.000000" />
+          <posattr x="168.000000" y="424.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -12746,11 +12669,11 @@ by decrementing
         <transend idref="ID1421577978" />
         <placeend idref="ID1421577990" />
         <annot id="ID1421577996">
-          <posattr x="162.000000" y="438.000000" />
+          <posattr x="173.000000" y="416.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">u+1</text>
+          <text tool="CPN Tools" version="4.0.1">u + 1</text>
         </annot>
       </arc>
       <arc id="ID1421582663" orientation="TtoP" order="1">
@@ -12766,7 +12689,7 @@ by decrementing
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">u-1</text>
+          <text tool="CPN Tools" version="4.0.1">u - 1</text>
         </annot>
       </arc>
       <arc id="ID1421583186" orientation="PtoT" order="2">
@@ -12778,7 +12701,7 @@ by decrementing
         <transend idref="ID1421581422" />
         <placeend idref="ID1421577990" />
         <annot id="ID1421583187">
-          <posattr x="354.000000" y="402.000000" />
+          <posattr x="354.000000" y="424.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -12829,8 +12752,7 @@ counter
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
-        <text>P12
-(p12)</text>
+        <text>p12</text>
         <ellipse w="60.000000" h="99.578186" />
         <token x="-109.296978" y="61.564126" />
         <marking x="0.000000" y="0.000000" hidden="false">
@@ -12859,7 +12781,7 @@ counter
       </place>
       <trans id="ID1421635217" explicit="false">
         <posattr x="779.000000" y="-196.000000" />
-        <fillattr colour="Green" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>select
@@ -12869,11 +12791,11 @@ by incr
         <box w="60.000000" h="57.873456" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1421635218">
-          <posattr x="637.500000" y="-196.000000" />
+          <posattr x="710.500000" y="-96.042181" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("soia14", AP("1", ob6&lt;ob5))</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1421635219">
           <posattr x="823.500000" y="-156.063272" />
@@ -12899,7 +12821,7 @@ by incr
       </trans>
       <trans id="ID1421635223" explicit="false">
         <posattr x="779.000000" y="111.000000" />
-        <fillattr colour="Green" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>select
@@ -12909,11 +12831,11 @@ by decr
         <box w="60.000000" h="51.915637" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1421635224">
-          <posattr x="780.000000" y="158.000000" />
+          <posattr x="779.000000" y="147.957819" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">EXPR("soda15", AP("1", ob6&gt;1))</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1421635225">
           <posattr x="823.500000" y="147.957819" />
@@ -12988,7 +12910,7 @@ by decr
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">ob6+1</text>
+          <text tool="CPN Tools" version="4.0.1">ob6 + 1</text>
         </annot>
       </arc>
       <arc id="ID1421635241" orientation="PtoT" order="1">
@@ -13020,38 +12942,10 @@ by decr
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">ob6-1</text>
+          <text tool="CPN Tools" version="4.0.1">ob6 - 1</text>
         </annot>
       </arc>
       <constraints />
-    </page>
-    <page id="ID1519728310">
-      <pageattr name="MCDC" />
-      <constraints />
-      <Aux id="ID1519728591">
-        <posattr x="-378.000000" y="179.000000" />
-        <fillattr colour="White" pattern="" filled="false" />
-        <lineattr colour="Black" thick="1" type="Solid" />
-        <textattr colour="Black" bold="false" />
-        <label />
-        <text>mcdcgen ("CPNmodels/CPNABS/cpnabs.log");</text>
-      </Aux>
-      <Aux id="ID1519728645">
-        <posattr x="-378.000000" y="265.000000" />
-        <fillattr colour="White" pattern="" filled="false" />
-        <lineattr colour="Black" thick="1" type="Solid" />
-        <textattr colour="Black" bold="false" />
-        <label />
-        <text>use (cpnmcdclibpath^"config/simrun.sml");</text>
-      </Aux>
-      <Aux id="ID1519728702">
-        <posattr x="-378.000000" y="101.000000" />
-        <fillattr colour="White" pattern="" filled="false" />
-        <lineattr colour="Black" thick="1" type="Solid" />
-        <textattr colour="Black" bold="false" />
-        <label />
-        <text>use (cpnmcdclibpath^"boot.sml");</text>
-      </Aux>
     </page>
     <instances>
       <instance id="ID2149" page="ID6">
@@ -13077,7 +12971,6 @@ by decr
           <instance id="ID1421635265" trans="ID1422718069" />
         </instance>
       </instance>
-      <instance id="ID1519728312" page="ID1519728310" />
     </instances>
     <options>
       <option name="realtimestamp">
@@ -13100,17 +12993,7 @@ by decr
           <text>&lt;same as model&gt;</text>
         </value>
       </option>
-      <option name="extensions.10002.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10003.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10006.enable">
+      <option name="extensions.10007.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -13120,7 +13003,27 @@ by decr
           <boolean>true</boolean>
         </value>
       </option>
+      <option name="extensions.10002.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
       <option name="extensions.10005.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10001.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10006.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10003.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -13135,22 +13038,12 @@ by decr
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10007.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10001.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10011.options.disable">
+      <option name="extensions.10007.options.discover">
         <value>
           <boolean>false</boolean>
         </value>
       </option>
-      <option name="extensions.10007.options.discover">
+      <option name="extensions.10011.options.disable">
         <value>
           <boolean>false</boolean>
         </value>
@@ -13352,118 +13245,124 @@ by decr
       </option>
     </options>
     <binders>
-      <cpnbinder id="ID1421566768" x="140" y="32" width="1920" height="1095">
+      <cpnbinder id="ID1421566768" x="295" y="19" width="1769" height="890">
         <sheets>
           <cpnsheet id="ID2215" panx="-97.801594" pany="-133.567520" zoom="0.805664" instance="ID2149">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1519728388" panx="-47.000000" pany="-2.000000" zoom="1.000000" instance="ID1519728312">
+          <cpnsheet id="ID1422945032" panx="-301.000000" pany="-51.000000" zoom="1.000000" instance="ID1422646502">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1519750495" panx="-317.000000" pany="70.000000" zoom="1.000000" instance="ID1422554187">
+          <cpnsheet id="ID1422959266" panx="104.000000" pany="-206.000000" zoom="1.000000" instance="ID1422718312">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1519751648" panx="-2104.000000" pany="306.000000" zoom="1.000000" instance="ID1421718827">
+          <cpnsheet id="ID1422968828" panx="-517.400000" pany="65.800000" zoom="0.800000" instance="ID1422554187">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1519770862" panx="-624.000000" pany="-410.000000" zoom="1.000000" instance="ID1421781717">
+          <cpnsheet id="ID1423585821" panx="-62.000000" pany="-211.000000" zoom="1.000000" instance="ID2149">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1519774729" panx="-1817.000000" pany="-76.000000" zoom="1.000000" instance="ID1421701251">
+          <cpnsheet id="ID1423646593" panx="-1716.000000" pany="-74.000000" zoom="1.000000" instance="ID1421701251">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1519807626" panx="-1455.000000" pany="-276.000000" zoom="1.000000" instance="ID1421737712">
+          <cpnsheet id="ID1425555222" panx="-555.000000" pany="-489.000000" zoom="1.000000" instance="ID1421781717">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1519811229" panx="-1454.000000" pany="-75.000000" zoom="1.000000" instance="ID1421807450">
+          <cpnsheet id="ID1425722540" panx="-744.000000" pany="-12.000000" zoom="1.000000" instance="ID1421668076">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1519815552" panx="-2110.000000" pany="-339.000000" zoom="1.000000" instance="ID1421808661">
+          <cpnsheet id="ID1426357392" panx="-1274.000000" pany="-102.000000" zoom="1.000000" instance="ID1421807450">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1519825277" panx="-210.000000" pany="-19.000000" zoom="1.000000" instance="ID1422646502">
+          <cpnsheet id="ID1427119433" panx="-266.000000" pany="-107.000000" zoom="1.000000" instance="ID1421619546">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1519825959" panx="-194.000000" pany="-107.000000" zoom="1.000000" instance="ID1421619546">
+          <cpnsheet id="ID1427132663" panx="-521.000000" pany="194.000000" zoom="1.000000" instance="ID1421645871">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1519827320" panx="-461.000000" pany="22.000000" zoom="1.000000" instance="ID1421668076">
+          <cpnsheet id="ID1427306970" panx="-400.000000" pany="-191.000000" zoom="1.000000" instance="ID1421855368">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1519830066" panx="194.000000" pany="-252.000000" zoom="1.000000" instance="ID1422718312">
+          <cpnsheet id="ID1427462647" panx="-632.000000" pany="-78.000000" zoom="1.000000" instance="ID1421635265">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1519830769" panx="-576.000000" pany="345.000000" zoom="1.000000" instance="ID1421645871">
+          <cpnsheet id="ID1427490486" panx="-2071.000000" pany="-501.000000" zoom="1.000000" instance="ID1421808661">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1519832172" panx="380.000000" pany="11.000000" zoom="1.000000" instance="ID1421603747">
+          <cpnsheet id="ID1427795173" panx="-1400.000000" pany="-315.000000" zoom="1.000000" instance="ID1421737712">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1519834305" panx="-90.000000" pany="404.000000" zoom="1.000000" instance="ID1421578018">
+          <cpnsheet id="ID1429047688" panx="-1841.000000" pany="349.000000" zoom="1.000000" instance="ID1421718827">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1519838180" panx="40.000000" pany="-175.000000" zoom="1.000000" instance="ID1421771170">
+          <cpnsheet id="ID1427212541" panx="304.000000" pany="17.000000" zoom="1.000000" instance="ID1421603747">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1519833587" panx="0.000000" pany="-63.000000" zoom="1.000000" instance="ID1421855368">
+          <cpnsheet id="ID1427425698" panx="-159.000000" pany="327.000000" zoom="1.000000" instance="ID1421578018">
+            <zorder>
+              <position value="0" />
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1519716869" panx="-408.000000" pany="-207.000000" zoom="1.000000" instance="ID1421771170">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
         </sheets>
         <zorder>
+          <position value="18" />
           <position value="17" />
           <position value="16" />
-          <position value="14" />
+          <position value="1" />
+          <position value="2" />
           <position value="15" />
+          <position value="3" />
+          <position value="4" />
+          <position value="6" />
+          <position value="8" />
+          <position value="9" />
+          <position value="10" />
+          <position value="11" />
           <position value="12" />
           <position value="13" />
-          <position value="11" />
-          <position value="10" />
-          <position value="9" />
-          <position value="8" />
-          <position value="7" />
-          <position value="6" />
-          <position value="5" />
-          <position value="4" />
-          <position value="3" />
-          <position value="2" />
+          <position value="14" />
           <position value="0" />
-          <position value="1" />
+          <position value="5" />
+          <position value="7" />
         </zorder>
       </cpnbinder>
     </binders>
@@ -13543,23 +13442,15 @@ by decr
           <IndexNode expanded="false" />
         </IndexNode>
       </IndexNode>
+      <IndexNode expanded="false" />
       <IndexNode expanded="false">
-        <IndexNode expanded="false" />
-      </IndexNode>
-      <IndexNode expanded="true">
-        <IndexNode expanded="true">
-          <IndexNode expanded="true" />
-          <IndexNode expanded="true" />
-          <IndexNode expanded="true" />
-          <IndexNode expanded="true" />
-        </IndexNode>
         <IndexNode expanded="false">
           <IndexNode expanded="true" />
           <IndexNode expanded="true" />
           <IndexNode expanded="true" />
         </IndexNode>
         <IndexNode expanded="true">
-          <IndexNode expanded="true" />
+          <IndexNode expanded="false" />
           <IndexNode expanded="true" />
           <IndexNode expanded="true" />
           <IndexNode expanded="true" />
@@ -13820,7 +13711,6 @@ by decr
           <IndexNode expanded="true" />
         </IndexNode>
       </IndexNode>
-      <IndexNode expanded="true" />
     </IndexNode>
   </cpnet>
 </workspaceElements>

@@ -3,23 +3,6 @@
   <generator tool="CPN Tools" version="4.0.1" format="6" />
   <cpnet>
     <globbox>
-      <block id="ID1590760315">
-        <id>MBT</id>
-        <ml id="ID1590760636">val cpnmcdclibpath =  "../../";
-          <layout>val cpnmcdclibpath =  "../../";</layout>
-        </ml>
-        <ml id="ID1590760551">val fmodelpath = cpnmcdclibpath^"/examples/tpc/";
-          <layout>val fmodelpath = cpnmcdclibpath^"/examples/tpc/";</layout>
-        </ml>
-        <use id="ID1590760479">
-          <ml>(cpnmcdclibpath^"config/logging.sml")</ml>
-          <layout>use (cpnmcdclibpath^"config/logging.sml");</layout>
-        </use>
-        <use id="ID1590760357">
-          <ml>(cpnmcdclibpath^"config/instrumentation.sml")</ml>
-          <layout>use (cpnmcdclibpath^"config/instrumentation.sml");</layout>
-        </use>
-      </block>
       <ml id="ID1547267237">val modelpath = "c:/work/singleDecreePaxosCPN/singlepaxos/";
         <layout>val modelpath = "c:/work/singleDecreePaxosCPN/singlepaxos/";</layout>
       </ml>
@@ -1053,12 +1036,11 @@ Request</text>
           <text tool="CPN Tools" version="4.0.1">Value</text>
         </type>
         <initmark id="ID1590655769">
-          <posattr x="-816.000000" y="666.000000" />
+          <posattr x="-818.000000" y="659.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">1`"M1" ++
-1`"M2"</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </initmark>
       </place>
       <place id="ID1539063886">
@@ -1474,7 +1456,7 @@ RequestQF</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[requestreplies' = (value)::requestreplies]</text>
+          <text tool="CPN Tools" version="4.0.1">[AP("4", requestreplies' = (value) :: requestreplies)]</text>
         </cond>
         <time id="ID1538978080">
           <posattr x="-583.562500" y="306.406250" />
@@ -1517,7 +1499,7 @@ RequestQF</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(value',b)</text>
+          <text tool="CPN Tools" version="4.0.1">(value', b)</text>
         </annot>
       </arc>
       <arc id="ID1538978086" orientation="PtoT" order="1">
@@ -1555,7 +1537,7 @@ RequestQF</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">("",false)</text>
+          <text tool="CPN Tools" version="4.0.1">("", false)</text>
         </annot>
       </arc>
       <arc id="ID1538978092" orientation="TtoP" order="1">
@@ -1595,11 +1577,11 @@ RequestQF</text>
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1538978097">
-          <posattr x="-284.500000" y="344.000000" />
+          <posattr x="-487.500000" y="344.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc2PropVal", AP("1", ( (List.length requestreplies') &gt;= RequestQSize))) then (value,true) else ("",false)</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id14", AP("26", (List.length requestreplies') &gt;= RequestQSize)) then (value, true) else ("", false)</text>
         </annot>
       </arc>
       <arc id="ID1538978110" orientation="TtoP" order="1">
@@ -1647,7 +1629,7 @@ RequestQF</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(id,value)</text>
+          <text tool="CPN Tools" version="4.0.1">(id, value)</text>
         </annot>
       </arc>
       <arc id="ID1539197164" orientation="TtoP" order="1">
@@ -1671,12 +1653,11 @@ RequestQF</text>
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1539197165">
-          <posattr x="-757.000000" y="121.000000" />
+          <posattr x="-866.000000" y="128.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc1PropVal" , AND(AP("1", (not b)), AP("2",((List.length requestreplies') &gt;= RequestQSize))))
- then 1` (value) else empty</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id15", AND((NOT(b)), AP("26", (List.length requestreplies') &gt;= RequestQSize))) then 1 ` (value) else empty</text>
         </annot>
       </arc>
       <arc id="ID1540091903" orientation="PtoT" order="1">
@@ -2834,8 +2815,8 @@ Accept</text>
 State</text>
         <ellipse w="92.000000" h="62.000000" />
         <token x="-60.000000" y="35.000000" />
-        <marking x="-115.000000" y="-44.000000" hidden="false">
-          <snap snap_id="0" anchor.horizontal="2" anchor.vertical="1" />
+        <marking x="-14.000000" y="121.000000" hidden="false">
+          <snap snap_id="0" anchor.horizontal="3" anchor.vertical="2" />
         </marking>
         <type id="ID1412840205">
           <posattr x="-862.000000" y="29.000000" />
@@ -2926,7 +2907,7 @@ Prepare</text>
       </place>
       <trans id="ID1412840198" explicit="false">
         <posattr x="-609.000000" y="84.000000" />
-        <fillattr colour="Green" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Handle
@@ -2934,11 +2915,11 @@ Prepare</text>
         <box w="148.000000" h="108.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1412840199">
-          <posattr x="-435.500000" y="44.000000" />
+          <posattr x="-500.000000" y="44.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("HP", AP("1",id = id'))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AP("1", id = id')]</text>
         </cond>
         <time id="ID1412840200">
           <posattr x="-520.500000" y="149.000000" />
@@ -2971,12 +2952,11 @@ Prepare</text>
         <transend idref="ID1412840198" />
         <placeend idref="ID1412840215" />
         <annot id="ID1413158293">
-          <posattr x="-428.000000" y="-16.000000" />
+          <posattr x="-488.000000" y="-16.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc21HAPrepare" , AP("1", (crnd &gt; rnd))) 
-then 1`(id,Promise (cid, crnd, (vrnd,vvalue))) else empty</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id10", (AP("24", crnd &gt; rnd))) then 1 ` (id, Promise ( cid, crnd, (vrnd, vvalue) )) else empty</text>
         </annot>
       </arc>
       <arc id="ID1413174846" orientation="PtoT" order="1">
@@ -2998,7 +2978,7 @@ then 1`(id,Promise (cid, crnd, (vrnd,vvalue))) else empty</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(id', rnd ,(vrnd,vvalue))</text>
+          <text tool="CPN Tools" version="4.0.1">(id', rnd, (vrnd, vvalue))</text>
         </annot>
       </arc>
       <arc id="ID1413176567" orientation="TtoP" order="1">
@@ -3016,12 +2996,11 @@ then 1`(id,Promise (cid, crnd, (vrnd,vvalue))) else empty</text>
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1413176568">
-          <posattr x="-874.000000" y="127.000000" />
+          <posattr x="-781.000000" y="109.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc20HAPrepare" , AP("1", (crnd &gt; rnd))) 
-then (id, crnd, (vrnd,vvalue)) else (id, rnd, (vrnd,vvalue))</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id10", (AP("24", crnd &gt; rnd))) then (id, crnd, (vrnd, vvalue)) else (id, rnd, (vrnd, vvalue))</text>
         </annot>
       </arc>
       <arc id="ID1546530453" orientation="PtoT" order="1">
@@ -3037,7 +3016,7 @@ then (id, crnd, (vrnd,vvalue)) else (id, rnd, (vrnd,vvalue))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(id, Prepare(cid,crnd))</text>
+          <text tool="CPN Tools" version="4.0.1">(id, Prepare ( cid, crnd ))</text>
         </annot>
       </arc>
       <constraints />
@@ -3046,7 +3025,7 @@ then (id, crnd, (vrnd,vvalue)) else (id, rnd, (vrnd,vvalue))</text>
     <page id="ID1412840857">
       <pageattr name="Handle Accept" />
       <place id="ID1412840876">
-        <posattr x="-756.000000" y="69.000000" />
+        <posattr x="-822.000000" y="42.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
@@ -3058,28 +3037,28 @@ Accept</text>
           <snap snap_id="2" anchor.horizontal="3" anchor.vertical="2" />
         </marking>
         <type id="ID1412840877">
-          <posattr x="-748.000000" y="116.000000" />
+          <posattr x="-734.500000" y="15.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1">ReplicaIDxMessage</text>
         </type>
         <initmark id="ID1412840878">
-          <posattr x="-697.000000" y="95.000000" />
+          <posattr x="-763.000000" y="68.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </initmark>
         <port id="ID1412840879" type="In">
-          <posattr x="-792.000000" y="91.000000" />
+          <posattr x="-822.000000" y="14.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </port>
       </place>
       <place id="ID1412851774">
-        <posattr x="-313.000000" y="69.000000" />
+        <posattr x="-294.000000" y="-42.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
@@ -3090,28 +3069,28 @@ Accept</text>
           <snap snap_id="0" anchor.horizontal="0" anchor.vertical="0" />
         </marking>
         <type id="ID1412851775">
-          <posattr x="-353.000000" y="26.000000" />
+          <posattr x="-208.500000" y="-65.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1">ReplicaIDxMessage</text>
         </type>
         <initmark id="ID1412851776">
-          <posattr x="-256.000000" y="92.000000" />
+          <posattr x="-237.000000" y="-18.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </initmark>
         <port id="ID1412851777" type="Out">
-          <posattr x="-313.000000" y="45.000000" />
+          <posattr x="-294.000000" y="-66.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </port>
       </place>
       <place id="ID1413425794">
-        <posattr x="-559.000000" y="336.000000" />
+        <posattr x="-294.000000" y="182.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
@@ -3119,33 +3098,33 @@ Accept</text>
 State</text>
         <ellipse w="92.000000" h="62.000000" />
         <token x="-60.000000" y="35.000000" />
-        <marking x="43.000000" y="-10.000000" hidden="false">
-          <snap snap_id="0" anchor.horizontal="1" anchor.vertical="1" />
+        <marking x="0.000000" y="0.000000" hidden="false">
+          <snap snap_id="0" anchor.horizontal="0" anchor.vertical="0" />
         </marking>
         <type id="ID1413425795">
-          <posattr x="-559.000000" y="378.000000" />
+          <posattr x="-164.500000" y="152.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1">ReplicaIDxRndxAcceptedMessage</text>
         </type>
         <initmark id="ID1413425796">
-          <posattr x="-491.000000" y="367.000000" />
+          <posattr x="-226.000000" y="213.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </initmark>
         <port id="ID1413425797" type="I/O">
-          <posattr x="-594.000000" y="311.000000" />
+          <posattr x="-329.000000" y="157.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </port>
       </place>
       <trans id="ID1412840859" explicit="false">
-        <posattr x="-546.000000" y="69.000000" />
-        <fillattr colour="Green" pattern="" filled="true" />
+        <posattr x="-546.000000" y="42.000000" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Handle
@@ -3153,28 +3132,28 @@ Accept</text>
         <box w="102.000000" h="160.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1412840860">
-          <posattr x="-545.000000" y="-36.000000" />
+          <posattr x="-627.000000" y="133.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("HA", AP("1",id = id'))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AP("1", id = id')]</text>
         </cond>
         <time id="ID1412840861">
-          <posattr x="-480.500000" y="160.000000" />
+          <posattr x="-480.500000" y="133.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </time>
         <code id="ID1412840862">
-          <posattr x="-460.500000" y="-43.000000" />
+          <posattr x="-460.500000" y="-70.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </code>
         <priority id="ID1412840864">
-          <posattr x="-635.000000" y="-22.000000" />
+          <posattr x="-635.000000" y="-49.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -3190,12 +3169,11 @@ Accept</text>
         <transend idref="ID1412840859" />
         <placeend idref="ID1412851774" />
         <annot id="ID1413113549">
-          <posattr x="-276.000000" y="108.000000" />
+          <posattr x="-259.000000" y="5.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc19HAccept" , AP("1", (crnd &gt;=rnd))) 
-then 1`(id,Learn(cid, crnd, value)) else empty</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id1", (AP("21", crnd &gt;= rnd))) then 1 ` (id, Learn ( cid, crnd, value )) else empty</text>
         </annot>
       </arc>
       <arc id="ID1413463810" orientation="TtoP" order="1">
@@ -3206,18 +3184,18 @@ then 1`(id,Learn(cid, crnd, value)) else empty</text>
         <arrowattr headsize="1.200000" currentcyckle="2" />
         <transend idref="ID1412840859" />
         <placeend idref="ID1413425794" />
-        <bendpoint id="ID1593250977" serial="1">
-          <posattr x="-546.000000" y="294.000000" />
+        <bendpoint id="ID1413463812" serial="1">
+          <posattr x="-420.000000" y="182.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1413463811">
-          <posattr x="-202.500000" y="235.000000" />
+          <posattr x="-409.000000" y="225.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc18HAccept" , AP("1", (crnd &gt;=rnd))) then (id, crnd, (crnd,value)) else (id, rnd, (vrnd,vvalue))</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id1", (AP("21", crnd &gt;= rnd))) then (id, crnd, (crnd, value)) else (id, rnd, (vrnd, vvalue))</text>
         </annot>
       </arc>
       <arc id="ID1413540040" orientation="PtoT" order="1">
@@ -3228,18 +3206,24 @@ then 1`(id,Learn(cid, crnd, value)) else empty</text>
         <arrowattr headsize="1.200000" currentcyckle="2" />
         <transend idref="ID1412840859" />
         <placeend idref="ID1413425794" />
-        <bendpoint id="ID1593251518" serial="1">
-          <posattr x="-559.000000" y="294.000000" />
+        <bendpoint id="ID1546702614" serial="1">
+          <posattr x="-389.000000" y="70.000000" />
+          <fillattr colour="White" pattern="Solid" filled="false" />
+          <lineattr colour="Black" thick="0" type="Solid" />
+          <textattr colour="Black" bold="false" />
+        </bendpoint>
+        <bendpoint id="ID1546701080" serial="2">
+          <posattr x="-294.000000" y="145.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1413540041">
-          <posattr x="-664.000000" y="256.000000" />
+          <posattr x="-270.000000" y="95.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(id', rnd, (vrnd,vvalue))</text>
+          <text tool="CPN Tools" version="4.0.1">(id', rnd, (vrnd, vvalue))</text>
         </annot>
       </arc>
       <arc id="ID1546660891" orientation="PtoT" order="1">
@@ -3251,11 +3235,11 @@ then 1`(id,Learn(cid, crnd, value)) else empty</text>
         <transend idref="ID1412840859" />
         <placeend idref="ID1412840876" />
         <annot id="ID1546660892">
-          <posattr x="-708.000000" y="34.000000" />
+          <posattr x="-693.000000" y="53.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(id, Accept(cid, crnd,value))</text>
+          <text tool="CPN Tools" version="4.0.1">(id, Accept ( cid, crnd, value ))</text>
         </annot>
       </arc>
       <constraints />
@@ -3617,7 +3601,7 @@ Commit</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(id, Empty(cid))</text>
+          <text tool="CPN Tools" version="4.0.1">(id, Empty (cid))</text>
         </annot>
       </arc>
       <arc id="ID1413813255" orientation="PtoT" order="1">
@@ -3633,7 +3617,7 @@ Commit</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(id,Learn(cid,rnd,value))</text>
+          <text tool="CPN Tools" version="4.0.1">(id, Learn ( cid, rnd, value ))</text>
         </annot>
       </arc>
       <arc id="ID1530998049" orientation="TtoP" order="1">
@@ -3649,7 +3633,7 @@ Commit</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(id,value)</text>
+          <text tool="CPN Tools" version="4.0.1">(id, value)</text>
         </annot>
       </arc>
       <constraints />
@@ -4169,12 +4153,12 @@ Detector</text>
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </bendpoint>
-        <annot id="ID1593265174">
+        <annot id="ID1590758594">
           <posattr x="-515.000000" y="263.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">1`()</text>
+          <text tool="CPN Tools" version="4.0.1">1 ` ()</text>
         </annot>
       </arc>
       <arc id="ID1536527260" orientation="PtoT" order="1">
@@ -4311,12 +4295,12 @@ Detector</text>
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </bendpoint>
-        <annot id="ID1593265175">
+        <annot id="ID1590758595">
           <posattr x="-515.000000" y="375.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">1`()</text>
+          <text tool="CPN Tools" version="4.0.1">1 ` ()</text>
         </annot>
       </arc>
       <arc id="ID1537372983" orientation="TtoP" order="1">
@@ -5371,12 +5355,12 @@ Prepare</text>
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </bendpoint>
-        <annot id="ID1593265176">
+        <annot id="ID1590758596">
           <posattr x="-344.000000" y="296.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">1`()</text>
+          <text tool="CPN Tools" version="4.0.1">1 ` ()</text>
         </annot>
       </arc>
       <arc id="ID1537170616" orientation="BOTHDIR" order="1">
@@ -5821,11 +5805,11 @@ Messages</text>
         <box w="108.000000" h="62.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1413114871">
-          <posattr x="40.000000" y="-4.000000" />
+          <posattr x="-44.000000" y="19.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[preparereplies' = (cid, crnd, (vrnd,vvalue))::preparereplies, EXPR("APQF", AP("1",crnd &gt; 0))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AP("13", preparereplies' = (cid, crnd, (vrnd, vvalue)) :: preparereplies), AP("14", crnd &gt; 0))]</text>
         </cond>
         <time id="ID1413114872">
           <posattr x="-189.500000" y="116.000000" />
@@ -5862,7 +5846,7 @@ Messages</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">List.map (fn s =&gt; (s, Prepare(cid, crnd))) allIDs</text>
+          <text tool="CPN Tools" version="4.0.1">List.map (fn s =&gt; (s, Prepare ( cid, crnd ))) allIDs</text>
         </annot>
       </arc>
       <arc id="ID1412977685" orientation="PtoT" order="1">
@@ -5878,7 +5862,7 @@ Messages</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">Prepare(0, crnd)</text>
+          <text tool="CPN Tools" version="4.0.1">Prepare ( 0, crnd )</text>
         </annot>
       </arc>
       <arc id="ID1413115919" orientation="TtoP" order="2">
@@ -5894,7 +5878,7 @@ Messages</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(cid,(Promise(cid,~1,(~1,"")),false))</text>
+          <text tool="CPN Tools" version="4.0.1">(cid, (Promise ( cid, ~ 1, (~ 1, "") ), false))</text>
         </annot>
       </arc>
       <arc id="ID1413116496" orientation="PtoT" order="1">
@@ -5916,7 +5900,7 @@ Messages</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(cid,(Promise(prm),b))</text>
+          <text tool="CPN Tools" version="4.0.1">(cid, (Promise (prm), b))</text>
         </annot>
       </arc>
       <arc id="ID1413116798" orientation="TtoP" order="1">
@@ -5934,13 +5918,11 @@ Messages</text>
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1413116799">
-          <posattr x="-5.500000" y="143.000000" />
+          <posattr x="-49.500000" y="153.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc6Prep", AP("1", PrepareQFCond(cid,crnd',preparereplies') )) 
-then (cid,(PrepareQFProm(cid,crnd',preparereplies'),true))
-else (cid,(Promise(cid, ~1,(~1,"")),false))</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id8", PrepareQFCond ( cid, crnd', preparereplies' )) then (cid, (PrepareQFProm ( cid, crnd', preparereplies' ), true)) else (cid, (Promise ( cid, ~ 1, (~ 1, "") ), false))</text>
         </annot>
       </arc>
       <arc id="ID1413117383" orientation="PtoT" order="1">
@@ -5956,7 +5938,7 @@ else (cid,(Promise(cid, ~1,(~1,"")),false))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(id,Promise(cid, crnd, (vrnd,vvalue)))</text>
+          <text tool="CPN Tools" version="4.0.1">(id, Promise ( cid, crnd, (vrnd, vvalue) ))</text>
         </annot>
       </arc>
       <arc id="ID1413118468" orientation="TtoP" order="1">
@@ -5978,7 +5960,7 @@ else (cid,(Promise(cid, ~1,(~1,"")),false))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(cid,crnd,[])</text>
+          <text tool="CPN Tools" version="4.0.1">(cid, crnd, [])</text>
         </annot>
       </arc>
       <arc id="ID1413120474" orientation="PtoT" order="1">
@@ -6000,7 +5982,7 @@ else (cid,(Promise(cid, ~1,(~1,"")),false))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(cid,crnd',preparereplies)</text>
+          <text tool="CPN Tools" version="4.0.1">(cid, crnd', preparereplies)</text>
         </annot>
       </arc>
       <arc id="ID1413122239" orientation="TtoP" order="1">
@@ -6022,7 +6004,7 @@ else (cid,(Promise(cid, ~1,(~1,"")),false))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(cid,crnd',preparereplies')</text>
+          <text tool="CPN Tools" version="4.0.1">(cid, crnd', preparereplies')</text>
         </annot>
       </arc>
       <arc id="ID1413241122" orientation="TtoP" order="1">
@@ -6052,12 +6034,11 @@ else (cid,(Promise(cid, ~1,(~1,"")),false))</text>
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1413241123">
-          <posattr x="-462.000000" y="-81.000000" />
+          <posattr x="-462.000000" y="-88.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc7Prep" , AND(AP("1", (not b)), AP("2",(PrepareQFCond(cid,crnd',preparereplies'))))) 
-then 1`PrepareQFProm(cid,crnd',preparereplies') else empty</text>
+          <text tool="CPN Tools" version="4.0.1">empty</text>
         </annot>
       </arc>
       <arc id="ID1529902822" orientation="PtoT" order="1">
@@ -6340,11 +6321,11 @@ AcceptQF</text>
         <box w="108.000000" h="62.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1413324064">
-          <posattr x="6.500000" y="-208.000000" />
+          <posattr x="-50.500000" y="-201.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[acceptreplies' = (cid, rnd,value)::acceptreplies, EXPR("AAQF", AP("1",rnd &gt; 0))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AP("15", acceptreplies' = (cid, rnd, value) :: acceptreplies), AP("16", rnd &gt; 0))]</text>
         </cond>
         <time id="ID1413324065">
           <posattr x="-189.500000" y="-110.000000" />
@@ -6381,7 +6362,7 @@ AcceptQF</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">List.map (fn s =&gt; (s, Accept(cid, rnd,value))) allIDs</text>
+          <text tool="CPN Tools" version="4.0.1">List.map (fn s =&gt; (s, Accept ( cid, rnd, value ))) allIDs</text>
         </annot>
       </arc>
       <arc id="ID1413273118" orientation="PtoT" order="1">
@@ -6397,7 +6378,7 @@ AcceptQF</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">Accept(0,rnd,value)</text>
+          <text tool="CPN Tools" version="4.0.1">Accept ( 0, rnd, value )</text>
         </annot>
       </arc>
       <arc id="ID1413297653" orientation="TtoP" order="1">
@@ -6419,7 +6400,7 @@ AcceptQF</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(cid,[])</text>
+          <text tool="CPN Tools" version="4.0.1">(cid, [])</text>
         </annot>
       </arc>
       <arc id="ID1413312601" orientation="TtoP" order="2">
@@ -6435,7 +6416,7 @@ AcceptQF</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(cid,(Learn(cid, ~1,""),false))</text>
+          <text tool="CPN Tools" version="4.0.1">(cid, (Learn ( cid, ~ 1, "" ), false))</text>
         </annot>
       </arc>
       <arc id="ID1413329270" orientation="PtoT" order="1">
@@ -6457,7 +6438,7 @@ AcceptQF</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(cid,(Learn(lrn),b))</text>
+          <text tool="CPN Tools" version="4.0.1">(cid, (Learn (lrn), b))</text>
         </annot>
       </arc>
       <arc id="ID1413330151" orientation="TtoP" order="1">
@@ -6475,12 +6456,11 @@ AcceptQF</text>
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1413330152">
-          <posattr x="32.000000" y="-69.000000" />
+          <posattr x="-75.000000" y="-69.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc8Accept", AP("1", AcceptQFCond(acceptreplies'))) 
-then (cid,(AcceptQFLearn(cid,acceptreplies),true)) else (cid,(Learn(cid, ~1,""),false))</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id2", AcceptQFCond (acceptreplies')) then (cid, (AcceptQFLearn ( cid, acceptreplies ), true)) else (cid, (Learn ( cid, ~ 1, "" ), false))</text>
         </annot>
       </arc>
       <arc id="ID1413351297" orientation="PtoT" order="1">
@@ -6502,7 +6482,7 @@ then (cid,(AcceptQFLearn(cid,acceptreplies),true)) else (cid,(Learn(cid, ~1,""),
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(cid,acceptreplies)</text>
+          <text tool="CPN Tools" version="4.0.1">(cid, acceptreplies)</text>
         </annot>
       </arc>
       <arc id="ID1413352744" orientation="TtoP" order="1">
@@ -6524,7 +6504,7 @@ then (cid,(AcceptQFLearn(cid,acceptreplies),true)) else (cid,(Learn(cid, ~1,""),
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(cid,acceptreplies')</text>
+          <text tool="CPN Tools" version="4.0.1">(cid, acceptreplies')</text>
         </annot>
       </arc>
       <arc id="ID1413375518" orientation="PtoT" order="1">
@@ -6540,7 +6520,7 @@ then (cid,(AcceptQFLearn(cid,acceptreplies),true)) else (cid,(Learn(cid, ~1,""),
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(id,Learn(cid, rnd,value))</text>
+          <text tool="CPN Tools" version="4.0.1">(id, Learn ( cid, rnd, value ))</text>
         </annot>
       </arc>
       <arc id="ID1413400795" orientation="TtoP" order="1">
@@ -6570,12 +6550,11 @@ then (cid,(AcceptQFLearn(cid,acceptreplies),true)) else (cid,(Learn(cid, ~1,""),
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1413400796">
-          <posattr x="-478.000000" y="-249.000000" />
+          <posattr x="-473.000000" y="-235.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc9Accept" , AND(AP("1", (not b)), AP("2",(AcceptQFCond(acceptreplies')))))
- then 1`AcceptQFLearn(cid,acceptreplies') else empty</text>
+          <text tool="CPN Tools" version="4.0.1">empty</text>
         </annot>
       </arc>
       <arc id="ID1529877485" orientation="PtoT" order="1">
@@ -6619,7 +6598,7 @@ then (cid,(AcceptQFLearn(cid,acceptreplies),true)) else (cid,(Learn(cid, ~1,""),
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">cid+1</text>
+          <text tool="CPN Tools" version="4.0.1">cid + 1</text>
         </annot>
       </arc>
       <constraints />
@@ -6664,7 +6643,7 @@ then (cid,(AcceptQFLearn(cid,acceptreplies),true)) else (cid,(Learn(cid, ~1,""),
 Proposer</text>
         <ellipse w="92.000000" h="58.000000" />
         <token x="-36.000000" y="26.000000" />
-        <marking x="-35.000000" y="17.000000" hidden="false">
+        <marking x="-25.000000" y="22.000000" hidden="false">
           <snap snap_id="0" anchor.horizontal="2" anchor.vertical="2" />
         </marking>
         <type id="ID1540515827">
@@ -6848,7 +6827,7 @@ Value</text>
       </place>
       <trans id="ID1541504473" explicit="false">
         <posattr x="-630.000000" y="-42.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Obtain
@@ -6857,11 +6836,11 @@ Round</text>
         <box w="88.000000" h="58.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1541504474">
-          <posattr x="-919.500000" y="11.000000" />
+          <posattr x="-788.000000" y="11.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("OLR", AND(AND(AP("1",id' = id), AP("2", id = lid)),AP("3",value &lt;&gt;"")))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AND(AP("10", id' = id), AP("11", id = lid)), AP("12", value &lt;&gt; ""))]</text>
         </cond>
         <time id="ID1541504475">
           <posattr x="-571.500000" y="-2.000000" />
@@ -6887,7 +6866,7 @@ Round</text>
       </trans>
       <trans id="ID1542951665" explicit="false">
         <posattr x="-882.000000" y="-188.000000" />
-        <fillattr colour="Green" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Store
@@ -6896,11 +6875,11 @@ ID</text>
         <box w="88.000000" h="58.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1542951666">
-          <posattr x="-1031.000000" y="-148.000000" />
+          <posattr x="-960.500000" y="-148.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("SLID", AP("1",id &lt;&gt; lid))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AP("20", id &lt;&gt; lid)]</text>
         </cond>
         <time id="ID1542951667">
           <posattr x="-823.500000" y="-148.000000" />
@@ -6926,7 +6905,7 @@ ID</text>
       </trans>
       <trans id="ID1543989083" explicit="false">
         <posattr x="-336.000000" y="126.000000" />
-        <fillattr colour="Green" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Store
@@ -6938,7 +6917,7 @@ Request</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("SR", AP("1",id = id'))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AP("1", id = id')]</text>
         </cond>
         <time id="ID1543989085">
           <posattr x="-281.500000" y="165.000000" />
@@ -7077,7 +7056,7 @@ Request</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(id,rnd,value')</text>
+          <text tool="CPN Tools" version="4.0.1">(id, rnd, value')</text>
         </annot>
       </arc>
       <arc id="ID1544125784" orientation="PtoT" order="1">
@@ -7093,7 +7072,7 @@ Request</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(id',value)</text>
+          <text tool="CPN Tools" version="4.0.1">(id', value)</text>
         </annot>
       </arc>
       <arc id="ID1544234610" orientation="TtoP" order="2">
@@ -7109,7 +7088,7 @@ Request</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(id',rnd,value)</text>
+          <text tool="CPN Tools" version="4.0.1">(id', rnd, value)</text>
         </annot>
       </arc>
       <arc id="ID1544291492" orientation="TtoP" order="2">
@@ -7159,12 +7138,11 @@ Request</text>
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1546183801">
-          <posattr x="-799.000000" y="56.000000" />
+          <posattr x="-716.000000" y="61.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc5InitPRO", AP("1", id' = id)) 
-then (id,rnd+n,value) else (id, rnd,value)</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id9", AP("10", id' = id)) then (id, rnd + n, value) else (id, rnd, value)</text>
         </annot>
       </arc>
       <constraints />
@@ -7179,7 +7157,7 @@ then (id,rnd+n,value) else (id, rnd,value)</text>
 which is the same with one of IDs</text>
       </Aux>
       <Aux id="ID1544833408">
-        <posattr x="-863.000000" y="350.000000" />
+        <posattr x="-882.000000" y="472.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
@@ -7187,7 +7165,7 @@ which is the same with one of IDs</text>
         <text>fun InitRndNumbers () = List.tabulate (n,(fn i =&gt; (List.nth(allIDs,i),i+1,"")));</text>
       </Aux>
       <Aux id="ID1544840496">
-        <posattr x="-687.000000" y="420.000000" />
+        <posattr x="-672.000000" y="504.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
@@ -7629,12 +7607,12 @@ Value</text>
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </bendpoint>
-        <annot id="ID1593265177">
+        <annot id="ID1590758597">
           <posattr x="-741.000000" y="557.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">1`()</text>
+          <text tool="CPN Tools" version="4.0.1">1 ` ()</text>
         </annot>
       </arc>
       <arc id="ID1536809445" orientation="TtoP" order="1">
@@ -7667,12 +7645,12 @@ Value</text>
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </bendpoint>
-        <annot id="ID1593265178">
+        <annot id="ID1590758598">
           <posattr x="-741.000000" y="368.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">1`()</text>
+          <text tool="CPN Tools" version="4.0.1">1 ` ()</text>
         </annot>
       </arc>
       <arc id="ID1547605477" orientation="TtoP" order="1">
@@ -7789,7 +7767,7 @@ Value</text>
     <page id="ID1531150453">
       <pageattr name="PhaseOne" />
       <place id="ID1531150461">
-        <posattr x="58.000000" y="702.000000" />
+        <posattr x="0.000000" y="702.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
@@ -7801,21 +7779,21 @@ FD</text>
           <snap snap_id="0" anchor.horizontal="0" anchor.vertical="0" />
         </marking>
         <type id="ID1531150462">
-          <posattr x="103.000000" y="672.000000" />
+          <posattr x="45.000000" y="672.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1">UNIT</text>
         </type>
         <initmark id="ID1531150463">
-          <posattr x="120.000000" y="731.000000" />
+          <posattr x="62.000000" y="731.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </initmark>
         <port id="ID1531150531" type="Out">
-          <posattr x="27.000000" y="679.000000" />
+          <posattr x="-30.000000" y="679.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -7835,7 +7813,7 @@ Two</text>
           <snap snap_id="0" anchor.horizontal="0" anchor.vertical="0" />
         </marking>
         <type id="ID1531150467">
-          <posattr x="-201.000000" y="588.000000" />
+          <posattr x="-213.000000" y="558.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -7856,7 +7834,7 @@ Two</text>
         </port>
       </place>
       <place id="ID1531150471">
-        <posattr x="-524.000000" y="702.000000" />
+        <posattr x="-526.000000" y="702.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
@@ -7867,21 +7845,21 @@ Two</text>
           <snap snap_id="0" anchor.horizontal="0" anchor.vertical="0" />
         </marking>
         <type id="ID1531150472">
-          <posattr x="-465.000000" y="672.000000" />
+          <posattr x="-467.000000" y="672.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1">Message</text>
         </type>
         <initmark id="ID1531150473">
-          <posattr x="-461.000000" y="731.000000" />
+          <posattr x="-463.000000" y="731.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </initmark>
         <port id="ID1531150537" type="I/O">
-          <posattr x="-576.000000" y="675.000000" />
+          <posattr x="-556.000000" y="679.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -7921,26 +7899,26 @@ Round</text>
         </port>
       </place>
       <place id="ID1544812005">
-        <posattr x="-272.000000" y="851.000000" />
+        <posattr x="-272.000000" y="840.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
         <text>FD
 Control</text>
         <ellipse w="60.000000" h="40.000000" />
-        <token x="-81.000000" y="15.000000" />
-        <marking x="-18.000000" y="-26.000000" hidden="false">
+        <token x="-83.000000" y="12.000000" />
+        <marking x="-14.000000" y="-24.000000" hidden="false">
           <snap snap_id="0" anchor.horizontal="3" anchor.vertical="1" />
         </marking>
         <type id="ID1544812006">
-          <posattr x="-236.500000" y="827.000000" />
+          <posattr x="-236.500000" y="816.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1">INT</text>
         </type>
         <initmark id="ID1544812007">
-          <posattr x="-196.500000" y="858.000000" />
+          <posattr x="-196.500000" y="847.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -8050,11 +8028,11 @@ Message</text>
         <transend idref="ID1531159250" />
         <placeend idref="ID1531150471" />
         <annot id="ID1531166754">
-          <posattr x="-627.000000" y="713.000000" />
+          <posattr x="-631.000000" y="713.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">Prepare(0,crnd)</text>
+          <text tool="CPN Tools" version="4.0.1">Prepare ( 0, crnd )</text>
         </annot>
       </arc>
       <arc id="ID1531167256" orientation="PtoT" order="1">
@@ -8066,12 +8044,11 @@ Message</text>
         <transend idref="ID1531162445" />
         <placeend idref="ID1531150471" />
         <annot id="ID1531167257">
-          <posattr x="-404.000000" y="720.000000" />
+          <posattr x="-410.000000" y="720.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">Promise
- (cid, crnd,(vrnd,vvalue))</text>
+          <text tool="CPN Tools" version="4.0.1">Promise ( cid, crnd, (vrnd, vvalue) )</text>
         </annot>
       </arc>
       <arc id="ID1531167762" orientation="TtoP" order="1">
@@ -8083,12 +8060,11 @@ Message</text>
         <transend idref="ID1531162445" />
         <placeend idref="ID1531150466" />
         <annot id="ID1531167763">
-          <posattr x="-83.500000" y="645.000000" />
+          <posattr x="-102.500000" y="645.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Red" thick="0" type="Solid" />
           <textattr colour="Red" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc14P1" , OR(AP("1", success), AP("2", cnt = 0))) 
-then 1`(Promise(cid, crnd,(vrnd,vvalue))) else empty</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id3", OR(success, (AP("22", cnt = 0)))) then 1 ` (Promise ( cid, crnd, (vrnd, vvalue) )) else empty</text>
         </annot>
       </arc>
       <arc id="ID1531168271" orientation="TtoP" order="1">
@@ -8100,13 +8076,11 @@ then 1`(Promise(cid, crnd,(vrnd,vvalue))) else empty</text>
         <transend idref="ID1531162445" />
         <placeend idref="ID1531150461" />
         <annot id="ID1531168272">
-          <posattr x="-87.000000" y="727.000000" />
+          <posattr x="-129.000000" y="720.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc13P1" , OR(AP("1", success), 
-AP("2", cnt = 0))) 
-then empty else 1`()</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id3", OR(success, (AP("22", cnt = 0)))) then empty else 1 ` ()</text>
         </annot>
       </arc>
       <arc id="ID1544812668" orientation="PtoT" order="2">
@@ -8118,7 +8092,7 @@ then empty else 1`()</text>
         <transend idref="ID1531162445" />
         <placeend idref="ID1544812005" />
         <annot id="ID1544812669">
-          <posattr x="-292.500000" y="788.000000" />
+          <posattr x="-292.500000" y="762.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -8134,12 +8108,11 @@ then empty else 1`()</text>
         <transend idref="ID1531162445" />
         <placeend idref="ID1544812005" />
         <annot id="ID1544813676">
-          <posattr x="-76.500000" y="786.000000" />
+          <posattr x="-185.500000" y="775.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc12P1" , OR(AP("1", success), AP("2", cnt = 0))) 
-then cnt else cnt-1</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id11", OR(success, AP("22", cnt = 0))) then cnt else cnt - 1</text>
         </annot>
       </arc>
       <constraints />
@@ -8470,12 +8443,12 @@ Value</text>
         <arrowattr headsize="1.200000" currentcyckle="2" />
         <transend idref="ID1547605490" />
         <placeend idref="ID1547605506" />
-        <annot id="ID1593265179">
+        <annot id="ID1590758599">
           <posattr x="-589.000000" y="360.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">1`()</text>
+          <text tool="CPN Tools" version="4.0.1">1 ` ()</text>
         </annot>
       </arc>
       <arc id="ID1547605515" orientation="TtoP" order="1">
@@ -8828,7 +8801,7 @@ Accept</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">Learn(cid,rnd,value)</text>
+          <text tool="CPN Tools" version="4.0.1">Learn ( cid, rnd, value )</text>
         </annot>
       </arc>
       <arc id="ID1531575419" orientation="TtoP" order="1">
@@ -8840,12 +8813,11 @@ Accept</text>
         <transend idref="ID1531575352" />
         <placeend idref="ID1531575394" />
         <annot id="ID1531575420">
-          <posattr x="-61.000000" y="-1103.000000" />
+          <posattr x="-171.000000" y="-1133.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc16Phase2" , OR(AP("1", (success)), AP("2", cnt = 0)))
- then 1`(Learn(cid,rnd,value)) else empty</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id3", OR(success, (AP("22", cnt = 0)))) then 1 ` (Learn ( cid, rnd, value )) else empty</text>
         </annot>
       </arc>
       <arc id="ID1531575421" orientation="TtoP" order="1">
@@ -8863,12 +8835,11 @@ Accept</text>
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1531575422">
-          <posattr x="-106.000000" y="-1231.000000" />
+          <posattr x="-232.500000" y="-1231.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc17Phase2" , OR(AP("1", (success)), AP("2", cnt = 0)))
- then empty else 1`()</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id3", OR(success, (AP("22", cnt = 0)))) then empty else 1 ` ()</text>
         </annot>
       </arc>
       <arc id="ID1531575426" orientation="TtoP" order="1">
@@ -8884,7 +8855,7 @@ Accept</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">Accept(0,rnd,value)</text>
+          <text tool="CPN Tools" version="4.0.1">Accept ( 0, rnd, value )</text>
         </annot>
       </arc>
       <arc id="ID1531575428" orientation="PtoT" order="1">
@@ -8950,11 +8921,11 @@ Accept</text>
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1544826922">
-          <posattr x="-604.000000" y="-1048.000000" />
+          <posattr x="-415.500000" y="-1048.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc15Phase2" , OR(AP("1", (success)), AP("2", cnt = 0))) then cnt else cnt-1</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id11", OR(success, AP("22", cnt = 0))) then cnt else cnt - 1</text>
         </annot>
       </arc>
       <constraints />
@@ -9092,7 +9063,7 @@ Accept</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">Promise(cid, crnd,(vrnd,vvalue))</text>
+          <text tool="CPN Tools" version="4.0.1">Promise ( cid, crnd, (vrnd, vvalue) )</text>
         </annot>
       </arc>
       <arc id="ID1536773733" orientation="TtoP" order="2">
@@ -9500,7 +9471,7 @@ LearnMsg</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">Learn(0, rnd,value)</text>
+          <text tool="CPN Tools" version="4.0.1">Learn ( 0, rnd, value )</text>
         </annot>
       </arc>
       <arc id="ID1537078045" orientation="PtoT" order="1">
@@ -9516,7 +9487,7 @@ LearnMsg</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(rnd,value)</text>
+          <text tool="CPN Tools" version="4.0.1">(rnd, value)</text>
         </annot>
       </arc>
       <constraints />
@@ -9642,7 +9613,7 @@ Learn</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(rnd,value)</text>
+          <text tool="CPN Tools" version="4.0.1">(rnd, value)</text>
         </annot>
       </arc>
       <arc id="ID1537674953" orientation="PtoT" order="1">
@@ -9658,7 +9629,7 @@ Learn</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">Learn(cid, rnd,value)</text>
+          <text tool="CPN Tools" version="4.0.1">Learn ( cid, rnd, value )</text>
         </annot>
       </arc>
       <constraints />
@@ -9666,7 +9637,7 @@ Learn</text>
     <page id="ID1413811329">
       <pageattr name="Commit" />
       <place id="ID1413811337">
-        <posattr x="-182.000000" y="-10.000000" />
+        <posattr x="-210.000000" y="-99.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
@@ -9678,28 +9649,28 @@ Commit</text>
           <snap snap_id="0" anchor.horizontal="0" anchor.vertical="0" />
         </marking>
         <type id="ID1413811338">
-          <posattr x="-84.500000" y="-38.000000" />
+          <posattr x="-112.500000" y="-127.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1">ReplicaIDxMessage</text>
         </type>
         <initmark id="ID1413811339">
-          <posattr x="-113.000000" y="18.000000" />
+          <posattr x="-141.000000" y="-70.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </initmark>
         <port id="ID1413811385" type="In">
-          <posattr x="-218.000000" y="-31.000000" />
+          <posattr x="-246.000000" y="-120.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </port>
       </place>
       <place id="ID1413811342">
-        <posattr x="-671.000000" y="509.000000" />
+        <posattr x="-699.000000" y="420.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
@@ -9710,28 +9681,28 @@ Commit</text>
           <snap snap_id="0" anchor.horizontal="0" anchor.vertical="0" />
         </marking>
         <type id="ID1413811343">
-          <posattr x="-607.000000" y="479.000000" />
+          <posattr x="-635.000000" y="390.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1">Message</text>
         </type>
         <initmark id="ID1413811344">
-          <posattr x="-603.000000" y="538.000000" />
+          <posattr x="-631.000000" y="449.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </initmark>
         <port id="ID1413811389" type="I/O">
-          <posattr x="-706.000000" y="486.000000" />
+          <posattr x="-734.000000" y="397.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </port>
       </place>
       <place id="ID1413811347">
-        <posattr x="-194.000000" y="341.000000" />
+        <posattr x="-222.000000" y="252.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
@@ -9743,28 +9714,28 @@ Commit</text>
           <snap snap_id="0" anchor.horizontal="0" anchor.vertical="0" />
         </marking>
         <type id="ID1413811348">
-          <posattr x="-96.500000" y="313.000000" />
+          <posattr x="-124.500000" y="224.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1">ReplicaIDxMessage</text>
         </type>
         <initmark id="ID1413811349">
-          <posattr x="-125.000000" y="368.000000" />
+          <posattr x="-153.000000" y="279.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </initmark>
         <port id="ID1413811392" type="Out">
-          <posattr x="-230.000000" y="320.000000" />
+          <posattr x="-258.000000" y="231.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </port>
       </place>
       <place id="ID1529254986">
-        <posattr x="-671.000000" y="173.000000" />
+        <posattr x="-699.000000" y="84.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
@@ -9776,14 +9747,14 @@ Commit</text>
           <snap snap_id="0" anchor.horizontal="0" anchor.vertical="0" />
         </marking>
         <type id="ID1529254987">
-          <posattr x="-578.500000" y="144.000000" />
+          <posattr x="-606.500000" y="55.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1">CxQFCommitResult</text>
         </type>
         <initmark id="ID1529999544">
-          <posattr x="-606.000000" y="201.000000" />
+          <posattr x="-634.000000" y="112.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -9791,7 +9762,7 @@ Commit</text>
         </initmark>
       </place>
       <place id="ID1529289872">
-        <posattr x="-938.000000" y="173.000000" />
+        <posattr x="-966.000000" y="84.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
@@ -9803,14 +9774,14 @@ Commit</text>
           <snap snap_id="0" anchor.horizontal="0" anchor.vertical="0" />
         </marking>
         <type id="ID1529291171">
-          <posattr x="-851.000000" y="144.000000" />
+          <posattr x="-879.000000" y="55.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1">CxCommitReplies</text>
         </type>
         <initmark id="ID1529289874">
-          <posattr x="-900.000000" y="201.000000" />
+          <posattr x="-928.000000" y="112.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -9818,7 +9789,7 @@ Commit</text>
         </initmark>
       </place>
       <place id="ID1529950907">
-        <posattr x="-865.000000" y="438.000000" />
+        <posattr x="-893.000000" y="349.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
@@ -9829,14 +9800,14 @@ Commit</text>
           <snap snap_id="0" anchor.horizontal="0" anchor.vertical="0" />
         </marking>
         <type id="ID1529950908">
-          <posattr x="-822.000000" y="414.000000" />
+          <posattr x="-850.000000" y="325.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1">CallId</text>
         </type>
         <initmark id="ID1529950909">
-          <posattr x="-836.000000" y="461.000000" />
+          <posattr x="-864.000000" y="372.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -9844,7 +9815,7 @@ Commit</text>
         </initmark>
       </place>
       <trans id="ID1413811331" explicit="false">
-        <posattr x="-671.000000" y="341.000000" />
+        <posattr x="-699.000000" y="252.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
@@ -9852,28 +9823,28 @@ Commit</text>
         <box w="106.000000" h="64.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1413811332">
-          <posattr x="-733.000000" y="384.000000" />
+          <posattr x="-761.000000" y="295.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </cond>
         <time id="ID1413811333">
-          <posattr x="-603.500000" y="384.000000" />
+          <posattr x="-631.500000" y="295.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </time>
         <code id="ID1413811334">
-          <posattr x="-583.500000" y="277.000000" />
+          <posattr x="-611.500000" y="188.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </code>
         <priority id="ID1413811336">
-          <posattr x="-762.000000" y="298.000000" />
+          <posattr x="-790.000000" y="209.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -9881,7 +9852,7 @@ Commit</text>
         </priority>
       </trans>
       <trans id="ID1529308218" explicit="false">
-        <posattr x="-671.000000" y="-10.000000" />
+        <posattr x="-699.000000" y="-99.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
@@ -9890,28 +9861,28 @@ CommitQF</text>
         <box w="108.000000" h="62.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1529310895">
-          <posattr x="-487.500000" y="-39.000000" />
+          <posattr x="-515.500000" y="-128.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[commitreplies' = (cid)::commitreplies]</text>
+          <text tool="CPN Tools" version="4.0.1">[AP("19", commitreplies' = (cid) :: commitreplies)]</text>
         </cond>
         <time id="ID1529308220">
-          <posattr x="-602.500000" y="32.000000" />
+          <posattr x="-630.500000" y="-57.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </time>
         <code id="ID1529308221">
-          <posattr x="-582.500000" y="-73.000000" />
+          <posattr x="-610.500000" y="-162.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </code>
         <priority id="ID1529308223">
-          <posattr x="-763.000000" y="-52.000000" />
+          <posattr x="-791.000000" y="-141.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -9927,11 +9898,11 @@ CommitQF</text>
         <transend idref="ID1413811331" />
         <placeend idref="ID1413811347" />
         <annot id="ID1528973170">
-          <posattr x="-430.000000" y="352.000000" />
+          <posattr x="-458.000000" y="263.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">List.map (fn s =&gt; (s, Learn(cid, rnd,value))) allIDs</text>
+          <text tool="CPN Tools" version="4.0.1">List.map (fn s =&gt; (s, Learn ( cid, rnd, value ))) allIDs</text>
         </annot>
       </arc>
       <arc id="ID1529262265" orientation="TtoP" order="2">
@@ -9943,11 +9914,11 @@ CommitQF</text>
         <transend idref="ID1413811331" />
         <placeend idref="ID1529254986" />
         <annot id="ID1529262266">
-          <posattr x="-594.500000" y="255.000000" />
+          <posattr x="-622.500000" y="166.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(cid, (Empty(cid),false))</text>
+          <text tool="CPN Tools" version="4.0.1">(cid, (Empty (cid), false))</text>
         </annot>
       </arc>
       <arc id="ID1529314915" orientation="PtoT" order="1">
@@ -9959,17 +9930,17 @@ CommitQF</text>
         <transend idref="ID1529308218" />
         <placeend idref="ID1529254986" />
         <bendpoint id="ID1529320323" serial="1">
-          <posattr x="-699.000000" y="89.000000" />
+          <posattr x="-727.000000" y="0.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1529314916">
-          <posattr x="-765.000000" y="100.000000" />
+          <posattr x="-793.000000" y="11.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(cid,(Empty(cmt),b))</text>
+          <text tool="CPN Tools" version="4.0.1">(cid, (Empty (cmt), b))</text>
         </annot>
       </arc>
       <arc id="ID1529316264" orientation="TtoP" order="1">
@@ -9981,18 +9952,17 @@ CommitQF</text>
         <transend idref="ID1529308218" />
         <placeend idref="ID1529254986" />
         <bendpoint id="ID1529317616" serial="1">
-          <posattr x="-644.000000" y="102.000000" />
+          <posattr x="-672.000000" y="13.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1529316265">
-          <posattr x="-394.500000" y="61.000000" />
+          <posattr x="-523.500000" y="-28.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc10Commit", AP("1", (List.length commitreplies') &gt;= CommitQSize)) 
-then (cid, (Empty(cid),true)) else (cid, (Empty(cid),false))</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id13", AP("25", (List.length commitreplies') &gt;= CommitQSize)) then (cid, (Empty (cid), true)) else (cid, (Empty (cid), false))</text>
         </annot>
       </arc>
       <arc id="ID1529328512" orientation="TtoP" order="1">
@@ -10004,17 +9974,17 @@ then (cid, (Empty(cid),true)) else (cid, (Empty(cid),false))</text>
         <transend idref="ID1413811331" />
         <placeend idref="ID1529289872" />
         <bendpoint id="ID1529329892" serial="1">
-          <posattr x="-854.000000" y="341.000000" />
+          <posattr x="-882.000000" y="252.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1529328513">
-          <posattr x="-789.000000" y="352.000000" />
+          <posattr x="-817.000000" y="263.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(cid,[])</text>
+          <text tool="CPN Tools" version="4.0.1">(cid, [])</text>
         </annot>
       </arc>
       <arc id="ID1529335424" orientation="PtoT" order="1">
@@ -10026,11 +9996,11 @@ then (cid, (Empty(cid),true)) else (cid, (Empty(cid),false))</text>
         <transend idref="ID1529308218" />
         <placeend idref="ID1413811337" />
         <annot id="ID1529335425">
-          <posattr x="-424.000000" y="1.000000" />
+          <posattr x="-452.000000" y="-88.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(id,Empty(cid))</text>
+          <text tool="CPN Tools" version="4.0.1">(id, Empty (cid))</text>
         </annot>
       </arc>
       <arc id="ID1529339607" orientation="TtoP" order="1">
@@ -10042,17 +10012,17 @@ then (cid, (Empty(cid),true)) else (cid, (Empty(cid),false))</text>
         <transend idref="ID1529308218" />
         <placeend idref="ID1529289872" />
         <bendpoint id="ID1529345235" serial="1">
-          <posattr x="-953.000000" y="-27.000000" />
+          <posattr x="-981.000000" y="-116.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1529339608">
-          <posattr x="-839.000000" y="-16.000000" />
+          <posattr x="-867.000000" y="-105.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(cid,commitreplies')</text>
+          <text tool="CPN Tools" version="4.0.1">(cid, commitreplies')</text>
         </annot>
       </arc>
       <arc id="ID1529358059" orientation="PtoT" order="1">
@@ -10064,17 +10034,17 @@ then (cid, (Empty(cid),true)) else (cid, (Empty(cid),false))</text>
         <transend idref="ID1529308218" />
         <placeend idref="ID1529289872" />
         <bendpoint id="ID1529358061" serial="1">
-          <posattr x="-896.000000" y="5.000000" />
+          <posattr x="-924.000000" y="-84.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1529358060">
-          <posattr x="-811.000000" y="16.000000" />
+          <posattr x="-839.000000" y="-73.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(cid,commitreplies)</text>
+          <text tool="CPN Tools" version="4.0.1">(cid, commitreplies)</text>
         </annot>
       </arc>
       <arc id="ID1529366737" orientation="TtoP" order="1">
@@ -10086,30 +10056,29 @@ then (cid, (Empty(cid),true)) else (cid, (Empty(cid),false))</text>
         <transend idref="ID1529308218" />
         <placeend idref="ID1413811342" />
         <bendpoint id="ID1529366739" serial="1">
-          <posattr x="-671.000000" y="-121.000000" />
+          <posattr x="-699.000000" y="-210.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <bendpoint id="ID1529366740" serial="2">
-          <posattr x="-1127.000000" y="-121.000000" />
+          <posattr x="-1155.000000" y="-210.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <bendpoint id="ID1529366741" serial="3">
-          <posattr x="-1127.000000" y="509.000000" />
+          <posattr x="-1155.000000" y="420.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1529366738">
-          <posattr x="-909.000000" y="-103.000000" />
+          <posattr x="-937.000000" y="-185.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc11Commit" , AND(AP("1", (not b)), AP("2",(List.length commitreplies') &gt;= CommitQSize))) 
-then 1` (Empty(cid)) else empty</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id12", AND((NOT(b)), AP("25", (List.length commitreplies') &gt;= CommitQSize))) then 1 ` (Empty (cid)) else empty</text>
         </annot>
       </arc>
       <arc id="ID1529952531" orientation="PtoT" order="1">
@@ -10121,13 +10090,13 @@ then 1` (Empty(cid)) else empty</text>
         <transend idref="ID1413811331" />
         <placeend idref="ID1529950907" />
         <bendpoint id="ID1529952533" serial="1">
-          <posattr x="-728.000000" y="438.000000" />
+          <posattr x="-756.000000" y="349.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1529952532">
-          <posattr x="-740.000000" y="449.000000" />
+          <posattr x="-768.000000" y="360.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -10143,13 +10112,13 @@ then 1` (Empty(cid)) else empty</text>
         <transend idref="ID1413811331" />
         <placeend idref="ID1529950907" />
         <bendpoint id="ID1529953082" serial="1">
-          <posattr x="-865.000000" y="366.000000" />
+          <posattr x="-893.000000" y="277.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1529953081">
-          <posattr x="-795.000000" y="377.000000" />
+          <posattr x="-823.000000" y="288.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -10165,11 +10134,11 @@ then 1` (Empty(cid)) else empty</text>
         <transend idref="ID1413811331" />
         <placeend idref="ID1413811342" />
         <annot id="ID1531010124">
-          <posattr x="-606.500000" y="427.000000" />
+          <posattr x="-634.500000" y="338.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">Learn(0, rnd,value)</text>
+          <text tool="CPN Tools" version="4.0.1">Learn ( 0, rnd, value )</text>
         </annot>
       </arc>
       <constraints />
@@ -10322,7 +10291,7 @@ Detector</text>
           <snap snap_id="0" anchor.horizontal="3" anchor.vertical="2" />
         </marking>
         <type id="ID1540885535">
-          <posattr x="-566.500000" y="995.000000" />
+          <posattr x="-566.500000" y="985.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -10426,7 +10395,7 @@ IDs</text>
       </place>
       <trans id="ID1540868355" explicit="false">
         <posattr x="-893.000000" y="1035.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Obtain
@@ -10435,11 +10404,11 @@ IDs</text>
         <box w="88.000000" h="58.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1540868356">
-          <posattr x="-851.000000" y="1097.000000" />
+          <posattr x="-1042.000000" y="1104.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("OCID", AND(AP("1",length ids &gt; 1), OR(AP("2",List.hd(ids) = lid), AP("3",lid = 0))))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AP("5", length ids &gt; 1), OR(AP("6", List.hd (ids) = lid), AP("7", lid = 0)))]</text>
         </cond>
         <time id="ID1540868357">
           <posattr x="-834.500000" y="1075.000000" />
@@ -10465,7 +10434,7 @@ IDs</text>
       </trans>
       <trans id="ID1540897944" explicit="false">
         <posattr x="-404.000000" y="1035.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Elect
@@ -10473,11 +10442,11 @@ Leader</text>
         <box w="88.000000" h="58.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1540897945">
-          <posattr x="-395.000000" y="1087.000000" />
+          <posattr x="-467.000000" y="1077.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("EL", AP("1",length ids &lt;&gt; 0))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AP("9", length ids &lt;&gt; 0)]</text>
         </cond>
         <time id="ID1540897946">
           <posattr x="-345.500000" y="1075.000000" />
@@ -10550,12 +10519,11 @@ IDs</text>
         <box w="88.000000" h="58.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1542821368">
-          <posattr x="-1403.000000" y="1199.000000" />
+          <posattr x="-1411.000000" y="1205.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("RSID", AND(AP("1",length ids = 1), 
-AP("2",lid = List.hd(ids))))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AP("2", length ids = 1), AP("3", lid = List.hd (ids)))]</text>
         </cond>
         <time id="ID1542821369">
           <posattr x="-1201.500000" y="1205.000000" />
@@ -10592,7 +10560,7 @@ AP("2",lid = List.hd(ids))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(id,ids)</text>
+          <text tool="CPN Tools" version="4.0.1">(id, ids)</text>
         </annot>
       </arc>
       <arc id="ID1540879629" orientation="PtoT" order="1">
@@ -10620,12 +10588,11 @@ AP("2",lid = List.hd(ids))))]</text>
         <transend idref="ID1540868355" />
         <placeend idref="ID1540885534" />
         <annot id="ID1540887813">
-          <posattr x="-736.000000" y="982.000000" />
+          <posattr x="-763.000000" y="1060.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc4LD", AP("1", lid = 0)) 
-then (id,ids) else (id, List.drop(ids,1))</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id7", AP("7", lid = 0)) then (id, ids) else (id, List.drop ( ids, 1 ))</text>
         </annot>
       </arc>
       <arc id="ID1540901184" orientation="PtoT" order="1">
@@ -10657,7 +10624,7 @@ then (id,ids) else (id, List.drop(ids,1))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(id,List.hd(ids))</text>
+          <text tool="CPN Tools" version="4.0.1">(id, List.hd (ids))</text>
         </annot>
       </arc>
       <arc id="ID1540999747" orientation="TtoP" order="1">
@@ -10673,7 +10640,7 @@ then (id,ids) else (id, List.drop(ids,1))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(id, (updateIDs (lid, ids)))</text>
+          <text tool="CPN Tools" version="4.0.1">(id, (updateIDs ( lid, ids )))</text>
         </annot>
       </arc>
       <arc id="ID1541039528" orientation="PtoT" order="1">
@@ -10689,7 +10656,7 @@ then (id,ids) else (id, List.drop(ids,1))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(id,ids)</text>
+          <text tool="CPN Tools" version="4.0.1">(id, ids)</text>
         </annot>
       </arc>
       <arc id="ID1542400094" orientation="TtoP" order="1">
@@ -10705,7 +10672,7 @@ then (id,ids) else (id, List.drop(ids,1))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(id,ids)</text>
+          <text tool="CPN Tools" version="4.0.1">(id, ids)</text>
         </annot>
       </arc>
       <arc id="ID1542827487" orientation="PtoT" order="2">
@@ -10721,7 +10688,7 @@ then (id,ids) else (id, List.drop(ids,1))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(id,ids)</text>
+          <text tool="CPN Tools" version="4.0.1">(id, ids)</text>
         </annot>
       </arc>
       <arc id="ID1542833625" orientation="BOTHDIR" order="2">
@@ -10733,7 +10700,7 @@ then (id,ids) else (id, List.drop(ids,1))</text>
         <transend idref="ID1542821367" />
         <placeend idref="ID1542556991" />
         <annot id="ID1542833626">
-          <posattr x="-1274.500000" y="1228.000000" />
+          <posattr x="-1274.500000" y="1217.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -10753,7 +10720,7 @@ then (id,ids) else (id, List.drop(ids,1))</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(id,ids')</text>
+          <text tool="CPN Tools" version="4.0.1">(id, ids')</text>
         </annot>
       </arc>
       <arc id="ID1545893556" orientation="PtoT" order="1">
@@ -10995,7 +10962,7 @@ Leader</text>
       </trans>
       <trans id="ID1546227885" explicit="false">
         <posattr x="-222.000000" y="54.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Reset
@@ -11007,7 +10974,7 @@ Counter</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("RC", AP("1",num = 0))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AP("8", num = 0)]</text>
         </cond>
         <time id="ID1546227887">
           <posattr x="-163.500000" y="94.000000" />
@@ -11033,7 +11000,7 @@ Counter</text>
       </trans>
       <trans id="ID1546227891" explicit="false">
         <posattr x="-630.000000" y="54.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Trigger
@@ -11042,11 +11009,11 @@ Counter</text>
         <box w="88.000000" h="58.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1546227892">
-          <posattr x="-808.360000" y="107.040000" />
+          <posattr x="-695.860000" y="107.040000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("TLD", AND(AP("1",cnt &lt;&gt; 0), AP("2", id'&lt;&gt;0)))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AP("17", cnt &lt;&gt; 0), AP("18", id' &lt;&gt; 0))]</text>
         </cond>
         <time id="ID1546227893">
           <posattr x="-571.500000" y="94.000000" />
@@ -11078,12 +11045,12 @@ Counter</text>
         <arrowattr headsize="1.200000" currentcyckle="2" />
         <transend idref="ID1536644940" />
         <placeend idref="ID1536591430" />
-        <annot id="ID1593265180">
+        <annot id="ID1590758600">
           <posattr x="-612.000000" y="490.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">1`()</text>
+          <text tool="CPN Tools" version="4.0.1">1 ` ()</text>
         </annot>
       </arc>
       <arc id="ID1536645130" orientation="BOTHDIR" order="1">
@@ -11115,7 +11082,7 @@ Counter</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">num+n</text>
+          <text tool="CPN Tools" version="4.0.1">num + n</text>
         </annot>
       </arc>
       <arc id="ID1546227910" orientation="PtoT" order="2">
@@ -11163,7 +11130,7 @@ Counter</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">cnt-1</text>
+          <text tool="CPN Tools" version="4.0.1">cnt - 1</text>
         </annot>
       </arc>
       <arc id="ID1546227916" orientation="PtoT" order="1">
@@ -11191,11 +11158,11 @@ Counter</text>
         <transend idref="ID1546227891" />
         <placeend idref="ID1546227900" />
         <annot id="ID1546227919">
-          <posattr x="-799.500000" y="148.000000" />
+          <posattr x="-668.500000" y="148.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">if EXPR("Arc3FD", AP("1", (cnt = 1))) then 0 else id'</text>
+          <text tool="CPN Tools" version="4.0.1">if EXPR("id4", AP("23", cnt = 1)) then 0 else id'</text>
         </annot>
       </arc>
       <arc id="ID1546227920" orientation="TtoP" order="1">
@@ -11408,48 +11375,6 @@ Counter</text>
         <text>SMLofNJ.exportML (modelpath^"paxos-image.ML");</text>
       </Aux>
     </page>
-    <page id="ID1590760676">
-      <pageattr name="MCDC" />
-      <constraints />
-      <Aux id="ID1590760829">
-        <posattr x="-168.000000" y="294.000000" />
-        <fillattr colour="White" pattern="" filled="true" />
-        <lineattr colour="Black" thick="1" type="Solid" />
-        <textattr colour="Black" bold="false" />
-        <box w="418.000000" h="42.000000" curvature="0" />
-      </Aux>
-      <Aux id="ID1590760879">
-        <posattr x="-168.000000" y="210.000000" />
-        <fillattr colour="White" pattern="" filled="true" />
-        <lineattr colour="Black" thick="1" type="Solid" />
-        <textattr colour="Black" bold="false" />
-        <box w="418.000000" h="42.000000" curvature="0" />
-      </Aux>
-      <Aux id="ID1590761106">
-        <posattr x="-336.000000" y="294.000000" />
-        <fillattr colour="White" pattern="" filled="false" />
-        <lineattr colour="Black" thick="1" type="Solid" />
-        <textattr colour="Black" bold="false" />
-        <label />
-        <text>use (cpnmcdclibpath^"config/simrun.sml");</text>
-      </Aux>
-      <Aux id="ID1590761172">
-        <posattr x="-325.000000" y="210.000000" />
-        <fillattr colour="White" pattern="" filled="false" />
-        <lineattr colour="Black" thick="1" type="Solid" />
-        <textattr colour="Black" bold="false" />
-        <label />
-        <text>mcdcgen ("CPNmodels/Paxos/paxos.log");</text>
-      </Aux>
-      <Aux id="ID1590761241">
-        <posattr x="-336.000000" y="126.000000" />
-        <fillattr colour="White" pattern="" filled="false" />
-        <lineattr colour="Black" thick="1" type="Solid" />
-        <textattr colour="Black" bold="false" />
-        <label />
-        <text>use (cpnmcdclibpath^"boot.sml");</text>
-      </Aux>
-    </page>
     <instances>
       <instance id="ID2149" page="ID6">
         <instance id="ID1536504850" trans="ID1536504809">
@@ -11488,7 +11413,6 @@ Counter</text>
       </instance>
       <instance id="ID1544844822" page="ID1544844820" />
       <instance id="ID1547264684" page="ID1547264682" />
-      <instance id="ID1590760678" page="ID1590760676" />
     </instances>
     <options>
       <option name="realtimestamp">
@@ -11763,7 +11687,7 @@ Counter</text>
       </option>
     </options>
     <binders>
-      <cpnbinder id="ID1547630586" x="208" y="58" width="1880" height="701">
+      <cpnbinder id="ID1547630586" x="212" y="28" width="1051" height="789">
         <sheets>
           <cpnsheet id="ID1590748444" panx="268.909424" pany="490.855225" zoom="1.007080" instance="ID2149">
             <zorder>
@@ -11775,119 +11699,34 @@ Counter</text>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1590760766" panx="41.000000" pany="175.000000" zoom="1.000000" instance="ID1590760678">
+          <cpnsheet id="ID1590760318" panx="297.000000" pany="209.000000" zoom="1.000000" instance="ID1536527665">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1590762086" panx="747.000000" pany="503.000000" zoom="1.000000" instance="ID1536504850">
+          <cpnsheet id="ID1590760361" panx="264.000000" pany="202.000000" zoom="1.000000" instance="ID1412449048">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1590762208" panx="596.000000" pany="454.000000" zoom="1.000000" instance="ID1538978154">
+          <cpnsheet id="ID1590760418" panx="612.000000" pany="379.000000" zoom="1.000000" instance="ID1412471653">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1590787637" panx="64.000000" pany="-27.000000" zoom="1.000000" instance="ID1412449298">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1590787991" panx="467.000000" pany="90.000000" zoom="1.000000" instance="ID1412840905">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1590789011" panx="692.000000" pany="76.000000" zoom="1.000000" instance="ID1412840236">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1590790762" panx="191.000000" pany="109.000000" zoom="1.000000" instance="ID1412449544">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1590798486" panx="297.000000" pany="210.000000" zoom="1.000000" instance="ID1536527665">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1590798913" panx="551.000000" pany="230.000000" zoom="1.000000" instance="ID1536591530">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1590799764" panx="763.000000" pany="997.000000" zoom="1.000000" instance="ID1536588798">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1590800627" panx="264.000000" pany="202.000000" zoom="1.000000" instance="ID1412449048">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1590801069" panx="605.000000" pany="52.000000" zoom="1.000000" instance="ID1413848937">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1590802389" panx="212.000000" pany="204.000000" zoom="1.000000" instance="ID1412977708">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1590803288" panx="146.000000" pany="26.000000" zoom="1.000000" instance="ID1412978650">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1590804199" panx="604.000000" pany="117.000000" zoom="1.000000" instance="ID1537122435">
-            <zorder>
-              <position value="0" />
-              <position value="1" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593260811" panx="612.000000" pany="379.000000" zoom="1.000000" instance="ID1412471653">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593261044" panx="401.000000" pany="696.000000" zoom="1.000000" instance="ID1531150498">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593263524" panx="592.000000" pany="352.000000" zoom="1.000000" instance="ID1547605604">
+          <cpnsheet id="ID1590760459" panx="382.000000" pany="686.000000" zoom="1.000000" instance="ID1531150498">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
         </sheets>
         <zorder>
-          <position value="19" />
           <position value="0" />
           <position value="1" />
+          <position value="2" />
           <position value="3" />
           <position value="4" />
           <position value="5" />
-          <position value="6" />
-          <position value="7" />
-          <position value="8" />
-          <position value="9" />
-          <position value="10" />
-          <position value="11" />
-          <position value="12" />
-          <position value="13" />
-          <position value="14" />
-          <position value="15" />
-          <position value="16" />
-          <position value="17" />
-          <position value="18" />
-          <position value="2" />
         </zorder>
       </cpnbinder>
     </binders>
@@ -11967,14 +11806,10 @@ Counter</text>
           <IndexNode expanded="false" />
         </IndexNode>
       </IndexNode>
-      <IndexNode expanded="false" />
-      <IndexNode expanded="true">
-        <IndexNode expanded="true">
-          <IndexNode expanded="true" />
-          <IndexNode expanded="true" />
-          <IndexNode expanded="true" />
-          <IndexNode expanded="true" />
-        </IndexNode>
+      <IndexNode expanded="false">
+        <IndexNode expanded="false" />
+      </IndexNode>
+      <IndexNode expanded="false">
         <IndexNode expanded="true" />
         <IndexNode expanded="false">
           <IndexNode expanded="true" />
@@ -12114,7 +11949,6 @@ Counter</text>
           </IndexNode>
         </IndexNode>
       </IndexNode>
-      <IndexNode expanded="true" />
       <IndexNode expanded="true" />
       <IndexNode expanded="true" />
     </IndexNode>

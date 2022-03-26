@@ -3,20 +3,32 @@
   <generator tool="CPN Tools" version="4.0.1" format="6" />
   <cpnet>
     <globbox>
-      <block id="ID1593188421">
+      <block id="ID1593300057">
         <id>MBT</id>
-        <ml id="ID1593188768">val cpnmcdclibpath =  "../../";
-          <layout>val cpnmcdclibpath =  "../../";</layout>
+        <ml id="ID1593300710">val cpnmcdclibpath =  "../../../";
+          <layout>val cpnmcdclibpath =  "../../../";</layout>
         </ml>
-        <use id="ID1593229470">
+        <use id="ID1593300582">
           <ml>(cpnmcdclibpath^"config/logging.sml")</ml>
           <layout>use (cpnmcdclibpath^"config/logging.sml");</layout>
         </use>
-        <use id="ID1593189978">
+        <use id="ID1593300468">
           <ml>(cpnmcdclibpath^"config/instrumentation.sml")</ml>
           <layout>use (cpnmcdclibpath^"config/instrumentation.sml");</layout>
         </use>
       </block>
+      <ml id="ID1549245649">val larsmodelpath =  "C:/work/git/mqtt/pcs954_version/";
+        <layout>val larsmodelpath =  "C:/work/git/mqtt/pcs954_version/";</layout>
+      </ml>
+      <ml id="ID1590674196">val alexmodelpath =  "C:/Users/Alex/myrepository/mqtt/pcs954_version/";
+        <layout>val alexmodelpath =  "C:/Users/Alex/myrepository/mqtt/pcs954_version/";</layout>
+      </ml>
+      <ml id="ID1593171976">val faustinmodelpath =  "C:/Users/faustin/Desktop/MCDC-Faustin/IFM2019/CPNModels/AlexModels/";
+        <layout>val faustinmodelpath =  "C:/Users/faustin/Desktop/MCDC-Faustin/IFM2019/CPNModels/AlexModels/";</layout>
+      </ml>
+      <ml id="ID1591303515">val modelpath = faustinmodelpath;
+        <layout>val modelpath = faustinmodelpath;</layout>
+      </ml>
       <block id="ID1412310166">
         <id>Standard priorities</id>
         <ml id="ID1412310255">val P_HIGH = 100;
@@ -786,25 +798,6 @@ setTimeOutAllowed false,
 setRoles [(client(1),[subscriber,publisher]),(client(2),[subscriber,publisher])],
 setVersion acyclic
 );
-
-fun applyConfig (s,p) = let val _ = (
-
-setLimit 1, 
-setAllowSubscribe p,
-setAllowPublish s,
-setIUnsubscribe (true),
-setPidConnLimit 0,
-setPidSubLimit 0,
-setPidPubLimit 1,
-setPidUnsubLimit  2,
-setBoutmsgsBound 1,
-setTimeOutAllowed false,
-setRoles [(client(1),[subscriber,publisher]),(client(2),[subscriber,publisher])],
-setVersion acyclic
-) in () end;
-
-val co1 = ([2],[2]);
-val co2 = ([],[]);
               <layout>fun initializeConfiguration () = (
 
 setLimit 1, 
@@ -819,26 +812,7 @@ setBoutmsgsBound 1,
 setTimeOutAllowed false,
 setRoles [(client(1),[subscriber,publisher]),(client(2),[subscriber,publisher])],
 setVersion acyclic
-);
-
-fun applyConfig (s,p) = let val _ = (
-
-setLimit 1, 
-setAllowSubscribe p,
-setAllowPublish s,
-setIUnsubscribe (true),
-setPidConnLimit 0,
-setPidSubLimit 0,
-setPidPubLimit 1,
-setPidUnsubLimit  2,
-setBoutmsgsBound 1,
-setTimeOutAllowed false,
-setRoles [(client(1),[subscriber,publisher]),(client(2),[subscriber,publisher])],
-setVersion acyclic
-) in () end;
-
-val co1 = ([2],[2]);
-val co2 = ([],[]);</layout>
+);</layout>
             </ml>
             <ml id="ID1592481102">fun connectDisconnect () = (
 
@@ -871,8 +845,8 @@ setTimeOutAllowed false
       <block id="ID1549245812">
         <id>External functions</id>
         <use id="ID1591135253">
-          <ml>("OriginalModel/mqtt.sml")</ml>
-          <layout>use ("OriginalModel/mqtt.sml");</layout>
+          <ml>(modelpath ^"mqtt.sml")</ml>
+          <layout>use (modelpath ^"mqtt.sml");</layout>
         </use>
         <ml id="ID1592570807">fun initClients () = 
 
@@ -1132,7 +1106,7 @@ List.map (fn c =&gt; (c,  {topics=[],state=case (!configstate) of cyclic =&gt; D
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
         <label />
-        <text>use (OriginalModel/mqtt.sml);</text>
+        <text>use (modelpath^"mqtt.sml");</text>
       </Aux>
       <Aux id="ID1593173351">
         <posattr x="-546.000000" y="523.000000" />
@@ -2122,7 +2096,7 @@ SUBSCRIBE</text>
       </place>
       <trans id="ID1534095613" explicit="false">
         <posattr x="601.000000" y="402.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>processDISCONNECT</text>
@@ -2133,7 +2107,7 @@ SUBSCRIBE</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("ProDIS",AP("1",isClientConnected(clstates,c)))]</text>
+          <text tool="CPN Tools" version="4.0.1">[isClientConnected ( clstates, c )]</text>
         </cond>
         <time id="ID1534095615">
           <posattr x="691.500000" y="443.000000" />
@@ -2176,7 +2150,7 @@ SUBSCRIBE</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">((c,DISCONNECT)::msgs)</text>
+          <text tool="CPN Tools" version="4.0.1">((c, DISCONNECT) :: msgs)</text>
         </annot>
       </arc>
       <arc id="ID1534095629" orientation="PtoT" order="1">
@@ -2230,7 +2204,7 @@ SUBSCRIBE</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">brokerDisconnectUpdate(clstates,c)</text>
+          <text tool="CPN Tools" version="4.0.1">brokerDisconnectUpdate ( clstates, c )</text>
         </annot>
       </arc>
       <constraints />
@@ -2335,18 +2309,18 @@ SUBSCRIBE</text>
       </place>
       <trans id="ID1534149629" explicit="false">
         <posattr x="103.000000" y="114.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>processUnsubscribe</text>
         <box w="180.000000" h="86.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1549410670">
-          <posattr x="369.500000" y="168.000000" />
+          <posattr x="245.000000" y="168.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("ProUNS",AND(AP("1", isClientConnected(clstates,c)),AP("2", cLR boutmsgs)))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(isClientConnected ( clstates, c ), cLR boutmsgs)]</text>
         </cond>
         <time id="ID1534149631">
           <posattr x="207.500000" y="168.000000" />
@@ -2383,7 +2357,7 @@ SUBSCRIBE</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">bsendMsg (boutmsgs,(c,UNSUBACK(t,pid)))</text>
+          <text tool="CPN Tools" version="4.0.1">bsendMsg ( boutmsgs, (c, UNSUBACK ( t, pid )) )</text>
         </annot>
       </arc>
       <arc id="ID1534149645" orientation="TtoP" order="2">
@@ -2405,7 +2379,7 @@ SUBSCRIBE</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">brokerUnsubscribeUpdate (clstates,(c,t))</text>
+          <text tool="CPN Tools" version="4.0.1">brokerUnsubscribeUpdate ( clstates, (c, t) )</text>
         </annot>
       </arc>
       <arc id="ID1534149647" orientation="PtoT" order="1">
@@ -2443,7 +2417,7 @@ SUBSCRIBE</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">((c,UNSUBSCRIBE(t,pid))::msgs)</text>
+          <text tool="CPN Tools" version="4.0.1">((c, UNSUBSCRIBE ( t, pid )) :: msgs)</text>
         </annot>
       </arc>
       <arc id="ID1534240832" orientation="TtoP" order="1">
@@ -2605,7 +2579,7 @@ CONNECT</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("PCo", AP("1",(cLR boutmsgs)))]</text>
+          <text tool="CPN Tools" version="4.0.1">[cLR boutmsgs]</text>
         </cond>
         <time id="ID1534148010">
           <posattr x="185.500000" y="624.000000" />
@@ -2642,7 +2616,7 @@ CONNECT</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">connectClient(clstates ,c)</text>
+          <text tool="CPN Tools" version="4.0.1">connectClient ( clstates, c )</text>
         </annot>
       </arc>
       <arc id="ID1534148024" orientation="TtoP" order="1">
@@ -2664,7 +2638,7 @@ CONNECT</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">bsendMsg (boutmsgs,(c,CONNACK))</text>
+          <text tool="CPN Tools" version="4.0.1">bsendMsg ( boutmsgs, (c, CONNACK) )</text>
         </annot>
       </arc>
       <arc id="ID1534148030" orientation="PtoT" order="1">
@@ -2686,7 +2660,7 @@ CONNECT</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">((c,CONNECT)::msgs)</text>
+          <text tool="CPN Tools" version="4.0.1">((c, CONNECT) :: msgs)</text>
         </annot>
       </arc>
       <arc id="ID1534191477" orientation="TtoP" order="2">
@@ -2730,7 +2704,7 @@ CONNECT</text>
         <transend idref="ID1534148008" />
         <placeend idref="ID1534148020" />
         <annot id="ID1591442356">
-          <posattr x="280.000000" y="520.000000" />
+          <posattr x="254.000000" y="536.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -3506,13 +3480,11 @@ Clients</text>
         <box w="126.000000" h="65.500000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1591128410">
-          <posattr x="41.000000" y="161.000000" />
+          <posattr x="26.000000" y="163.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("PPuQ1", AND(AP("1",cLR boutmsgs), 
-AP("2",pubLR pid))),
-subclspid = assignBPids (getSubscribed t clstates) clspid]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AND(cLR boutmsgs, pubLR pid), AP("2", subclspid = assignBPids (getSubscribed t clstates) clspid))]</text>
         </cond>
         <time id="ID1549532233">
           <posattr x="-145.500000" y="253.750000" />
@@ -3575,19 +3547,18 @@ subclspid = assignBPids (getSubscribed t clstates) clspid]</text>
       </trans>
       <trans id="ID1590877783" explicit="false">
         <posattr x="84.000000" y="42.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>TimeOut</text>
         <box w="90.000000" h="50.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1590877784">
-          <posattr x="271.000000" y="-7.000000" />
+          <posattr x="175.000000" y="-1.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("ToPPuQ1", AND(AND(AP("1",createPublishQoS1 listcxlptq &lt;&gt; []),
- AP("2",cLR boutmsgs)),AP("3",(!timeout))))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AND(AP("6", createPublishQoS1 listcxlptq &lt;&gt; []), cLR boutmsgs), (timeout))]</text>
         </cond>
         <time id="ID1590877785">
           <posattr x="143.500000" y="78.000000" />
@@ -3624,7 +3595,7 @@ subclspid = assignBPids (getSubscribed t clstates) clspid]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">incPIDs (subclspid,clspid)</text>
+          <text tool="CPN Tools" version="4.0.1">incPIDs ( subclspid, clspid )</text>
         </annot>
       </arc>
       <arc id="ID1549532242" orientation="PtoT" order="1">
@@ -3690,7 +3661,7 @@ subclspid = assignBPids (getSubscribed t clstates) clspid]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">((c,PUBLISH(t,QoS(1),pid))::msgs)</text>
+          <text tool="CPN Tools" version="4.0.1">((c, PUBLISH ( t, QoS (1), pid )) :: msgs)</text>
         </annot>
       </arc>
       <arc id="ID1549532256" orientation="TtoP" order="1">
@@ -3712,7 +3683,7 @@ subclspid = assignBPids (getSubscribed t clstates) clspid]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">bsendMsgs (boutmsgs,brokerDispatchPublishQos1 (t,subclspid,c,pid))</text>
+          <text tool="CPN Tools" version="4.0.1">bsendMsgs ( boutmsgs, brokerDispatchPublishQos1 ( t, subclspid, c, pid ) )</text>
         </annot>
       </arc>
       <arc id="ID1549532261" orientation="TtoP" order="2">
@@ -3728,7 +3699,7 @@ subclspid = assignBPids (getSubscribed t clstates) clspid]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">brokerCreateACKWaiting (t,clstates, listcxlptq,  subclspid)</text>
+          <text tool="CPN Tools" version="4.0.1">brokerCreateACKWaiting ( t, clstates, listcxlptq, subclspid )</text>
         </annot>
       </arc>
       <arc id="ID1549532269" orientation="BOTHDIR" order="1">
@@ -3810,7 +3781,7 @@ subclspid = assignBPids (getSubscribed t clstates) clspid]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,PUBACK(t,pid))::msgs</text>
+          <text tool="CPN Tools" version="4.0.1">(c, PUBACK ( t, pid )) :: msgs</text>
         </annot>
       </arc>
       <arc id="ID1590825962" orientation="TtoP" order="1">
@@ -3832,7 +3803,7 @@ subclspid = assignBPids (getSubscribed t clstates) clspid]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">brokerUpdateACKWaiting(c,pid, listcxlptq)</text>
+          <text tool="CPN Tools" version="4.0.1">brokerUpdateACKWaiting ( c, pid, listcxlptq )</text>
         </annot>
       </arc>
       <arc id="ID1590842105" orientation="PtoT" order="1">
@@ -3892,8 +3863,7 @@ subclspid = assignBPids (getSubscribed t clstates) clspid]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">bsendMsgs (boutmsgs,
-  createPublishQoS1 listcxlptq)</text>
+          <text tool="CPN Tools" version="4.0.1">bsendMsgs ( boutmsgs, createPublishQoS1 listcxlptq )</text>
         </annot>
       </arc>
       <arc id="ID1591443860" orientation="PtoT" order="1">
@@ -4093,12 +4063,11 @@ subclspid = assignBPids (getSubscribed t clstates) clspid]</text>
         <box w="126.000000" h="53.500000" />
         <binding x="-313.800000" y="-407.000000" />
         <cond id="ID1549643063">
-          <posattr x="-419.000000" y="151.000000" />
+          <posattr x="-344.000000" y="167.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("PPuQ0", AND(AP("1",cLR boutmsgs), AP("2",pubLR pid))), 
-subclspid = assignBPids (getSubscribed t clstates) clspid ]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AND(cLR boutmsgs, pubLR pid), AP("2", subclspid = assignBPids (getSubscribed t clstates) clspid))]</text>
         </cond>
         <time id="ID1549643064">
           <posattr x="-48.500000" y="177.750000" />
@@ -4167,7 +4136,7 @@ subclspid = assignBPids (getSubscribed t clstates) clspid ]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">incPIDs (subclspid,clspid)</text>
+          <text tool="CPN Tools" version="4.0.1">incPIDs ( subclspid, clspid )</text>
         </annot>
       </arc>
       <arc id="ID1549643089" orientation="TtoP" order="2">
@@ -4183,7 +4152,7 @@ subclspid = assignBPids (getSubscribed t clstates) clspid ]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">bsendMsgs (boutmsgs,brokerDispatchPublishQos0 (t,subclspid))</text>
+          <text tool="CPN Tools" version="4.0.1">bsendMsgs ( boutmsgs, brokerDispatchPublishQos0 ( t, subclspid ) )</text>
         </annot>
       </arc>
       <arc id="ID1549658357" orientation="PtoT" order="2">
@@ -4227,7 +4196,7 @@ subclspid = assignBPids (getSubscribed t clstates) clspid ]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">((c,PUBLISH(t,QoS(0),pid))::msgs)</text>
+          <text tool="CPN Tools" version="4.0.1">((c, PUBLISH ( t, QoS (0), pid )) :: msgs)</text>
         </annot>
       </arc>
       <arc id="ID1591449197" orientation="PtoT" order="1">
@@ -4544,18 +4513,18 @@ subclspid = assignBPids (getSubscribed t clstates) clspid ]</text>
       </place>
       <trans id="ID1549817898" explicit="false">
         <posattr x="-664.000000" y="504.000000" />
-        <fillattr colour="Green" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>process_QoS_2</text>
         <box w="182.000000" h="61.500000" />
         <binding x="-40.800000" y="-130.000000" />
         <cond id="ID1549817899">
-          <posattr x="-664.000000" y="545.750000" />
+          <posattr x="-712.500000" y="545.750000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("PCo", AP("1",cLR boutmsgs))]</text>
+          <text tool="CPN Tools" version="4.0.1">[cLR boutmsgs]</text>
         </cond>
         <time id="ID1549817900">
           <posattr x="-558.500000" y="545.750000" />
@@ -4581,7 +4550,7 @@ subclspid = assignBPids (getSubscribed t clstates) clspid ]</text>
       </trans>
       <trans id="ID1549887302" explicit="false">
         <posattr x="-664.000000" y="272.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>receivePUBREL
@@ -4589,13 +4558,11 @@ sendPUBCOMP</text>
         <box w="182.000000" h="61.500000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1549887303">
-          <posattr x="-858.000000" y="221.000000" />
+          <posattr x="-850.000000" y="222.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("PPuQ2", 
-AND(AP("1",cLR boutmsgs), AP("2",pubLR pid))), 
-subclspid = assignBPids (getSubscribed t clstates) clspid ]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AND(cLR boutmsgs, pubLR pid), AP("2", subclspid = assignBPids (getSubscribed t clstates) clspid))]</text>
         </cond>
         <time id="ID1549887304">
           <posattr x="-558.500000" y="313.750000" />
@@ -4621,7 +4588,7 @@ subclspid = assignBPids (getSubscribed t clstates) clspid ]</text>
       </trans>
       <trans id="ID1549905140" explicit="false">
         <posattr x="-664.000000" y="23.000000" />
-        <fillattr colour="Green" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>receivePUBREC
@@ -4629,11 +4596,11 @@ sendPUBREL</text>
         <box w="182.000000" h="61.500000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1549905141">
-          <posattr x="-859.000000" y="65.000000" />
+          <posattr x="-807.500000" y="64.750000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("PPuQ2REC", AP("1",cLR boutmsgs))]</text>
+          <text tool="CPN Tools" version="4.0.1">[cLR boutmsgs]</text>
         </cond>
         <time id="ID1549905142">
           <posattr x="-558.500000" y="64.750000" />
@@ -4713,7 +4680,7 @@ sendPUBREL</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">bsendMsg(boutmsgs,(c, PUBREC(t,pid)))</text>
+          <text tool="CPN Tools" version="4.0.1">bsendMsg ( boutmsgs, (c, PUBREC ( t, pid )) )</text>
         </annot>
       </arc>
       <arc id="ID1549817919" orientation="TtoP" order="1">
@@ -4757,7 +4724,7 @@ sendPUBREL</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,PUBLISH(t,QoS(2),pid))::msgs</text>
+          <text tool="CPN Tools" version="4.0.1">(c, PUBLISH ( t, QoS (2), pid )) :: msgs</text>
         </annot>
       </arc>
       <arc id="ID1549888650" orientation="TtoP" order="1">
@@ -4779,7 +4746,7 @@ sendPUBREL</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">bsendMsgs(boutmsgs,brokerDispatchPublishQos2 (t,subclspid,c,pid))</text>
+          <text tool="CPN Tools" version="4.0.1">bsendMsgs ( boutmsgs, brokerDispatchPublishQos2 ( t, subclspid, c, pid ) )</text>
         </annot>
       </arc>
       <arc id="ID1549891452" orientation="PtoT" order="1">
@@ -4801,7 +4768,7 @@ sendPUBREL</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,PUBREL(t,pid))::msgs</text>
+          <text tool="CPN Tools" version="4.0.1">(c, PUBREL ( t, pid )) :: msgs</text>
         </annot>
       </arc>
       <arc id="ID1549905508" orientation="PtoT" order="1">
@@ -4823,7 +4790,7 @@ sendPUBREL</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,PUBREC(t,pid))::msgs</text>
+          <text tool="CPN Tools" version="4.0.1">(c, PUBREC ( t, pid )) :: msgs</text>
         </annot>
       </arc>
       <arc id="ID1549906030" orientation="TtoP" order="1">
@@ -4841,7 +4808,7 @@ sendPUBREL</text>
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1549906031">
-          <posattr x="-1053.000000" y="263.000000" />
+          <posattr x="-1064.000000" y="241.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -4889,7 +4856,7 @@ sendPUBREL</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">bsendMsg (boutmsgs,(c,PUBREL(t,pid)))</text>
+          <text tool="CPN Tools" version="4.0.1">bsendMsg ( boutmsgs, (c, PUBREL ( t, pid )) )</text>
         </annot>
       </arc>
       <arc id="ID1549915806" orientation="PtoT" order="1">
@@ -4911,7 +4878,7 @@ sendPUBREL</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,PUBCOMP(t,pid))::msgs</text>
+          <text tool="CPN Tools" version="4.0.1">(c, PUBCOMP ( t, pid )) :: msgs</text>
         </annot>
       </arc>
       <arc id="ID1549916352" orientation="TtoP" order="1">
@@ -4949,7 +4916,7 @@ sendPUBREL</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c, listpidsxtopics^^[(pid,t)])</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </annot>
       </arc>
       <arc id="ID1550349901" orientation="PtoT" order="1">
@@ -4965,7 +4932,7 @@ sendPUBREL</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,listpidsxtopics)</text>
+          <text tool="CPN Tools" version="4.0.1">(c, listpidsxtopics)</text>
         </annot>
       </arc>
       <arc id="ID1550360972" orientation="PtoT" order="2">
@@ -5003,7 +4970,7 @@ sendPUBREL</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">brokerUpdateACKWaiting(c,pid,listcxlptq)</text>
+          <text tool="CPN Tools" version="4.0.1">brokerUpdateACKWaiting ( c, pid, listcxlptq )</text>
         </annot>
       </arc>
       <arc id="ID1591004797" orientation="TtoP" order="2">
@@ -5019,7 +4986,7 @@ sendPUBREL</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">brokerAddACKSecondStep(c, pid, t, listcxlptq2)</text>
+          <text tool="CPN Tools" version="4.0.1">brokerAddACKSecondStep ( c, pid, t, listcxlptq2 )</text>
         </annot>
       </arc>
       <arc id="ID1591036598" orientation="PtoT" order="2">
@@ -5057,7 +5024,7 @@ sendPUBREL</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">brokerUpdateACKWaiting(c,pid,listcxlptq2)</text>
+          <text tool="CPN Tools" version="4.0.1">brokerUpdateACKWaiting ( c, pid, listcxlptq2 )</text>
         </annot>
       </arc>
       <arc id="ID1591032326" orientation="PtoT" order="1">
@@ -5089,7 +5056,7 @@ sendPUBREL</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,listpidsxtopics)</text>
+          <text tool="CPN Tools" version="4.0.1">(c, listpidsxtopics)</text>
         </annot>
       </arc>
       <arc id="ID1591082807" orientation="TtoP" order="2">
@@ -5105,7 +5072,7 @@ sendPUBREL</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c, rm (pid,t) listpidsxtopics)</text>
+          <text tool="CPN Tools" version="4.0.1">(c, rm ( pid, t ) listpidsxtopics)</text>
         </annot>
       </arc>
       <arc id="ID1591251121" orientation="BOTHDIR" order="1">
@@ -5165,7 +5132,7 @@ sendPUBREL</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">brokerCreateACKWaiting2 (t,clstates, listcxlptq,  subclspid)</text>
+          <text tool="CPN Tools" version="4.0.1">brokerCreateACKWaiting2 ( t, clstates, listcxlptq, subclspid )</text>
         </annot>
       </arc>
       <arc id="ID1591263393" orientation="PtoT" order="1">
@@ -5225,7 +5192,7 @@ sendPUBREL</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">incPIDs (subclspid,clspid)</text>
+          <text tool="CPN Tools" version="4.0.1">incPIDs ( subclspid, clspid )</text>
         </annot>
       </arc>
       <arc id="ID1591453210" orientation="PtoT" order="1">
@@ -5406,7 +5373,7 @@ Clients</text>
       </place>
       <trans id="ID1534148815" explicit="false">
         <posattr x="23.000000" y="336.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>process
@@ -5418,8 +5385,7 @@ SUBSCRIBE</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("ProS",AND(AP("1", isClientConnected(clstates,c)),
-AP("2", cLR boutmsgs)))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(isClientConnected ( clstates, c ), cLR boutmsgs)]</text>
         </cond>
         <time id="ID1534148817">
           <posattr x="105.500000" y="372.000000" />
@@ -5478,7 +5444,7 @@ AP("2", cLR boutmsgs)))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">((c,SUBSCRIBE(t,qos,pid))::msgs)</text>
+          <text tool="CPN Tools" version="4.0.1">((c, SUBSCRIBE ( t, qos, pid )) :: msgs)</text>
         </annot>
       </arc>
       <arc id="ID1534148833" orientation="TtoP" order="1">
@@ -5522,7 +5488,7 @@ AP("2", cLR boutmsgs)))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">bsendMsg (boutmsgs,(c,SUBACK(t,qos,pid)))</text>
+          <text tool="CPN Tools" version="4.0.1">bsendMsg ( boutmsgs, (c, SUBACK ( t, qos, pid )) )</text>
         </annot>
       </arc>
       <arc id="ID1534148841" orientation="TtoP" order="1">
@@ -5538,7 +5504,7 @@ AP("2", cLR boutmsgs)))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">brokerSubscribeUpdate(clstates,(c,t,qos))</text>
+          <text tool="CPN Tools" version="4.0.1">brokerSubscribeUpdate ( clstates, (c, t, qos) )</text>
         </annot>
       </arc>
       <arc id="ID1591442938" orientation="PtoT" order="1">
@@ -5837,12 +5803,12 @@ AP("2", cLR boutmsgs)))]</text>
         <arrowattr headsize="1.200000" currentcyckle="2" />
         <transend idref="ID1592510022" />
         <placeend idref="ID1592509158" />
-        <annot id="ID1593463382">
+        <annot id="ID1593297892">
           <posattr x="-66.000000" y="1086.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">1`()</text>
+          <text tool="CPN Tools" version="4.0.1">1 ` ()</text>
         </annot>
       </arc>
       <arc id="ID1592510784" orientation="TtoP" order="1">
@@ -5858,7 +5824,7 @@ AP("2", cLR boutmsgs)))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">initClients()</text>
+          <text tool="CPN Tools" version="4.0.1">initClients ()</text>
         </annot>
       </arc>
       <constraints />
@@ -7125,21 +7091,18 @@ AP("2", cLR boutmsgs)))]</text>
       </place>
       <trans id="ID1549266559" explicit="false">
         <posattr x="-367.000000" y="924.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>PUBLISH_QoS_0</text>
         <box w="174.000000" h="98.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1549266560">
-          <posattr x="-634.500000" y="843.000000" />
+          <posattr x="-466.500000" y="843.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("PQo",AND(AND(AND(AND(AP("1", (checkClientCON(cs))), AP("2", (nLR msgs))),
- AP("3", (epub 0 ))),
- AP("4", (pubLR (#pid (#2 cs))))),
-AP("5", (isPublisher(cs)))))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AND(AND(AND(checkClientCON (cs), nLR msgs), epub 0), pubLR (pid (2 cs))), isPublisher (cs))]</text>
         </cond>
         <time id="ID1549266561">
           <posattr x="-265.500000" y="984.000000" />
@@ -7182,7 +7145,7 @@ AP("5", (isPublisher(cs)))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">increasePID(cs)</text>
+          <text tool="CPN Tools" version="4.0.1">increasePID (cs)</text>
         </annot>
       </arc>
       <arc id="ID1549266571" orientation="PtoT" order="1">
@@ -7226,7 +7189,7 @@ AP("5", (isPublisher(cs)))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(msgs^^[(#1 cs, PUBLISH(t,QoS(0), (#pid (#2 cs))))])</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </annot>
       </arc>
       <arc id="ID1549266585" orientation="PtoT" order="1">
@@ -7395,22 +7358,18 @@ AP("5", (isPublisher(cs)))))]</text>
       </place>
       <trans id="ID1549268519" explicit="false">
         <posattr x="-231.000000" y="956.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>PUBLISH_QoS_1</text>
         <box w="136.000000" h="50.000000" />
         <binding x="8.200000" y="-6.000000" />
         <cond id="ID1549268520">
-          <posattr x="-96.000000" y="881.000000" />
+          <posattr x="-179.000000" y="895.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("PQ1",AND(AND(AND(AND(AND(AP("1",(checkClientCON(cs))),
- AP("2",(nLR msgs))),
- AP("3",(epub 1))), AP("4",(c = #1 cs))),AP("5",
-(pubLR (#pid (#2 cs))))),
-AP("6",(isPublisher(cs)))))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AND(AND(AND(AND(checkClientCON (cs), nLR msgs), epub 1), AP("1", c = 1 cs)), pubLR (pid (2 cs))), isPublisher (cs))]</text>
         </cond>
         <time id="ID1549268521">
           <posattr x="-148.500000" y="992.000000" />
@@ -7436,7 +7395,7 @@ AP("6",(isPublisher(cs)))))]</text>
       </trans>
       <trans id="ID1549274936" explicit="false">
         <posattr x="-798.000000" y="956.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>receive
@@ -7448,7 +7407,7 @@ PUBACK</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("rPQ1",AP("1",hasPUBACK(c,inmsgs)))]</text>
+          <text tool="CPN Tools" version="4.0.1">[hasPUBACK ( c, inmsgs )]</text>
         </cond>
         <time id="ID1549274938">
           <posattr x="-715.500000" y="994.000000" />
@@ -7485,7 +7444,7 @@ PUBACK</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("ToQ1", AND( AP("1", (nLR msgs)), AP("2", (!timeout))))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(nLR msgs, (timeout))]</text>
         </cond>
         <time id="ID1549278790">
           <posattr x="-149.500000" y="823.000000" />
@@ -7572,7 +7531,7 @@ PUBACK</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">increasePID(cs)</text>
+          <text tool="CPN Tools" version="4.0.1">increasePID (cs)</text>
         </annot>
       </arc>
       <arc id="ID1549268550" orientation="TtoP" order="1">
@@ -7594,7 +7553,7 @@ PUBACK</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(msgs^^[(#1 cs, PUBLISH(t,QoS(1), (#pid (#2 cs))))])</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </annot>
       </arc>
       <arc id="ID1549276942" orientation="TtoP" order="2">
@@ -7606,12 +7565,11 @@ PUBACK</text>
         <transend idref="ID1549268519" />
         <placeend idref="ID1549273345" />
         <annot id="ID1549276943">
-          <posattr x="-514.000000" y="877.000000" />
+          <posattr x="-379.000000" y="912.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(#1 cs, 
-listpidsxtopics^^[((#pid (#2 cs)),t)])</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </annot>
       </arc>
       <arc id="ID1549279111" orientation="PtoT" order="1">
@@ -7633,7 +7591,7 @@ listpidsxtopics^^[((#pid (#2 cs)),t)])</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c, (pid,t)::listpidsxtopics)</text>
+          <text tool="CPN Tools" version="4.0.1">(c, (pid, t) :: listpidsxtopics)</text>
         </annot>
       </arc>
       <arc id="ID1549280090" orientation="TtoP" order="1">
@@ -7655,7 +7613,7 @@ listpidsxtopics^^[((#pid (#2 cs)),t)])</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(msgs^^[(c, PUBLISH(t,QoS(1),pid))])</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </annot>
       </arc>
       <arc id="ID1549282102" orientation="PtoT" order="1">
@@ -7693,7 +7651,7 @@ listpidsxtopics^^[((#pid (#2 cs)),t)])</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">precvMsg (c,inmsgs)</text>
+          <text tool="CPN Tools" version="4.0.1">precvMsg ( c, inmsgs )</text>
         </annot>
       </arc>
       <arc id="ID1549287214" orientation="PtoT" order="2">
@@ -7709,7 +7667,7 @@ listpidsxtopics^^[((#pid (#2 cs)),t)])</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,listpidsxtopics)</text>
+          <text tool="CPN Tools" version="4.0.1">(c, listpidsxtopics)</text>
         </annot>
       </arc>
       <arc id="ID1590764417" orientation="PtoT" order="1">
@@ -7741,9 +7699,7 @@ listpidsxtopics^^[((#pid (#2 cs)),t)])</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c, rmPidT 
-     (listpidsxtopics,
-     (pgetMsg (c,inmsgs))))</text>
+          <text tool="CPN Tools" version="4.0.1">(c, rmPidT ( listpidsxtopics, (pgetMsg ( c, inmsgs )) ))</text>
         </annot>
       </arc>
       <arc id="ID1590770204" orientation="TtoP" order="1">
@@ -7765,7 +7721,7 @@ listpidsxtopics^^[((#pid (#2 cs)),t)])</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,listpidsxtopics^^[(pid,t)])</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </annot>
       </arc>
       <arc id="ID1591468615" orientation="PtoT" order="1">
@@ -8288,19 +8244,18 @@ listpidsxtopics^^[((#pid (#2 cs)),t)])</text>
       </place>
       <trans id="ID1592123770" explicit="false">
         <posattr x="-868.000000" y="726.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Receive_QoS_1</text>
         <box w="148.000000" h="70.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1592123771">
-          <posattr x="-778.000000" y="660.000000" />
+          <posattr x="-830.000000" y="663.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("rQR1",AND(AND(AP("1", ( c= #1 cs)), AP("2", (LR 4 msgs))),
- AP("3", (hasPUBLISH (QoS(1)) (cs,inmsgs))) ))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AND((AP("1", c = 1 cs)), LR 4 msgs), hasPUBLISH (QoS (1)) ( cs, inmsgs ))]</text>
         </cond>
         <time id="ID1592123772">
           <posattr x="-779.500000" y="772.000000" />
@@ -8343,7 +8298,7 @@ listpidsxtopics^^[((#pid (#2 cs)),t)])</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">msgs^^sendPUBACK (c, inmsgs)</text>
+          <text tool="CPN Tools" version="4.0.1">msgs sendPUBACK ( c, inmsgs )</text>
         </annot>
       </arc>
       <arc id="ID1592123782" orientation="PtoT" order="1">
@@ -8381,7 +8336,7 @@ listpidsxtopics^^[((#pid (#2 cs)),t)])</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">recvMsg (cs,inmsgs)</text>
+          <text tool="CPN Tools" version="4.0.1">recvMsg ( cs, inmsgs )</text>
         </annot>
       </arc>
       <arc id="ID1592123794" orientation="BOTHDIR" order="1">
@@ -8440,8 +8395,8 @@ listpidsxtopics^^[((#pid (#2 cs)),t)])</text>
         <text>BtoC</text>
         <ellipse w="76.000000" h="54.000000" />
         <token x="-52.000000" y="31.000000" />
-        <marking x="-2.000000" y="258.000000" hidden="false">
-          <snap snap_id="0" anchor.horizontal="1" anchor.vertical="2" />
+        <marking x="-8.000000" y="179.000000" hidden="false">
+          <snap snap_id="0" anchor.horizontal="0" anchor.vertical="0" />
         </marking>
         <type id="ID1592125225">
           <posattr x="-1105.000000" y="559.000000" />
@@ -8498,7 +8453,7 @@ listpidsxtopics^^[((#pid (#2 cs)),t)])</text>
       </place>
       <trans id="ID1592125218" explicit="false">
         <posattr x="-798.000000" y="840.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Receive_QoS_0</text>
@@ -8509,7 +8464,7 @@ listpidsxtopics^^[((#pid (#2 cs)),t)])</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("rQR0",AP("1",hasPUBLISH (QoS(0)) (cs,inmsgs)))]</text>
+          <text tool="CPN Tools" version="4.0.1">[hasPUBLISH (QoS (0)) ( cs, inmsgs )]</text>
         </cond>
         <time id="ID1592125220">
           <posattr x="-714.500000" y="883.000000" />
@@ -8574,7 +8529,7 @@ listpidsxtopics^^[((#pid (#2 cs)),t)])</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">recvMsg (cs,inmsgs)</text>
+          <text tool="CPN Tools" version="4.0.1">recvMsg ( cs, inmsgs )</text>
         </annot>
       </arc>
       <arc id="ID1592125236" orientation="BOTHDIR" order="1">
@@ -8727,20 +8682,18 @@ listpidsxtopics^^[((#pid (#2 cs)),t)])</text>
       </place>
       <trans id="ID1592134811" explicit="false">
         <posattr x="-798.000000" y="336.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Receive_QoS_2_Step2</text>
         <box w="172.500000" h="75.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1592134812">
-          <posattr x="-798.000000" y="273.500000" />
+          <posattr x="-891.500000" y="220.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("rQR2s2",AND(AND(AP("1",(LR 4 msgs)),
-AP("2",(c = #1 cs))),
- AP("3",( hasPUBREL (cs,inmsgs)))))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AND(LR 4 msgs, (AP("1", c = 1 cs))), hasPUBREL ( cs, inmsgs ))]</text>
         </cond>
         <time id="ID1592134813">
           <posattr x="-697.250000" y="384.500000" />
@@ -8766,7 +8719,7 @@ AP("2",(c = #1 cs))),
       </trans>
       <trans id="ID1592134817" explicit="false">
         <posattr x="-798.000000" y="588.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Receive_QoS_2_Step1</text>
@@ -8777,9 +8730,7 @@ AP("2",(c = #1 cs))),
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("rQR2s1",AND(AND(AP("1",(c= #1 cs)),
- AP("2",(LR 4 msgs))),
- AP("3",(hasPUBLISH (QoS(2)) (cs,inmsgs)))))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AND((AP("1", c = 1 cs)), (LR 4 msgs)), hasPUBLISH (QoS (2)) ( cs, inmsgs ))]</text>
         </cond>
         <time id="ID1592134819">
           <posattr x="-702.250000" y="635.250000" />
@@ -8816,7 +8767,7 @@ AP("2",(c = #1 cs))),
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,listpidsxtopics^^getPublish(c,inmsgs))</text>
+          <text tool="CPN Tools" version="4.0.1">(c, listpidsxtopics getPublish ( c, inmsgs ))</text>
         </annot>
       </arc>
       <arc id="ID1592134825" orientation="PtoT" order="2">
@@ -8838,7 +8789,7 @@ AP("2",(c = #1 cs))),
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,listpidsxtopics)</text>
+          <text tool="CPN Tools" version="4.0.1">(c, listpidsxtopics)</text>
         </annot>
       </arc>
       <arc id="ID1592134827" orientation="PtoT" order="1">
@@ -8860,7 +8811,7 @@ AP("2",(c = #1 cs))),
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,listpidsxtopics)</text>
+          <text tool="CPN Tools" version="4.0.1">(c, listpidsxtopics)</text>
         </annot>
       </arc>
       <arc id="ID1592134833" orientation="PtoT" order="1">
@@ -8914,7 +8865,7 @@ AP("2",(c = #1 cs))),
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">recvMsg (cs,inmsgs)</text>
+          <text tool="CPN Tools" version="4.0.1">recvMsg ( cs, inmsgs )</text>
         </annot>
       </arc>
       <arc id="ID1592134847" orientation="BOTHDIR" order="1">
@@ -8952,7 +8903,7 @@ AP("2",(c = #1 cs))),
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">recvMsg (cs,inmsgs)</text>
+          <text tool="CPN Tools" version="4.0.1">recvMsg ( cs, inmsgs )</text>
         </annot>
       </arc>
       <arc id="ID1592134851" orientation="TtoP" order="1">
@@ -8974,7 +8925,7 @@ AP("2",(c = #1 cs))),
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">msgs^^sendPUBCOMP(c,inmsgs)</text>
+          <text tool="CPN Tools" version="4.0.1">msgs sendPUBCOMP ( c, inmsgs )</text>
         </annot>
       </arc>
       <arc id="ID1592134853" orientation="BOTHDIR" order="1">
@@ -9034,7 +8985,7 @@ AP("2",(c = #1 cs))),
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">msgs^^sendPUBREC(c,inmsgs)</text>
+          <text tool="CPN Tools" version="4.0.1">msgs sendPUBREC ( c, inmsgs )</text>
         </annot>
       </arc>
       <arc id="ID1592134859" orientation="PtoT" order="2">
@@ -9072,7 +9023,7 @@ AP("2",(c = #1 cs))),
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c, rm (getPUBREL (c,inmsgs)) listpidsxtopics)</text>
+          <text tool="CPN Tools" version="4.0.1">(c, rm (getPUBREL ( c, inmsgs )) listpidsxtopics)</text>
         </annot>
       </arc>
       <constraints />
@@ -9229,7 +9180,7 @@ AP("2",(c = #1 cs))),
       </place>
       <trans id="ID1549428602" explicit="false">
         <posattr x="-504.000000" y="1050.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>PUBLISH_QoS_2</text>
@@ -9240,10 +9191,7 @@ AP("2",(c = #1 cs))),
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("PQ2",AND(AND(AND(AND(AP("1",checkClientCON(cs)), 
- AP("2",pubLR (#pid (#2 cs)))),
- AP("3",epub 2)), AP("4", c = #1 cs)),
-AP("5",isPublisher(cs))))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AND(AND(AND(checkClientCON (cs), pubLR (pid (2 cs))), epub 2), AP("1", c = 1 cs)), isPublisher (cs))]</text>
         </cond>
         <time id="ID1549428604">
           <posattr x="-388.500000" y="1091.000000" />
@@ -9269,20 +9217,18 @@ AP("5",isPublisher(cs))))]</text>
       </trans>
       <trans id="ID1549441606" explicit="false">
         <posattr x="-504.000000" y="774.000000" />
-        <fillattr colour="Green" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>ReceivePUBREC</text>
         <box w="116.000000" h="54.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1549441607">
-          <posattr x="-291.500000" y="816.000000" />
+          <posattr x="-355.500000" y="818.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("rPRQ2",AND(AND(AP("1", (LR 4 msgs)), 
-AP("2",(c = (#1 cs)))), 
-AP("3",(hasPUBREC (cs,inmsgs,(t,pid))))))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AND(LR 4 msgs, AP("5", c = (1 cs))), hasPUBREC ( cs, inmsgs, (t, pid) ))]</text>
         </cond>
         <time id="ID1549441608">
           <posattr x="-431.500000" y="812.000000" />
@@ -9308,20 +9254,18 @@ AP("3",(hasPUBREC (cs,inmsgs,(t,pid))))))]</text>
       </trans>
       <trans id="ID1549475276" explicit="false">
         <posattr x="-504.000000" y="474.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>ReceivePUBCOMP</text>
         <box w="124.000000" h="60.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1549475277">
-          <posattr x="-247.000000" y="486.000000" />
+          <posattr x="-311.500000" y="486.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("rPCQ2",AND(AND(AP("1", (hasPUBCOMP(cs,inmsgs))),
- AP("2", (c = (#1 cs)))),
- AP("3", (pubPUBCOMP (c,inmsgs,listpidsxtopics)))))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AND(hasPUBCOMP ( cs, inmsgs ), AP("5", c = (1 cs))), pubPUBCOMP ( c, inmsgs, listpidsxtopics ))]</text>
         </cond>
         <time id="ID1549475278">
           <posattr x="-427.500000" y="515.000000" />
@@ -9347,19 +9291,18 @@ AP("3",(hasPUBREC (cs,inmsgs,(t,pid))))))]</text>
       </trans>
       <trans id="ID1549490407" explicit="false">
         <posattr x="-84.000000" y="907.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>TimeOut</text>
         <box w="86.000000" h="52.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1549490408">
-          <posattr x="-1.000000" y="951.000000" />
+          <posattr x="-91.000000" y="955.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("ToQ2", AND( AP("1", (nLR msgs)),
- AP("2", (!timeout))))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(nLR msgs, (timeout))]</text>
         </cond>
         <time id="ID1549490409">
           <posattr x="-26.500000" y="944.000000" />
@@ -9402,7 +9345,7 @@ AP("3",(hasPUBREC (cs,inmsgs,(t,pid))))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(msgs^^[(#1 cs, PUBLISH(t,QoS(2), (#pid (#2 cs))))])</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </annot>
       </arc>
       <arc id="ID1549428630" orientation="TtoP" order="1">
@@ -9424,7 +9367,7 @@ AP("3",(hasPUBREC (cs,inmsgs,(t,pid))))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">increasePID(cs)</text>
+          <text tool="CPN Tools" version="4.0.1">increasePID (cs)</text>
         </annot>
       </arc>
       <arc id="ID1549432677" orientation="PtoT" order="1">
@@ -9506,7 +9449,7 @@ AP("3",(hasPUBREC (cs,inmsgs,(t,pid))))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(#1 cs, listpidsxtopics^^[((#pid (#2 cs)),t)])</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </annot>
       </arc>
       <arc id="ID1549455918" orientation="PtoT" order="2">
@@ -9522,7 +9465,7 @@ AP("3",(hasPUBREC (cs,inmsgs,(t,pid))))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c, (pid,t)::listpidsxtopics)</text>
+          <text tool="CPN Tools" version="4.0.1">(c, (pid, t) :: listpidsxtopics)</text>
         </annot>
       </arc>
       <arc id="ID1549461985" orientation="TtoP" order="1">
@@ -9544,7 +9487,7 @@ AP("3",(hasPUBREC (cs,inmsgs,(t,pid))))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(msgs^^ [(c, PUBREL (t,pid))])</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </annot>
       </arc>
       <arc id="ID1549466229" orientation="PtoT" order="1">
@@ -9604,7 +9547,7 @@ AP("3",(hasPUBREC (cs,inmsgs,(t,pid))))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c, (pid,t)::listpidsxtopics)</text>
+          <text tool="CPN Tools" version="4.0.1">(c, (pid, t) :: listpidsxtopics)</text>
         </annot>
       </arc>
       <arc id="ID1549495804" orientation="PtoT" order="1">
@@ -9644,11 +9587,11 @@ AP("3",(hasPUBREC (cs,inmsgs,(t,pid))))))]</text>
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1549497191">
-          <posattr x="18.000000" y="829.000000" />
+          <posattr x="-53.000000" y="828.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(msgs^^[(c,PUBLISH(t,QoS(2),pid))])</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </annot>
       </arc>
       <arc id="ID1549516960" orientation="TtoP" order="2">
@@ -9670,7 +9613,7 @@ AP("3",(hasPUBREC (cs,inmsgs,(t,pid))))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c, listpidsxtopics'^^[(pid,t)])</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </annot>
       </arc>
       <arc id="ID1549518529" orientation="PtoT" order="2">
@@ -9686,7 +9629,7 @@ AP("3",(hasPUBREC (cs,inmsgs,(t,pid))))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,listpidsxtopics)</text>
+          <text tool="CPN Tools" version="4.0.1">(c, listpidsxtopics)</text>
         </annot>
       </arc>
       <arc id="ID1590902649" orientation="PtoT" order="1">
@@ -9702,7 +9645,7 @@ AP("3",(hasPUBREC (cs,inmsgs,(t,pid))))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,listpidsxtopics)</text>
+          <text tool="CPN Tools" version="4.0.1">(c, listpidsxtopics)</text>
         </annot>
       </arc>
       <arc id="ID1590907466" orientation="TtoP" order="1">
@@ -9718,7 +9661,7 @@ AP("3",(hasPUBREC (cs,inmsgs,(t,pid))))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c, rm (pid,t) listpidsxtopics)</text>
+          <text tool="CPN Tools" version="4.0.1">(c, rm ( pid, t ) listpidsxtopics)</text>
         </annot>
       </arc>
       <arc id="ID1590912475" orientation="PtoT" order="1">
@@ -9734,7 +9677,7 @@ AP("3",(hasPUBREC (cs,inmsgs,(t,pid))))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,listpidsxtopics')</text>
+          <text tool="CPN Tools" version="4.0.1">(c, listpidsxtopics')</text>
         </annot>
       </arc>
       <arc id="ID1590920341" orientation="TtoP" order="1">
@@ -9750,7 +9693,7 @@ AP("3",(hasPUBREC (cs,inmsgs,(t,pid))))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c, rm (getPUBCOMP (c,inmsgs)) listpidsxtopics)</text>
+          <text tool="CPN Tools" version="4.0.1">(c, rm (getPUBCOMP ( c, inmsgs )) listpidsxtopics)</text>
         </annot>
       </arc>
       <arc id="ID1590930776" orientation="TtoP" order="1">
@@ -9766,7 +9709,7 @@ AP("3",(hasPUBREC (cs,inmsgs,(t,pid))))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,listpidsxtopics^^[(pid,t)])</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </annot>
       </arc>
       <arc id="ID1591745444" orientation="TtoP" order="1">
@@ -9788,7 +9731,7 @@ AP("3",(hasPUBREC (cs,inmsgs,(t,pid))))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">recvMsg (cs,inmsgs)</text>
+          <text tool="CPN Tools" version="4.0.1">recvMsg ( cs, inmsgs )</text>
         </annot>
       </arc>
       <arc id="ID1591748757" orientation="BOTHDIR" order="1">
@@ -9848,7 +9791,7 @@ AP("3",(hasPUBREC (cs,inmsgs,(t,pid))))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">recvMsg (cs,inmsgs)</text>
+          <text tool="CPN Tools" version="4.0.1">recvMsg ( cs, inmsgs )</text>
         </annot>
       </arc>
       <constraints />
@@ -10032,7 +9975,7 @@ Subscribe</text>
       </place>
       <trans id="ID1534062481" explicit="false">
         <posattr x="-138.000000" y="840.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Send
@@ -10040,17 +9983,11 @@ SUBSCRIBE</text>
         <box w="136.000000" h="50.000000" />
         <binding x="-88.800000" y="31.000000" />
         <cond id="ID1534062482">
-          <posattr x="99.500000" y="826.000000" />
+          <posattr x="1.000000" y="826.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("sS", AND(AND(AND(AND(AND( AND(
-AP("1",(checkClientCON(cs))), AP("2",(nLR msgs))), 
-AP("3",(c = #1 cs))),
- AP("4",(listpids = []))),
- AP("5",(notSubscribed(t,cs)))),
- AP("6",(subLR (#pid (#2 cs))))),
-AP("7",(isSubscriber(cs)))))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AND(AND(AND(AND(AND(checkClientCON (cs), nLR msgs), AP("1", c = 1 cs)), AP("3", listpids = [])), notSubscribed ( t, cs )), subLR (pid (2 cs))), isSubscriber (cs))]</text>
         </cond>
         <time id="ID1534062483">
           <posattr x="-55.500000" y="876.000000" />
@@ -10076,7 +10013,7 @@ AP("7",(isSubscriber(cs)))))]</text>
       </trans>
       <trans id="ID1547323330" explicit="false">
         <posattr x="-736.000000" y="851.000000" />
-        <fillattr colour="Green" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Receive
@@ -10084,12 +10021,11 @@ SUBACK</text>
         <box w="136.000000" h="50.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1547323331">
-          <posattr x="-906.000000" y="808.000000" />
+          <posattr x="-823.500000" y="808.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("rS", AND(AP("1", (hasSUBACK(cs,inmsgs))),
- AP("2", ((#1 cs) = c))))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(hasSUBACK ( cs, inmsgs ), AP("4", (1 cs) = c))]</text>
         </cond>
         <time id="ID1547323332">
           <posattr x="-653.500000" y="887.000000" />
@@ -10201,7 +10137,7 @@ SUBACK</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,listpids)</text>
+          <text tool="CPN Tools" version="4.0.1">(c, listpids)</text>
         </annot>
       </arc>
       <arc id="ID1547958705" orientation="TtoP" order="1">
@@ -10223,7 +10159,7 @@ SUBACK</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,listpids^^[#pid (#2 cs)])</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </annot>
       </arc>
       <arc id="ID1548145978" orientation="TtoP" order="1">
@@ -10245,8 +10181,7 @@ SUBACK</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,rmPid (listpids,
-    getMsg (cs,inmsgs)))</text>
+          <text tool="CPN Tools" version="4.0.1">(c, rmPid ( listpids, getMsg ( cs, inmsgs ) ))</text>
         </annot>
       </arc>
       <arc id="ID1548157308" orientation="PtoT" order="1">
@@ -10268,7 +10203,7 @@ SUBACK</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,listpids)</text>
+          <text tool="CPN Tools" version="4.0.1">(c, listpids)</text>
         </annot>
       </arc>
       <arc id="ID1591383894" orientation="BOTHDIR" order="1">
@@ -10306,7 +10241,7 @@ SUBACK</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">recvMsg (cs,inmsgs)</text>
+          <text tool="CPN Tools" version="4.0.1">recvMsg ( cs, inmsgs )</text>
         </annot>
       </arc>
       <arc id="ID1592492500" orientation="PtoT" order="1">
@@ -10317,12 +10252,12 @@ SUBACK</text>
         <arrowattr headsize="1.200000" currentcyckle="2" />
         <transend idref="ID1592492078" />
         <placeend idref="ID1592491972" />
-        <annot id="ID1593463383">
+        <annot id="ID1593297893">
           <posattr x="-24.000000" y="1078.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">1`()</text>
+          <text tool="CPN Tools" version="4.0.1">1 ` ()</text>
         </annot>
       </arc>
       <arc id="ID1592492655" orientation="TtoP" order="1">
@@ -10360,7 +10295,7 @@ SUBACK</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">clientSubTopic(cs,getMsg(cs,inmsgs),listpids)</text>
+          <text tool="CPN Tools" version="4.0.1">clientSubTopic ( cs, getMsg ( cs, inmsgs ), listpids )</text>
         </annot>
       </arc>
       <arc id="ID1592548773" orientation="PtoT" order="1">
@@ -10414,7 +10349,7 @@ SUBACK</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">increasePID(cs)</text>
+          <text tool="CPN Tools" version="4.0.1">increasePID (cs)</text>
         </annot>
       </arc>
       <arc id="ID1534062502" orientation="TtoP" order="1">
@@ -10430,7 +10365,7 @@ SUBACK</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(msgs^^[(c, SUBSCRIBE(t,qos,(#pid (#2 cs))))])</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </annot>
       </arc>
       <constraints />
@@ -10579,7 +10514,7 @@ SUBACK</text>
       </place>
       <trans id="ID1534068697" explicit="false">
         <posattr x="-19.000000" y="727.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Send
@@ -10587,13 +10522,11 @@ UNSUBSCRIBE</text>
         <box w="110.000000" h="58.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1534068698">
-          <posattr x="278.000000" y="758.000000" />
+          <posattr x="178.000000" y="758.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("sUNS", AND(AND(AND(AND(AP("1",(checkClientCONAndSUB(cs))),
- AP("2",(nLR msgs))),  AP("3",(c = #1 cs))),
-AP("4",(unsubLR (#pid (#2 cs))))), AP("5",(!iUnsubscribe))))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(AND(AND(AND(checkClientCONAndSUB (cs), nLR msgs), AP("1", c = 1 cs)), unsubLR (pid (2 cs))), (iUnsubscribe))]</text>
         </cond>
         <time id="ID1534068699">
           <posattr x="50.500000" y="767.000000" />
@@ -10619,7 +10552,7 @@ AP("4",(unsubLR (#pid (#2 cs))))), AP("5",(!iUnsubscribe))))]</text>
       </trans>
       <trans id="ID1547417241" explicit="false">
         <posattr x="-479.000000" y="727.000000" />
-        <fillattr colour="Green" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Receive
@@ -10627,13 +10560,11 @@ UNSUBACK</text>
         <box w="110.000000" h="58.000000" />
         <binding x="116.200000" y="-188.000000" />
         <cond id="ID1547417242">
-          <posattr x="-611.000000" y="758.000000" />
+          <posattr x="-653.500000" y="752.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("rUNS",AND(AP("1", (hasUNSUBACK(cs,inmsgs))),
-
-AP("1", ((#1 cs) = c ))))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(hasUNSUBACK ( cs, inmsgs ), AP("4", (1 cs) = c))]</text>
         </cond>
         <time id="ID1547417243">
           <posattr x="-409.500000" y="767.000000" />
@@ -10698,7 +10629,7 @@ AP("1", ((#1 cs) = c ))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(msgs^^[(#1 cs, UNSUBSCRIBE(t,(#pid (#2 cs))))])</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </annot>
       </arc>
       <arc id="ID1534069535" orientation="PtoT" order="1">
@@ -10758,7 +10689,7 @@ AP("1", ((#1 cs) = c ))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">clientUnsubscribe(cs,getMsg(cs,inmsgs),listpids )</text>
+          <text tool="CPN Tools" version="4.0.1">clientUnsubscribe ( cs, getMsg ( cs, inmsgs ), listpids )</text>
         </annot>
       </arc>
       <arc id="ID1547451945" orientation="PtoT" order="1">
@@ -10796,7 +10727,7 @@ AP("1", ((#1 cs) = c ))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,listpids)</text>
+          <text tool="CPN Tools" version="4.0.1">(c, listpids)</text>
         </annot>
       </arc>
       <arc id="ID1548565299" orientation="TtoP" order="1">
@@ -10812,7 +10743,7 @@ AP("1", ((#1 cs) = c ))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(#1 cs, listpids^^[#pid (#2 cs)])</text>
+          <text tool="CPN Tools" version="4.0.1" />
         </annot>
       </arc>
       <arc id="ID1548579234" orientation="TtoP" order="2">
@@ -10828,7 +10759,7 @@ AP("1", ((#1 cs) = c ))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">increasePID(cs)</text>
+          <text tool="CPN Tools" version="4.0.1">increasePID (cs)</text>
         </annot>
       </arc>
       <arc id="ID1548584841" orientation="PtoT" order="2">
@@ -10844,7 +10775,7 @@ AP("1", ((#1 cs) = c ))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c,listpids)</text>
+          <text tool="CPN Tools" version="4.0.1">(c, listpids)</text>
         </annot>
       </arc>
       <arc id="ID1548587660" orientation="TtoP" order="1">
@@ -10866,7 +10797,7 @@ AP("1", ((#1 cs) = c ))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">(c, rmPid(listpids,getMsg(cs,inmsgs)))</text>
+          <text tool="CPN Tools" version="4.0.1">(c, rmPid ( listpids, getMsg ( cs, inmsgs ) ))</text>
         </annot>
       </arc>
       <arc id="ID1591437300" orientation="TtoP" order="1">
@@ -10882,7 +10813,7 @@ AP("1", ((#1 cs) = c ))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">recvMsg (cs,inmsgs)</text>
+          <text tool="CPN Tools" version="4.0.1">recvMsg ( cs, inmsgs )</text>
         </annot>
       </arc>
       <constraints />
@@ -10974,19 +10905,18 @@ AP("1", ((#1 cs) = c ))))]</text>
       </place>
       <trans id="ID1534071889" explicit="false">
         <posattr x="-294.000000" y="573.000000" />
-        <fillattr colour="Green" pattern="" filled="true" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>DISCONNECT</text>
         <box w="110.000000" h="40.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1534071890">
-          <posattr x="-507.500000" y="573.000000" />
+          <posattr x="-427.000000" y="573.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("D", AND(AP("1", (isClientState (cs,CON))),
- AP("2",(nLR outmsgs))))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(isClientState ( cs, CON ), nLR outmsgs)]</text>
         </cond>
         <time id="ID1534071891">
           <posattr x="-224.500000" y="604.000000" />
@@ -11029,7 +10959,7 @@ AP("1", ((#1 cs) = c ))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">setClientState (cs,DISC)</text>
+          <text tool="CPN Tools" version="4.0.1">setClientState ( cs, DISC )</text>
         </annot>
       </arc>
       <arc id="ID1534071905" orientation="TtoP" order="1">
@@ -11051,7 +10981,7 @@ AP("1", ((#1 cs) = c ))))]</text>
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">sendMsg outmsgs (cs,DISCONNECT)</text>
+          <text tool="CPN Tools" version="4.0.1">sendMsg outmsgs ( cs, DISCONNECT )</text>
         </annot>
       </arc>
       <arc id="ID1534071907" orientation="PtoT" order="1">
@@ -11103,134 +11033,133 @@ AP("1", ((#1 cs) = c ))))]</text>
     <page id="ID1534056922">
       <pageattr name="CONNECT" />
       <place id="ID1534056930">
-        <posattr x="-399.000000" y="1050.000000" />
+        <posattr x="-359.000000" y="1050.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
         <text>CtoB</text>
-        <ellipse w="76.000000" h="40.000000" />
-        <token x="-13.000000" y="22.000000" />
-        <marking x="-13.000000" y="-35.000000" hidden="false">
+        <ellipse w="76.000000" h="36.000000" />
+        <token x="-10.000000" y="21.000000" />
+        <marking x="-22.000000" y="-35.000000" hidden="false">
           <snap snap_id="0" anchor.horizontal="3" anchor.vertical="1" />
         </marking>
         <type id="ID1534056931">
-          <posattr x="-395.000000" y="1009.000000" />
+          <posattr x="-357.000000" y="1010.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1">BrokerxMessages</text>
         </type>
         <initmark id="ID1534056932">
-          <posattr x="-337.000000" y="1073.000000" />
+          <posattr x="-297.000000" y="1072.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </initmark>
         <port id="ID1534056933" type="Out">
-          <posattr x="-357.000000" y="1050.000000" />
+          <posattr x="-317.000000" y="1050.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </port>
       </place>
       <place id="ID1534056936">
-        <posattr x="-691.000000" y="966.000000" />
+        <posattr x="-657.000000" y="956.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
         <text>Clients</text>
-        <ellipse w="72.000000" h="38.000000" />
+        <ellipse w="76.000000" h="38.000000" />
         <token x="-32.000000" y="50.000000" />
         <marking x="-1.000000" y="0.000000" hidden="false">
           <snap snap_id="2" anchor.horizontal="1" anchor.vertical="3" />
         </marking>
         <type id="ID1534056937">
-          <posattr x="-612.500000" y="959.000000" />
+          <posattr x="-576.500000" y="949.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1">ClientxState</text>
         </type>
         <initmark id="ID1536550897">
-          <posattr x="-630.000000" y="989.000000" />
+          <posattr x="-595.000000" y="979.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </initmark>
         <port id="ID1534056939" type="I/O">
-          <posattr x="-628.000000" y="977.000000" />
+          <posattr x="-600.000000" y="974.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </port>
       </place>
       <place id="ID1547293861">
-        <posattr x="-394.000000" y="866.000000" />
+        <posattr x="-346.000000" y="863.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
         <text>BtoC</text>
-        <ellipse w="76.000000" h="38.000000" />
-        <token x="-5.000000" y="-11.000000" />
-        <marking x="-89.000000" y="39.000000" hidden="false">
-          <snap snap_id="0" anchor.horizontal="3" anchor.vertical="2" />
+        <ellipse w="76.000000" h="36.000000" />
+        <token x="-10.000000" y="0.000000" />
+        <marking x="-7.000000" y="29.000000" hidden="false">
+          <snap snap_id="0" anchor.horizontal="2" anchor.vertical="2" />
         </marking>
         <type id="ID1547293862">
-          <posattr x="-383.000000" y="839.000000" />
+          <posattr x="-346.000000" y="834.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1">ClientxMessages</text>
         </type>
         <initmark id="ID1547293863">
-          <posattr x="-332.000000" y="889.000000" />
+          <posattr x="-284.000000" y="885.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </initmark>
         <port id="ID1547294769" type="In">
-          <posattr x="-351.000000" y="878.000000" />
+          <posattr x="-316.000000" y="878.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </port>
       </place>
       <trans id="ID1534056924" explicit="false">
-        <posattr x="-691.000000" y="1050.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <posattr x="-657.000000" y="1050.000000" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Send
 CONNECT</text>
-        <box w="72.000000" h="38.000000" />
+        <box w="74.000000" h="44.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1534056925">
-          <posattr x="-549.000000" y="1090.000000" />
+          <posattr x="-512.000000" y="1092.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Red" thick="0" type="Solid" />
           <textattr colour="Red" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("Sc", AND(OR(AP("1",isClientState (cs,READY)), 
-(AP("2", isClientState(cs, DISC)))), AP("3",nLR outmsgs)))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND((OR(isClientState ( cs, READY ), (isClientState ( cs, DISC )))), nLR outmsgs)]</text>
         </cond>
         <time id="ID1534056926">
-          <posattr x="-640.500000" y="1080.000000" />
+          <posattr x="-605.500000" y="1083.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </time>
         <code id="ID1534056927">
-          <posattr x="-620.500000" y="999.000000" />
+          <posattr x="-585.500000" y="996.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </code>
         <priority id="ID1534056929">
-          <posattr x="-765.000000" y="1020.000000" />
+          <posattr x="-732.000000" y="1017.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -11238,38 +11167,37 @@ CONNECT</text>
         </priority>
       </trans>
       <trans id="ID1547296598" explicit="false">
-        <posattr x="-691.000000" y="866.000000" />
-        <fillattr colour="Red" pattern="" filled="true" />
+        <posattr x="-657.000000" y="864.000000" />
+        <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="solid" />
         <textattr colour="Black" bold="false" />
         <text>Receive
 CONNACK</text>
-        <box w="76.000000" h="42.000000" />
+        <box w="72.000000" h="46.000000" />
         <binding x="7.200000" y="-3.000000" />
         <cond id="ID1547296599">
-          <posattr x="-579.000000" y="820.000000" />
+          <posattr x="-598.000000" y="823.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">[EXPR("Rc",AND(AP("1",isClientState (cs,WAIT)), 
-AP("2",hasCONNACK  (cs,inmsgs))))]</text>
+          <text tool="CPN Tools" version="4.0.1">[AND(isClientState ( cs, WAIT ), hasCONNACK ( cs, inmsgs ))]</text>
         </cond>
         <time id="ID1547296600">
-          <posattr x="-638.500000" y="898.000000" />
+          <posattr x="-606.500000" y="898.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </time>
         <code id="ID1547296601">
-          <posattr x="-618.500000" y="813.000000" />
+          <posattr x="-586.500000" y="809.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1" />
         </code>
         <priority id="ID1547296603">
-          <posattr x="-767.000000" y="834.000000" />
+          <posattr x="-731.000000" y="830.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -11284,18 +11212,18 @@ AP("2",hasCONNACK  (cs,inmsgs))))]</text>
         <arrowattr headsize="1.200000" currentcyckle="2" />
         <transend idref="ID1534056924" />
         <placeend idref="ID1534056930" />
-        <bendpoint id="ID1593370089" serial="1">
-          <posattr x="-439.000000" y="1039.000000" />
+        <bendpoint id="ID1593297591" serial="1">
+          <posattr x="-462.000000" y="1040.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
         </bendpoint>
         <annot id="ID1534056935">
-          <posattr x="-545.000000" y="1028.000000" />
+          <posattr x="-498.000000" y="1029.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">sendMsg outmsgs (cs,CONNECT)</text>
+          <text tool="CPN Tools" version="4.0.1">sendMsg outmsgs ( cs, CONNECT )</text>
         </annot>
       </arc>
       <arc id="ID1534056940" orientation="TtoP" order="2">
@@ -11307,11 +11235,11 @@ AP("2",hasCONNACK  (cs,inmsgs))))]</text>
         <transend idref="ID1534056924" />
         <placeend idref="ID1534056936" />
         <annot id="ID1534056941">
-          <posattr x="-603.000000" y="1004.000000" />
+          <posattr x="-569.000000" y="995.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">setClientState (cs,WAIT)</text>
+          <text tool="CPN Tools" version="4.0.1">setClientState ( cs, WAIT )</text>
         </annot>
       </arc>
       <arc id="ID1534056942" orientation="PtoT" order="1">
@@ -11323,7 +11251,7 @@ AP("2",hasCONNACK  (cs,inmsgs))))]</text>
         <transend idref="ID1534056924" />
         <placeend idref="ID1534056936" />
         <annot id="ID1534056943">
-          <posattr x="-708.500000" y="1003.000000" />
+          <posattr x="-674.500000" y="999.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -11338,14 +11266,8 @@ AP("2",hasCONNACK  (cs,inmsgs))))]</text>
         <arrowattr headsize="1.200000" currentcyckle="2" />
         <transend idref="ID1534056924" />
         <placeend idref="ID1534056930" />
-        <bendpoint id="ID1593371394" serial="1">
-          <posattr x="-443.000000" y="1050.000000" />
-          <fillattr colour="White" pattern="Solid" filled="false" />
-          <lineattr colour="Black" thick="0" type="Solid" />
-          <textattr colour="Black" bold="false" />
-        </bendpoint>
         <annot id="ID1534059849">
-          <posattr x="-550.000000" y="1061.000000" />
+          <posattr x="-553.000000" y="1061.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -11360,8 +11282,14 @@ AP("2",hasCONNACK  (cs,inmsgs))))]</text>
         <arrowattr headsize="1.200000" currentcyckle="2" />
         <transend idref="ID1547296598" />
         <placeend idref="ID1547293861" />
+        <bendpoint id="ID1593292193" serial="1">
+          <posattr x="-504.000000" y="852.000000" />
+          <fillattr colour="White" pattern="Solid" filled="false" />
+          <lineattr colour="Black" thick="0" type="Solid" />
+          <textattr colour="Black" bold="false" />
+        </bendpoint>
         <annot id="ID1547299515">
-          <posattr x="-549.000000" y="848.000000" />
+          <posattr x="-482.000000" y="841.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
@@ -11376,21 +11304,15 @@ AP("2",hasCONNACK  (cs,inmsgs))))]</text>
         <arrowattr headsize="1.200000" currentcyckle="2" />
         <transend idref="ID1547296598" />
         <placeend idref="ID1534056936" />
-        <bendpoint id="ID1593319453" serial="1">
-          <posattr x="-691.000000" y="924.000000" />
-          <fillattr colour="White" pattern="Solid" filled="false" />
-          <lineattr colour="Black" thick="0" type="Solid" />
-          <textattr colour="Black" bold="false" />
-        </bendpoint>
         <annot id="ID1547304136">
-          <posattr x="-612.500000" y="914.000000" />
+          <posattr x="-571.500000" y="913.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">setClientState (cs,CON)</text>
+          <text tool="CPN Tools" version="4.0.1">setClientState ( cs, CON )</text>
         </annot>
       </arc>
-      <arc id="ID1547305007" orientation="PtoT" order="1">
+      <arc id="ID1547305007" orientation="PtoT" order="2">
         <posattr x="0.000000" y="0.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
@@ -11398,21 +11320,15 @@ AP("2",hasCONNACK  (cs,inmsgs))))]</text>
         <arrowattr headsize="1.200000" currentcyckle="2" />
         <transend idref="ID1547296598" />
         <placeend idref="ID1534056936" />
-        <bendpoint id="ID1593462775" serial="1">
-          <posattr x="-700.000000" y="924.000000" />
-          <fillattr colour="White" pattern="Solid" filled="false" />
-          <lineattr colour="Black" thick="0" type="Solid" />
-          <textattr colour="Black" bold="false" />
-        </bendpoint>
         <annot id="ID1547305008">
-          <posattr x="-710.500000" y="929.000000" />
+          <posattr x="-674.500000" y="917.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
           <text tool="CPN Tools" version="4.0.1">cs</text>
         </annot>
       </arc>
-      <arc id="ID1591325135" orientation="TtoP" order="2">
+      <arc id="ID1591325135" orientation="TtoP" order="1">
         <posattr x="0.000000" y="0.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
@@ -11421,17 +11337,19 @@ AP("2",hasCONNACK  (cs,inmsgs))))]</text>
         <transend idref="ID1547296598" />
         <placeend idref="ID1547293861" />
         <annot id="ID1591342386">
-          <posattr x="-554.000000" y="884.000000" />
+          <posattr x="-524.000000" y="875.000000" />
           <fillattr colour="White" pattern="Solid" filled="false" />
           <lineattr colour="Black" thick="0" type="Solid" />
           <textattr colour="Black" bold="false" />
-          <text tool="CPN Tools" version="4.0.1">recvMsg(cs,inmsgs)</text>
+          <text tool="CPN Tools" version="4.0.1">recvMsg ( cs, inmsgs )</text>
         </annot>
       </arc>
       <constraints />
       <hguideline id="ID1547314809" y="-831.000000" />
       <hguideline id="ID1547316414" y="-661.000000" />
-      <hguideline id="ID1591360636" y="-961.000000" />
+      <hguideline id="ID1591360636" y="-956.000000">
+        <guideline_elm idref="ID1534056936" />
+      </hguideline>
       <vguideline id="ID1591345661" x="-989.000000" />
       <vguideline id="ID1591345869" x="-503.000000" />
     </page>
@@ -15236,50 +15154,50 @@ end;</text>
         <text>use  (modelpath^"sweeplinemc/build.sml");</text>
       </Aux>
     </page>
-    <page id="ID1593192869">
+    <page id="ID1593301045">
       <pageattr name="MCDC" />
       <constraints />
-      <Aux id="ID1593197192">
-        <posattr x="-378.000000" y="210.000000" />
+      <Aux id="ID1593302370">
+        <posattr x="-449.000000" y="294.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
         <label />
         <text>use (cpnmcdclibpath^"config/simrun.sml");</text>
       </Aux>
-      <Aux id="ID1593197415">
-        <posattr x="-378.000000" y="112.000000" />
+      <Aux id="ID1593302605">
+        <posattr x="-445.000000" y="210.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
         <label />
         <text>(* Invocation with default settings (no timeout) *)
-mcdcgen ("CPNmodels/MQTT/mqtt.log");</text>
+mcdcgen ("CPNmodels/MQTT/OriginalModel/mqttorig.log");</text>
       </Aux>
-      <Aux id="ID1593197650">
-        <posattr x="-378.000000" y="-84.000000" />
+      <Aux id="ID1593302979">
+        <posattr x="-443.000000" y="126.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
         <label />
-        <text>use (cpnmcdclibpath^"boot.sml");</text>
+        <text>(* Invocation without timeout; base model + 2 configurations *)
+mcdcgenConfig (0, applyConfig,[co1,co2],"CPNmodels/MQTT/OriginalModel/mqttorig.log");</text>
       </Aux>
-      <Aux id="ID1593232168">
-        <posattr x="-378.000000" y="-60.000000" />
+      <Aux id="ID1593303380">
+        <posattr x="-435.000000" y="42.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
         <label />
         <text>use (cpnmcdclibpath^"config/instrumentation.sml");</text>
       </Aux>
-      <Aux id="ID1593321969">
-        <posattr x="-381.000000" y="22.000000" />
+      <Aux id="ID1593303808">
+        <posattr x="-442.000000" y="-42.000000" />
         <fillattr colour="White" pattern="" filled="false" />
         <lineattr colour="Black" thick="1" type="Solid" />
         <textattr colour="Black" bold="false" />
         <label />
-        <text>(* Invocation without timeout; base model + 2 configurations *)
-mcdcgenConfig (0, applyConfig,[co1,co2],"CPNmodels/MQTT/mqtt.log");</text>
+        <text>use (cpnmcdclibpath^"boot.sml");</text>
       </Aux>
     </page>
     <instances>
@@ -15321,7 +15239,7 @@ mcdcgenConfig (0, applyConfig,[co1,co2],"CPNmodels/MQTT/mqtt.log");</text>
       <instance id="ID1592879083" page="ID1592879081" />
       <instance id="ID1592901669" page="ID1592901667" />
       <instance id="ID1592938987" page="ID1592938985" />
-      <instance id="ID1593192871" page="ID1593192869" />
+      <instance id="ID1593301047" page="ID1593301045" />
     </instances>
     <options>
       <option name="realtimestamp">
@@ -15349,12 +15267,7 @@ mcdcgenConfig (0, applyConfig,[co1,co2],"CPNmodels/MQTT/mqtt.log");</text>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10003.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10006.enable">
+      <option name="extensions.10005.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -15364,7 +15277,12 @@ mcdcgenConfig (0, applyConfig,[co1,co2],"CPNmodels/MQTT/mqtt.log");</text>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10005.enable">
+      <option name="extensions.10001.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10007.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -15379,22 +15297,22 @@ mcdcgenConfig (0, applyConfig,[co1,co2],"CPNmodels/MQTT/mqtt.log");</text>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10007.enable">
+      <option name="extensions.10003.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10001.enable">
+      <option name="extensions.10006.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10011.options.disable">
+      <option name="extensions.10007.options.discover">
         <value>
           <boolean>false</boolean>
         </value>
       </option>
-      <option name="extensions.10007.options.discover">
+      <option name="extensions.10011.options.disable">
         <value>
           <boolean>false</boolean>
         </value>
@@ -15596,9 +15514,14 @@ mcdcgenConfig (0, applyConfig,[co1,co2],"CPNmodels/MQTT/mqtt.log");</text>
       </option>
     </options>
     <binders>
-      <cpnbinder id="ID1592831344" x="259" y="105" width="1272" height="635">
+      <cpnbinder id="ID1592831344" x="620" y="81" width="1436" height="838">
         <sheets>
-          <cpnsheet id="ID1593169748" panx="50.000000" pany="234.000000" zoom="1.000000" instance="ID2149">
+          <cpnsheet id="ID1593169748" panx="50.000000" pany="236.000000" zoom="1.000000" instance="ID2149">
+            <zorder>
+              <position value="0" />
+            </zorder>
+          </cpnsheet>
+          <cpnsheet id="ID1593172137" panx="35.000000" pany="905.000000" zoom="1.000000" instance="ID1437846738">
             <zorder>
               <position value="0" />
             </zorder>
@@ -15606,72 +15529,22 @@ mcdcgenConfig (0, applyConfig,[co1,co2],"CPNmodels/MQTT/mqtt.log");</text>
           <textsheet id="ID1593173181" panx="7.000000" pany="20.000000" zoom="1.000000" decl="ID1592653822">
             <zorder />
           </textsheet>
-          <cpnsheet id="ID1593197074" panx="-65.000000" pany="72.000000" zoom="1.000000" instance="ID1593192871">
+          <cpnsheet id="ID1593179544" panx="812.000000" pany="695.000000" zoom="1.000000" instance="ID1549356727">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1593216223" panx="35.000000" pany="905.000000" zoom="1.000000" instance="ID1437846738">
+          <cpnsheet id="ID1593179710" panx="882.000000" pany="711.000000" zoom="1.000000" instance="ID1592123815">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1593216260" panx="373.000000" pany="677.000000" zoom="1.000000" instance="ID1438489792">
+          <cpnsheet id="ID1593183729" panx="240.000000" pany="612.000000" zoom="1.000000" instance="ID1534071923">
             <zorder>
               <position value="0" />
             </zorder>
           </cpnsheet>
-          <cpnsheet id="ID1593216306" panx="547.000000" pany="888.000000" zoom="1.000000" instance="ID1534056958">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593216525" panx="34.000000" pany="242.000000" zoom="1.000000" instance="ID1549643108">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593220132" panx="812.000000" pany="695.000000" zoom="1.000000" instance="ID1549356727">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593222232" panx="483.000000" pany="214.000000" zoom="1.000000" instance="ID1549817944">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593222801" panx="356.000000" pany="586.000000" zoom="1.000000" instance="ID1534071923">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593223054" panx="-131.000000" pany="384.000000" zoom="1.000000" instance="ID1437846865">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593233708" panx="363.000000" pany="838.000000" zoom="1.000000" instance="ID1534060299">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593233829" panx="362.000000" pany="865.000000" zoom="1.000000" instance="ID1549268571">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593326199" panx="-35.000000" pany="312.000000" zoom="1.000000" instance="ID1534148860">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593326406" panx="266.000000" pany="188.000000" zoom="1.000000" instance="ID1535955336">
-            <zorder>
-              <position value="0" />
-            </zorder>
-          </cpnsheet>
-          <cpnsheet id="ID1593327711" panx="-601.000000" pany="413.000000" zoom="1.000000" instance="ID1534095647">
+          <cpnsheet id="ID1593301201" panx="10.000000" pany="4.000000" zoom="1.000000" instance="ID1593301047">
             <zorder>
               <position value="0" />
             </zorder>
@@ -15679,21 +15552,12 @@ mcdcgenConfig (0, applyConfig,[co1,co2],"CPNmodels/MQTT/mqtt.log");</text>
         </sheets>
         <zorder>
           <position value="3" />
-          <position value="12" />
-          <position value="8" />
-          <position value="11" />
-          <position value="7" />
-          <position value="9" />
-          <position value="10" />
-          <position value="14" />
-          <position value="6" />
-          <position value="13" />
-          <position value="15" />
-          <position value="1" />
-          <position value="5" />
           <position value="4" />
-          <position value="0" />
           <position value="2" />
+          <position value="5" />
+          <position value="0" />
+          <position value="1" />
+          <position value="6" />
         </zorder>
       </cpnbinder>
     </binders>
@@ -15708,7 +15572,7 @@ mcdcgenConfig (0, applyConfig,[co1,co2],"CPNmodels/MQTT/mqtt.log");</text>
         <IndexNode expanded="false" />
         <IndexNode expanded="true">
           <IndexNode expanded="true">
-            <IndexNode expanded="false">
+            <IndexNode expanded="true">
               <IndexNode expanded="false" />
               <IndexNode expanded="true" />
               <IndexNode expanded="false" />
@@ -15725,7 +15589,7 @@ mcdcgenConfig (0, applyConfig,[co1,co2],"CPNmodels/MQTT/mqtt.log");</text>
               <IndexNode expanded="true" />
               <IndexNode expanded="true" />
             </IndexNode>
-            <IndexNode expanded="false">
+            <IndexNode expanded="true">
               <IndexNode expanded="false" />
               <IndexNode expanded="true" />
               <IndexNode expanded="false" />
@@ -15740,7 +15604,7 @@ mcdcgenConfig (0, applyConfig,[co1,co2],"CPNmodels/MQTT/mqtt.log");</text>
               <IndexNode expanded="true" />
             </IndexNode>
           </IndexNode>
-          <IndexNode expanded="false">
+          <IndexNode expanded="true">
             <IndexNode expanded="false" />
             <IndexNode expanded="false" />
             <IndexNode expanded="true" />
@@ -15773,19 +15637,25 @@ mcdcgenConfig (0, applyConfig,[co1,co2],"CPNmodels/MQTT/mqtt.log");</text>
           <IndexNode expanded="false" />
         </IndexNode>
       </IndexNode>
-      <IndexNode expanded="false" />
+      <IndexNode expanded="false">
+        <IndexNode expanded="false" />
+      </IndexNode>
       <IndexNode expanded="true">
         <IndexNode expanded="true">
           <IndexNode expanded="true" />
           <IndexNode expanded="true" />
           <IndexNode expanded="true" />
         </IndexNode>
+        <IndexNode expanded="true" />
+        <IndexNode expanded="true" />
+        <IndexNode expanded="true" />
+        <IndexNode expanded="true" />
         <IndexNode expanded="false">
           <IndexNode expanded="true" />
           <IndexNode expanded="true" />
           <IndexNode expanded="true" />
         </IndexNode>
-        <IndexNode expanded="true">
+        <IndexNode expanded="false">
           <IndexNode expanded="true" />
           <IndexNode expanded="true" />
           <IndexNode expanded="true" />
@@ -15908,14 +15778,14 @@ mcdcgenConfig (0, applyConfig,[co1,co2],"CPNmodels/MQTT/mqtt.log");</text>
             </IndexNode>
           </IndexNode>
         </IndexNode>
-        <IndexNode expanded="true">
+        <IndexNode expanded="false">
           <IndexNode expanded="true" />
           <IndexNode expanded="false" />
         </IndexNode>
       </IndexNode>
       <IndexNode expanded="true" />
       <IndexNode expanded="false">
-        <IndexNode expanded="false">
+        <IndexNode expanded="true">
           <IndexNode expanded="true">
             <IndexNode expanded="true" />
             <IndexNode expanded="true" />
@@ -15928,7 +15798,7 @@ mcdcgenConfig (0, applyConfig,[co1,co2],"CPNmodels/MQTT/mqtt.log");</text>
             <IndexNode expanded="true" />
           </IndexNode>
         </IndexNode>
-        <IndexNode expanded="false">
+        <IndexNode expanded="true">
           <IndexNode expanded="true">
             <IndexNode expanded="true">
               <IndexNode expanded="true" />

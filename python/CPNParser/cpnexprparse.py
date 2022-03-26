@@ -117,8 +117,8 @@ def p_statement_expression_if(t):
 
     # list not hashable (required for "ex" dictionary)
     # identifier = ex_identifier(t[2])
-    id_list = id(t[2])
-    identifier = ex_identifier(str(id_list))
+    id_list = str(t[2])
+    identifier = ex_identifier(id_list)
     if len(t) == 7:
         t[0] = (ASTNode.ITE, identifier, t[2], t[4], t[6])
     else:
@@ -187,8 +187,8 @@ def mogrify_guard(t):
 
 def p_condition_single(t):
     '''guard : expression'''
-    id_list = id(t[1])
-    identifier = ex_identifier(str(id_list))
+    id_list = str(t[1])
+    identifier = ex_identifier(id_list)
     t[0] = (ASTNode.GUARD, identifier, mogrify_guard(t[1]))
 
 def p_condition_group(t):
@@ -197,8 +197,8 @@ def p_condition_group(t):
         # t[0] = "EXPR(\"{0}\", {1})".format(identifier, t[2])
         # list not hashable (required for "ex" dictionary)
         # identifier = ex_identifier(t[2])
-        id_list = id(t[2])
-        identifier = ex_identifier(str(id_list))
+        id_list = str(t[2])
+        identifier = ex_identifier(id_list)
         t[0] = (ASTNode.GUARDS, identifier, map(mogrify_guard,t[2]))
     elif len(t) == 2:
         # guard : LBRACK RBRACK

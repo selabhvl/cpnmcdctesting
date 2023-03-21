@@ -1,4 +1,6 @@
 # Coverage Analysis of Net Inscriptions in Coloured Petri Net Models
+[![DOI](https://zenodo.org/badge/234911727.svg)](https://zenodo.org/badge/latestdoi/234911727)
+
 
 This repository contains our library for measuring MC/DC and branch coverage
 on Coloured Petri net models (CPN) from within [CPNTools](http://cpntools.org).
@@ -66,8 +68,3 @@ will process the `execution_trace.log` file and report the percentage of transit
      "gnu_plot.data" using 1:3 title 'BC' with lines
 ```
 More details about the installation and usage of the Python script are found in the python/README.md file.
-
-## TODO
-
-- we should have timestamps in the logfile (@VolkerStolz)
-- how to use together with simulation (@lmkr)
